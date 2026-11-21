@@ -1,0 +1,983 @@
+{
+  "provenance": {
+    "git_sha": "ca8787c0f93447bbccd693b2eaaf0adfed630823",
+    "git_dirty": true,
+    "branch": "misty-hardware-dance",
+    "seed": 16,
+    "audio_hash": "605d0380d6d9928a70ea6591b67838268299b9e4f3a3d1a48fc818ad368564b5",
+    "profile": {
+      "name": "misty-192.168.1.39-HEAD-ONLY",
+      "model": "misty_ii_head",
+      "joint_names": [
+        "head_pitch",
+        "head_roll",
+        "head_yaw"
+      ],
+      "neutral": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "lower": [
+        -0.2617993877991494,
+        -0.4363323129985824,
+        -0.7853981633974483
+      ],
+      "upper": [
+        0.2617993877991494,
+        0.4363323129985824,
+        0.7853981633974483
+      ],
+      "vmax": [
+        3.0,
+        3.0,
+        3.0
+      ],
+      "amax": [
+        25.0,
+        25.0,
+        25.0
+      ],
+      "units": "rad",
+      "command_mode": "misty_pose",
+      "command_period": 0.2,
+      "feedback_freshness": 1.0,
+      "latency_seconds": 0.2,
+      "dispatch_lead_seconds": 0.08,
+      "latency_mode": "dispatch",
+      "workspace": {
+        "kind": "joint_box",
+        "collision_checked": false,
+        "verified": true,
+        "scope": "Head only (pitch/roll/yaw); arms receive no commands. Wheels excluded."
+      },
+      "local_verified": true,
+      "endpoint": {
+        "host": "192.168.1.39",
+        "http_port": 80,
+        "ws_port": 80,
+        "arm_velocity_percent": 15,
+        "feedback_period_ms": 200,
+        "max_tracking_error_rad": 0.6,
+        "standstill_velocity_tolerance_rad_s": 5.0,
+        "terminal_hold_seconds": 0.2,
+        "stop_mode": "park",
+        "park_on_connect": true,
+        "park_seconds": 1.5,
+        "max_consecutive_skips": 3,
+        "pose_mode": "waypoints",
+        "tracking_lag_seconds": 0.2,
+        "max_command_lateness_seconds": 0.35
+      },
+      "min_excursion": 0.03,
+      "max_stationary_seconds": 0.6,
+      "speed_threshold": 0.005
+    },
+    "backend": "misty",
+    "config": {
+      "method": "reachy_adapted",
+      "backend": "misty",
+      "seed": 16,
+      "condition": "normal",
+      "seconds_requested": 24.0,
+      "headless_virtual_clock": false,
+      "planner_config": {
+        "terminal_hold_seconds": 0.2
+      },
+      "mock_options": {},
+      "completed": true,
+      "error": null,
+      "deadline_misses": 0,
+      "hardware_verified": false,
+      "initial_skipped_beats": 4,
+      "initial_dance_music_seconds": 2.0508356908918373,
+      "audio_grid_unchanged": true,
+      "planning_during_playback": true,
+      "quality_checks_skipped": true,
+      "waived_quality_chunks": 9,
+      "container": {
+        "run_id": "20261121T204946.148722Z_c0226e29ef",
+        "path": "<repo>/result/4_Benchmark1_misty/reachy_adapted_beat16_20261121_154944/containers/20261121T204946.148722Z_c0226e29ef",
+        "schema_version": 1
+      },
+      "adapter_capabilities": {
+        "backend": "misty",
+        "hardware": true,
+        "status": "implemented, hardware-unverified",
+        "joint_names": [
+          "head_pitch",
+          "head_roll",
+          "head_yaw"
+        ],
+        "units": "rad",
+        "feedback_freshness": 1.0,
+        "command_mode": "misty_pose",
+        "command_period": 0.2,
+        "queue": false,
+        "cancel": true,
+        "future_execution": false,
+        "streaming_c2": false,
+        "reference_exact": false,
+        "head_timing": "HTTP Duration in seconds",
+        "arms_timing": "velocity percent; duration unsupported",
+        "wheels": false,
+        "feedback_timestamp": "host monotonic reception; robot created timestamp retained but not clock-synchronized",
+        "completion": "HTTP acceptance is NOT motion completion",
+        "stop_path": "/api/halt"
+      },
+      "clock": {
+        "kind": "PortAudio DAC",
+        "monotonic_minus_stream": -1.2715008779196069e-06,
+        "sampling_uncertainty_seconds": 1.6875001165317371e-06,
+        "dac_epoch_stream": 16319.019433249667,
+        "output_latency_seconds": 0.0364172335600907,
+        "sample_position_not_used_as_clock": true
+      },
+      "generation_stop_reason": "requested_duration_reached",
+      "audio_tail_not_planned_seconds": 2.440814022941268,
+      "stop_result": {
+        "result": true,
+        "status": "Success"
+      },
+      "wall_seconds": 29.72621812500074,
+      "dispatch_receipts": [
+        {
+          "sent_monotonic": 16319.01478975,
+          "scheduled_monotonic": 16320.870268232558,
+          "accepted_monotonic": null,
+          "completed": false,
+          "backend": "misty",
+          "controller_action_end_monotonic": 16322.72110392345,
+          "nominal_segment_end_monotonic": 16322.92110392345,
+          "reference_tracking": "approximate pose compilation; inspect feedback"
+        },
+        {
+          "sent_monotonic": 16322.7311995,
+          "scheduled_monotonic": 16322.921104568948,
+          "accepted_monotonic": null,
+          "completed": false,
+          "backend": "misty",
+          "controller_action_end_monotonic": 16324.77194025984,
+          "nominal_segment_end_monotonic": 16324.97194025984,
+          "reference_tracking": "approximate pose compilation; inspect feedback"
+        },
+        {
+          "sent_monotonic": 16324.776840375,
+          "scheduled_monotonic": 16324.97194023934,
+          "accepted_monotonic": null,
+          "completed": false,
+          "backend": "misty",
+          "controller_action_end_monotonic": 16326.822775930232,
+          "nominal_segment_end_monotonic": 16327.022775930232,
+          "reference_tracking": "approximate pose compilation; inspect feedback"
+        },
+        {
+          "sent_monotonic": 16326.829090416,
+          "scheduled_monotonic": 16327.022775430232,
+          "accepted_monotonic": null,
+          "completed": false,
+          "backend": "misty",
+          "controller_action_end_monotonic": 16328.873611121124,
+          "nominal_segment_end_monotonic": 16329.073611121124,
+          "reference_tracking": "approximate pose compilation; inspect feedback"
+        },
+        {
+          "sent_monotonic": 16328.877896125,
+          "scheduled_monotonic": 16329.073611662623,
+          "accepted_monotonic": null,
+          "completed": false,
+          "backend": "misty",
+          "controller_action_end_monotonic": 16330.924447353515,
+          "nominal_segment_end_monotonic": 16331.124447353515,
+          "reference_tracking": "approximate pose compilation; inspect feedback"
+        },
+        {
+          "sent_monotonic": 16330.926859083,
+          "scheduled_monotonic": 16331.124446915515,
+          "accepted_monotonic": null,
+          "completed": false,
+          "backend": "misty",
+          "controller_action_end_monotonic": 16332.975282606407,
+          "nominal_segment_end_monotonic": 16333.175282606408,
+          "reference_tracking": "approximate pose compilation; inspect feedback"
+        },
+        {
+          "sent_monotonic": 16332.98859475,
+          "scheduled_monotonic": 16333.17528302291,
+          "accepted_monotonic": null,
+          "completed": false,
+          "backend": "misty",
+          "controller_action_end_monotonic": 16335.026118713802,
+          "nominal_segment_end_monotonic": 16335.226118713803,
+          "reference_tracking": "approximate pose compilation; inspect feedback"
+        },
+        {
+          "sent_monotonic": 16335.031404666,
+          "scheduled_monotonic": 16335.2261182768,
+          "accepted_monotonic": null,
+          "completed": false,
+          "backend": "misty",
+          "controller_action_end_monotonic": 16337.076953967691,
+          "nominal_segment_end_monotonic": 16337.276953967692,
+          "reference_tracking": "approximate pose compilation; inspect feedback"
+        },
+        {
+          "sent_monotonic": 16337.09179825,
+          "scheduled_monotonic": 16337.276954363691,
+          "accepted_monotonic": null,
+          "completed": false,
+          "backend": "misty",
+          "controller_action_end_monotonic": 16339.127790054583,
+          "nominal_segment_end_monotonic": 16339.327790054584,
+          "reference_tracking": "approximate pose compilation; inspect feedback"
+        },
+        {
+          "sent_monotonic": 16339.142557375,
+          "scheduled_monotonic": 16339.327790096082,
+          "accepted_monotonic": null,
+          "completed": false,
+          "backend": "misty",
+          "controller_action_end_monotonic": 16341.178625786973,
+          "nominal_segment_end_monotonic": 16341.378625786974,
+          "reference_tracking": "approximate pose compilation; inspect feedback"
+        },
+        {
+          "sent_monotonic": 16341.191286458,
+          "scheduled_monotonic": 16341.378625786476,
+          "accepted_monotonic": null,
+          "completed": false,
+          "backend": "misty",
+          "controller_action_end_monotonic": 16342.14768917056,
+          "nominal_segment_end_monotonic": 16343.429461477368,
+          "reference_tracking": "approximate pose compilation; inspect feedback"
+        },
+        {
+          "sent_monotonic": 16342.154299583,
+          "scheduled_monotonic": 16343.429461477868,
+          "accepted_monotonic": null,
+          "completed": false,
+          "backend": "misty",
+          "controller_action_end_monotonic": 16345.28029716876,
+          "nominal_segment_end_monotonic": 16345.48029716876,
+          "reference_tracking": "approximate pose compilation; inspect feedback"
+        }
+      ]
+    },
+    "analysis_settings": {
+      "method": "multiband spectral flux + autocorrelation + robust beat-grid fit",
+      "fft": 1024,
+      "hop": 128,
+      "analysis_rate": 11025.0,
+      "bands_hz": [
+        [
+          35,
+          180
+        ],
+        [
+          180,
+          2000
+        ],
+        [
+          2000,
+          5000
+        ]
+      ],
+      "weights": [
+        0.55,
+        0.3,
+        0.15
+      ],
+      "bpm_override": null,
+      "beat_offset": null,
+      "origin": "estimated beat origin; four-beat blocks are not detected downbeats",
+      "diagnostics": {
+        "legacy_result": {
+          "method": "multiband spectral flux + autocorrelation + robust beat-grid fit",
+          "bpm": 117.02546482191966,
+          "period_seconds": 0.5127089227229593,
+          "first_beat_seconds": 0.3359264253348646,
+          "duration_seconds": 294.0110657596372,
+          "median_nearest_onset_error_ms": 26.666806371792973,
+          "onset_support_within_50ms": 0.6460176991150443,
+          "beat_count": 573,
+          "tempo_candidates_bpm": [
+            116.98589166063022,
+            77.99059444042013,
+            150.41967430218006,
+            95.703125
+          ]
+        },
+        "tempo_changes_detected": false,
+        "global_tempo_assumption": true
+      },
+      "decoded_wav": "<repo>/0_pre_and_etc/outputs.nosync/analysis/cache/918dfeba11ed298af7e3.wav",
+      "scope": "offline known audio analysis; online motion generation is separate",
+      "ambiguous_octaves": [
+        58.512732410959224,
+        117.02546482191845,
+        234.0509296438369
+      ],
+      "crop": {
+        "original_audio_hash": "918dfeba11ed298af7e3f84a43527d0627b3e085766697bed758c851553ff174",
+        "original_start_seconds": 6.488433498010377,
+        "original_first_beat_index": 12,
+        "dance_start_original_beat": 16,
+        "lead_in_beats": 4
+      }
+    }
+  },
+  "run": {
+    "method": "reachy_adapted",
+    "backend": "misty",
+    "seed": 16,
+    "condition": "normal",
+    "seconds_requested": 24.0,
+    "headless_virtual_clock": false,
+    "planner_config": {
+      "terminal_hold_seconds": 0.2
+    },
+    "mock_options": {},
+    "completed": true,
+    "error": null,
+    "deadline_misses": 0,
+    "hardware_verified": false,
+    "initial_skipped_beats": 4,
+    "initial_dance_music_seconds": 2.0508356908918373,
+    "audio_grid_unchanged": true,
+    "planning_during_playback": true,
+    "quality_checks_skipped": true,
+    "waived_quality_chunks": 9,
+    "container": {
+      "run_id": "20261121T204946.148722Z_c0226e29ef",
+      "path": "<repo>/result/4_Benchmark1_misty/reachy_adapted_beat16_20261121_154944/containers/20261121T204946.148722Z_c0226e29ef",
+      "schema_version": 1
+    },
+    "adapter_capabilities": {
+      "backend": "misty",
+      "hardware": true,
+      "status": "implemented, hardware-unverified",
+      "joint_names": [
+        "head_pitch",
+        "head_roll",
+        "head_yaw"
+      ],
+      "units": "rad",
+      "feedback_freshness": 1.0,
+      "command_mode": "misty_pose",
+      "command_period": 0.2,
+      "queue": false,
+      "cancel": true,
+      "future_execution": false,
+      "streaming_c2": false,
+      "reference_exact": false,
+      "head_timing": "HTTP Duration in seconds",
+      "arms_timing": "velocity percent; duration unsupported",
+      "wheels": false,
+      "feedback_timestamp": "host monotonic reception; robot created timestamp retained but not clock-synchronized",
+      "completion": "HTTP acceptance is NOT motion completion",
+      "stop_path": "/api/halt"
+    },
+    "clock": {
+      "kind": "PortAudio DAC",
+      "monotonic_minus_stream": -1.2715008779196069e-06,
+      "sampling_uncertainty_seconds": 1.6875001165317371e-06,
+      "dac_epoch_stream": 16319.019433249667,
+      "output_latency_seconds": 0.0364172335600907,
+      "sample_position_not_used_as_clock": true
+    },
+    "generation_stop_reason": "requested_duration_reached",
+    "audio_tail_not_planned_seconds": 2.440814022941268,
+    "stop_result": {
+      "result": true,
+      "status": "Success"
+    },
+    "wall_seconds": 29.72621812500074,
+    "dispatch_receipts": [
+      {
+        "sent_monotonic": 16319.01478975,
+        "scheduled_monotonic": 16320.870268232558,
+        "accepted_monotonic": null,
+        "completed": false,
+        "backend": "misty",
+        "controller_action_end_monotonic": 16322.72110392345,
+        "nominal_segment_end_monotonic": 16322.92110392345,
+        "reference_tracking": "approximate pose compilation; inspect feedback"
+      },
+      {
+        "sent_monotonic": 16322.7311995,
+        "scheduled_monotonic": 16322.921104568948,
+        "accepted_monotonic": null,
+        "completed": false,
+        "backend": "misty",
+        "controller_action_end_monotonic": 16324.77194025984,
+        "nominal_segment_end_monotonic": 16324.97194025984,
+        "reference_tracking": "approximate pose compilation; inspect feedback"
+      },
+      {
+        "sent_monotonic": 16324.776840375,
+        "scheduled_monotonic": 16324.97194023934,
+        "accepted_monotonic": null,
+        "completed": false,
+        "backend": "misty",
+        "controller_action_end_monotonic": 16326.822775930232,
+        "nominal_segment_end_monotonic": 16327.022775930232,
+        "reference_tracking": "approximate pose compilation; inspect feedback"
+      },
+      {
+        "sent_monotonic": 16326.829090416,
+        "scheduled_monotonic": 16327.022775430232,
+        "accepted_monotonic": null,
+        "completed": false,
+        "backend": "misty",
+        "controller_action_end_monotonic": 16328.873611121124,
+        "nominal_segment_end_monotonic": 16329.073611121124,
+        "reference_tracking": "approximate pose compilation; inspect feedback"
+      },
+      {
+        "sent_monotonic": 16328.877896125,
+        "scheduled_monotonic": 16329.073611662623,
+        "accepted_monotonic": null,
+        "completed": false,
+        "backend": "misty",
+        "controller_action_end_monotonic": 16330.924447353515,
+        "nominal_segment_end_monotonic": 16331.124447353515,
+        "reference_tracking": "approximate pose compilation; inspect feedback"
+      },
+      {
+        "sent_monotonic": 16330.926859083,
+        "scheduled_monotonic": 16331.124446915515,
+        "accepted_monotonic": null,
+        "completed": false,
+        "backend": "misty",
+        "controller_action_end_monotonic": 16332.975282606407,
+        "nominal_segment_end_monotonic": 16333.175282606408,
+        "reference_tracking": "approximate pose compilation; inspect feedback"
+      },
+      {
+        "sent_monotonic": 16332.98859475,
+        "scheduled_monotonic": 16333.17528302291,
+        "accepted_monotonic": null,
+        "completed": false,
+        "backend": "misty",
+        "controller_action_end_monotonic": 16335.026118713802,
+        "nominal_segment_end_monotonic": 16335.226118713803,
+        "reference_tracking": "approximate pose compilation; inspect feedback"
+      },
+      {
+        "sent_monotonic": 16335.031404666,
+        "scheduled_monotonic": 16335.2261182768,
+        "accepted_monotonic": null,
+        "completed": false,
+        "backend": "misty",
+        "controller_action_end_monotonic": 16337.076953967691,
+        "nominal_segment_end_monotonic": 16337.276953967692,
+        "reference_tracking": "approximate pose compilation; inspect feedback"
+      },
+      {
+        "sent_monotonic": 16337.09179825,
+        "scheduled_monotonic": 16337.276954363691,
+        "accepted_monotonic": null,
+        "completed": false,
+        "backend": "misty",
+        "controller_action_end_monotonic": 16339.127790054583,
+        "nominal_segment_end_monotonic": 16339.327790054584,
+        "reference_tracking": "approximate pose compilation; inspect feedback"
+      },
+      {
+        "sent_monotonic": 16339.142557375,
+        "scheduled_monotonic": 16339.327790096082,
+        "accepted_monotonic": null,
+        "completed": false,
+        "backend": "misty",
+        "controller_action_end_monotonic": 16341.178625786973,
+        "nominal_segment_end_monotonic": 16341.378625786974,
+        "reference_tracking": "approximate pose compilation; inspect feedback"
+      },
+      {
+        "sent_monotonic": 16341.191286458,
+        "scheduled_monotonic": 16341.378625786476,
+        "accepted_monotonic": null,
+        "completed": false,
+        "backend": "misty",
+        "controller_action_end_monotonic": 16342.14768917056,
+        "nominal_segment_end_monotonic": 16343.429461477368,
+        "reference_tracking": "approximate pose compilation; inspect feedback"
+      },
+      {
+        "sent_monotonic": 16342.154299583,
+        "scheduled_monotonic": 16343.429461477868,
+        "accepted_monotonic": null,
+        "completed": false,
+        "backend": "misty",
+        "controller_action_end_monotonic": 16345.28029716876,
+        "nominal_segment_end_monotonic": 16345.48029716876,
+        "reference_tracking": "approximate pose compilation; inspect feedback"
+      }
+    ]
+  },
+  "segments_executed": 12,
+  "normal_dance_segments": 12,
+  "reference_duration_seconds": 24.610028290702044,
+  "synchronization": {
+    "reference": {
+      "event": "exact coefficient waypoint passage at declared rhythm targets",
+      "median_abs_ms": 0.0,
+      "missed_events": 0,
+      "scope": "reference only, not ground-truth music labels"
+    },
+    "hardware_measured": {
+      "event": "localized joint-waypoint distance minimum with >=.002 rad window excursion and approach/exit; offbeat targets included",
+      "median_abs_ms": null,
+      "p95_abs_ms": null,
+      "missed_events": 0,
+      "matched_events": 0,
+      "extra_events": null,
+      "extra_events_note": "No independent full motion-event detector; unclassified extra passages are N/A",
+      "matches": []
+    },
+    "physical_robot": {
+      "event": "localized joint-waypoint distance minimum with >=.002 rad window excursion and approach/exit; offbeat targets included",
+      "median_abs_ms": null,
+      "p95_abs_ms": null,
+      "missed_events": 0,
+      "matched_events": 0,
+      "extra_events": null,
+      "extra_events_note": "No independent full motion-event detector; unclassified extra passages are N/A",
+      "matches": []
+    }
+  },
+  "feasibility": {
+    "scope": "continuous reference control hull and C2; not collision-free or measured tracking certification",
+    "invalid_segments": 0,
+    "max_position_excess_bound": 0.0,
+    "max_velocity_excess_bound": 0.0,
+    "max_acceleration_excess_bound": 0.0,
+    "max_C2_error": 0.0,
+    "collision_certified": false,
+    "workspace": {
+      "kind": "joint_box",
+      "collision_checked": false,
+      "verified": true,
+      "scope": "Head only (pitch/roll/yaw); arms receive no commands. Wheels excluded."
+    },
+    "measured_estimates": {
+      "status": "sampled_estimates_not_continuous_certificates",
+      "position_excess": 0.0,
+      "velocity_excess_estimate": 4.710766079789121,
+      "acceleration_excess_estimate": 108.46316253638508,
+      "max_velocity_estimate_rad_s": 7.710766079789121,
+      "max_acceleration_estimate_rad_s2": 133.46316253638508,
+      "coalesced_timestamp_count": 0,
+      "minimum_distinct_interval_seconds": 0.0002,
+      "resampled_interval_seconds": 0.0135092500004248,
+      "derivative_estimator": "Coalesce timestamps <0.0002s, interpolate q onto uniform dt=0.0135093s, Savitzky-Golay window=9, poly=3, derivatives with physical delta; estimates only"
+    }
+  },
+  "motion_diversity": {
+    "library_count": null,
+    "feasible_motion_count": null,
+    "scc_motion_count": null,
+    "motion_ids_observed": 6,
+    "library_coverage": null,
+    "shared_descriptor_feature_cells_visited": 4,
+    "shared_descriptor_feature_cells_total": 8,
+    "recent_window_distance_median": 0.13761551026396843,
+    "recent_window_distance_min": 0.0,
+    "short_repeat_ngram_ratio": {
+      "2": 0.2727272727272727,
+      "3": 0.1,
+      "4": 0.0
+    },
+    "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+    "observed_max_revisit_seconds": 14.35584983624286,
+    "raw_hashes_not_used": true
+  },
+  "rhythm_diversity": {
+    "event_interval_strength_patterns": 1,
+    "rhythm_ids": [
+      "reachy_cyclic_preview"
+    ],
+    "longest_single_rhythm_run": 12
+  },
+  "activity": {
+    "max_low_speed_seconds_continuous": 4.1016713817836745,
+    "reference_stationary_fraction_sampled": 0.33434959349593496,
+    "minimum_segment_excursion_rad": 0.0,
+    "low_speed_threshold_rad_s": 0.005,
+    "whole_robot_low_speed": true
+  },
+  "runtime": {
+    "planning_seconds_median": 0.010100124999553373,
+    "planning_seconds_p95": 0.014803637650402376,
+    "planning_seconds_max": 0.017535167000460206,
+    "deadline_misses": 0,
+    "fallback_count": 0,
+    "recovery_count": 0,
+    "novelty_relaxations": 0,
+    "k_changes": 0,
+    "certificate_resets": 0
+  },
+  "planner": {
+    "planner": "Reachy primitive scheduler + documented adaptation",
+    "chunks": 12,
+    "primitives_seen": [
+      "dizzy_spin",
+      "interwoven_spirals",
+      "sharp_side_tilt",
+      "side_peekaboo",
+      "side_to_side_sway",
+      "stumble_and_recover"
+    ],
+    "correction": "pose-retarget-v1",
+    "correction_log": [
+      {
+        "chunk_original_start_beat": 16,
+        "primitives": [
+          "side_to_side_sway"
+        ],
+        "keyposes": 1,
+        "min_leg_seconds": 1.851,
+        "legs_limited": 0,
+        "leg_scale_min": 1.0,
+        "leg_scales": [
+          1.0
+        ],
+        "clip_max_rad": 0.0,
+        "raw_max_jump_rad_per_dense_step": 0.0,
+        "keypose_path_max_deviation_rad": 0.0
+      },
+      {
+        "chunk_original_start_beat": 20,
+        "primitives": [
+          "side_to_side_sway"
+        ],
+        "keyposes": 1,
+        "min_leg_seconds": 1.851,
+        "legs_limited": 0,
+        "leg_scale_min": 1.0,
+        "leg_scales": [
+          1.0
+        ],
+        "clip_max_rad": 0.0,
+        "raw_max_jump_rad_per_dense_step": 0.0,
+        "keypose_path_max_deviation_rad": 0.0
+      },
+      {
+        "chunk_original_start_beat": 24,
+        "primitives": [
+          "dizzy_spin"
+        ],
+        "keyposes": 3,
+        "min_leg_seconds": 0.513,
+        "legs_limited": 1,
+        "leg_scale_min": 0.9164,
+        "leg_scales": [
+          1.0,
+          1.0,
+          0.9164
+        ],
+        "clip_max_rad": 0.0105,
+        "raw_max_jump_rad_per_dense_step": 0.005,
+        "keypose_path_max_deviation_rad": 0.2513
+      },
+      {
+        "chunk_original_start_beat": 28,
+        "primitives": [
+          "dizzy_spin"
+        ],
+        "keyposes": 4,
+        "min_leg_seconds": 0.385,
+        "legs_limited": 3,
+        "leg_scale_min": 0.6933,
+        "leg_scales": [
+          0.7529,
+          1.0,
+          0.7634,
+          0.6933
+        ],
+        "clip_max_rad": 0.0105,
+        "raw_max_jump_rad_per_dense_step": 0.005,
+        "keypose_path_max_deviation_rad": 0.1781
+      },
+      {
+        "chunk_original_start_beat": 32,
+        "primitives": [
+          "stumble_and_recover"
+        ],
+        "keyposes": 4,
+        "min_leg_seconds": 0.385,
+        "legs_limited": 2,
+        "leg_scale_min": 0.5391,
+        "leg_scales": [
+          0.7043,
+          1.0,
+          0.5391,
+          1.0
+        ],
+        "clip_max_rad": 0.0,
+        "raw_max_jump_rad_per_dense_step": 0.0083,
+        "keypose_path_max_deviation_rad": 0.2715
+      },
+      {
+        "chunk_original_start_beat": 36,
+        "primitives": [
+          "stumble_and_recover"
+        ],
+        "keyposes": 4,
+        "min_leg_seconds": 0.385,
+        "legs_limited": 2,
+        "leg_scale_min": 0.4472,
+        "leg_scales": [
+          0.4472,
+          1.0,
+          0.5391,
+          1.0
+        ],
+        "clip_max_rad": 0.0,
+        "raw_max_jump_rad_per_dense_step": 0.0083,
+        "keypose_path_max_deviation_rad": 0.4246
+      },
+      {
+        "chunk_original_start_beat": 40,
+        "primitives": [
+          "interwoven_spirals"
+        ],
+        "keyposes": 4,
+        "min_leg_seconds": 0.385,
+        "legs_limited": 4,
+        "leg_scale_min": 0.2554,
+        "leg_scales": [
+          0.62,
+          0.2554,
+          0.9192,
+          0.416
+        ],
+        "clip_max_rad": 0.0977,
+        "raw_max_jump_rad_per_dense_step": 0.0165,
+        "keypose_path_max_deviation_rad": 0.5493
+      },
+      {
+        "chunk_original_start_beat": 44,
+        "primitives": [
+          "interwoven_spirals"
+        ],
+        "keyposes": 4,
+        "min_leg_seconds": 0.385,
+        "legs_limited": 4,
+        "leg_scale_min": 0.2859,
+        "leg_scales": [
+          0.5876,
+          0.2859,
+          0.7468,
+          0.4593
+        ],
+        "clip_max_rad": 0.0977,
+        "raw_max_jump_rad_per_dense_step": 0.0165,
+        "keypose_path_max_deviation_rad": 0.4721
+      },
+      {
+        "chunk_original_start_beat": 48,
+        "primitives": [
+          "sharp_side_tilt"
+        ],
+        "keyposes": 3,
+        "min_leg_seconds": 0.385,
+        "legs_limited": 2,
+        "leg_scale_min": 0.646,
+        "leg_scales": [
+          0.7725,
+          0.646,
+          1.0
+        ],
+        "clip_max_rad": 0.0,
+        "raw_max_jump_rad_per_dense_step": 0.0185,
+        "keypose_path_max_deviation_rad": 0.5859
+      },
+      {
+        "chunk_original_start_beat": 52,
+        "primitives": [
+          "sharp_side_tilt"
+        ],
+        "keyposes": 3,
+        "min_leg_seconds": 0.385,
+        "legs_limited": 2,
+        "leg_scale_min": 0.6251,
+        "leg_scales": [
+          0.8582,
+          0.6251,
+          1.0
+        ],
+        "clip_max_rad": 0.0,
+        "raw_max_jump_rad_per_dense_step": 0.0185,
+        "keypose_path_max_deviation_rad": 0.6098
+      },
+      {
+        "chunk_original_start_beat": 56,
+        "primitives": [
+          "side_peekaboo"
+        ],
+        "keyposes": 3,
+        "min_leg_seconds": 0.385,
+        "legs_limited": 0,
+        "leg_scale_min": 1.0,
+        "leg_scales": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "clip_max_rad": 0.0977,
+        "raw_max_jump_rad_per_dense_step": 0.0066,
+        "keypose_path_max_deviation_rad": 0.2513
+      },
+      {
+        "chunk_original_start_beat": 60,
+        "primitives": [
+          "side_peekaboo"
+        ],
+        "keyposes": 4,
+        "min_leg_seconds": 0.385,
+        "legs_limited": 1,
+        "leg_scale_min": 0.7347,
+        "leg_scales": [
+          1.0,
+          0.7347,
+          1.0,
+          1.0
+        ],
+        "clip_max_rad": 0.0977,
+        "raw_max_jump_rad_per_dense_step": 0.0066,
+        "keypose_path_max_deviation_rad": 0.1342
+      }
+    ],
+    "reachy_source": {
+      "name": "Reachy Mini Dances Library",
+      "url": "https://github.com/pollen-robotics/reachy_mini_dances_library.git",
+      "revision": "6808a976d3ddc11952ece67eb2403934fbb62af9",
+      "license": "Apache-2.0",
+      "version": "0.2.1",
+      "official_source_unmodified": true,
+      "source_files": {
+        "LICENSE": {
+          "bytes": 11357,
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        },
+        "pyproject.toml": {
+          "bytes": 881,
+          "sha256": "c15260309c5db80b0c0d7359500cd8548d420d84974fca9264574441a2f9f7d4"
+        },
+        "examples/dance_demo.py": {
+          "bytes": 10391,
+          "sha256": "b9cc6af63b45fd1b1cb8be3c08ef20b69efbc14a77924a6f033ae5bd0d79d6a3"
+        },
+        "src/reachy_mini_dances_library/rhythmic_motion.py": {
+          "bytes": 13993,
+          "sha256": "6d575c10d9480420ab27f30e3fc840f80d5985ea7c13eea7399db6d6888df6d3"
+        },
+        "src/reachy_mini_dances_library/collection/dance.py": {
+          "bytes": 47226,
+          "sha256": "e7e4d97fa004cc03232817edad34aaeb52ca8f24ffc6844a7dabb35074be0a90"
+        }
+      },
+      "neural_checkpoint_required": false,
+      "hardware_executed": false,
+      "available_move_count": 20,
+      "available_move_ids": [
+        "simple_nod",
+        "head_tilt_roll",
+        "side_to_side_sway",
+        "dizzy_spin",
+        "stumble_and_recover",
+        "headbanger_combo",
+        "interwoven_spirals",
+        "sharp_side_tilt",
+        "side_peekaboo",
+        "yeah_nod",
+        "uh_huh_tilt",
+        "neck_recoil",
+        "chin_lead",
+        "groovy_sway_and_roll",
+        "chicken_peck",
+        "side_glance_flick",
+        "polyrhythm_combo",
+        "grid_snap",
+        "pendulum_swing",
+        "jackson_square"
+      ],
+      "preview_move_count": 19,
+      "preview_order": [
+        "simple_nod",
+        "head_tilt_roll",
+        "side_to_side_sway",
+        "dizzy_spin",
+        "stumble_and_recover",
+        "interwoven_spirals",
+        "sharp_side_tilt",
+        "side_peekaboo",
+        "yeah_nod",
+        "uh_huh_tilt",
+        "neck_recoil",
+        "chin_lead",
+        "groovy_sway_and_roll",
+        "chicken_peck",
+        "side_glance_flick",
+        "polyrhythm_combo",
+        "grid_snap",
+        "pendulum_swing",
+        "jackson_square"
+      ],
+      "preview_cycle_beats": 152,
+      "sdk_initialization_bypassed": true,
+      "loader_scope": "Unmodified official rhythmic_motion.py and collection/dance.py; private namespace bypasses package __init__ hardware-wrapper import only",
+      "original_control_period_seconds": 0.01
+    },
+    "mapping": {
+      "source_order": [
+        "roll",
+        "pitch",
+        "yaw"
+      ],
+      "source_units": "rad",
+      "target_order": [
+        "head_pitch",
+        "head_roll",
+        "head_yaw"
+      ],
+      "orientation_indices": [
+        1,
+        0,
+        2
+      ],
+      "orientation_signs": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "orientation_scale": 1.0,
+      "neutral": "target RobotProfile.neutral",
+      "anchor_first": true,
+      "initial_pose_policy": "Subtract the first sampled reordered Euler offset, then add the target neutral. This fixed per-crop translation matches every method's neutral initial joint state; it is not selected from evaluation metrics.",
+      "axis_meaning": "Direct named Euler-coordinate projection: Reachy pitch/roll/yaw offsets become Misty head_pitch/head_roll/head_yaw offsets, positive sign retained. This is not a calibrated cross-robot kinematic transform.",
+      "excluded_native_channels": [
+        "position_x_m",
+        "position_y_m",
+        "position_z_m",
+        "left_antenna_rad",
+        "right_antenna_rad"
+      ],
+      "arms": "If a five-joint head/arms profile is supplied, both arms stay at that profile's neutral. Antennas are never mapped to arms.",
+      "projection_or_smoothing": "none; report original joint-limit violations and switching discontinuities",
+      "hardware_executed": false,
+      "scope": "offline commanded trajectory, unverified Misty example limits",
+      "subtracted_first_euler_offset_rad": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "coverage_certificate": {
+      "valid": false,
+      "reason": "external baseline; no fair-service guarantee"
+    },
+    "visit_statistics_scope": "Planner selection/reservation state; actual executed coverage is measured from completed segments in motion_diversity."
+  }
+}

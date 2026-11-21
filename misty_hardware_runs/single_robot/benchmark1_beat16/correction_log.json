@@ -1,0 +1,225 @@
+{
+  "correction": "pose-retarget-v1",
+  "description": "Misty pose-to-pose retargeting controller (user request 2026-11-21). The Misty head moves rest-to-rest between commanded poses and cannot follow poses closer than ~0.35 s. (1) clip the Reachy-adapted q to the profile limits with a 2% margin; (2) choose keyposes on the quarter-beat grid by greedy max-deviation simplification of the Reachy curve (extremes and primitive switches first), at least MIN_LEG s apart, until the remaining deviation is below KEY_TOL rad; (3) join keyposes with rest-to-rest minimum-jerk quintics (Misty's own pose-to-pose behaviour); (4) if a leg exceeds vmax/amax, shorten THAT leg's displacement only (direction kept). Chunk end is rest + terminal hold. Timing on the beat grid is unchanged; amplitude is reduced only where the hardware limits demand it. Per-chunk log: keyposes, limited legs, scales, clip.",
+  "start_beat": 16,
+  "chunks": [
+    {
+      "chunk_original_start_beat": 16,
+      "primitives": [
+        "side_to_side_sway"
+      ],
+      "keyposes": 1,
+      "min_leg_seconds": 1.851,
+      "legs_limited": 0,
+      "leg_scale_min": 1.0,
+      "leg_scales": [
+        1.0
+      ],
+      "clip_max_rad": 0.0,
+      "raw_max_jump_rad_per_dense_step": 0.0,
+      "keypose_path_max_deviation_rad": 0.0
+    },
+    {
+      "chunk_original_start_beat": 20,
+      "primitives": [
+        "side_to_side_sway"
+      ],
+      "keyposes": 1,
+      "min_leg_seconds": 1.851,
+      "legs_limited": 0,
+      "leg_scale_min": 1.0,
+      "leg_scales": [
+        1.0
+      ],
+      "clip_max_rad": 0.0,
+      "raw_max_jump_rad_per_dense_step": 0.0,
+      "keypose_path_max_deviation_rad": 0.0
+    },
+    {
+      "chunk_original_start_beat": 24,
+      "primitives": [
+        "dizzy_spin"
+      ],
+      "keyposes": 3,
+      "min_leg_seconds": 0.513,
+      "legs_limited": 1,
+      "leg_scale_min": 0.9164,
+      "leg_scales": [
+        1.0,
+        1.0,
+        0.9164
+      ],
+      "clip_max_rad": 0.0105,
+      "raw_max_jump_rad_per_dense_step": 0.005,
+      "keypose_path_max_deviation_rad": 0.2513
+    },
+    {
+      "chunk_original_start_beat": 28,
+      "primitives": [
+        "dizzy_spin"
+      ],
+      "keyposes": 4,
+      "min_leg_seconds": 0.385,
+      "legs_limited": 3,
+      "leg_scale_min": 0.6933,
+      "leg_scales": [
+        0.7529,
+        1.0,
+        0.7634,
+        0.6933
+      ],
+      "clip_max_rad": 0.0105,
+      "raw_max_jump_rad_per_dense_step": 0.005,
+      "keypose_path_max_deviation_rad": 0.1781
+    },
+    {
+      "chunk_original_start_beat": 32,
+      "primitives": [
+        "stumble_and_recover"
+      ],
+      "keyposes": 4,
+      "min_leg_seconds": 0.385,
+      "legs_limited": 2,
+      "leg_scale_min": 0.5391,
+      "leg_scales": [
+        0.7043,
+        1.0,
+        0.5391,
+        1.0
+      ],
+      "clip_max_rad": 0.0,
+      "raw_max_jump_rad_per_dense_step": 0.0083,
+      "keypose_path_max_deviation_rad": 0.2715
+    },
+    {
+      "chunk_original_start_beat": 36,
+      "primitives": [
+        "stumble_and_recover"
+      ],
+      "keyposes": 4,
+      "min_leg_seconds": 0.385,
+      "legs_limited": 2,
+      "leg_scale_min": 0.4472,
+      "leg_scales": [
+        0.4472,
+        1.0,
+        0.5391,
+        1.0
+      ],
+      "clip_max_rad": 0.0,
+      "raw_max_jump_rad_per_dense_step": 0.0083,
+      "keypose_path_max_deviation_rad": 0.4246
+    },
+    {
+      "chunk_original_start_beat": 40,
+      "primitives": [
+        "interwoven_spirals"
+      ],
+      "keyposes": 4,
+      "min_leg_seconds": 0.385,
+      "legs_limited": 4,
+      "leg_scale_min": 0.2554,
+      "leg_scales": [
+        0.62,
+        0.2554,
+        0.9192,
+        0.416
+      ],
+      "clip_max_rad": 0.0977,
+      "raw_max_jump_rad_per_dense_step": 0.0165,
+      "keypose_path_max_deviation_rad": 0.5493
+    },
+    {
+      "chunk_original_start_beat": 44,
+      "primitives": [
+        "interwoven_spirals"
+      ],
+      "keyposes": 4,
+      "min_leg_seconds": 0.385,
+      "legs_limited": 4,
+      "leg_scale_min": 0.2859,
+      "leg_scales": [
+        0.5876,
+        0.2859,
+        0.7468,
+        0.4593
+      ],
+      "clip_max_rad": 0.0977,
+      "raw_max_jump_rad_per_dense_step": 0.0165,
+      "keypose_path_max_deviation_rad": 0.4721
+    },
+    {
+      "chunk_original_start_beat": 48,
+      "primitives": [
+        "sharp_side_tilt"
+      ],
+      "keyposes": 3,
+      "min_leg_seconds": 0.385,
+      "legs_limited": 2,
+      "leg_scale_min": 0.646,
+      "leg_scales": [
+        0.7725,
+        0.646,
+        1.0
+      ],
+      "clip_max_rad": 0.0,
+      "raw_max_jump_rad_per_dense_step": 0.0185,
+      "keypose_path_max_deviation_rad": 0.5859
+    },
+    {
+      "chunk_original_start_beat": 52,
+      "primitives": [
+        "sharp_side_tilt"
+      ],
+      "keyposes": 3,
+      "min_leg_seconds": 0.385,
+      "legs_limited": 2,
+      "leg_scale_min": 0.6251,
+      "leg_scales": [
+        0.8582,
+        0.6251,
+        1.0
+      ],
+      "clip_max_rad": 0.0,
+      "raw_max_jump_rad_per_dense_step": 0.0185,
+      "keypose_path_max_deviation_rad": 0.6098
+    },
+    {
+      "chunk_original_start_beat": 56,
+      "primitives": [
+        "side_peekaboo"
+      ],
+      "keyposes": 3,
+      "min_leg_seconds": 0.385,
+      "legs_limited": 0,
+      "leg_scale_min": 1.0,
+      "leg_scales": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "clip_max_rad": 0.0977,
+      "raw_max_jump_rad_per_dense_step": 0.0066,
+      "keypose_path_max_deviation_rad": 0.2513
+    },
+    {
+      "chunk_original_start_beat": 60,
+      "primitives": [
+        "side_peekaboo"
+      ],
+      "keyposes": 4,
+      "min_leg_seconds": 0.385,
+      "legs_limited": 1,
+      "leg_scale_min": 0.7347,
+      "leg_scales": [
+        1.0,
+        0.7347,
+        1.0,
+        1.0
+      ],
+      "clip_max_rad": 0.0977,
+      "raw_max_jump_rad_per_dense_step": 0.0066,
+      "keypose_path_max_deviation_rad": 0.1342
+    }
+  ]
+}

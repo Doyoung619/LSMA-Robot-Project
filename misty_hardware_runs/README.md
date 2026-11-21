@@ -1,7 +1,7 @@
 # Misty II 실제 로봇 실행 데이터
 
 2026-11-21에 Misty II 두 대로 실행한 결과입니다. 모든 실행은 `6_container` 형식으로 기록했습니다.
-음악은 `0_pre_and_etc/Billie Jean.mp3`(약 117 BPM)이고, 로봇은 머리 3축, 양팔, 제자리 바퀴 회전을 사용했습니다.
+음악은 `0_pre_and_etc/Billie Jean.mp3`(약 117 BPM)입니다. 1_finite와 2_infinite는 머리 3축, 양팔, 제자리 바퀴 회전을 사용했습니다. 4_Benchmark1은 머리 3축만 사용했습니다.
 
 ## 폴더 구성
 
@@ -11,6 +11,7 @@
 | `single_robot/finite_seed8` | 로봇 1대, 1_finite | 8 | 60초 |
 | `single_robot/finite_seed9` | 로봇 1대, 1_finite | 9 | 60초 |
 | `single_robot/infinite_seed7` | 로봇 1대, 2_infinite | 7 | 60초 |
+| `single_robot/benchmark1_beat16` | 로봇 1대, 4_Benchmark1 (Reachy 춤을 Misty 머리에 맞춘 것) | 없음 (시작 박자 16) | 24초 |
 | `two_robot/finite_same/{A,B}` | 로봇 2대, 같은 안무, 1_finite | 7 / 7 | 60초 |
 | `two_robot/infinite_same/{A,B}` | 로봇 2대, 같은 안무, 2_infinite | 7 / 7 | 30초 |
 | `two_robot/finite_different/{A,B}` | 로봇 2대, 다른 안무, 1_finite | 7 / 8 | 30초 |
@@ -23,7 +24,7 @@
 - `containers/<run_id>/`: `6_container` 형식 파일 6개 (`manifest.json`, `samples.jsonl`, `events.jsonl`, `metrics.jsonl`, `live.json`, `summary.json`)
 - `summary.json`, `summary.png`, `feedback.csv`, `reference.csv`: `run.py`가 원래 저장하는 결과
 
-`rollout_summary.csv`는 모든 실행의 최종 지표를 한 표로 모은 파일입니다. 12개 실행의 feedback과 reference 채널이 한 줄씩 들어 있습니다(24줄). 모든 줄의 상태는 `completed`, 지표 상태는 `ok`입니다.
+`rollout_summary.csv`는 모든 실행의 최종 지표를 한 표로 모은 파일입니다. 13개 실행의 feedback과 reference 채널이 한 줄씩 들어 있습니다(26줄). 모든 줄의 상태는 `completed`, 지표 상태는 `ok`입니다.
 
 ## 읽는 방법
 
@@ -45,3 +46,14 @@ python 6_container/read_runs.py misty_hardware_runs --recompute --csv out_recomp
 - **manifest의 `git_dirty`는 true입니다.** 실행 당시 커밋하지 않은 수정이 있었습니다. 그 수정은 이후 `misty-hardware-dance` 브랜치에 커밋했습니다.
 - **경로를 바꿨습니다.** 파일 안의 로컬 절대 경로는 `<repo>`로 바꿨습니다. 측정값은 바꾸지 않았습니다. 오디오 캐시(`audio_cache/`, 실행마다 약 49 MB)는 넣지 않았습니다.
 - **영상과의 관계:** 로봇 2대 영상은 이 데이터와 같은 실행입니다. 로봇 1대 영상은 같은 설정으로 따로 실행한 것입니다.
+
+## 4_Benchmark1 실행에 대해
+
+`single_robot/benchmark1_beat16`은 `4_Benchmark1/run_misty_hardware.py --start-beat 16`으로 실행한 결과입니다.
+
+- **seed가 없습니다.** 이 방식은 결정적이라서, 곡의 시작 박자(16, 64, 112)로 반복을 구분합니다. 여기에는 시작 박자 16만 있습니다.
+- **원본 동작을 Misty에 맞게 고쳤습니다.** 관절 범위를 넘는 자세는 범위 안으로 잘랐고, 속도나 가속도 한계를 넘는 구간은 이동 거리를 줄였습니다. 구간마다 무엇을 바꿨는지는 `correction_log.json`에 있습니다.
+- **춤 품질 기준을 건너뛰었습니다.** 12개 구간 중 9개가 `stationary_too_long`, `insufficient_excursion`, `joined_stationary_too_long`에 걸렸습니다. 원본 동작에 머리가 0.6초 넘게 멈추는 구간이 있기 때문입니다. 기록에는 `quality_checks_skipped: true`와 `waived_quality_chunks: 9`로 남아 있습니다. 위치, 속도, 가속도, 피드백, 추종 검사는 그대로 적용했습니다.
+- **잘라 낸 음악 파일(`crop_beat16.wav`)은 넣지 않았습니다.**
+- **실행 스크립트와 품질 기준 건너뛰기 옵션**(`run_session(skip_quality_checks=...)`)은 이 데이터를 올린 시점에는 아직 커밋 전입니다. 이후 커밋에 들어갑니다.
+
