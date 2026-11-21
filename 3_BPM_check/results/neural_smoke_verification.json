@@ -1,0 +1,140 @@
+[
+  {
+    "method": "DeepRhythm",
+    "initialization_ms": 7201.5536,
+    "first_file_result_ms": 18568.5062,
+    "result": {
+      "method": "DeepRhythm",
+      "bpm": 116.0,
+      "beat_times": null,
+      "confidence": 0.7390474081039429,
+      "status": "success",
+      "error": null
+    },
+    "metadata": {
+      "checkpoint": "deeprhythm-0.7.pth",
+      "weight_bytes": 5443228,
+      "sha256": "c7cc8cc0425929cd2bf695474d7ec1fd63ed0d0a4a68f361d4e4b57bd9b3d9c4",
+      "source_url": "https://raw.githubusercontent.com/bleugreen/deeprhythm/main/weights/deeprhythm-0.7.pth",
+      "license": "AGPL-3.0",
+      "version": "0.0.13",
+      "pretrained_loaded": true,
+      "output_type": "global BPM",
+      "device": "cpu",
+      "training_overlap": "Training corpus not fully documented; exploratory GTZAN evaluation",
+      "preprocessing": "Official librosa 22050 Hz; complete nonoverlapping 8 s chunks; trailing remainder discarded",
+      "parameter_count": 1357176
+    }
+  },
+  {
+    "method": "BeatThis",
+    "initialization_ms": 5006.4298,
+    "first_file_result_ms": 793.7989,
+    "result": {
+      "method": "BeatThis",
+      "bpm": 115.38461538461549,
+      "beat_times": [
+        0.34,
+        0.86,
+        1.38,
+        1.9,
+        2.42,
+        2.94,
+        3.44,
+        3.96,
+        4.48,
+        4.98,
+        5.5,
+        6.0,
+        6.52,
+        7.02,
+        7.54,
+        8.06,
+        8.56,
+        9.08,
+        9.58,
+        10.1,
+        10.62,
+        11.12,
+        11.64,
+        12.14,
+        12.66,
+        13.16,
+        13.68,
+        14.2,
+        14.7
+      ],
+      "confidence": null,
+      "status": "success",
+      "error": null,
+      "downbeat_times": [
+        0.86,
+        2.94,
+        4.98,
+        7.02,
+        9.08,
+        11.12,
+        13.16
+      ]
+    },
+    "metadata": {
+      "checkpoint": "beat_this-small0.ckpt",
+      "weight_bytes": 8451101,
+      "sha256": "6074be2c4d490c5f6101fcc374a1ec72ae93456e23bb6019783b849f5dc7d47b",
+      "source_url": "https://cloud.cp.jku.at/public.php/dav/files/7ik4RrBKTS273gp/small0.ckpt",
+      "license": "MIT (code and published weights, per official repository)",
+      "version": "1.1.0",
+      "pretrained_loaded": true,
+      "device": "cpu",
+      "output_type": "beats; BPM derived as 60 / median positive finite inter-beat interval",
+      "training_overlap": "small0 excludes GTZAN per official model table",
+      "dbn": false,
+      "preprocessing": "Official soundfile/torchaudio loader, soxr to 22050 Hz, log-mel spectrogram",
+      "parameter_count": 2099960
+    }
+  },
+  {
+    "method": "TempoCNN",
+    "initialization_ms": 15147.0324,
+    "first_file_result_ms": 7233.8787,
+    "result": {
+      "method": "TempoCNN",
+      "bpm": 117.0,
+      "beat_times": null,
+      "confidence": 0.5981634259223938,
+      "status": "success",
+      "error": null
+    },
+    "metadata": {
+      "checkpoint": "deeptemp-k4-3.pb",
+      "weight_bytes": 147561,
+      "sha256": "66f36ee56c5e87c98534bd5cadd1a38059096cc210712dc0557d077e6c8c8daa",
+      "source_url": "https://essentia.upf.edu/models/tempo/tempocnn/deeptemp-k4-3.pb",
+      "license": "CC BY-NC-SA 4.0 (Essentia model); AGPL-3.0 (original frontend)",
+      "version": "2.17.0",
+      "pretrained_loaded": true,
+      "output_type": "global BPM",
+      "device": "cpu",
+      "runtime": "TensorFlow v1 Session; original tempocnn librosa frontend (Essentia unavailable on Windows)",
+      "preprocessing": "11025 Hz, 1024 STFT, hop 512, 40 mel bands 20-5000 Hz, 256-frame patches hop 128; original std_normalizer",
+      "aggregation": "Original author: argmax of mean patch probabilities + 30 BPM; no interpolation",
+      "minimum_context": "256 frames (~11.9 s); original frontend zero-pads 8 s inputs",
+      "training_overlap": "Extended Ballroom, LMDTempo, MTGTempo per official metadata; full GTZAN overlap not independently verified",
+      "input_shape": [
+        null,
+        40,
+        null,
+        1
+      ],
+      "graph_nodes": 555
+    },
+    "eight_second_padding_check": {
+      "method": "TempoCNN",
+      "bpm": 118.0,
+      "beat_times": null,
+      "confidence": 0.4943702518939972,
+      "status": "success",
+      "error": null
+    }
+  }
+]

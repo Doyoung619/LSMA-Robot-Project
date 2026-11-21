@@ -1,0 +1,15 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.6.0+cpu
+torchaudio==2.6.0+cpu
+deeprhythm==0.0.13
+beat-this==1.1.0
+tempocnn==0.0.8
+tensorflow==2.17.0
+librosa==0.11.0
+numpy==1.26.4
+pandas==2.2.3
+scipy==1.17.1
+soundfile==0.14.0
+matplotlib==3.11.2
+psutil==7.2.2
+requests==2.34.2

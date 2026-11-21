@@ -1,0 +1,15 @@
+python.exe : ERROR: Could not find a version that satisfies the requirement essentia-tensorflow (from versions: none)
+
+위치 줄:2 문자:205
+
++ ... tempt.txt'; & '.venv\Scripts\python.exe' -m pip install essentia-tens ...
+
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    + CategoryInfo          : NotSpecified: (ERROR: Could no...versions: none):String) [], RemoteException
+
+    + FullyQualifiedErrorId : NativeCommandError
+
+
+
+ERROR: No matching distribution found for essentia-tensorflow

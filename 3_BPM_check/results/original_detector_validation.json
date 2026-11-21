@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "full_song_bpm": 117.02546482191966,
+  "beat_count": 573,
+  "source_sha256": "c36c0ae462cc0a1c7793deb667ac0a27f6479e4cd75e78390ba4145a905ecaed",
+  "ground_truth": null,
+  "unit_tests_passed": 15,
+  "unit_test_python": "3.11.9",
+  "test_execution": {
+    "adapter_tests": 2,
+    "metric_tests": 13,
+    "mode": "Adapter tests and metric tests executed separately; unchanged detector not rerun during timing."
+  }
+}

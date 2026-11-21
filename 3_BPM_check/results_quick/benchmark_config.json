@@ -1,0 +1,42 @@
+{
+  "mode": "quick",
+  "device": "cpu",
+  "threads": 1,
+  "seed": 2026,
+  "warmups": 2,
+  "repetitions": 5,
+  "methods": [
+    "OUR_EXISTING",
+    "DeepRhythm",
+    "TempoCNN",
+    "BeatThis",
+    "BeatNet"
+  ],
+  "timing_clip_ids": [
+    "synthetic_metronome_60_8s",
+    "synthetic_metronome_60_15s",
+    "synthetic_metronome_60_30s",
+    "blues.00000_8s",
+    "blues.00000_15s",
+    "blues.00000_30s",
+    "classical.00002_8s",
+    "classical.00002_15s",
+    "classical.00002_30s",
+    "billie_jean_8s",
+    "billie_jean_15s",
+    "billie_jean_30s"
+  ],
+  "results_dir": "C:\\Users\\\ud5c8\ub3c4\uc601\\Desktop\\Git-Research\\CMU Class\\Rita-Robot\\experiment\\3_BPM_check\\results_quick",
+  "dataset": "all",
+  "durations_seconds": [
+    8,
+    15,
+    30
+  ],
+  "accuracy_denominator": "all annotated selected clips, including prediction failures; MAE successful predictions only",
+  "file_timing_scope": "file read to BPM and original beat outputs, all necessary preprocessing/postprocessing; no downloads",
+  "timing_selection": "first two deterministic manifest real tracks, first synthetic track, and demo; all durations",
+  "date": "2026-11-21",
+  "timezone": "America/New_York",
+  "accuracy_duration_grouping": "Nominal requested duration; actual sample duration retained in predictions, manifest, timings and RTF."
+}

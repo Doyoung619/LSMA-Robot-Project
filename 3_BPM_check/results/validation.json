@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "checks": 19411,
+  "clips": 189,
+  "prediction_records": 945,
+  "successful_predictions": 684,
+  "measured_timing_records": 1320,
+  "plot_records": 31,
+  "matched_real_timing_clip_ids": [
+    "blues.00000_15s",
+    "blues.00000_30s",
+    "classical.00002_15s",
+    "classical.00002_30s"
+  ],
+  "errors": [],
+  "warnings": [
+    "BeatNet: no successful predictions; excluded from valid model comparisons"
+  ],
+  "scope": "Input hashes and recorded results consistency; no inference rerun or independent accuracy replication"
+}
