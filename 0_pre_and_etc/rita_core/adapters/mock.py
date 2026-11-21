@@ -1,5 +1,6 @@
 """No-network adapter with deterministic delayed tracking and failure injection."""
 import time
+from bisect import bisect_right
 import numpy as np
 from ..contracts import RobotState
 from .base import RobotAdapter, AdapterError, DispatchDeadlineMiss, require_segment
@@ -62,16 +63,27 @@ class MockAdapter(RobotAdapter):
                 "feedback_dropout": self.feedback_dropout}
 
     def _target(self, now):
-        q = self._hold.copy()
-        dq = np.zeros_like(q)
-        for start, segment in self.commands:
-            elapsed = now-start-self.command_delay-self.tracking_delay
-            if elapsed < 0:
-                break
-            q, dq, _ = segment.at(min(segment.end, segment.start+elapsed))
-            if elapsed <= segment.duration:
-                break
-        return np.asarray(q), np.asarray(dq)
+        delayed = now-self.command_delay-self.tracking_delay
+        index = bisect_right(self.commands, delayed, key=lambda item:item[0])-1
+        # Match the original subtraction order at floating-point boundaries.
+        def elapsed_at(i):
+            return now-self.commands[i][0]-self.command_delay-self.tracking_delay
+        if index+1 < len(self.commands) and elapsed_at(index+1)>=0:
+            index+=1
+        if index>=0 and elapsed_at(index)<0:
+            index-=1
+        if index < 0:
+            return self._hold.copy(), np.zeros_like(self._hold)
+        # Preserve the earlier command's exact end at a shared boundary, even
+        # for deliberately discontinuous adapter-contract fixtures.
+        if index > 0:
+            previous_start, previous_segment = self.commands[index-1]
+            if elapsed_at(index-1) <= previous_segment.duration:
+                index -= 1
+        start,segment=self.commands[index]
+        elapsed=now-start-self.command_delay-self.tracking_delay
+        q,dq,_=segment.at(min(segment.end,segment.start+max(0.,elapsed)))
+        return np.asarray(q),np.asarray(dq)
 
     def read_state(self):
         self._check()
