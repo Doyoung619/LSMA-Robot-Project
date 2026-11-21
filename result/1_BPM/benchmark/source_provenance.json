@@ -1,0 +1,39 @@
+{
+  "source": "Completed independently held-out evaluation; no new predictions or parameter selection in this packaging step",
+  "selected_methods": [
+    "OUR_V2_FAST",
+    "DeepRhythm",
+    "TempoCNN",
+    "BeatThis"
+  ],
+  "selection_reason": "Retain the three originally requested, successfully executed neural baselines: direct tempo CNN, lightweight TempoCNN, and beat tracker",
+  "accuracy_scope": "All 50 held-out tracks and all 150 nominal 8/15/30-second excerpts; both raw Acc1 and half/double-tolerant Acc2 shown",
+  "latency_scope": "All six excerpts supported by the four selected methods; 20 repetitions each, 120 timings per method",
+  "previous_latency_scope": "Earlier six-method table included legacy OUR_EXISTING, which failed on 8-second clips; its common set had four 15/30-second excerpts. This package uses all six common clips for the four displayed methods. Earlier results are preserved.",
+  "hash_definition": "SHA256 after CRLF-to-LF normalization for cross-platform text snapshots",
+  "original_source_files": {
+    "compiled_predictions.csv": "4af19bc20d514996528c81169eec1c3468c44730290b9c3f89e7edc6f8a3d227",
+    "holdout_results/predictions.csv": "48ac6b47586ce70925033948afae355c5d346c32d6e889e881fbba335744ac25",
+    "compiled_timing/latency_raw.csv": "78716130b2c1a06c016c5f50e633ce80e488bc8de3dd20d3ff3493ac5b030de9",
+    "compiled_timing/model_metadata.json": "374c633e27ab86753034e9c393e83aa9ca4a5da1d1d2b94bec929bbe5e01cab0",
+    "compiled_equivalence.json": "5296aef20266d582a4201de82d26f702de3aa36b29f808a4b0ad4601e1d7abca",
+    "holdout_split.json": "53c8d489421341246eab59ca254067b107e812b5f9ac8b3ceb29781499355e4d",
+    "holdout_manifest.json": "764e9138dc5ebb1471c1e0768879c5cc441c655407e8d9c9a4528964a54bf284"
+  },
+  "packaged_input_hashes": {
+    "compiler_equivalence.json": "5b9b644dfdd9369fbbb929d3096c691849f036bb400bbed0886602fec513848a",
+    "compiler_startup.json": "5021bdc6542871af3272825ee57a38c50bc583518ac31d32ebe001ef566a0e94",
+    "environment.json": "6be32ba51b4caa919c27a67701842fe068df08241f2cb528c0ebef9b1fe47ff5",
+    "frozen_protocol.json": "cc553dcf84e8fd71f793bd5264f2e22437a2d2f855647d38ab4acfaa23c996b5",
+    "holdout_split.json": "eec1d06cf0acb862d40952da2579ca7af1680d8373969211a60d56bcc4f8147a",
+    "input_clips.csv": "c71373fe0ad0837ee0f6cc07c224d780c90f6b13b1c5f5683bee5fc96d010d1c",
+    "latency_raw.csv": "edb76932a226c8d0fa377b40ca5f7f1715134499c4d8a5d335accac76725d643",
+    "model_metadata.json": "071d76d7c04cb58595a25fb2094a9c75c19627755edc8b52f410385e5382b231",
+    "predictions.csv": "f90e2beea68a3ff45db9d4c27fb530e02691b594df3e1b92c284caf5c7a256db",
+    "previous_four_clip_summary.json": "cbdbbbd580c5a1bc11f1c87826c33956e36cd720f58fe52301bf78ab0afcdac5",
+    "source_validation.json": "1faef3c21b5c93985e74964ecaf81c17e91216102f9ed5b34abca6fe11378195",
+    "timing_protocol.json": "662e9d4fdc274878480f6e60245c5a8bcd6d42a739d3f08ec13b619b532aac28",
+    "track_references.csv": "969a0d4ac3ab56b007d79ec223dcb7ebc5d03c6d81f32c61ebf02981f5af9cac"
+  },
+  "excluded": "Original robot baseline and uncompiled V2 remain available in the complete benchmark; no baseline was replaced to obtain a favorable ranking"
+}
