@@ -81,8 +81,11 @@ def run_session(analysis,profile,mode="finite",backend="mock",seed=7,seconds=60,
         # The hold belongs to the certified reference and its activity check.
         # It is NOT inserted by the dispatcher after certification.
         dispatch_latency=profile.latency_seconds if profile.latency_mode=="dispatch" else 0.
-        config.setdefault("terminal_hold_seconds",float(profile.endpoint.get(
-            "terminal_hold_seconds",max(.2,profile.dispatch_lead_seconds+dispatch_latency+.08))))
+        hardware_hold=float(profile.endpoint.get(
+            "terminal_hold_seconds",max(.2,profile.dispatch_lead_seconds+dispatch_latency+.08)))
+        # A planner config copied from the mock defaults carries terminal_hold_seconds=0, which leaves no
+        # handoff window on a no-queue controller; never go below what this hardware profile needs.
+        config["terminal_hold_seconds"]=max(float(config.get("terminal_hold_seconds",0.)),hardware_hold)
     began=time.perf_counter()
     start_beat=0
     if hardware:

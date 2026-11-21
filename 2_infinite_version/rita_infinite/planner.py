@@ -39,6 +39,8 @@ class InfiniteConfig:
     terminal_hold_seconds: float = 0.0
     force_failure: bool = False
     force_timeout: bool = False
+    # Multiplies the sampled motion amplitude: a scalar or one value per profile joint.
+    amplitude_gain: object = 1.0
 
     @classmethod
     def from_value(cls, value):
@@ -69,6 +71,10 @@ class InfiniteConfig:
                 or any(x < 0 or x > 1 for x in result.novelty_factors)
                 or tuple(sorted(result.novelty_factors, reverse=True)) != result.novelty_factors):
             raise ValueError("novelty_factors must decrease from <=1 to 0")
+        gain = np.asarray(result.amplitude_gain, dtype=float)
+        if gain.ndim > 1 or not np.all(np.isfinite(gain)) or np.any(gain <= 0):
+            raise ValueError("amplitude_gain must be positive (scalar or one per joint)")
+        result.amplitude_gain = float(gain) if gain.ndim == 0 else tuple(float(x) for x in gain)
         if result.planning_budget_seconds <= 0 or result.min_feasible_choices < 1:
             raise ValueError("Planning budget and min_feasible_choices must be positive")
         if not result.min_feasible_choices <= result.max_validated_candidates <= result.candidate_count:
@@ -201,7 +207,7 @@ class InfinitePlanner:
                 ph = latent["phase"] + .018*h*latent["drift"]
                 shape = np.sin(math.tau*(x+ph)) + latent["harmonic"]*np.sin(2*math.tau*x+latent["secondary_phase"])
                 shape /= 1+latent["harmonic"]
-                amp = latent["amplitude"]*scale
+                amp = latent["amplitude"]*scale*np.broadcast_to(np.asarray(self.config.amplitude_gain, dtype=float), (self.nj,))
                 # An accent rest suppresses the accent contribution, not every joint.
                 event_idx = int(np.argmin(np.abs(events-off))) if len(events) else -1
                 is_rest = event_idx in set(getattr(rhythm, "rests", ())) and off < 4

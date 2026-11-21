@@ -255,10 +255,25 @@ class MistyAdapter(RobotAdapter):
             # stream of short poses (measured: it lags and the pitch sags). Send one pose per stored
             # zero-velocity knot instead, with Duration = time to that knot; Misty interpolates the leg.
             hold_at = segment.start+execution_duration
-            stops = [float(k) for k in segment.knots if segment.start+1e-9 < k <= hold_at+1e-9
-                     and np.max(np.abs(segment.at(k)[1])) < 1e-6]
-            if not stops or abs(stops[-1]-hold_at) > 1e-6:
+            knots_mode = self.profile.endpoint.get("waypoint_knots", "auto")
+            if knots_mode == "auto":
+                knots_mode = "all" if "generation_kind" in segment.metadata else "stops"  # infinite segments carry generation_kind
+            if knots_mode == "all":
+                # Flowing references (infinite planner) pass through waypoints without stopping:
+                # use every stored knot, dropping ones closer than min_leg_seconds to the previous pose.
+                min_leg = float(self.profile.endpoint.get("min_leg_seconds", period))
+                stops, last = [], segment.start
+                for k in segment.knots:
+                    k = float(k)
+                    if segment.start+1e-9 < k < hold_at-1e-9 and k-last >= min_leg and hold_at-k >= min_leg:
+                        stops.append(k)
+                        last = k
                 stops.append(hold_at)
+            else:
+                stops = [float(k) for k in segment.knots if segment.start+1e-9 < k <= hold_at+1e-9
+                         and np.max(np.abs(segment.at(k)[1])) < 1e-6]
+                if not stops or abs(stops[-1]-hold_at) > 1e-6:
+                    stops.append(hold_at)
             offsets = np.r_[0., np.array(stops)-segment.start]
             if np.min(np.diff(offsets)) < period-1e-9:
                 raise CapabilityError("Two pose waypoints are closer than the Misty command period")

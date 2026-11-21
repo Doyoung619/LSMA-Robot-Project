@@ -83,7 +83,8 @@
     "twist_angular_percent": 25,
     "twist_time_fraction": 0.8,
     "max_command_lateness_seconds": 0.35,
-    "arm_speed_margin": 1.5
+    "arm_speed_margin": 1.5,
+    "min_leg_seconds": 0.35
   },
   "local_verified": false,
   "min_excursion": 0.03,
