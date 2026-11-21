@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "n_clips": 150,
+  "exact_equal_clips": 150,
+  "failures": [],
+  "reference_algorithm_sha256": "66104c1f294cf9b191efc126d4575123c76efd534c1cf60647553b0e94e00d28",
+  "compiled_source_sha256": "269e07514b19900b00a125bb2fd4345bbf448bda76d401f0ff42cdc9637a8dc4",
+  "configuration_sha256": "910f4819ea5c8055aaf8ab835f13535701c8fc19c6dd332f64ef41e65d1623c1",
+  "scope": "Full BPM, beat arrays, status, confidence and error exactly equal; all fast predictions recomputed from audio",
+  "change": "Implementation-only compiled scoring, with original scoring used for near ties; no accuracy parameter changes"
+}

@@ -1,0 +1,14 @@
+{
+  "method": "OUR_V2_FAST",
+  "device": "cpu",
+  "threads": 1,
+  "clip_id": "blues.00004_30s",
+  "adapter_import_ms": 926.7582,
+  "load_ms": 29.6297,
+  "first_inference_including_JIT_ms": 2824.4887,
+  "bpm": 133.87173244617472,
+  "status": "success",
+  "compiler_cache": "New empty temporary cache; filesystem/package cache not flushed",
+  "weight_bytes": 0,
+  "source_sha256": "269e07514b19900b00a125bb2fd4345bbf448bda76d401f0ff42cdc9637a8dc4"
+}

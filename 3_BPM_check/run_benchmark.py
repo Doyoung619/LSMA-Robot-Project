@@ -142,7 +142,7 @@ def worker(args):
                 try:
                     for _ in range(config["warmups"]):
                         value = estimator.predict_preloaded(audio, sr)
-                    for repetition in range(config["repetitions"]):
+                    for repetition in range(config.get("preloaded_repetitions",config["repetitions"])):
                         if config["device"] == "cuda":
                             torch.cuda.synchronize()
                         stamp = time.perf_counter_ns()
@@ -257,10 +257,12 @@ def main():
     parser.add_argument("--real-count",type=int,default=None)
     parser.add_argument("--dataset",choices=["all","synthetic","real","demo"],default="all")
     parser.add_argument("--audio-path",type=Path)
+    parser.add_argument("--manifest",type=Path,help="Use a saved, explicit clip manifest instead of preparing the default dataset")
     parser.add_argument("--results",type=Path,default=ROOT/"results")
     parser.add_argument("--methods",nargs="+",default=DEFAULT_METHODS)
     parser.add_argument("--skip-download",action="store_true")
     parser.add_argument("--repetitions",type=int)
+    parser.add_argument("--preloaded-repetitions",type=int,help="Optional repetition count for the secondary preloaded stage")
     parser.add_argument("--worker",help=argparse.SUPPRESS)
     parser.add_argument("--worker-config",help=argparse.SUPPRESS)
     args = parser.parse_args()
@@ -278,9 +280,12 @@ def main():
         path.unlink()
     from dataset import prepare_dataset
     real_count = args.real_count if args.real_count is not None else (50 if args.full else 20)
-    clips = prepare_dataset(ROOT, durations=(8,15,30), seed=2026,
-                            real_count=real_count if args.dataset in ("all", "real") else 0,
-                            audio_path=args.audio_path)
+    if args.manifest:
+        clips = json.loads(args.manifest.resolve().read_text(encoding="utf-8"))
+    else:
+        clips = prepare_dataset(ROOT, durations=(8,15,30), seed=2026,
+                                real_count=real_count if args.dataset in ("all", "real") else 0,
+                                audio_path=args.audio_path)
     if args.dataset != "all":
         clips = [c for c in clips if c["tier"] == args.dataset]
     if args.smoke:
@@ -304,10 +309,18 @@ def main():
               "file_timing_scope":"file read to BPM and original beat outputs, all necessary preprocessing/postprocessing; no downloads",
               "timing_selection":"first two deterministic manifest real tracks, first synthetic track, and demo; all durations",
               "date":"2026-11-21","timezone":"America/New_York"}
+    if args.preloaded_repetitions is not None:
+        if args.preloaded_repetitions < 1:
+            parser.error("--preloaded-repetitions must be positive")
+        config["preloaded_repetitions"] = args.preloaded_repetitions
+    if args.manifest:
+        config["input_manifest"] = str(args.manifest.resolve())
+        config["input_manifest_sha256"] = hashlib.sha256(args.manifest.resolve().read_bytes()).hexdigest()
     write_json(results/"benchmark_config.json",config)
     write_json(results/"environment.json",environment(args.threads))
-    if not args.skip_download and any(m != "OUR_EXISTING" for m in args.methods):
-        subprocess.run([sys.executable,str(ROOT/"download_models.py"),"--methods",*[m for m in args.methods if m!="OUR_EXISTING"]],cwd=ROOT,check=False)
+    neural_methods = [m for m in args.methods if not m.startswith("OUR_")]
+    if not args.skip_download and neural_methods:
+        subprocess.run([sys.executable,str(ROOT/"download_models.py"),"--methods",*neural_methods],cwd=ROOT,check=False)
     process_starts = {}
     for name in args.methods:
         print(f"\n=== {name}: isolated {args.device} worker ===",flush=True)

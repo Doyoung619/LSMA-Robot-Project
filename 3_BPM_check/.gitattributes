@@ -1,2 +1,7 @@
 * text=auto eol=lf
 *.png -text
+# Preserve the exact bytes whose hashes were frozen before independent testing.
+adapters/classical_v2.py -text whitespace=cr-at-eol
+improvements/frozen_config.json -text whitespace=cr-at-eol
+improvements/frozen_protocol.json -text whitespace=cr-at-eol
+improvements/holdout_manifest.json -text whitespace=cr-at-eol

@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "n_accuracy_tracks": 50,
+  "n_accuracy_clips": 150,
+  "exact_equivalent_predictions": 150,
+  "primary_timing": "Randomized interleaved matched file-to-result; CPU1thread;5warmups20repetitions",
+  "matched_timing_clips": [
+    "blues.00004_15s",
+    "blues.00004_30s",
+    "classical.00004_15s",
+    "classical.00004_30s"
+  ],
+  "lower_latency_than_every_nn": true,
+  "higher_acc1_than_every_nn": false,
+  "higher_acc2_than_every_nn": true,
+  "joint_raw_accuracy_and_latency_superiority": false,
+  "compiled_median_ms": 20.04505,
+  "speedups_over_nn": {
+    "DeepRhythm": 7.054554615728073,
+    "TempoCNN": 1.0235544436157555,
+    "BeatThis": 65.38177505169605
+  },
+  "uncertainty": "Accuracy point estimates on 50 tracks; paired bootstrap intervals in holdout_results/claim_assessment.json; no universal superiority claim"
+}

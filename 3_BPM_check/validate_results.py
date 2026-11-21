@@ -232,6 +232,11 @@ def validate(results):
             from adapters.existing import SOURCE
             equal(hash_file(SOURCE), row["sha256"], "Classical source hash unchanged")
             equal(row["weight_bytes"], 0, "Classical weight size")
+        elif method in {"OUR_V2","OUR_V2_FAST"}:
+            source="classical_v2.py" if method=="OUR_V2" else "classical_v2_fast.py"
+            equal(hash_file(ROOT/"adapters"/source),row["sha256"],"Classical V2 source hash")
+            equal(row["weight_bytes"],0,"Classical V2 weight size")
+            check(row["pretrained_loaded"] in ("","None"),"Classical V2 must not claim neural weights")
         elif successes:
             from adapters.model_cache import EXPECTED_SHA256
             check(row["pretrained_loaded"].lower() == "true", f"{method} pretrained weights not verified")

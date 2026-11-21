@@ -1,0 +1,39 @@
+{
+  "mode": "full",
+  "device": "cpu",
+  "threads": 1,
+  "seed": 2026,
+  "warmups": 5,
+  "repetitions": 20,
+  "methods": [
+    "OUR_EXISTING",
+    "OUR_V2",
+    "DeepRhythm",
+    "TempoCNN",
+    "BeatThis"
+  ],
+  "timing_clip_ids": [
+    "blues.00004_8s",
+    "blues.00004_15s",
+    "blues.00004_30s",
+    "classical.00004_8s",
+    "classical.00004_15s",
+    "classical.00004_30s"
+  ],
+  "results_dir": "C:\\Users\\\ud5c8\ub3c4\uc601\\Desktop\\Git-Research\\CMU Class\\Rita-Robot\\experiment\\3_BPM_check\\improvements\\holdout_results",
+  "dataset": "all",
+  "durations_seconds": [
+    8,
+    15,
+    30
+  ],
+  "accuracy_denominator": "all annotated selected clips, including prediction failures; MAE successful predictions only",
+  "accuracy_duration_grouping": "nominal requested duration; actual sample duration retained in predictions, manifest and RTF",
+  "file_timing_scope": "file read to BPM and original beat outputs, all necessary preprocessing/postprocessing; no downloads",
+  "timing_selection": "first two deterministic manifest real tracks, first synthetic track, and demo; all durations",
+  "date": "2026-11-21",
+  "timezone": "America/New_York",
+  "preloaded_repetitions": 5,
+  "input_manifest": "C:\\Users\\\ud5c8\ub3c4\uc601\\Desktop\\Git-Research\\CMU Class\\Rita-Robot\\experiment\\3_BPM_check\\improvements\\holdout_manifest.json",
+  "input_manifest_sha256": "7ffae493902f410cd26ce5a7cbba7881a07a3f8ee54667219f9995b29de3286c"
+}
