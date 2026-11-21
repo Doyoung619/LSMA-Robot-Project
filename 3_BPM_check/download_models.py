@@ -58,4 +58,7 @@ def download_models(methods=None):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--methods", nargs="+", default=list(MODELS))
-    download_models(parser.parse_args().methods)
+    manifest = download_models(parser.parse_args().methods)
+    # Setup scripts must fail when a required download or hash check fails.
+    # The benchmark runner may still choose to continue with other models.
+    raise SystemExit(0 if all(row.get("status") == "cached" for row in manifest) else 1)

@@ -100,7 +100,7 @@ def generate(results_dir="results"):
     for method in methods:
         row = model_lookup.get(method, {})
         size = number(row.get("weight_bytes"))
-        classical = method == "OUR_EXISTING"
+        classical = method.startswith("OUR_")
         output = "Global BPM + fitted beat grid" if classical else ("Beats; BPM derived from median valid IBI" if "beat" in method.lower() else "Global BPM")
         model_rows.append([pretty(method), "Classical" if classical else "NN", "0 (no weights)" if classical else (f"{size/1024**2:.2f} MiB" if np.isfinite(size) else "Unavailable"),
                            output, config.get("device", "cpu"), row.get("checkpoint", "—"), row.get("status", "unknown"), "N/A" if classical else row.get("pretrained_loaded", "unknown")])
@@ -254,7 +254,7 @@ def generate(results_dir="results"):
     primary_acc = real30 or accuracy_rows(accuracy, is_real)
     acc_lookup = {row["method"]: row for row in primary_acc}
     ours = acc_lookup.get("OUR_EXISTING")
-    comparisons = [row for row in measured if row["method"] != "OUR_EXISTING"]
+    comparisons = [row for row in measured if not row["method"].startswith("OUR_")]
     statements = []
     if np.isfinite(base) and comparisons:
         faster = [row for row in comparisons if row["median_ms"] > base]
@@ -272,7 +272,7 @@ def generate(results_dir="results"):
                               "is faster than pretrained networks is not supported by this experiment.")
     if ours and primary_acc:
         ours_acc = number(ours.get("acc1"))
-        valid_nn = [row for row in primary_acc if row["method"] != "OUR_EXISTING" and number(row.get("n_success"), 0) > 0]
+        valid_nn = [row for row in primary_acc if not row["method"].startswith("OUR_") and number(row.get("n_success"), 0) > 0]
         if valid_nn:
             best = max(valid_nn, key=lambda row: number(row.get("acc1"), -1))
             delta = 100*(number(best["acc1"])-ours_acc)
@@ -302,8 +302,8 @@ def generate(results_dir="results"):
                        f"on {len(common)} matched real excerpts.")
     else:
         heading.append("- **Latency comparison:** No valid common real excerpt latency comparison is available.")
-    if ours and any(row["method"] != "OUR_EXISTING" and number(row.get("n_success"), 0) > 0 for row in primary_acc):
-        best = max((row for row in primary_acc if row["method"] != "OUR_EXISTING" and number(row.get("n_success"), 0) > 0), key=lambda row: number(row.get("acc1"), -1))
+    if ours and any(not row["method"].startswith("OUR_") and number(row.get("n_success"), 0) > 0 for row in primary_acc):
+        best = max((row for row in primary_acc if not row["method"].startswith("OUR_") and number(row.get("n_success"), 0) > 0), key=lambda row: number(row.get("acc1"), -1))
         heading.append(f"- **Accuracy-efficiency trade-off:** Best neural Acc1 was {percent(best['acc1'])}% "
                        f"({pretty(best['method'])}) versus {percent(ours['acc1'])}% classical; "
                        "the small subset and short-clip failures limit generalization.")
@@ -337,6 +337,19 @@ def generate(results_dir="results"):
                 "- [Accuracy-latency trade-off](figures/accuracy_latency_tradeoff.png)",
                 "- [Duration vs. latency](figures/duration_vs_latency.png)",
                 "- [Billie Jean qualitative comparison](figures/billie_jean_comparison.png)", ""]
+    if "OUR_V2" in methods:
+        position=heading.index("## Compared methods")
+        heading[position:position]=["## Separately developed classical V2", "",
+            "`OUR_V2` is a new method in `adapters/classical_v2.py`; the original robot implementation and its saved "
+            "benchmark results remain unchanged. It retains whitened multiband spectral flux, uses a faster FFT grid "
+            "and vectorized period/phase search, supports at least three matched attacks on short clips, and adds "
+            "density-aware tempo scoring with a development-selected tempo prior. It has no neural weights. "
+            "Runtime includes audio loading, resampling, features, fitting, and BPM/beat output; optional diagnostic "
+            "file writes from the original implementation are not part of V2's required API.", "",
+            "Configuration was selected on the previously inspected 50 GTZAN tracks, then frozen in "
+            "`improvements/frozen_protocol.json` before obtaining/evaluating the remaining 50 tracks. "
+            "The holdout split has no track overlap with this classical development set. Both Acc1 and Acc2 "
+            "are reported; an Acc2 advantage does not establish a raw-BPM Acc1 advantage.", ""]
     destination = root / "benchmark_report.md"
     destination.write_text("\n".join(line.rstrip() for line in "\n".join(heading).splitlines()) + "\n", encoding="utf-8")
     return destination

@@ -1,0 +1,29 @@
+{
+  "seed": 2026,
+  "threads": 1,
+  "device": "cpu",
+  "warmups_per_clip_method": 5,
+  "repetitions_per_clip_method": 20,
+  "order": "Randomized interleaving of methods within each repetition for each common clip",
+  "clip_ids": [
+    "blues.00004_8s",
+    "blues.00004_15s",
+    "blues.00004_30s",
+    "classical.00004_8s",
+    "classical.00004_15s",
+    "classical.00004_30s"
+  ],
+  "methods": [
+    "OUR_EXISTING",
+    "OUR_V2",
+    "OUR_V2_FAST",
+    "DeepRhythm",
+    "TempoCNN",
+    "BeatThis"
+  ],
+  "primary_stage": "file_to_result",
+  "scope": "All required file read, preprocessing, inference, decoding and BPM output; no downloads or feature cache",
+  "cold_initialization": "Not compared in shared process; separate process cold measurements retained in holdout_results",
+  "secondary_preloaded": "Already measured separately in holdout_results; not pooled with file timings",
+  "compiled_source_sha256": "269e07514b19900b00a125bb2fd4345bbf448bda76d401f0ff42cdc9637a8dc4"
+}

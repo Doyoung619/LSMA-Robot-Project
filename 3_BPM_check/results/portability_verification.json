@@ -1,0 +1,145 @@
+{
+  "checked_date_client": "2026-11-21",
+  "git_commit": "5ea2d610a86cdebf0521f28386025646bd29d966",
+  "git_dirty": true,
+  "scope": "BPM-detector environment/download/load/predict portability check; not the new dance-generation benchmark.",
+  "environment": {
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "pytorch": "2.6.0+cpu",
+    "torch_cuda_version": null,
+    "cuda_available": false,
+    "mujoco_installed_in_this_environment": false,
+    "os": "Windows-10-10.0.26200-SP0",
+    "cpu": "Intel(R) Core(TM) Ultra 5 226V",
+    "physical_cores": 8,
+    "logical_processors": 8,
+    "ram_bytes": 16687734784,
+    "nvidia_smi_available": false
+  },
+  "pip_check": {
+    "exit_code": 0,
+    "output": "No broken requirements found."
+  },
+  "tests": {
+    "passed": 16,
+    "failed": 0,
+    "wall_seconds": 3.507,
+    "command": ".venv/Scripts/python.exe -m unittest discover -s tests -v",
+    "includes": "cached checkpoint correct/corrupt hash subprocess exit-code contract"
+  },
+  "checkpoint_verification": [
+    {
+      "method": "DeepRhythm",
+      "filename": "deeprhythm-0.7.pth",
+      "source_url": "https://raw.githubusercontent.com/bleugreen/deeprhythm/main/weights/deeprhythm-0.7.pth",
+      "status": "cached",
+      "weight_bytes": 5443228,
+      "sha256": "c7cc8cc0425929cd2bf695474d7ec1fd63ed0d0a4a68f361d4e4b57bd9b3d9c4"
+    },
+    {
+      "method": "TempoCNN",
+      "filename": "deeptemp-k4-3.pb",
+      "source_url": "https://essentia.upf.edu/models/tempo/tempocnn/deeptemp-k4-3.pb",
+      "status": "cached",
+      "weight_bytes": 147561,
+      "sha256": "66f36ee56c5e87c98534bd5cadd1a38059096cc210712dc0557d077e6c8c8daa"
+    },
+    {
+      "method": "BeatThis",
+      "filename": "beat_this-small0.ckpt",
+      "source_url": "https://cloud.cp.jku.at/public.php/dav/files/7ik4RrBKTS273gp/small0.ckpt",
+      "status": "cached",
+      "weight_bytes": 8451101,
+      "sha256": "6074be2c4d490c5f6101fcc374a1ec72ae93456e23bb6019783b849f5dc7d47b"
+    }
+  ],
+  "checkpoint_total_bytes": 14041890,
+  "checkpoint_policy": "Gitignored models/; official URLs and pinned SHA256 checked before inference. Framework installation size is separate.",
+  "smoke": {
+    "command": "python run_benchmark.py --smoke --dataset demo --methods OUR_EXISTING DeepRhythm TempoCNN BeatThis --repetitions 1 --skip-download --device cpu --threads 1 --results results_portability_smoke",
+    "exit_code": 0,
+    "output_directory": "results_portability_smoke/ (gitignored)",
+    "input_duration_seconds": 30,
+    "input": "Existing Billie Jean demo prefix, same PCM input to all methods.",
+    "reference_bpm": null,
+    "quality_claim": "No ground truth; these are load/predict checks, not an accuracy ranking.",
+    "timing_claim": "One timed repeat for smoke only. No stable P95 or cross-job speed ranking is claimed.",
+    "models": [
+      {
+        "method": "BeatThis",
+        "status": "success",
+        "pretrained_loaded": "True",
+        "weight_bytes": "8451101",
+        "sha256": "6074be2c4d490c5f6101fcc374a1ec72ae93456e23bb6019783b849f5dc7d47b"
+      },
+      {
+        "method": "DeepRhythm",
+        "status": "success",
+        "pretrained_loaded": "True",
+        "weight_bytes": "5443228",
+        "sha256": "c7cc8cc0425929cd2bf695474d7ec1fd63ed0d0a4a68f361d4e4b57bd9b3d9c4"
+      },
+      {
+        "method": "OUR_EXISTING",
+        "status": "success",
+        "pretrained_loaded": "",
+        "weight_bytes": "0",
+        "sha256": "c36c0ae462cc0a1c7793deb667ac0a27f6479e4cd75e78390ba4145a905ecaed"
+      },
+      {
+        "method": "TempoCNN",
+        "status": "success",
+        "pretrained_loaded": "True",
+        "weight_bytes": "147561",
+        "sha256": "66f36ee56c5e87c98534bd5cadd1a38059096cc210712dc0557d077e6c8c8daa"
+      }
+    ],
+    "predictions": [
+      {
+        "method": "BeatThis",
+        "status": "success",
+        "bpm": "115.38461538461549",
+        "duration_seconds": "30.0"
+      },
+      {
+        "method": "DeepRhythm",
+        "status": "success",
+        "bpm": "116.0",
+        "duration_seconds": "30.0"
+      },
+      {
+        "method": "OUR_EXISTING",
+        "status": "success",
+        "bpm": "116.94312033559811",
+        "duration_seconds": "30.0"
+      },
+      {
+        "method": "TempoCNN",
+        "status": "success",
+        "bpm": "117.0",
+        "duration_seconds": "30.0"
+      }
+    ]
+  },
+  "existing_user_work": {
+    "policy": "Preserved without editing. Fingerprints changed during this check, so these files have an active external author; this report does not certify their latest algorithm development.",
+    "before": {
+      "adapters/__init__.py": "1f27b69e19158110c528d7e7406d30159d9c60e3468bdb252d235bfa029911c7",
+      "adapters/classical_v2.py": "651752d156d9547f417a6130601e66f03d565de15fd94596df18c568486a7517"
+    },
+    "after": {
+      "adapters/__init__.py": "1f27b69e19158110c528d7e7406d30159d9c60e3468bdb252d235bfa029911c7",
+      "adapters/classical_v2.py": "66104c1f294cf9b191efc126d4575123c76efd534c1cf60647553b0e94e00d28",
+      "plot_results.py": "b4a1a2b5b16e1408572984217d1f0b66ab52d853d6570b41e058f09181fbf78e",
+      "report_results.py": "a19bccdf578b55ee770d3497686685d8b7bde40c5d66752b4715ff543804ea24",
+      "run_benchmark.py": "4c9f71fba72a3bbe0753d4e2acc91b919d25ef7c54b1ec38ba3be3f0ec273c1c",
+      "validate_results.py": "d42d69bf7a932809d993f91b572ba7ecb611b6349994dd54df96242d7efe5c25"
+    }
+  },
+  "retained_prior_results": "Existing results/ benchmark outputs were not replaced. The shared data/dataset_manifest.json rewritten by the smoke was checked against the HEAD manifest with only real-tier entries removed, then restored byte-for-byte.",
+  "known_unavailable": {
+    "BeatNet": "Existing recorded resolver incompatibility: numba==0.54.1 requires Python below 3.10; no reinstall attempted.",
+    "native_Essentia": "Existing Windows compatibility fallback is explicitly labeled TensorFlow; not an Essentia runtime measurement."
+  },
+  "hardware_executed": false
+}

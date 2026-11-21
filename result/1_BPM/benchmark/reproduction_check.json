@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "regeneration_from_bundled_inputs": "PNG and SVG bytes identical for both figures",
+  "svg_xml_validation": "passed",
+  "output_hashes": {
+    "01_BPM_accuracy.png": "e91a35ff1ee7ba88b94e7726377330a6618b881098c332b9189a12e140738a59",
+    "02_BPM_latency.png": "03dfdebc06a172478c0bd954f18e21910deeafa773fbf3bc610c6ee8cf50eb0c",
+    "benchmark\\vector\\01_BPM_accuracy.svg": "558faa19648ccbc72a313928ca2bf301c3b24d577bd157f2c578cceb712c4ac6",
+    "benchmark\\vector\\02_BPM_latency.svg": "d796781fc465c53ae8b57eef408054dc51719255cacb8dd5e2bce562464e5b81"
+  },
+  "new_inference_performed": false
+}

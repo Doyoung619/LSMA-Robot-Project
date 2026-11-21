@@ -1,0 +1,36 @@
+Traceback (most recent call last):
+  File "C:\Users\허도영\Desktop\Git-Research\CMU Class\Rita-Robot\experiment\5_Benchmark2\run_benchmark.py", line 255, in main
+    latents,latent_info=load_latents(checkout,args.device,results);status["latents"]=latent_info
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\허도영\Desktop\Git-Research\CMU Class\Rita-Robot\experiment\5_Benchmark2\run_benchmark.py", line 107, in load_latents
+    started=time.perf_counter();module=load_module("roboperform_configured_latents",target);latents=module.get_latent()
+                                                                                                    ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\허도영\Desktop\Git-Research\CMU Class\Rita-Robot\experiment\5_Benchmark2\external\runtime_get_latent.py", line 10, in __init__
+    self.load_motion()
+  File "C:\Users\허도영\Desktop\Git-Research\CMU Class\Rita-Robot\experiment\5_Benchmark2\external\runtime_get_latent.py", line 20, in load_motion
+    self.motion_latents = torch.load(motion_latent_path).to(dtype=torch.float32, device=self._device)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\허도영\Desktop\Git-Research\CMU Class\Rita-Robot\experiment\5_Benchmark2\.venv\Lib\site-packages\torch\serialization.py", line 1462, in load
+    return _load(
+           ^^^^^^
+  File "C:\Users\허도영\Desktop\Git-Research\CMU Class\Rita-Robot\experiment\5_Benchmark2\.venv\Lib\site-packages\torch\serialization.py", line 1964, in _load
+    result = unpickler.load()
+             ^^^^^^^^^^^^^^^^
+  File "C:\Users\허도영\Desktop\Git-Research\CMU Class\Rita-Robot\experiment\5_Benchmark2\.venv\Lib\site-packages\torch\_weights_only_unpickler.py", line 512, in load
+    self.append(self.persistent_load(pid))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\허도영\Desktop\Git-Research\CMU Class\Rita-Robot\experiment\5_Benchmark2\.venv\Lib\site-packages\torch\serialization.py", line 1928, in persistent_load
+    typed_storage = load_tensor(
+                    ^^^^^^^^^^^^
+  File "C:\Users\허도영\Desktop\Git-Research\CMU Class\Rita-Robot\experiment\5_Benchmark2\.venv\Lib\site-packages\torch\serialization.py", line 1900, in load_tensor
+    wrap_storage=restore_location(storage, location),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\허도영\Desktop\Git-Research\CMU Class\Rita-Robot\experiment\5_Benchmark2\.venv\Lib\site-packages\torch\serialization.py", line 693, in default_restore_location
+    result = fn(storage, location)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\허도영\Desktop\Git-Research\CMU Class\Rita-Robot\experiment\5_Benchmark2\.venv\Lib\site-packages\torch\serialization.py", line 631, in _deserialize
+    device = _validate_device(location, backend_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\허도영\Desktop\Git-Research\CMU Class\Rita-Robot\experiment\5_Benchmark2\.venv\Lib\site-packages\torch\serialization.py", line 600, in _validate_device
+    raise RuntimeError(
+RuntimeError: Attempting to deserialize object on a CUDA device but torch.cuda.is_available() is False. If you are running on a CPU-only machine, please use torch.load with map_location=torch.device('cpu') to map your storages to the CPU.

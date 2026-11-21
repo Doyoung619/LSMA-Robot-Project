@@ -16,3 +16,4 @@ results*/*.log
 results*/worker_*.json
 vendor/
 results_smoke*/
+results_portability_smoke/

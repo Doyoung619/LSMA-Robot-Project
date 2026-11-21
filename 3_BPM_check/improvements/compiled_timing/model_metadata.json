@@ -1,0 +1,192 @@
+{
+  "OUR_EXISTING": {
+    "pretrained_loaded": null,
+    "weight_bytes": 0,
+    "checkpoint": "unchanged rita_robot.audio.analyze",
+    "version": "repository source",
+    "source_url": "../0_pre_and_etc/rita_robot/audio.py",
+    "license": "project source",
+    "sha256": "c36c0ae462cc0a1c7793deb667ac0a27f6479e4cd75e78390ba4145a905ecaed",
+    "actual_source": "C:\\Users\\\ud5c8\ub3c4\uc601\\Desktop\\Git-Research\\CMU Class\\Rita-Robot\\experiment\\0_pre_and_etc\\rita_robot\\audio.py",
+    "using_snapshot_fallback": false,
+    "configuration": {
+      "input": "44100 Hz stereo WAV",
+      "downsample_factor": 4,
+      "stft_nfft": 1024,
+      "hop": 128,
+      "bands_hz": [
+        [
+          35,
+          180
+        ],
+        [
+          180,
+          2000
+        ],
+        [
+          2000,
+          5000
+        ]
+      ],
+      "band_weights": [
+        0.55,
+        0.3,
+        0.15
+      ],
+      "median_filter_frames": 43,
+      "candidate_bpm_range": [
+        70,
+        180
+      ],
+      "top_candidates": 8,
+      "repeated_lags_weights": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0.6
+        ],
+        [
+          4,
+          0.3
+        ]
+      ],
+      "grid_period_steps": 121,
+      "grid_phase_steps": 48,
+      "refine_iterations": 4,
+      "minimum_supported_beats": 16,
+      "peak_match_seconds": 0.085,
+      "loss": "soft_l1",
+      "f_scale": 0.015
+    },
+    "timing_scope": "WAV read + unmodified analyze + JSON/NPZ writes + beat readback",
+    "preloaded_support": "unavailable: original interface accepts file path only"
+  },
+  "OUR_V2": {
+    "pretrained_loaded": null,
+    "weight_bytes": 0,
+    "checkpoint": "new classical development version",
+    "source_url": "adapters/classical_v2.py",
+    "license": "project source",
+    "version": "development-v2",
+    "sha256": "66104c1f294cf9b191efc126d4575123c76efd534c1cf60647553b0e94e00d28",
+    "configuration": {
+      "nfft": 512,
+      "hop": 256,
+      "band_weights": [
+        0.55,
+        0.3,
+        0.15
+      ],
+      "density_exponent": 0.25,
+      "tempo_prior_strength": 0.5,
+      "min_bpm": 40.0,
+      "max_bpm": 240.0,
+      "candidate_count": 6,
+      "period_steps": 7,
+      "phase_steps": 24
+    },
+    "family": "classical",
+    "output_type": "global BPM and fitted beat grid",
+    "development_status": "Configuration selected on development tracks; independent holdout evaluated separately",
+    "timing_scope": "WAV read, mono/resampling, onset features, period/phase search, fit and result",
+    "runtime_versions": {
+      "numpy": "1.26.4",
+      "scipy": "1.17.1",
+      "soundfile": "0.14.0",
+      "soxr": "1.1.0"
+    }
+  },
+  "OUR_V2_FAST": {
+    "pretrained_loaded": null,
+    "weight_bytes": 0,
+    "checkpoint": "compiled implementation of frozen classical V2",
+    "source_url": "adapters/classical_v2_fast.py",
+    "license": "project source",
+    "version": "v2-behavior-preserving-compiled",
+    "sha256": "269e07514b19900b00a125bb2fd4345bbf448bda76d401f0ff42cdc9637a8dc4",
+    "configuration": {
+      "nfft": 512,
+      "hop": 256,
+      "band_weights": [
+        0.55,
+        0.3,
+        0.15
+      ],
+      "density_exponent": 0.25,
+      "tempo_prior_strength": 0.5,
+      "min_bpm": 40.0,
+      "max_bpm": 240.0,
+      "candidate_count": 6,
+      "period_steps": 7,
+      "phase_steps": 24
+    },
+    "family": "classical",
+    "output_type": "global BPM and fitted beat grid",
+    "development_status": "Configuration selected on development tracks; independent holdout evaluated separately",
+    "timing_scope": "WAV read, mono/resampling, onset features, period/phase search, fit and result",
+    "runtime_versions": {
+      "numpy": "1.26.4",
+      "scipy": "1.17.1",
+      "soundfile": "0.14.0",
+      "soxr": "1.1.0"
+    },
+    "reference_algorithm_sha256": "66104c1f294cf9b191efc126d4575123c76efd534c1cf60647553b0e94e00d28",
+    "optimization": "Numba compiled period/phase scoring; near-ties use frozen NumPy scoring",
+    "equivalence_requirement": "Exact BPM, beats and status against frozen V2 on every held-out clip"
+  },
+  "DeepRhythm": {
+    "checkpoint": "deeprhythm-0.7.pth",
+    "weight_bytes": 5443228,
+    "sha256": "c7cc8cc0425929cd2bf695474d7ec1fd63ed0d0a4a68f361d4e4b57bd9b3d9c4",
+    "source_url": "https://raw.githubusercontent.com/bleugreen/deeprhythm/main/weights/deeprhythm-0.7.pth",
+    "license": "AGPL-3.0",
+    "version": "0.0.13",
+    "pretrained_loaded": true,
+    "output_type": "global BPM",
+    "device": "cpu",
+    "training_overlap": "Training corpus not fully documented; exploratory GTZAN evaluation",
+    "preprocessing": "Official librosa 22050 Hz; complete nonoverlapping 8 s chunks; trailing remainder discarded",
+    "parameter_count": 1357176
+  },
+  "TempoCNN": {
+    "checkpoint": "deeptemp-k4-3.pb",
+    "weight_bytes": 147561,
+    "sha256": "66f36ee56c5e87c98534bd5cadd1a38059096cc210712dc0557d077e6c8c8daa",
+    "source_url": "https://essentia.upf.edu/models/tempo/tempocnn/deeptemp-k4-3.pb",
+    "license": "CC BY-NC-SA 4.0 (Essentia model); AGPL-3.0 (original frontend)",
+    "version": "2.17.0",
+    "pretrained_loaded": true,
+    "output_type": "global BPM",
+    "device": "cpu",
+    "runtime": "TensorFlow v1 Session; original tempocnn librosa frontend (Essentia unavailable on Windows)",
+    "preprocessing": "11025 Hz, 1024 STFT, hop 512, 40 mel bands 20-5000 Hz, 256-frame patches hop 128; original std_normalizer",
+    "aggregation": "Original author: argmax of mean patch probabilities + 30 BPM; no interpolation",
+    "minimum_context": "256 frames (~11.9 s); original frontend zero-pads 8 s inputs",
+    "training_overlap": "Extended Ballroom, LMDTempo, MTGTempo per official metadata; full GTZAN overlap not independently verified",
+    "input_shape": [
+      null,
+      40,
+      null,
+      1
+    ],
+    "graph_nodes": 555
+  },
+  "BeatThis": {
+    "checkpoint": "beat_this-small0.ckpt",
+    "weight_bytes": 8451101,
+    "sha256": "6074be2c4d490c5f6101fcc374a1ec72ae93456e23bb6019783b849f5dc7d47b",
+    "source_url": "https://cloud.cp.jku.at/public.php/dav/files/7ik4RrBKTS273gp/small0.ckpt",
+    "license": "MIT (code and published weights, per official repository)",
+    "version": "1.1.0",
+    "pretrained_loaded": true,
+    "device": "cpu",
+    "output_type": "beats; BPM derived as 60 / median positive finite inter-beat interval",
+    "training_overlap": "small0 excludes GTZAN per official model table",
+    "dbn": false,
+    "preprocessing": "Official soundfile/torchaudio loader, soxr to 22050 Hz, log-mel spectrogram",
+    "parameter_count": 2099960
+  }
+}

@@ -1,0 +1,4 @@
+method,kind,repeat,status,total_generation_seconds
+our_finite,not_measured,0,not_measured,
+our_infinite,not_measured,0,not_measured,
+reachy_adapted,not_measured,0,not_measured,

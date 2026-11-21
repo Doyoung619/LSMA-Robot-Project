@@ -1,0 +1,3 @@
+# Pure upstream rhythmic_motion.py and collection/dance.py require NumPy only.
+# Reachy SDK, its hardware/demo wrapper, and neural weights are not installed.
+numpy>=1.24,<3

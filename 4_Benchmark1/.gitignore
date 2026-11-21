@@ -1,0 +1,13 @@
+.venv*/
+__pycache__/
+*.pyc
+external/
+weights/
+data/cache/
+results/trajectories/
+results/videos/
+results/reachy_native_smoke/
+results/_scratch/
+results*/trajectories/
+results*/videos/
+results*/_scratch/

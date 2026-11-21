@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "robot": "misty-head",
+  "joint_subset": [
+    "head_pitch",
+    "head_roll",
+    "head_yaw"
+  ],
+  "source_profile": "../0_pre_and_etc/rita_core/profiles/misty.example.json",
+  "hardware_executed": false,
+  "control_period_seconds": 0.1,
+  "initial_posture": "profile.neutral; each excerpt starts from this posture",
+  "reachy_orientation_scale": 1.0,
+  "reachy_initial_orientation_anchor": true,
+  "common_limit_handling": "none; retain raw outputs, no clipping/smoothing/projection",
+  "stage1": {
+    "start_beat_index": 0,
+    "seconds": 12.0,
+    "seed": 0
+  },
+  "stage2": {
+    "start_beat_indices": [
+      16,
+      64,
+      112
+    ],
+    "seconds": 24.0,
+    "seeds": [
+      0,
+      1,
+      2
+    ]
+  },
+  "long": {
+    "start_beat_index": 0,
+    "minimum_seconds": 120.0,
+    "reachy_minimum_cycles": 2,
+    "seed": 0
+  },
+  "full_cycle": {
+    "reference": "known synthetic 120 BPM; not natural-music quality",
+    "bpm": 120,
+    "head_waveform_period_beats": 760,
+    "native_all_channel_period_beats": 2280,
+    "cycles": 2,
+    "seed": 0
+  },
+  "latency": {
+    "warmups": 2,
+    "repetitions": 5,
+    "seed": 0,
+    "workload": "stage1 12 seconds, batch one",
+    "device": "cpu",
+    "threads": 1
+  },
+  "metrics": {
+    "window_beats": 4,
+    "window_samples": 32,
+    "recurrence_rms_threshold_joint_range": 0.04,
+    "minimum_window_index_separation": 2,
+    "accent_detector": "peaks of mean squared joint-range-normalized velocity",
+    "accent_prominence_per_second_squared": 0.0025,
+    "accent_minimum_interval_seconds": 0.2,
+    "accent_minimum_count": 2,
+    "accent_minimum_rate_per_second": 0.1,
+    "beat_tolerance_seconds": 0.1,
+    "permitted_subdivision_beats": 0.5,
+    "minimum_meaningful_excursion_rad": 0.03,
+    "stationary_speed_threshold_rad_s": 0.005
+  },
+  "profile": {
+    "name": "misty-head-benchmark-UNVERIFIED",
+    "model": "misty_ii_head_arms",
+    "joint_names": [
+      "head_pitch",
+      "head_roll",
+      "head_yaw"
+    ],
+    "neutral": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "lower": [
+      -0.15,
+      -0.25,
+      -0.5
+    ],
+    "upper": [
+      0.15,
+      0.25,
+      0.5
+    ],
+    "vmax": [
+      0.35,
+      0.35,
+      0.5
+    ],
+    "amax": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "units": "rad",
+    "command_mode": "mock",
+    "command_period": 0.1,
+    "feedback_freshness": 0.4,
+    "latency_seconds": 0.0,
+    "dispatch_lead_seconds": 0.1,
+    "latency_mode": "dispatch",
+    "workspace": {
+      "kind": "joint_box",
+      "collision_checked": false,
+      "verified": false,
+      "scope": "Example values; measure on this robot before enabling motion. Wheels excluded."
+    },
+    "local_verified": false,
+    "endpoint": {},
+    "min_excursion": 0.03,
+    "max_stationary_seconds": 0.35,
+    "speed_threshold": 0.005
+  },
+  "arguments": {
+    "quick": false,
+    "robot": "misty-head",
+    "audio": null,
+    "output": "results_native_full_cycle",
+    "method": "reachy_native",
+    "stage": "full-cycle",
+    "summarize": false,
+    "skip_timing": true,
+    "skip_visuals": true,
+    "timing_only": false,
+    "wait_idle_seconds": 900
+  }
+}

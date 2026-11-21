@@ -1,0 +1,37 @@
+{
+  "mapping_id": "reachy-rpy-to-misty-head-v1",
+  "fixed_before_evaluation": true,
+  "upstream": {
+    "url": "https://github.com/pollen-robotics/reachy_mini_dances_library.git",
+    "revision": "6808a976d3ddc11952ece67eb2403934fbb62af9",
+    "license": "Apache-2.0",
+    "version": "0.2.1"
+  },
+  "scheduler": {
+    "policy": "upstream cyclic preview",
+    "start_move": "simple_nod",
+    "beats_per_sequence": 8,
+    "excluded_moves": ["headbanger_combo"],
+    "amplitude_scale": 1.0,
+    "motion_phase": "global cumulative beat phase, never reset on move switch",
+    "transition": "hard switch with no added interpolation or crossfade",
+    "sampling_difference": "Ideal beat-boundary sampling replaces the hardware demo's wall-clock loop jitter and discarded boundary overshoot. Move order, hold beats, global motion phase, exclusions and parameters are unchanged."
+  },
+  "adaptation": {
+    "source_order": ["roll", "pitch", "yaw"],
+    "source_units": "rad",
+    "target_order": ["head_pitch", "head_roll", "head_yaw"],
+    "orientation_indices": [1, 0, 2],
+    "orientation_signs": [1.0, 1.0, 1.0],
+    "orientation_scale": 1.0,
+    "neutral": "target RobotProfile.neutral",
+    "anchor_first": true,
+    "initial_pose_policy": "Subtract the first sampled reordered Euler offset, then add the target neutral. This fixed per-crop translation matches every method's neutral initial joint state; it is not selected from evaluation metrics.",
+    "axis_meaning": "Direct named Euler-coordinate projection: Reachy pitch/roll/yaw offsets become Misty head_pitch/head_roll/head_yaw offsets, positive sign retained. This is not a calibrated cross-robot kinematic transform.",
+    "excluded_native_channels": ["position_x_m", "position_y_m", "position_z_m", "left_antenna_rad", "right_antenna_rad"],
+    "arms": "If a five-joint head/arms profile is supplied, both arms stay at that profile's neutral. Antennas are never mapped to arms.",
+    "projection_or_smoothing": "none; report original joint-limit violations and switching discontinuities",
+    "hardware_executed": false,
+    "scope": "offline commanded trajectory, unverified Misty example limits"
+  }
+}

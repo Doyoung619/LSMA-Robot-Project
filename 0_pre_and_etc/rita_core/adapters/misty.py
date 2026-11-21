@@ -303,6 +303,9 @@ class MistyAdapter(RobotAdapter):
                                          "planned_target_audio_time": command["target_audio_time"],
                                          "head_accepted": head_reply, "arms_accepted": arms_reply,
                                          "completion": "not measured"})
+                hook = getattr(self, "telemetry_hook", None)
+                if hook is not None:
+                    hook({**self.command_log[-1], "backend": "misty", "command": command})
         except Exception as exc:
             self._error = f"dispatch: {type(exc).__name__}: {exc}"
             self._cancel.set()

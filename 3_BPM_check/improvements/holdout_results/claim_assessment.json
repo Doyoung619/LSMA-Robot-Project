@@ -1,0 +1,73 @@
+{
+  "n_development_tracks": 50,
+  "n_holdout_tracks": 50,
+  "n_holdout_excerpts": 150,
+  "track_overlap": 0,
+  "algorithm_sha256": "66104c1f294cf9b191efc126d4575123c76efd534c1cf60647553b0e94e00d28",
+  "configuration_sha256": "910f4819ea5c8055aaf8ab835f13535701c8fc19c6dd332f64ef41e65d1623c1",
+  "higher_raw_acc1_than_every_nn": false,
+  "higher_acc2_than_every_nn": true,
+  "lower_matched_median_latency_than_every_nn": false,
+  "joint_superiority_point_estimate": false,
+  "raw_accuracy_differences_all_positive_95_percent_ci": false,
+  "paired_comparisons": {
+    "BeatThis": {
+      "acc1": {
+        "difference_percentage_points": -1.3333333333333344,
+        "paired_track_bootstrap_95_percent_ci": [
+          -14.000000000000002,
+          11.333333333333334
+        ]
+      },
+      "acc2": {
+        "difference_percentage_points": 10.0,
+        "paired_track_bootstrap_95_percent_ci": [
+          -2.220446049250313e-16,
+          20.666666666666668
+        ]
+      },
+      "v2_speedup": 35.57958387255344
+    },
+    "DeepRhythm": {
+      "acc1": {
+        "difference_percentage_points": 3.9999999999999982,
+        "paired_track_bootstrap_95_percent_ci": [
+          -8.000000000000002,
+          16.0
+        ]
+      },
+      "acc2": {
+        "difference_percentage_points": 4.0,
+        "paired_track_bootstrap_95_percent_ci": [
+          -4.666666666666667,
+          12.666666666666668
+        ]
+      },
+      "v2_speedup": 6.106261474102387
+    },
+    "TempoCNN": {
+      "acc1": {
+        "difference_percentage_points": 1.3333333333333335,
+        "paired_track_bootstrap_95_percent_ci": [
+          -10.000000000000002,
+          12.666666666666664
+        ]
+      },
+      "acc2": {
+        "difference_percentage_points": 6.666666666666667,
+        "paired_track_bootstrap_95_percent_ci": [
+          -0.6666666666666667,
+          15.333333333333332
+        ]
+      },
+      "v2_speedup": 0.7300939998595519
+    }
+  },
+  "matched_timing_clip_ids": [
+    "blues.00004_15s",
+    "blues.00004_30s",
+    "classical.00004_15s",
+    "classical.00004_30s"
+  ],
+  "limitations": "50 independent tracks with correlated prefixes; bootstrap is exploratory and not multiplicity-adjusted; neural training overlap partly unknown"
+}

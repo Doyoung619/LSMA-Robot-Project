@@ -3,6 +3,8 @@ import importlib
 
 METHODS = {
     "OUR_EXISTING": ("existing", "ExistingEstimator"),
+    "OUR_V2": ("classical_v2", "ClassicalV2Estimator"),
+    "OUR_V2_FAST": ("classical_v2_fast", "ClassicalV2FastEstimator"),
     "DeepRhythm": ("deeprhythm", "DeepRhythmEstimator"),
     "TempoCNN": ("tempocnn", "TempoCNNEstimator"),
     "BeatThis": ("beat_this", "BeatThisEstimator"),

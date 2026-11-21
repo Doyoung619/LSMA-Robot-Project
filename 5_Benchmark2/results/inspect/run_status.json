@@ -1,0 +1,54 @@
+{
+  "method": "RoboPerform released latent-conditioned G1 demo",
+  "artifact_verified": true,
+  "model_loaded_strict": true,
+  "forward_ok": false,
+  "rollout_ok": false,
+  "custom_audio_ok": false,
+  "hardware_executed": false,
+  "custom_audio_reason": "No released raw-audio encoder/adapter inference entry point and checkpoint path found; music.pt is indexed by stored motion name/time.",
+  "audio_alignment": null,
+  "same_robot_comparison": "unavailable: native G1 embodiment only",
+  "source_revision": "e6e2a0e4cdb20f081c1a3d46d648d7a202816779",
+  "dataset_revision": "3fdfcd75480450ec2f8f884723b5724cb3a8051b",
+  "arguments": {
+    "native": false,
+    "headless": true,
+    "inspect": true,
+    "device": "cpu",
+    "allow_cpu_device_port": false,
+    "motion_id": 0,
+    "seconds": 2,
+    "seed": 7,
+    "threads": 1,
+    "no_video": false,
+    "results": "results/inspect"
+  },
+  "errors": [],
+  "artifacts": [
+    {
+      "name": "student_80500.pt",
+      "bytes": 563075994,
+      "sha256": "93145065d01bc6a8b3c8567a7edfb36a15eb1621c3d02d60c399a0a07c360dfd"
+    }
+  ],
+  "model": {
+    "architecture_source": "deploy/save_TRT/save_tensorrt.py + diffusion_policy_23_dofs.py",
+    "num_observations": 1400,
+    "num_actions": 23,
+    "strict_state_dict": true,
+    "missing_keys": [],
+    "unexpected_keys": [],
+    "checkpoint_top_level_keys": [
+      "student_model_state_dict",
+      "student_optimizer_state_dict",
+      "iter",
+      "infos",
+      "student_obs_norm_state_dict"
+    ],
+    "parameter_count": 46912727,
+    "model_construction_seconds": 3.124134599987883,
+    "checkpoint_loading_seconds": 0.4864406999840867,
+    "modifications": []
+  }
+}

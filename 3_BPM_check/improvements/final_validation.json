@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "additional_figure_and_startup_checks": 22,
+  "heldout_consistency_checks": 14869,
+  "exact_output_equivalence_clips": 150,
+  "local_unit_tests_passed": 20,
+  "unit_test_note": "Includes one existing downloader CLI test from a separate portability task; 19 detector/metric tests are in this change and the original benchmark",
+  "matched_timing_clips": [
+    "blues.00004_15s",
+    "blues.00004_30s",
+    "classical.00004_15s",
+    "classical.00004_30s"
+  ],
+  "valid_interleaved_timing_rows": 680,
+  "original_robot_source_sha256": "c36c0ae462cc0a1c7793deb667ac0a27f6479e4cd75e78390ba4145a905ecaed"
+}

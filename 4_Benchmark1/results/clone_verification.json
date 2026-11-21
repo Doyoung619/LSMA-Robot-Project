@@ -1,0 +1,37 @@
+{
+  "verified_commit": "e2d9d330ce4c564c0f53d0b76189f81e15a5caaa",
+  "source": "Fresh local git clone of the committed repository; no shared working-tree files",
+  "environment_scope": "Existing per-benchmark virtual environments reused; this does not claim a fresh dependency installation on every OS",
+  "bpm_tests": {
+    "passed": 20,
+    "failed": 0
+  },
+  "reachy_tests": {
+    "passed": 14,
+    "failed": 0
+  },
+  "roboperform_contract_tests": {
+    "passed": 2,
+    "failed": 0
+  },
+  "reachy_source_download": {
+    "pinned_revision": "6808a976d3ddc11952ece67eb2403934fbb62af9",
+    "unmodified": true,
+    "sdk_instantiated": false
+  },
+  "saved_results_verifier_passed": true,
+  "git_line_ending_source_verification_passed": true,
+  "actual_stage1_generation": {
+    "duration_seconds": 12,
+    "same_robot_methods": [
+      "our_finite",
+      "our_infinite",
+      "reachy_adapted"
+    ],
+    "native_method": "reachy_native",
+    "all_generated": true,
+    "timing_remeasured": false
+  },
+  "neural_assets_redownloaded_in_clone": false,
+  "hardware_executed": false
+}

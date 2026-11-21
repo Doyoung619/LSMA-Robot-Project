@@ -11,8 +11,8 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-ORDER = ["OUR_EXISTING", "DeepRhythm", "TempoCNN", "BeatThis", "BeatNet"]
-COLORS = ["#335C81", "#D08C37", "#5D9279", "#9966A5", "#C66464"]
+ORDER = ["OUR_EXISTING", "DeepRhythm", "TempoCNN", "BeatThis", "BeatNet", "OUR_V2", "OUR_V2_FAST"]
+COLORS = ["#335C81", "#D08C37", "#5D9279", "#9966A5", "#C66464", "#217A73", "#956C44"]
 
 
 def read_csv(path):
@@ -31,7 +31,7 @@ def number(value, default=np.nan):
 
 
 def pretty(method):
-    return {"OUR_EXISTING": "Existing classical", "BeatThis": "Beat This! small0",
+    return {"OUR_EXISTING": "Existing classical", "OUR_V2": "Classical V2 (new)", "OUR_V2_FAST": "Classical V2 compiled", "BeatThis": "Beat This! small0",
             "BeatThisSmall0": "Beat This! small0", "BEAT_THIS": "Beat This! small0",
             "TEMPOCNN": "TempoCNN k4", "TempoCNN": "TempoCNN k4",
             "DEEPRHYTHM": "DeepRhythm", "Beat This!": "Beat This! small0"}.get(method, method)

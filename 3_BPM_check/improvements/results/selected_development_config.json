@@ -1,0 +1,16 @@
+{
+  "nfft": 512,
+  "hop": 256,
+  "band_weights": [
+    0.55,
+    0.3,
+    0.15
+  ],
+  "density_exponent": 0.25,
+  "tempo_prior_strength": 0.5,
+  "min_bpm": 40.0,
+  "max_bpm": 240.0,
+  "candidate_count": 6,
+  "period_steps": 7,
+  "phase_steps": 24
+}

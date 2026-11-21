@@ -1,0 +1,150 @@
+{
+  "official_url": "https://github.com/gentlefress/RoboPerform.git",
+  "revision": "e6e2a0e4cdb20f081c1a3d46d648d7a202816779",
+  "license": {
+    "readme_claim": "BSD-3-Clause",
+    "root_license_file_present": false,
+    "dataset_license_metadata": null,
+    "note": "Weights/data remain local. Upstream README links a missing LICENSE file at this revision; do not infer a weight redistribution license."
+  },
+  "relevant_files": [
+    "deploy/get_latent.py",
+    "whole_body_tracking/source/whole_body_tracking/whole_body_tracking/tasks/tracking/mdp/commands.py",
+    "whole_body_tracking/rsl_rl/modules/diffusion_policy.py",
+    "whole_body_tracking/rsl_rl/runners/on_policy_runner.py",
+    "deploy/deploy_mujoco/Roboperform_mujoco.py",
+    "deploy/deploy_real/Roboperform_real.py",
+    "deploy/save_TRT/diffusion_policy_23_dofs.py",
+    "deploy/save_TRT/save_onnx.py",
+    "deploy/save_TRT/save_tensorrt.py"
+  ],
+  "custom_audio": {
+    "supported_in_released_deployment": false,
+    "finding": "Released get_latent.py indexes music.pt by motion_new_name and time index; no documented released raw-audio encoder+adapter checkpoint path was found.",
+    "label": "Released latent-conditioned G1 demo; custom-audio inference unavailable."
+  },
+  "modifications": "No architecture, normalization, observation or latent replacement. Optional CPU device-placement patch is recorded separately when requested.",
+  "dataset_id": "SanQing1/RoboPerform",
+  "repo_type": "dataset",
+  "dataset_revision": "3fdfcd75480450ec2f8f884723b5724cb3a8051b",
+  "hosted_file_inventory": [
+    {
+      "filename": "student_80500.pt",
+      "bytes": 563075994,
+      "sha256": "93145065d01bc6a8b3c8567a7edfb36a15eb1621c3d02d60c399a0a07c360dfd"
+    },
+    {
+      "filename": "music.pt",
+      "bytes": 306873850,
+      "sha256": "15a6ff08bb3dc7bd83d3666f333b1501a3bdfa2a29f0203677829aab907e4bae"
+    },
+    {
+      "filename": "dance.pt",
+      "bytes": 129106,
+      "sha256": "402406733767b0967df016c995cf388616d0a4f697c3a5fc4a6967fe6b6da6b2"
+    },
+    {
+      "filename": "Roboperform_Data.pkl",
+      "bytes": 578989934,
+      "sha256": "fffae4d1e0c9caec9ec5d36295bf09a1042df88b799fd39b3f8c857f24e02a58"
+    },
+    {
+      "filename": "model_80500.engine",
+      "bytes": 188901556,
+      "sha256": "28c31d45df37d062aa30a0a2082ce011dad004f85334275d5961965d1c6bb7b6"
+    },
+    {
+      "filename": "model_88500.engine",
+      "bytes": 189040700,
+      "sha256": "76b7535f1cbf24022ebfe27b76ed28b8e2154b2786d1bd7e1c2e7579ad45b01f"
+    },
+    {
+      "filename": "teacher_74000.pt",
+      "bytes": 19347818,
+      "sha256": "a5840c94361e71e72dc7736ee3c4d5a2cb62b52683eab31b5ef789ba9804bd52"
+    }
+  ],
+  "selected_assets": [
+    "student_80500.pt",
+    "music.pt",
+    "dance.pt",
+    "Roboperform_Data.pkl"
+  ],
+  "selected_total_bytes": 1449068884,
+  "artifacts": [
+    {
+      "filename": "student_80500.pt",
+      "bytes": 563075994,
+      "sha256": "93145065d01bc6a8b3c8567a7edfb36a15eb1621c3d02d60c399a0a07c360dfd",
+      "verified": true,
+      "download_or_verify_seconds": 13.134234600001946,
+      "url": "https://huggingface.co/datasets/SanQing1/RoboPerform/resolve/3fdfcd75480450ec2f8f884723b5724cb3a8051b/student_80500.pt"
+    },
+    {
+      "filename": "music.pt",
+      "bytes": 306873850,
+      "sha256": "15a6ff08bb3dc7bd83d3666f333b1501a3bdfa2a29f0203677829aab907e4bae",
+      "verified": true,
+      "download_or_verify_seconds": 7.469093199993949,
+      "url": "https://huggingface.co/datasets/SanQing1/RoboPerform/resolve/3fdfcd75480450ec2f8f884723b5724cb3a8051b/music.pt"
+    },
+    {
+      "filename": "dance.pt",
+      "bytes": 129106,
+      "sha256": "402406733767b0967df016c995cf388616d0a4f697c3a5fc4a6967fe6b6da6b2",
+      "verified": true,
+      "download_or_verify_seconds": 0.252939800004242,
+      "url": "https://huggingface.co/datasets/SanQing1/RoboPerform/resolve/3fdfcd75480450ec2f8f884723b5724cb3a8051b/dance.pt"
+    },
+    {
+      "filename": "Roboperform_Data.pkl",
+      "bytes": 578989934,
+      "sha256": "fffae4d1e0c9caec9ec5d36295bf09a1042df88b799fd39b3f8c857f24e02a58",
+      "verified": true,
+      "download_or_verify_seconds": 13.735303399997065,
+      "url": "https://huggingface.co/datasets/SanQing1/RoboPerform/resolve/3fdfcd75480450ec2f8f884723b5724cb3a8051b/Roboperform_Data.pkl"
+    }
+  ],
+  "latest_pinned_host_inventory": [
+    {
+      "path": ".gitattributes",
+      "size": 2614,
+      "sha256": null
+    },
+    {
+      "path": "Roboperform_Data.pkl",
+      "size": 578989934,
+      "sha256": "fffae4d1e0c9caec9ec5d36295bf09a1042df88b799fd39b3f8c857f24e02a58"
+    },
+    {
+      "path": "dance.pt",
+      "size": 129106,
+      "sha256": "402406733767b0967df016c995cf388616d0a4f697c3a5fc4a6967fe6b6da6b2"
+    },
+    {
+      "path": "model_80500.engine",
+      "size": 188901556,
+      "sha256": "28c31d45df37d062aa30a0a2082ce011dad004f85334275d5961965d1c6bb7b6"
+    },
+    {
+      "path": "model_88500.engine",
+      "size": 189040700,
+      "sha256": "76b7535f1cbf24022ebfe27b76ed28b8e2154b2786d1bd7e1c2e7579ad45b01f"
+    },
+    {
+      "path": "music.pt",
+      "size": 306873850,
+      "sha256": "15a6ff08bb3dc7bd83d3666f333b1501a3bdfa2a29f0203677829aab907e4bae"
+    },
+    {
+      "path": "student_80500.pt",
+      "size": 563075994,
+      "sha256": "93145065d01bc6a8b3c8567a7edfb36a15eb1621c3d02d60c399a0a07c360dfd"
+    },
+    {
+      "path": "teacher_74000.pt",
+      "size": 19347818,
+      "sha256": "a5840c94361e71e72dc7736ee3c4d5a2cb62b52683eab31b5ef789ba9804bd52"
+    }
+  ]
+}

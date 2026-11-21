@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "prediction_metric_checks": 624,
+  "accuracy_records": 600,
+  "timing_records": 480,
+  "accuracy_tracks": 50,
+  "accuracy_clips_per_method": 150,
+  "latency_clips": [
+    "blues.00004_15s",
+    "blues.00004_30s",
+    "blues.00004_8s",
+    "classical.00004_15s",
+    "classical.00004_30s",
+    "classical.00004_8s"
+  ],
+  "latency_repetitions_per_clip": 20,
+  "bootstrap_replicates": 10000,
+  "bootstrap_seed": 2026,
+  "highest_observed_acc2": true,
+  "lowest_observed_median": true,
+  "raw_acc1_best_method": "BeatThis",
+  "interpretation": "Highest observed Acc2 and comparable observed latency to TempoCNN; no generic raw-accuracy or statistically proven superiority claim",
+  "output_hashes": {
+    "01_BPM_accuracy.png": "e91a35ff1ee7ba88b94e7726377330a6618b881098c332b9189a12e140738a59",
+    "02_BPM_latency.png": "03dfdebc06a172478c0bd954f18e21910deeafa773fbf3bc610c6ee8cf50eb0c"
+  }
+}

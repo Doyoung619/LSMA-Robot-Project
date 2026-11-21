@@ -1,0 +1,6 @@
+{
+  "idle_confirmed": true,
+  "wait_seconds": 244.60910779997357,
+  "checks": 43,
+  "policy": "other 3/5 benchmark Python jobs must finish; no process was stopped; methods run serially"
+}
