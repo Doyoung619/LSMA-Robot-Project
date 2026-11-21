@@ -3,10 +3,20 @@ import numpy as np
 from rita_core.audio import synthetic_analysis
 from rita_core.profiles import default_profile
 from rita_core.trajectory import make_segment,validate_segment
-from rita_core.evaluation import evaluate,event_match
+from rita_core.evaluation import evaluate,event_match,feedback_estimates
 
 
 class EvaluationTests(unittest.TestCase):
+    def test_nearly_duplicate_join_times_do_not_create_derivative_spikes(self):
+        p=default_profile()
+        times=np.r_[np.arange(0,1,.025),1-1e-12,1.,np.arange(1.025,2,.025)]
+        positions=np.zeros((len(times),p.nj));positions[:,0]=.1*np.sin(2*np.pi*times)
+        estimates=feedback_estimates(times,positions,p)
+        self.assertGreater(estimates['coalesced_timestamp_count'],0)
+        self.assertEqual(estimates['velocity_excess_estimate'],0)
+        self.assertEqual(estimates['acceleration_excess_estimate'],0)
+        self.assertAlmostEqual(estimates['max_velocity_estimate_rad_s'],.1*2*np.pi,delta=.03)
+
     def test_stationary_feedback_is_not_a_pose_passage(self):
         s=make_segment([0,1,2],[[0],[.02],[0]],accent_times=[1],accent_strengths=[1])
         times=np.arange(0,2,.025)

@@ -268,7 +268,11 @@ def run_session(analysis,profile,mode="finite",backend="mock",seed=7,seconds=60,
         except Exception as exc:
             info["close_error"]=str(exc);info["completed"]=False
             if info["error"] is None: info["error"]="Adapter cleanup failed: "+str(exc)
-        if not headless: clock.close()
+        if not headless:
+            try:clock.close()
+            except Exception as exc:
+                info["audio_close_error"]=str(exc);info["completed"]=False
+                if info["error"] is None:info["error"]="Audio cleanup failed after adapter stop: "+str(exc)
     info["wall_seconds"]=time.perf_counter()-began
     info["dispatch_receipts"]=receipts
     planner_stats=planner.stats()

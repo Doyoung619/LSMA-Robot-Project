@@ -64,6 +64,36 @@ def event_match(segments,times,positions,tolerance=.035):
             "matches":matches}
 
 
+def feedback_estimates(times,positions,profile):
+    """Estimate derivatives on a uniform physical-time grid, never tiny join gaps."""
+    times=np.asarray(times,dtype=float);positions=np.asarray(positions,dtype=float)
+    if len(times)<9:return None
+    minimum=max(1e-7,profile.command_period*.001)
+    if np.any(np.diff(times)<-minimum):
+        return {"status":"invalid_feedback_timestamps","velocity_excess_estimate":None,"acceleration_excess_estimate":None}
+    kept=[0]
+    for i in range(1,len(times)):
+        if times[i]-times[kept[-1]]>=minimum:kept.append(i)
+    if len(kept)<9:return {"status":"insufficient_distinct_feedback_timestamps"}
+    clean_t=times[kept];clean_q=positions[kept]
+    dt=float(np.median(np.diff(clean_t)))
+    uniform_t=np.arange(clean_t[0],clean_t[-1]+.25*dt,dt)
+    uniform_q=np.stack([np.interp(uniform_t,clean_t,clean_q[:,j]) for j in range(profile.nj)],axis=1)
+    window=min(9,len(uniform_t)//2*2-1)
+    if window<5:return {"status":"insufficient_uniform_feedback_samples"}
+    velocity=signal.savgol_filter(uniform_q,window,3,deriv=1,delta=dt,axis=0)
+    acceleration=signal.savgol_filter(uniform_q,window,3,deriv=2,delta=dt,axis=0)
+    return {"status":"sampled_estimates_not_continuous_certificates",
+            "position_excess":float(max(0,np.max(positions-profile.upper),np.max(profile.lower-positions))),
+            "velocity_excess_estimate":float(max(0,np.max(np.abs(velocity)-profile.vmax))),
+            "acceleration_excess_estimate":float(max(0,np.max(np.abs(acceleration)-profile.amax))),
+            "max_velocity_estimate_rad_s":float(np.max(np.abs(velocity))),
+            "max_acceleration_estimate_rad_s2":float(np.max(np.abs(acceleration))),
+            "coalesced_timestamp_count":len(times)-len(kept),"minimum_distinct_interval_seconds":minimum,
+            "resampled_interval_seconds":dt,
+            "derivative_estimator":f"Coalesce timestamps <{minimum:.6g}s, interpolate q onto uniform dt={dt:.6g}s, Savitzky-Golay window={window}, poly=3, derivatives with physical delta; estimates only"}
+
+
 def evaluate(segments,profile,analysis,feedback,planner_stats,run_info,planning_times):
     normal=[s for s in segments if not (s.metadata.get("fallback") or s.metadata.get("recovery") or s.metadata.get("excluded_from_diversity") or s.metadata.get("generation_kind") in ("recovery","fallback_suffix"))]
     motion=[s.metadata.get("primitive_id",s.metadata.get("cell","continuous")) for s in normal]
@@ -94,15 +124,7 @@ def evaluate(segments,profile,analysis,feedback,planner_stats,run_info,planning_
     samples=np.array([f["q"] for f in feedback]) if feedback else np.empty((0,profile.nj))
     ft=np.array([f["music_time"] for f in feedback])
     measured=event_match(normal,ft,samples) if len(samples) else None
-    measured_feas=None
-    if len(samples)>8:
-        dt=float(np.median(np.diff(ft)));window=min(9,len(samples)//2*2-1)
-        filtered=signal.savgol_filter(samples,window,3,axis=0)
-        velocity=np.gradient(filtered,ft,axis=0);acceleration=np.gradient(velocity,ft,axis=0)
-        measured_feas={"position_excess":float(max(0,np.max(samples-profile.upper),np.max(profile.lower-samples))),
-                       "velocity_excess_estimate":float(max(0,np.max(np.abs(velocity)-profile.vmax))),
-                       "acceleration_excess_estimate":float(max(0,np.max(np.abs(acceleration)-profile.amax))),
-                       "derivative_estimator":f"q Savitzky-Golay window={window}, poly=3, then gradients at actual sample timestamps; median dt={dt:.6g}s; estimates, not continuous-time certificates"}
+    measured_feas=feedback_estimates(ft,samples,profile) if len(samples) else None
     latency=np.array(planning_times)
     report={"provenance":{**provenance(),"seed":run_info["seed"],"audio_hash":analysis.audio_hash,
                           "profile":profile.to_dict(),"backend":run_info["backend"],"config":run_info,
@@ -153,6 +175,9 @@ def save_report(output,report,series):
         writer=csv.writer(f);n=qs.shape[1] if len(qs) else 0
         writer.writerow(["music_seconds"]+[f"{key}_{j}" for key in ("q_rad","dq_rad_s","ddq_rad_s2") for j in range(n)])
         for i in range(0,len(ts),4): writer.writerow([ts[i],*qs[i],*vs[i],*acc[i]])
+    with (output/"feedback.csv").open("w",newline="",encoding="utf-8") as f:
+        writer=csv.writer(f);writer.writerow(["actual_music_seconds"]+[f"q_rad_{j}" for j in range(samples.shape[1] if len(samples) else 0)])
+        for t,q in zip(ft,samples):writer.writerow([t,*q])
     if not len(ts): return
     import matplotlib
     matplotlib.use("Agg")

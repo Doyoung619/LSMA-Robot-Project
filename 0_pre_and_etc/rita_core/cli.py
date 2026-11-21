@@ -47,6 +47,26 @@ def compact(report):
             "invalid_reference_segments":report["feasibility"]["invalid_segments"]}
 
 
+def plot_comparison(rows,output):
+    """Mark stopped rows and unequal completed durations directly on the figure."""
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    fig,axes=plt.subplots(3,1,figsize=(13,10.5))
+    labels=[f"{r['method']}\n{r.get('ablation') or r['condition']}\ns{r['seed']} / {r.get('reference_seconds',0):.1f}s"+
+            ("\nSTOPPED" if not r['completed'] else "") for r in rows]
+    colors=["#2676ad" if r["completed"] else "#d34a41" for r in rows]
+    axes[0].bar(range(len(rows)),[r.get("motion_diversity",{}).get("shared_descriptor_feature_cells_visited",0) for r in rows],color=colors);axes[0].set_ylabel("Shared geometry cells / 8")
+    axes[1].bar(range(len(rows)),[r.get("motion_diversity",{}).get("short_repeat_ngram_ratio",{}).get("2",0) for r in rows],color=colors);axes[1].set_ylabel("Repeated geometry-cell 2-gram fraction")
+    axes[2].bar(range(len(rows)),[r.get("runtime",{}).get("planning_seconds_p95",0) or 0 for r in rows],color=colors);axes[2].set_ylabel("Planning p95 wall sec")
+    for ax in axes:
+        ax.set_xticks(range(len(rows)),labels,fontsize=6.5);ax.grid(axis="y",alpha=.2)
+        for tick,r in zip(ax.get_xticklabels(),rows):
+            if not r["completed"]:tick.set_color("#b8342b")
+    fig.suptitle("Mock reference comparison — executed duration shown; red = stopped/failed",fontsize=11)
+    fig.tight_layout(rect=(0,0,1,.97));fig.savefig(Path(output)/"comparison.png",dpi=120);plt.close(fig)
+
+
 def benchmark(args):
     output=output_dir(args,"benchmark")
     output.mkdir(parents=True,exist_ok=True)
@@ -89,17 +109,7 @@ def benchmark(args):
         for r in rows:w.writerow([r.get("method"),r.get("condition"),r.get("ablation"),r.get("seed"),r.get("completed"),r.get("reference_seconds"),r.get("segments"),
                                   r.get("motion_diversity",{}).get("shared_descriptor_feature_cells_visited"),len(r.get("rhythm_diversity",{}).get("rhythm_ids",[])),
                                   r.get("runtime",{}).get("planning_seconds_p95"),r.get("error")])
-    # Compact, comparable coverage/repetition/latency view (not raw trajectory hashes).
-    import matplotlib
-    matplotlib.use("Agg")
-    import matplotlib.pyplot as plt
-    fig,axes=plt.subplots(3,1,figsize=(13,10))
-    labels=[f"{r['method']}\n{r.get('ablation') or r['condition']}\ns{r['seed']}" for r in rows]
-    axes[0].bar(range(len(rows)),[r.get("motion_diversity",{}).get("shared_descriptor_feature_cells_visited",0) for r in rows]);axes[0].set_ylabel("Shared geometry cells / 8")
-    axes[1].bar(range(len(rows)),[r.get("motion_diversity",{}).get("short_repeat_ngram_ratio",{}).get("2",0) for r in rows]);axes[1].set_ylabel("Repeated 2-gram fraction")
-    axes[2].bar(range(len(rows)),[r.get("runtime",{}).get("planning_seconds_p95",0) or 0 for r in rows]);axes[2].set_ylabel("Planning p95 wall sec")
-    for ax in axes:ax.set_xticks(range(len(rows)),labels,fontsize=7);ax.grid(axis="y",alpha=.2)
-    fig.tight_layout();fig.savefig(output/"comparison.png",dpi=120);plt.close(fig)
+    plot_comparison(rows,output)
     dump({"output":str(output),"runs":len(rows),"completed":sum(r["completed"] for r in rows),"failures":[r for r in rows if not r["completed"]]})
 
 
