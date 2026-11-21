@@ -1,0 +1,11 @@
+method,condition,ablation,seed,completed,reference_seconds,segments,descriptor_cells,rhythms,planning_p95_s,error
+fixed-loop,normal,,7,True,64.0,8,1,1,0.01523973502189619,
+random,normal,,7,True,64.0,8,2,2,0.020092070018290543,
+finite,normal,,7,True,64.0,8,3,6,0.023742349994427057,
+infinite,normal,,7,True,64.0,16,8,10,0.311789300008968,
+finite,ablation,no-tempo-adaptation,7,True,60.0,30,3,1,0.014473859993449875,
+finite,ablation,no-coverage-novelty,7,True,64.0,8,2,2,0.01852499500819249,
+finite,ablation,single-rhythm,7,True,60.0,15,4,1,0.015251799981342623,
+infinite,ablation,no-tempo-adaptation,7,False,32.0,16,3,2,0.10587487500743009,InfinitePlanningError: Infinite planner: candidate_search_failed; adapter stop required
+infinite,ablation,no-coverage-novelty,7,True,64.0,16,4,13,0.38695414998801425,
+infinite,ablation,single-rhythm,7,True,66.0,20,6,1,0.38386528999835734,

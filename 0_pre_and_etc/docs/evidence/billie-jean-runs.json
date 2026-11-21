@@ -1,0 +1,995 @@
+{
+  "runs": [
+    {
+      "provenance": {
+        "git_sha": "14766406b946dd1db47ab7e3e5942e211dc2654e",
+        "git_dirty": true,
+        "branch": "main",
+        "seed": 7,
+        "audio_hash": "918dfeba11ed298af7e3f84a43527d0627b3e085766697bed758c851553ff174",
+        "profile": {
+          "name": "mock-six-joint",
+          "model": "mock_6dof",
+          "joint_names": [
+            "joint_1",
+            "joint_2",
+            "joint_3",
+            "joint_4",
+            "joint_5",
+            "joint_6"
+          ],
+          "neutral": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "lower": [
+            -0.6,
+            -0.6,
+            -0.6,
+            -0.6,
+            -0.6,
+            -0.6
+          ],
+          "upper": [
+            0.6,
+            0.6,
+            0.6,
+            0.6,
+            0.6,
+            0.6
+          ],
+          "vmax": [
+            1.2,
+            1.2,
+            1.2,
+            1.2,
+            1.2,
+            1.2
+          ],
+          "amax": [
+            6.0,
+            6.0,
+            6.0,
+            6.0,
+            6.0,
+            6.0
+          ],
+          "units": "rad",
+          "command_mode": "mock",
+          "command_period": 0.025,
+          "feedback_freshness": 0.25,
+          "latency_seconds": 0,
+          "dispatch_lead_seconds": 0.1,
+          "latency_mode": "dispatch",
+          "workspace": {
+            "kind": "joint_box",
+            "collision_checked": false,
+            "scope": "mock reference only"
+          },
+          "local_verified": false,
+          "endpoint": {},
+          "min_excursion": 0.03,
+          "max_stationary_seconds": 0.35,
+          "speed_threshold": 0.005
+        },
+        "backend": "mock",
+        "config": {
+          "method": "finite",
+          "backend": "mock",
+          "seed": 7,
+          "condition": "normal",
+          "seconds_requested": 294.011,
+          "headless_virtual_clock": true,
+          "planner_config": {},
+          "mock_options": {
+            "command_delay": 0,
+            "tracking_delay": 0,
+            "feedback_dropout": 0,
+            "disconnect_at": null
+          },
+          "completed": true,
+          "error": null,
+          "deadline_misses": 0,
+          "hardware_verified": false,
+          "initial_skipped_beats": 0,
+          "initial_dance_music_seconds": 0.33592642533486466,
+          "audio_grid_unchanged": true,
+          "planning_during_playback": false,
+          "adapter_capabilities": {
+            "backend": "mock",
+            "hardware": false,
+            "joint_names": [
+              "joint_1",
+              "joint_2",
+              "joint_3",
+              "joint_4",
+              "joint_5",
+              "joint_6"
+            ],
+            "units": "rad",
+            "feedback_freshness": 0.25,
+            "command_mode": "mock",
+            "command_period": 0.025,
+            "queue": true,
+            "cancel": true,
+            "future_execution": true,
+            "streaming_c2": true,
+            "reference_exact": true,
+            "stop_semantics": "simulated immediate hold, not a hardware braking guarantee",
+            "command_delay": 0.0,
+            "tracking_delay": 0.0,
+            "feedback_dropout": 0.0
+          },
+          "generation_stop_reason": "remaining_grid_shorter_than_current_phrase",
+          "audio_tail_not_planned_seconds": 6.558142609445042,
+          "clock": {
+            "kind": "virtual",
+            "epoch": 169188.1196467,
+            "acoustic_measurement": false
+          },
+          "stop_result": {
+            "backend": "mock",
+            "stop_requested": true,
+            "queue_cleared": true
+          },
+          "wall_seconds": 14.885338199994294
+        },
+        "analysis_settings": {
+          "method": "multiband spectral flux + autocorrelation + robust beat-grid fit",
+          "fft": 1024,
+          "hop": 128,
+          "analysis_rate": 11025.0,
+          "bands_hz": [
+            [
+              35,
+              180
+            ],
+            [
+              180,
+              2000
+            ],
+            [
+              2000,
+              5000
+            ]
+          ],
+          "weights": [
+            0.55,
+            0.3,
+            0.15
+          ],
+          "bpm_override": null,
+          "beat_offset": null,
+          "origin": "estimated beat origin; four-beat blocks are not detected downbeats",
+          "diagnostics": {
+            "legacy_result": {
+              "method": "multiband spectral flux + autocorrelation + robust beat-grid fit",
+              "bpm": 117.02546482191966,
+              "period_seconds": 0.5127089227229593,
+              "first_beat_seconds": 0.33592642533486466,
+              "duration_seconds": 294.0110657596372,
+              "median_nearest_onset_error_ms": 26.666806371792973,
+              "onset_support_within_50ms": 0.6460176991150443,
+              "beat_count": 573,
+              "tempo_candidates_bpm": [
+                116.98589166063022,
+                77.99059444042013,
+                150.41967430218006,
+                95.703125
+              ]
+            },
+            "tempo_changes_detected": false,
+            "global_tempo_assumption": true
+          },
+          "scope": "offline known audio analysis; online motion generation is separate",
+          "ambiguous_octaves": [
+            58.512732410959224,
+            117.02546482191845,
+            234.0509296438369
+          ]
+        }
+      },
+      "run": {
+        "method": "finite",
+        "backend": "mock",
+        "seed": 7,
+        "condition": "normal",
+        "seconds_requested": 294.011,
+        "headless_virtual_clock": true,
+        "planner_config": {},
+        "mock_options": {
+          "command_delay": 0,
+          "tracking_delay": 0,
+          "feedback_dropout": 0,
+          "disconnect_at": null
+        },
+        "completed": true,
+        "error": null,
+        "deadline_misses": 0,
+        "hardware_verified": false,
+        "initial_skipped_beats": 0,
+        "initial_dance_music_seconds": 0.33592642533486466,
+        "audio_grid_unchanged": true,
+        "planning_during_playback": false,
+        "adapter_capabilities": {
+          "backend": "mock",
+          "hardware": false,
+          "joint_names": [
+            "joint_1",
+            "joint_2",
+            "joint_3",
+            "joint_4",
+            "joint_5",
+            "joint_6"
+          ],
+          "units": "rad",
+          "feedback_freshness": 0.25,
+          "command_mode": "mock",
+          "command_period": 0.025,
+          "queue": true,
+          "cancel": true,
+          "future_execution": true,
+          "streaming_c2": true,
+          "reference_exact": true,
+          "stop_semantics": "simulated immediate hold, not a hardware braking guarantee",
+          "command_delay": 0.0,
+          "tracking_delay": 0.0,
+          "feedback_dropout": 0.0
+        },
+        "generation_stop_reason": "remaining_grid_shorter_than_current_phrase",
+        "audio_tail_not_planned_seconds": 6.558142609445042,
+        "clock": {
+          "kind": "virtual",
+          "epoch": 169188.1196467,
+          "acoustic_measurement": false
+        },
+        "stop_result": {
+          "backend": "mock",
+          "stop_requested": true,
+          "queue_cleared": true
+        },
+        "wall_seconds": 14.885338199994294
+      },
+      "segments_executed": 35,
+      "normal_dance_segments": 35,
+      "reference_duration_seconds": 287.11699672485724,
+      "synchronization": {
+        "reference": {
+          "event": "exact coefficient waypoint passage at declared rhythm targets",
+          "median_abs_ms": 0.0,
+          "missed_events": 0,
+          "scope": "reference only, not ground-truth music labels"
+        },
+        "simulated_measured": {
+          "event": "localized joint-waypoint distance minimum with >=.002 rad window excursion and approach/exit; offbeat targets included",
+          "median_abs_ms": 1.6713817827280764,
+          "p95_abs_ms": 2.924918119790476,
+          "missed_events": 54,
+          "matched_events": 118,
+          "extra_events": null,
+          "extra_events_note": "No independent full motion-event detector; unclassified extra passages are N/A"
+        },
+        "physical_robot": null
+      },
+      "feasibility": {
+        "scope": "continuous reference control hull and C2; not collision-free or measured tracking certification",
+        "invalid_segments": 0,
+        "max_position_excess_bound": 0.0,
+        "max_velocity_excess_bound": 0.0,
+        "max_acceleration_excess_bound": 0.0,
+        "max_C2_error": 2.2051916223058266e-15,
+        "collision_certified": false,
+        "workspace": {
+          "kind": "joint_box",
+          "collision_checked": false,
+          "scope": "mock reference only"
+        },
+        "simulated_estimates": {
+          "status": "sampled_estimates_not_continuous_certificates",
+          "position_excess": 0.0,
+          "velocity_excess_estimate": 0.0,
+          "acceleration_excess_estimate": 0.0,
+          "max_velocity_estimate_rad_s": 0.3120757525391951,
+          "max_acceleration_estimate_rad_s2": 1.1648532076051334,
+          "coalesced_timestamp_count": 0,
+          "minimum_distinct_interval_seconds": 2.5e-05,
+          "resampled_interval_seconds": 0.025000000000005684,
+          "derivative_estimator": "Coalesce timestamps <2.5e-05s, interpolate q onto uniform dt=0.025s, Savitzky-Golay window=9, poly=3, derivatives with physical delta; estimates only"
+        }
+      },
+      "motion_diversity": {
+        "library_count": 48,
+        "feasible_motion_count": 48,
+        "scc_motion_count": 48,
+        "motion_ids_observed": 30,
+        "library_coverage": 0.625,
+        "shared_descriptor_feature_cells_visited": 4,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": 0.03642105301633772,
+        "recent_window_distance_min": 0.011615656909739171,
+        "short_repeat_ngram_ratio": {
+          "2": 0.6470588235294118,
+          "3": 0.3333333333333333,
+          "4": 0.09375
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": 106.64345592637554,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 12,
+        "rhythm_ids": [
+          "anticipation",
+          "backbeat",
+          "dotted",
+          "double_pair",
+          "eighth_rest",
+          "five_rest",
+          "offbeats",
+          "six_rest",
+          "split_four",
+          "split_two",
+          "straight",
+          "syncopated"
+        ],
+        "longest_single_rhythm_run": 2
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.3475117626080504,
+        "reference_stationary_fraction_sampled": 0.11820557491289199,
+        "minimum_segment_excursion_rad": 0.108,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.023489899991545826,
+        "planning_seconds_p95": 0.03701607000839429,
+        "planning_seconds_max": 3.588485700020101,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 0,
+        "novelty_relaxations": 0,
+        "k_changes": 0,
+        "certificate_resets": 1
+      },
+      "planner": {
+        "mode": "finite",
+        "seed": 7,
+        "library_count": 48,
+        "library_hash": "8bbf3f103839fd50495a22e08b7eb2df982cfa68986bcb7f707f97a15baceed5",
+        "geometry_frozen_before_playback": true,
+        "projected_unique_motion_count": 48,
+        "projected_duplicates": {},
+        "feasible_motion_count": 48,
+        "feasible_count_note": "motions with at least one certified tested macro-action; conservative certificate failures are not proofs of physical impossibility",
+        "scc_motion_count": 48,
+        "scc_rhythm_count": 13,
+        "scheduled_motion_count": 30,
+        "motion_coverage": 0.625,
+        "library_motion_coverage": 0.625,
+        "feasible_motion_coverage": 0.020833333333333332,
+        "scc_motion_coverage": 0.020833333333333332,
+        "rhythm_coverage": 0.9230769230769231,
+        "scc_rhythm_coverage": 0.07692307692307693,
+        "coverage_observation_scope": "scheduled reference segments; execution success must be confirmed separately by runner/feedback",
+        "macro_action_nodes": 149,
+        "certified_edges": 416,
+        "checked_edges": 445,
+        "unknown_edges": 21756,
+        "rejected_edges": 29,
+        "whole_dense_graph_certified": false,
+        "candidate_statuses": {
+          "certified_macro_actions": 225,
+          "rejected_by_sufficient_certificate": 243,
+          "horizon_unavailable": 1
+        },
+        "coverage_certificate": {
+          "valid": true,
+          "conditional": true,
+          "goal_count": 61,
+          "directed_diameter": 2,
+          "tau_max_seconds": 8.203342763567377,
+          "bag_completion_bound_seconds": 1501.21172573283,
+          "revisit_bound_seconds": 3002.42345146566,
+          "scope": "selected SCC of explicit certified sparse graph only",
+          "conditions": [
+            "timing/profile/latency context remains unchanged",
+            "each scheduled action executes successfully",
+            "persistent minimum-edge service paths and complete bags",
+            "no recovery, external interruption, or deadline failure"
+          ]
+        },
+        "base_graph_certificate": {
+          "valid": true,
+          "conditional": true,
+          "goal_count": 61,
+          "directed_diameter": 2,
+          "tau_max_seconds": 8.203342763567377,
+          "bag_completion_bound_seconds": 1501.21172573283,
+          "revisit_bound_seconds": 3002.42345146566,
+          "scope": "selected SCC of explicit certified sparse graph only",
+          "conditions": [
+            "timing/profile/latency context remains unchanged",
+            "each scheduled action executes successfully",
+            "persistent minimum-edge service paths and complete bags",
+            "no recovery, external interruption, or deadline failure"
+          ]
+        },
+        "lazy_shortcut_edges_checked": 125,
+        "certificate_resets": 1,
+        "contexts": [
+          {
+            "context": "642907c8cfe973f031f051407887505bc5010d8e319e1b02cfb07db0828eeeda:k2",
+            "reason": "initial_certificate",
+            "start_beat": 0,
+            "metrical_level": 2,
+            "feasible_motion_count": 48,
+            "scc_motion_count": 48
+          },
+          {
+            "context": "c2ffe25343822d9591e4611d2ed22e70bc7d6df371a847b2df142dccf692f58d:k2",
+            "reason": "timing_profile_latency_or_metrical_context_changed",
+            "start_beat": 544,
+            "metrical_level": 2,
+            "feasible_motion_count": 48,
+            "scc_motion_count": 48
+          }
+        ],
+        "metrical_level": 2,
+        "k_changes": 0,
+        "completed_bags": [],
+        "pending_goal": [
+          "motion",
+          "motion_37"
+        ],
+        "remaining_goal_count": 59,
+        "remaining_path": [],
+        "motion_visits": {
+          "motion_04": 2,
+          "motion_11": 1,
+          "motion_03": 2,
+          "motion_02": 2,
+          "motion_13": 1,
+          "motion_28": 1,
+          "motion_01": 1,
+          "motion_07": 1,
+          "motion_05": 1,
+          "motion_45": 1,
+          "motion_20": 1,
+          "motion_17": 1,
+          "motion_33": 1,
+          "motion_38": 1,
+          "motion_23": 1,
+          "motion_37": 2,
+          "motion_29": 1,
+          "motion_25": 1,
+          "motion_21": 2,
+          "motion_27": 1,
+          "motion_48": 1,
+          "motion_36": 1,
+          "motion_43": 1,
+          "motion_10": 1,
+          "motion_15": 1,
+          "motion_40": 1,
+          "motion_46": 1,
+          "motion_14": 1,
+          "motion_41": 1,
+          "motion_47": 1
+        },
+        "rhythm_visits": {
+          "eighth_rest": 7,
+          "six_rest": 5,
+          "double_pair": 1,
+          "split_two": 1,
+          "straight": 4,
+          "backbeat": 6,
+          "offbeats": 3,
+          "anticipation": 2,
+          "split_four": 2,
+          "syncopated": 2,
+          "dotted": 1,
+          "five_rest": 1
+        },
+        "recovery_count": 0,
+        "failures": [],
+        "preparation_seconds": 5.175490099994931,
+        "planning_latency_seconds": {
+          "median": 0.023481100011849776,
+          "p95": 0.037007699991227105,
+          "max": 3.588477699988289
+        },
+        "visit_statistics_scope": "Planner selection/reservation state; actual executed coverage is measured from completed segments in motion_diversity."
+      },
+      "source_json": {
+        "path": "0_pre_and_etc/outputs/final_billie_finite_v3/summary.json",
+        "sha256": "a49d50f4bf2715a88ed003c0102731efce469ddf0ebf5ef49d227287b27e89b3"
+      },
+      "retained_scope": "Reference certificates, sampled/simulated metrics, original provenance/profile/config. No raw trajectories, dispatch receipts or per-event match arrays."
+    },
+    {
+      "provenance": {
+        "git_sha": "14766406b946dd1db47ab7e3e5942e211dc2654e",
+        "git_dirty": true,
+        "branch": "main",
+        "seed": 7,
+        "audio_hash": "918dfeba11ed298af7e3f84a43527d0627b3e085766697bed758c851553ff174",
+        "profile": {
+          "name": "mock-six-joint",
+          "model": "mock_6dof",
+          "joint_names": [
+            "joint_1",
+            "joint_2",
+            "joint_3",
+            "joint_4",
+            "joint_5",
+            "joint_6"
+          ],
+          "neutral": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "lower": [
+            -0.6,
+            -0.6,
+            -0.6,
+            -0.6,
+            -0.6,
+            -0.6
+          ],
+          "upper": [
+            0.6,
+            0.6,
+            0.6,
+            0.6,
+            0.6,
+            0.6
+          ],
+          "vmax": [
+            1.2,
+            1.2,
+            1.2,
+            1.2,
+            1.2,
+            1.2
+          ],
+          "amax": [
+            6.0,
+            6.0,
+            6.0,
+            6.0,
+            6.0,
+            6.0
+          ],
+          "units": "rad",
+          "command_mode": "mock",
+          "command_period": 0.025,
+          "feedback_freshness": 0.25,
+          "latency_seconds": 0,
+          "dispatch_lead_seconds": 0.1,
+          "latency_mode": "dispatch",
+          "workspace": {
+            "kind": "joint_box",
+            "collision_checked": false,
+            "scope": "mock reference only"
+          },
+          "local_verified": false,
+          "endpoint": {},
+          "min_excursion": 0.03,
+          "max_stationary_seconds": 0.35,
+          "speed_threshold": 0.005
+        },
+        "backend": "mock",
+        "config": {
+          "method": "infinite",
+          "backend": "mock",
+          "seed": 7,
+          "condition": "normal",
+          "seconds_requested": 294.011,
+          "headless_virtual_clock": true,
+          "planner_config": {},
+          "mock_options": {
+            "command_delay": 0,
+            "tracking_delay": 0,
+            "feedback_dropout": 0,
+            "disconnect_at": null
+          },
+          "completed": true,
+          "error": null,
+          "deadline_misses": 0,
+          "hardware_verified": false,
+          "initial_skipped_beats": 0,
+          "initial_dance_music_seconds": 0.33592642533486466,
+          "audio_grid_unchanged": true,
+          "planning_during_playback": false,
+          "adapter_capabilities": {
+            "backend": "mock",
+            "hardware": false,
+            "joint_names": [
+              "joint_1",
+              "joint_2",
+              "joint_3",
+              "joint_4",
+              "joint_5",
+              "joint_6"
+            ],
+            "units": "rad",
+            "feedback_freshness": 0.25,
+            "command_mode": "mock",
+            "command_period": 0.025,
+            "queue": true,
+            "cancel": true,
+            "future_execution": true,
+            "streaming_c2": true,
+            "reference_exact": true,
+            "stop_semantics": "simulated immediate hold, not a hardware braking guarantee",
+            "command_delay": 0.0,
+            "tracking_delay": 0.0,
+            "feedback_dropout": 0.0
+          },
+          "generation_stop_reason": "remaining_grid_shorter_than_current_phrase",
+          "audio_tail_not_planned_seconds": 2.456471227661382,
+          "clock": {
+            "kind": "virtual",
+            "epoch": 169183.0415751,
+            "acoustic_measurement": false
+          },
+          "stop_result": {
+            "backend": "mock",
+            "stop_requested": true,
+            "queue_cleared": true
+          },
+          "wall_seconds": 24.89393910000217
+        },
+        "analysis_settings": {
+          "method": "multiband spectral flux + autocorrelation + robust beat-grid fit",
+          "fft": 1024,
+          "hop": 128,
+          "analysis_rate": 11025.0,
+          "bands_hz": [
+            [
+              35,
+              180
+            ],
+            [
+              180,
+              2000
+            ],
+            [
+              2000,
+              5000
+            ]
+          ],
+          "weights": [
+            0.55,
+            0.3,
+            0.15
+          ],
+          "bpm_override": null,
+          "beat_offset": null,
+          "origin": "estimated beat origin; four-beat blocks are not detected downbeats",
+          "diagnostics": {
+            "legacy_result": {
+              "method": "multiband spectral flux + autocorrelation + robust beat-grid fit",
+              "bpm": 117.02546482191966,
+              "period_seconds": 0.5127089227229593,
+              "first_beat_seconds": 0.33592642533486466,
+              "duration_seconds": 294.0110657596372,
+              "median_nearest_onset_error_ms": 26.666806371792973,
+              "onset_support_within_50ms": 0.6460176991150443,
+              "beat_count": 573,
+              "tempo_candidates_bpm": [
+                116.98589166063022,
+                77.99059444042013,
+                150.41967430218006,
+                95.703125
+              ]
+            },
+            "tempo_changes_detected": false,
+            "global_tempo_assumption": true
+          },
+          "scope": "offline known audio analysis; online motion generation is separate",
+          "ambiguous_octaves": [
+            58.512732410959224,
+            117.02546482191845,
+            234.0509296438369
+          ]
+        }
+      },
+      "run": {
+        "method": "infinite",
+        "backend": "mock",
+        "seed": 7,
+        "condition": "normal",
+        "seconds_requested": 294.011,
+        "headless_virtual_clock": true,
+        "planner_config": {},
+        "mock_options": {
+          "command_delay": 0,
+          "tracking_delay": 0,
+          "feedback_dropout": 0,
+          "disconnect_at": null
+        },
+        "completed": true,
+        "error": null,
+        "deadline_misses": 0,
+        "hardware_verified": false,
+        "initial_skipped_beats": 0,
+        "initial_dance_music_seconds": 0.33592642533486466,
+        "audio_grid_unchanged": true,
+        "planning_during_playback": false,
+        "adapter_capabilities": {
+          "backend": "mock",
+          "hardware": false,
+          "joint_names": [
+            "joint_1",
+            "joint_2",
+            "joint_3",
+            "joint_4",
+            "joint_5",
+            "joint_6"
+          ],
+          "units": "rad",
+          "feedback_freshness": 0.25,
+          "command_mode": "mock",
+          "command_period": 0.025,
+          "queue": true,
+          "cancel": true,
+          "future_execution": true,
+          "streaming_c2": true,
+          "reference_exact": true,
+          "stop_semantics": "simulated immediate hold, not a hardware braking guarantee",
+          "command_delay": 0.0,
+          "tracking_delay": 0.0,
+          "feedback_dropout": 0.0
+        },
+        "generation_stop_reason": "remaining_grid_shorter_than_current_phrase",
+        "audio_tail_not_planned_seconds": 2.456471227661382,
+        "clock": {
+          "kind": "virtual",
+          "epoch": 169183.0415751,
+          "acoustic_measurement": false
+        },
+        "stop_result": {
+          "backend": "mock",
+          "stop_requested": true,
+          "queue_cleared": true
+        },
+        "wall_seconds": 24.89393910000217
+      },
+      "segments_executed": 71,
+      "normal_dance_segments": 71,
+      "reference_duration_seconds": 291.2186681066409,
+      "synchronization": {
+        "reference": {
+          "event": "exact coefficient waypoint passage at declared rhythm targets",
+          "median_abs_ms": 0.0,
+          "missed_events": 0,
+          "scope": "reference only, not ground-truth music labels"
+        },
+        "simulated_measured": {
+          "event": "localized joint-waypoint distance minimum with >=.002 rad window excursion and approach/exit; offbeat targets included",
+          "median_abs_ms": 0.8356908937230401,
+          "p95_abs_ms": 12.291077277154727,
+          "missed_events": 1,
+          "matched_events": 356,
+          "extra_events": null,
+          "extra_events_note": "No independent full motion-event detector; unclassified extra passages are N/A"
+        },
+        "physical_robot": null
+      },
+      "feasibility": {
+        "scope": "continuous reference control hull and C2; not collision-free or measured tracking certification",
+        "invalid_segments": 0,
+        "max_position_excess_bound": 0.0,
+        "max_velocity_excess_bound": 0.0,
+        "max_acceleration_excess_bound": 0.0,
+        "max_C2_error": 4.2234609071732905e-15,
+        "collision_certified": false,
+        "workspace": {
+          "kind": "joint_box",
+          "collision_checked": false,
+          "scope": "mock reference only"
+        },
+        "simulated_estimates": {
+          "status": "sampled_estimates_not_continuous_certificates",
+          "position_excess": 0.0,
+          "velocity_excess_estimate": 0.0,
+          "acceleration_excess_estimate": 0.0,
+          "max_velocity_estimate_rad_s": 0.46379407027362207,
+          "max_acceleration_estimate_rad_s2": 1.5459496048100354,
+          "coalesced_timestamp_count": 0,
+          "minimum_distinct_interval_seconds": 2.5e-05,
+          "resampled_interval_seconds": 0.025000000000005684,
+          "derivative_estimator": "Coalesce timestamps <2.5e-05s, interpolate q onto uniform dt=0.025s, Savitzky-Golay window=9, poly=3, derivatives with physical delta; estimates only"
+        }
+      },
+      "motion_diversity": {
+        "library_count": null,
+        "feasible_motion_count": null,
+        "scc_motion_count": null,
+        "motion_ids_observed": 71,
+        "library_coverage": null,
+        "shared_descriptor_feature_cells_visited": 8,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": 0.0319859074959413,
+        "recent_window_distance_min": 0.02090633124626051,
+        "short_repeat_ngram_ratio": {
+          "2": 0.6142857142857143,
+          "3": 0.3333333333333333,
+          "4": 0.10294117647058823
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": 77.93175625388983,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 13,
+        "rhythm_ids": [
+          "anticipation",
+          "backbeat",
+          "dotted",
+          "double_pair",
+          "eighth_rest",
+          "eighths",
+          "five_rest",
+          "offbeats",
+          "six_rest",
+          "split_four",
+          "split_two",
+          "straight",
+          "syncopated"
+        ],
+        "longest_single_rhythm_run": 2
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.02453548592649718,
+        "reference_stationary_fraction_sampled": 8.588114050154586e-05,
+        "minimum_segment_excursion_rad": 0.10600127530001857,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.27010280001559295,
+        "planning_seconds_p95": 0.350955600006273,
+        "planning_seconds_max": 0.4003810999856796,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 0,
+        "novelty_relaxations": 5,
+        "k_changes": 0,
+        "certificate_resets": 0
+      },
+      "planner": {
+        "candidate_proposals": 3408,
+        "exact_segment_validations": 1176,
+        "generated_segments": 71,
+        "novelty_relaxations": 5,
+        "relaxed_segments": 5,
+        "calls": 71,
+        "seed": 7,
+        "config": {
+          "candidate_count": 24,
+          "horizon": 2,
+          "recent_window": 16,
+          "novelty_threshold": 0.025,
+          "novelty_factors": [
+            1.0,
+            0.75,
+            0.5,
+            0.25,
+            0.0
+          ],
+          "metrical_levels": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "min_feasible_choices": 3,
+          "max_validated_candidates": 8,
+          "faster_level_hysteresis": 2,
+          "planning_budget_seconds": 1.5,
+          "boundary_tolerance": 1e-06,
+          "amplitude_cell_threshold": 0.18,
+          "single_rhythm": false,
+          "no_coverage_novelty": false,
+          "stop_to_stop": false,
+          "terminal_hold_seconds": 0.0,
+          "force_failure": false,
+          "force_timeout": false
+        },
+        "current_metrical_level": 1,
+        "feature_cells_total": 8,
+        "feature_cells_visited": 8,
+        "feature_cells_ever_witnessed": 8,
+        "feature_cell_coverage": 1.0,
+        "unwitnessed_cells": [],
+        "feature_cell_visits": {
+          "g0:-:low": 10,
+          "g1:+:low": 9,
+          "g0:+:low": 9,
+          "g0:+:high": 9,
+          "g1:+:high": 9,
+          "g1:-:low": 9,
+          "g1:-:high": 8,
+          "g0:-:high": 8
+        },
+        "service_queue": [
+          "g1:-:high",
+          "g0:-:high",
+          "g1:+:low",
+          "g0:+:low",
+          "g0:+:high",
+          "g1:+:high",
+          "g1:-:low",
+          "g0:-:low"
+        ],
+        "max_observed_cell_service_interval_calls": 8,
+        "rhythm_visits": {
+          "offbeats": 4,
+          "six_rest": 6,
+          "split_four": 6,
+          "split_two": 6,
+          "backbeat": 7,
+          "dotted": 6,
+          "five_rest": 4,
+          "syncopated": 5,
+          "straight": 6,
+          "anticipation": 5,
+          "double_pair": 5,
+          "eighth_rest": 6,
+          "eighths": 5
+        },
+        "reserved_suffix_remaining": 0,
+        "last": {
+          "primitive_id": "continuous-0000071",
+          "generation_kind": "continuous",
+          "start_beat": 560,
+          "end_beat": 568,
+          "horizon": 1,
+          "horizon_requested": 2,
+          "accent_event_type": "designated_waypoint_passage",
+          "accent_rest_indices": [],
+          "projection_scale": 1.0,
+          "terminal_condition": "neutral_zero_velocity_acceleration",
+          "stop_to_stop": false,
+          "future_audio_lookahead_seconds": 4.10167138178366,
+          "fallback": false,
+          "planning_seconds": 0.35344330000225455,
+          "candidate_count": 24,
+          "validated_candidates": 8,
+          "feature_cell": "g0:-:low",
+          "service_target": "g0:-:low",
+          "service_target_witnessed_now": true,
+          "service_target_served": true,
+          "novelty_distance": 0.028510157416957692,
+          "novelty_threshold_requested": 0.025,
+          "novelty_threshold_used": 0.025,
+          "novelty_relaxation_steps": 0,
+          "novelty_success": true,
+          "coverage_success": true,
+          "novelty_policy_enabled": true,
+          "reserved_suffix_remaining": 0,
+          "search_failure_is_not_impossibility": true
+        },
+        "coverage_guarantee": "Conditional service of persistently witnessed targets; no random-search finite-time bound.",
+        "novelty_guarantee": "Reported recent-window distance at the logged threshold; threshold may relax to zero.",
+        "recursive_feasibility": "Only the validated retained suffix and terminal stop are certified; replanning can fail.",
+        "visit_statistics_scope": "Planner selection/reservation state; actual executed coverage is measured from completed segments in motion_diversity."
+      },
+      "source_json": {
+        "path": "0_pre_and_etc/outputs/final_billie_infinite_v3/summary.json",
+        "sha256": "85b4504d306eeabc8600b3ca3789aecaa04603c741f058207b5664089fad5faf"
+      },
+      "retained_scope": "Reference certificates, sampled/simulated metrics, original provenance/profile/config. No raw trajectories, dispatch receipts or per-event match arrays."
+    }
+  ]
+}

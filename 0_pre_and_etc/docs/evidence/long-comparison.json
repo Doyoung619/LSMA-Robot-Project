@@ -1,0 +1,1212 @@
+{
+  "source_json": {
+    "path": "0_pre_and_etc/outputs/final_long_v3/comparison.json",
+    "sha256": "db5dcbf6dae1201475ae78b2dbc5afea83d89e9108203cbe5bfb9e2ff5ba594c"
+  },
+  "figure_layout": "Two vertically stacked seed-specific comparison panels, 10 conditions each. Public plot helper used for both panels; individual axes retained.",
+  "rows": [
+    {
+      "completed": true,
+      "error": null,
+      "method": "finite",
+      "reference_seconds": 664.0000000000001,
+      "segments": 83,
+      "motion_diversity": {
+        "library_count": 48,
+        "feasible_motion_count": 48,
+        "scc_motion_count": 48,
+        "motion_ids_observed": 48,
+        "library_coverage": 1.0,
+        "shared_descriptor_feature_cells_visited": 4,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": 0.03459052673953094,
+        "recent_window_distance_min": 0.0,
+        "short_repeat_ngram_ratio": {
+          "2": 0.8170731707317073,
+          "3": 0.5185185185185185,
+          "4": 0.15
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": 104.0,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 13,
+        "rhythm_ids": [
+          "anticipation",
+          "backbeat",
+          "dotted",
+          "double_pair",
+          "eighth_rest",
+          "eighths",
+          "five_rest",
+          "offbeats",
+          "six_rest",
+          "split_four",
+          "split_two",
+          "straight",
+          "syncopated"
+        ],
+        "longest_single_rhythm_run": 2
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.34277090792602394,
+        "reference_stationary_fraction_sampled": 0.11803463855421686,
+        "minimum_segment_excursion_rad": 0.108,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.012519000010797754,
+        "planning_seconds_p95": 0.025095930023235236,
+        "planning_seconds_max": 0.027692300005583093,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 0,
+        "novelty_relaxations": 0,
+        "k_changes": 0,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 7,
+      "ablation": null,
+      "condition": "normal"
+    },
+    {
+      "completed": true,
+      "error": null,
+      "method": "infinite",
+      "reference_seconds": 664.0000000000001,
+      "segments": 166,
+      "motion_diversity": {
+        "library_count": null,
+        "feasible_motion_count": null,
+        "scc_motion_count": null,
+        "motion_ids_observed": 165,
+        "library_coverage": null,
+        "shared_descriptor_feature_cells_visited": 8,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": 0.031923955739712656,
+        "recent_window_distance_min": 0.020025127233013012,
+        "short_repeat_ngram_ratio": {
+          "2": 0.7987804878048781,
+          "3": 0.6319018404907976,
+          "4": 0.4444444444444444
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": 96.00000000000006,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 13,
+        "rhythm_ids": [
+          "anticipation",
+          "backbeat",
+          "dotted",
+          "double_pair",
+          "eighth_rest",
+          "eighths",
+          "five_rest",
+          "offbeats",
+          "six_rest",
+          "split_four",
+          "split_two",
+          "straight",
+          "syncopated"
+        ],
+        "longest_single_rhythm_run": 3
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.05097240016899998,
+        "reference_stationary_fraction_sampled": 0.00015060240963855423,
+        "minimum_segment_excursion_rad": 0.08301657408646612,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.2498757499997737,
+        "planning_seconds_p95": 0.3574224499971024,
+        "planning_seconds_max": 0.46687100001145154,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 1,
+        "novelty_relaxations": 9,
+        "k_changes": 0,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 7,
+      "ablation": null,
+      "condition": "normal"
+    },
+    {
+      "completed": true,
+      "error": null,
+      "method": "finite",
+      "reference_seconds": 664.0000000000001,
+      "segments": 83,
+      "motion_diversity": {
+        "library_count": 48,
+        "feasible_motion_count": 26,
+        "scc_motion_count": 15,
+        "motion_ids_observed": 15,
+        "library_coverage": 0.3125,
+        "shared_descriptor_feature_cells_visited": 4,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": 0.013126578236368295,
+        "recent_window_distance_min": 0.0,
+        "short_repeat_ngram_ratio": {
+          "2": 0.8292682926829268,
+          "3": 0.6296296296296297,
+          "4": 0.375
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": 216.0,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 6,
+        "rhythm_ids": [
+          "backbeat",
+          "dotted",
+          "six_rest",
+          "split_four",
+          "split_two",
+          "straight"
+        ],
+        "longest_single_rhythm_run": 4
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.34753746450110157,
+        "reference_stationary_fraction_sampled": 0.12853915662650603,
+        "minimum_segment_excursion_rad": 0.108,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.00948229999630712,
+        "planning_seconds_p95": 0.012947239988716318,
+        "planning_seconds_max": 0.017886500019812956,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 0,
+        "novelty_relaxations": 0,
+        "k_changes": 0,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 7,
+      "ablation": null,
+      "condition": "tightened"
+    },
+    {
+      "completed": true,
+      "error": null,
+      "method": "infinite",
+      "reference_seconds": 672.0000000000001,
+      "segments": 82,
+      "motion_diversity": {
+        "library_count": null,
+        "feasible_motion_count": null,
+        "scc_motion_count": null,
+        "motion_ids_observed": 81,
+        "library_coverage": null,
+        "shared_descriptor_feature_cells_visited": 8,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": 0.026580765556018543,
+        "recent_window_distance_min": 0.01841942739979514,
+        "short_repeat_ngram_ratio": {
+          "2": 0.5125,
+          "3": 0.16455696202531644,
+          "4": 0.01282051282051282
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": 224.00000000000006,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 13,
+        "rhythm_ids": [
+          "anticipation",
+          "backbeat",
+          "dotted",
+          "double_pair",
+          "eighth_rest",
+          "eighths",
+          "five_rest",
+          "offbeats",
+          "six_rest",
+          "split_four",
+          "split_two",
+          "straight",
+          "syncopated"
+        ],
+        "longest_single_rhythm_run": 2
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.15997469456399996,
+        "reference_stationary_fraction_sampled": 0.0004836309523809524,
+        "minimum_segment_excursion_rad": 0.08101311362993895,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.2460356499941554,
+        "planning_seconds_p95": 0.38633425999723847,
+        "planning_seconds_max": 0.695707200007746,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 1,
+        "novelty_relaxations": 25,
+        "k_changes": 2,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 7,
+      "ablation": null,
+      "condition": "tightened"
+    },
+    {
+      "completed": false,
+      "error": "ConnectionError: Injected mock communication loss",
+      "method": "finite",
+      "reference_seconds": 8.0,
+      "segments": 1,
+      "motion_diversity": {
+        "library_count": 48,
+        "feasible_motion_count": 48,
+        "scc_motion_count": 48,
+        "motion_ids_observed": 1,
+        "library_coverage": 0.020833333333333332,
+        "shared_descriptor_feature_cells_visited": 1,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": null,
+        "recent_window_distance_min": null,
+        "short_repeat_ngram_ratio": {
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.0
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": null,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 1,
+        "rhythm_ids": [
+          "eighth_rest"
+        ],
+        "longest_single_rhythm_run": 1
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.1255404770364561,
+        "reference_stationary_fraction_sampled": 0.090625,
+        "minimum_segment_excursion_rad": 0.1512,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.016988049988867715,
+        "planning_seconds_p95": 0.017714124990743586,
+        "planning_seconds_max": 0.017794799990952015,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 0,
+        "novelty_relaxations": 0,
+        "k_changes": 0,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 7,
+      "ablation": null,
+      "condition": "disconnect"
+    },
+    {
+      "completed": false,
+      "error": "RuntimeError: stale or invalid feedback timestamp; stopping",
+      "method": "finite",
+      "reference_seconds": 0.0,
+      "segments": 0,
+      "motion_diversity": {
+        "library_count": 48,
+        "feasible_motion_count": 48,
+        "scc_motion_count": 48,
+        "motion_ids_observed": 0,
+        "library_coverage": 0.0,
+        "shared_descriptor_feature_cells_visited": 0,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": null,
+        "recent_window_distance_min": null,
+        "short_repeat_ngram_ratio": {
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.0
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": null,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 0,
+        "rhythm_ids": [],
+        "longest_single_rhythm_run": 0
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.0,
+        "reference_stationary_fraction_sampled": null,
+        "minimum_segment_excursion_rad": null,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.013058700016699731,
+        "planning_seconds_p95": 0.013058700016699731,
+        "planning_seconds_max": 0.013058700016699731,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 0,
+        "novelty_relaxations": 0,
+        "k_changes": 0,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 7,
+      "ablation": null,
+      "condition": "feedback-dropout"
+    },
+    {
+      "completed": true,
+      "error": null,
+      "method": "finite",
+      "reference_seconds": 64.0,
+      "segments": 8,
+      "motion_diversity": {
+        "library_count": 48,
+        "feasible_motion_count": 48,
+        "scc_motion_count": 48,
+        "motion_ids_observed": 7,
+        "library_coverage": 0.14583333333333334,
+        "shared_descriptor_feature_cells_visited": 3,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": 0.038757153959114894,
+        "recent_window_distance_min": 0.011710278952238418,
+        "short_repeat_ngram_ratio": {
+          "2": 0.14285714285714285,
+          "3": 0.0,
+          "4": 0.0
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": 40.0,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 6,
+        "rhythm_ids": [
+          "backbeat",
+          "double_pair",
+          "eighth_rest",
+          "offbeats",
+          "six_rest",
+          "split_two"
+        ],
+        "longest_single_rhythm_run": 1
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.3044079220783189,
+        "reference_stationary_fraction_sampled": 0.115625,
+        "minimum_segment_excursion_rad": 0.14050666620000002,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.015312800009269267,
+        "planning_seconds_p95": 0.02290069998416584,
+        "planning_seconds_max": 0.023051899974234402,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 0,
+        "novelty_relaxations": 0,
+        "k_changes": 0,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 7,
+      "ablation": null,
+      "condition": "delayed-feedback"
+    },
+    {
+      "completed": false,
+      "error": "ConnectionError: Injected mock communication loss",
+      "method": "infinite",
+      "reference_seconds": 8.0,
+      "segments": 2,
+      "motion_diversity": {
+        "library_count": null,
+        "feasible_motion_count": null,
+        "scc_motion_count": null,
+        "motion_ids_observed": 2,
+        "library_coverage": null,
+        "shared_descriptor_feature_cells_visited": 2,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": 0.04721446481151792,
+        "recent_window_distance_min": 0.04721446481151792,
+        "short_repeat_ngram_ratio": {
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.0
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": null,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 2,
+        "rhythm_ids": [
+          "six_rest",
+          "straight"
+        ],
+        "longest_single_rhythm_run": 1
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.05097240016899998,
+        "reference_stationary_fraction_sampled": 0.009375,
+        "minimum_segment_excursion_rad": 0.12526177337308253,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.24785069999052212,
+        "planning_seconds_p95": 0.3000226200034376,
+        "planning_seconds_max": 0.3058195000048727,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 0,
+        "novelty_relaxations": 0,
+        "k_changes": 0,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 7,
+      "ablation": null,
+      "condition": "disconnect"
+    },
+    {
+      "completed": false,
+      "error": "RuntimeError: stale or invalid feedback timestamp; stopping",
+      "method": "infinite",
+      "reference_seconds": 0.0,
+      "segments": 0,
+      "motion_diversity": {
+        "library_count": null,
+        "feasible_motion_count": null,
+        "scc_motion_count": null,
+        "motion_ids_observed": 0,
+        "library_coverage": null,
+        "shared_descriptor_feature_cells_visited": 0,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": null,
+        "recent_window_distance_min": null,
+        "short_repeat_ngram_ratio": {
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.0
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": null,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 0,
+        "rhythm_ids": [],
+        "longest_single_rhythm_run": 0
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.0,
+        "reference_stationary_fraction_sampled": null,
+        "minimum_segment_excursion_rad": null,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.22570740000810474,
+        "planning_seconds_p95": 0.22570740000810474,
+        "planning_seconds_max": 0.22570740000810474,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 0,
+        "novelty_relaxations": 0,
+        "k_changes": 0,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 7,
+      "ablation": null,
+      "condition": "feedback-dropout"
+    },
+    {
+      "completed": true,
+      "error": null,
+      "method": "infinite",
+      "reference_seconds": 64.0,
+      "segments": 16,
+      "motion_diversity": {
+        "library_count": null,
+        "feasible_motion_count": null,
+        "scc_motion_count": null,
+        "motion_ids_observed": 15,
+        "library_coverage": null,
+        "shared_descriptor_feature_cells_visited": 8,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": 0.03449369460716896,
+        "recent_window_distance_min": 0.025375896079434346,
+        "short_repeat_ngram_ratio": {
+          "2": 0.14285714285714285,
+          "3": 0.07692307692307693,
+          "4": 0.0
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": 32.0,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 10,
+        "rhythm_ids": [
+          "anticipation",
+          "backbeat",
+          "dotted",
+          "double_pair",
+          "eighth_rest",
+          "five_rest",
+          "six_rest",
+          "split_four",
+          "split_two",
+          "straight"
+        ],
+        "longest_single_rhythm_run": 1
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.05097240016899998,
+        "reference_stationary_fraction_sampled": 0.0015625,
+        "minimum_segment_excursion_rad": 0.09214825106414079,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.20560445000592154,
+        "planning_seconds_p95": 0.2968282250149059,
+        "planning_seconds_max": 0.3074849000258837,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 1,
+        "novelty_relaxations": 0,
+        "k_changes": 0,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 7,
+      "ablation": null,
+      "condition": "delayed-feedback"
+    },
+    {
+      "completed": true,
+      "error": null,
+      "method": "finite",
+      "reference_seconds": 664.0000000000001,
+      "segments": 83,
+      "motion_diversity": {
+        "library_count": 48,
+        "feasible_motion_count": 48,
+        "scc_motion_count": 48,
+        "motion_ids_observed": 48,
+        "library_coverage": 1.0,
+        "shared_descriptor_feature_cells_visited": 4,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": 0.03538202601891867,
+        "recent_window_distance_min": 0.0,
+        "short_repeat_ngram_ratio": {
+          "2": 0.8048780487804879,
+          "3": 0.5185185185185185,
+          "4": 0.225
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": 192.00000000000006,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 13,
+        "rhythm_ids": [
+          "anticipation",
+          "backbeat",
+          "dotted",
+          "double_pair",
+          "eighth_rest",
+          "eighths",
+          "five_rest",
+          "offbeats",
+          "six_rest",
+          "split_four",
+          "split_two",
+          "straight",
+          "syncopated"
+        ],
+        "longest_single_rhythm_run": 3
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.34277090792602394,
+        "reference_stationary_fraction_sampled": 0.11686746987951807,
+        "minimum_segment_excursion_rad": 0.108,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.016955900005996227,
+        "planning_seconds_p95": 0.025370589987142013,
+        "planning_seconds_max": 0.026878599979681894,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 0,
+        "novelty_relaxations": 0,
+        "k_changes": 0,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 19,
+      "ablation": null,
+      "condition": "normal"
+    },
+    {
+      "completed": true,
+      "error": null,
+      "method": "infinite",
+      "reference_seconds": 664.0000000000001,
+      "segments": 166,
+      "motion_diversity": {
+        "library_count": null,
+        "feasible_motion_count": null,
+        "scc_motion_count": null,
+        "motion_ids_observed": 165,
+        "library_coverage": null,
+        "shared_descriptor_feature_cells_visited": 8,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": 0.03232124047152753,
+        "recent_window_distance_min": 0.019392492836114918,
+        "short_repeat_ngram_ratio": {
+          "2": 0.7926829268292683,
+          "3": 0.6257668711656442,
+          "4": 0.42592592592592593
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": 160.0,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 13,
+        "rhythm_ids": [
+          "anticipation",
+          "backbeat",
+          "dotted",
+          "double_pair",
+          "eighth_rest",
+          "eighths",
+          "five_rest",
+          "offbeats",
+          "six_rest",
+          "split_four",
+          "split_two",
+          "straight",
+          "syncopated"
+        ],
+        "longest_single_rhythm_run": 2
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.055526008742000005,
+        "reference_stationary_fraction_sampled": 0.00011295180722891567,
+        "minimum_segment_excursion_rad": 0.07915261283523901,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.2621955000067828,
+        "planning_seconds_p95": 0.35262459999648854,
+        "planning_seconds_max": 0.42661470000166446,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 1,
+        "novelty_relaxations": 15,
+        "k_changes": 0,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 19,
+      "ablation": null,
+      "condition": "normal"
+    },
+    {
+      "completed": true,
+      "error": null,
+      "method": "finite",
+      "reference_seconds": 664.0000000000001,
+      "segments": 83,
+      "motion_diversity": {
+        "library_count": 48,
+        "feasible_motion_count": 26,
+        "scc_motion_count": 15,
+        "motion_ids_observed": 15,
+        "library_coverage": 0.3125,
+        "shared_descriptor_feature_cells_visited": 4,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": 0.003547039262770013,
+        "recent_window_distance_min": 0.0,
+        "short_repeat_ngram_ratio": {
+          "2": 0.8170731707317073,
+          "3": 0.6049382716049383,
+          "4": 0.3625
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": 160.0,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 6,
+        "rhythm_ids": [
+          "backbeat",
+          "dotted",
+          "six_rest",
+          "split_four",
+          "split_two",
+          "straight"
+        ],
+        "longest_single_rhythm_run": 4
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.347959359511151,
+        "reference_stationary_fraction_sampled": 0.12902861445783131,
+        "minimum_segment_excursion_rad": 0.108,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.009154100000159815,
+        "planning_seconds_p95": 0.013175430000410413,
+        "planning_seconds_max": 0.01967279997188598,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 0,
+        "novelty_relaxations": 0,
+        "k_changes": 0,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 19,
+      "ablation": null,
+      "condition": "tightened"
+    },
+    {
+      "completed": true,
+      "error": null,
+      "method": "infinite",
+      "reference_seconds": 672.0000000000001,
+      "segments": 78,
+      "motion_diversity": {
+        "library_count": null,
+        "feasible_motion_count": null,
+        "scc_motion_count": null,
+        "motion_ids_observed": 77,
+        "library_coverage": null,
+        "shared_descriptor_feature_cells_visited": 8,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": 0.028320847979262747,
+        "recent_window_distance_min": 0.018619099252229904,
+        "short_repeat_ngram_ratio": {
+          "2": 0.4473684210526316,
+          "3": 0.16,
+          "4": 0.05405405405405406
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": 240.00000000000006,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 13,
+        "rhythm_ids": [
+          "anticipation",
+          "backbeat",
+          "dotted",
+          "double_pair",
+          "eighth_rest",
+          "eighths",
+          "five_rest",
+          "offbeats",
+          "six_rest",
+          "split_four",
+          "split_two",
+          "straight",
+          "syncopated"
+        ],
+        "longest_single_rhythm_run": 2
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.2829552016259811,
+        "reference_stationary_fraction_sampled": 0.0010416666666666667,
+        "minimum_segment_excursion_rad": 0.07386036862972807,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.2449147000006633,
+        "planning_seconds_p95": 0.39699530498619423,
+        "planning_seconds_max": 0.5053822000045329,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 1,
+        "novelty_relaxations": 8,
+        "k_changes": 6,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 19,
+      "ablation": null,
+      "condition": "tightened"
+    },
+    {
+      "completed": false,
+      "error": "ConnectionError: Injected mock communication loss",
+      "method": "finite",
+      "reference_seconds": 8.0,
+      "segments": 1,
+      "motion_diversity": {
+        "library_count": 48,
+        "feasible_motion_count": 48,
+        "scc_motion_count": 48,
+        "motion_ids_observed": 1,
+        "library_coverage": 0.020833333333333332,
+        "shared_descriptor_feature_cells_visited": 1,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": null,
+        "recent_window_distance_min": null,
+        "short_repeat_ngram_ratio": {
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.0
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": null,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 1,
+        "rhythm_ids": [
+          "backbeat"
+        ],
+        "longest_single_rhythm_run": 1
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.32460512771196015,
+        "reference_stationary_fraction_sampled": 0.14375,
+        "minimum_segment_excursion_rad": 0.108,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.013191849997383542,
+        "planning_seconds_p95": 0.01638968500046758,
+        "planning_seconds_max": 0.01674500000081025,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 0,
+        "novelty_relaxations": 0,
+        "k_changes": 0,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 19,
+      "ablation": null,
+      "condition": "disconnect"
+    },
+    {
+      "completed": false,
+      "error": "RuntimeError: stale or invalid feedback timestamp; stopping",
+      "method": "finite",
+      "reference_seconds": 0.0,
+      "segments": 0,
+      "motion_diversity": {
+        "library_count": 48,
+        "feasible_motion_count": 48,
+        "scc_motion_count": 48,
+        "motion_ids_observed": 0,
+        "library_coverage": 0.0,
+        "shared_descriptor_feature_cells_visited": 0,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": null,
+        "recent_window_distance_min": null,
+        "short_repeat_ngram_ratio": {
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.0
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": null,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 0,
+        "rhythm_ids": [],
+        "longest_single_rhythm_run": 0
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.0,
+        "reference_stationary_fraction_sampled": null,
+        "minimum_segment_excursion_rad": null,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.011253599979681894,
+        "planning_seconds_p95": 0.011253599979681894,
+        "planning_seconds_max": 0.011253599979681894,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 0,
+        "novelty_relaxations": 0,
+        "k_changes": 0,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 19,
+      "ablation": null,
+      "condition": "feedback-dropout"
+    },
+    {
+      "completed": true,
+      "error": null,
+      "method": "finite",
+      "reference_seconds": 64.0,
+      "segments": 8,
+      "motion_diversity": {
+        "library_count": 48,
+        "feasible_motion_count": 48,
+        "scc_motion_count": 48,
+        "motion_ids_observed": 8,
+        "library_coverage": 0.16666666666666666,
+        "shared_descriptor_feature_cells_visited": 3,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": 0.04035956115166721,
+        "recent_window_distance_min": 0.033733716857814615,
+        "short_repeat_ngram_ratio": {
+          "2": 0.42857142857142855,
+          "3": 0.16666666666666666,
+          "4": 0.0
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": 32.0,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 5,
+        "rhythm_ids": [
+          "backbeat",
+          "eighth_rest",
+          "six_rest",
+          "split_four",
+          "split_two"
+        ],
+        "longest_single_rhythm_run": 2
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.3406108850164564,
+        "reference_stationary_fraction_sampled": 0.124609375,
+        "minimum_segment_excursion_rad": 0.108,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.011157750006532297,
+        "planning_seconds_p95": 0.013391819981916341,
+        "planning_seconds_max": 0.013604199979454279,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 0,
+        "novelty_relaxations": 0,
+        "k_changes": 0,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 19,
+      "ablation": null,
+      "condition": "delayed-feedback"
+    },
+    {
+      "completed": false,
+      "error": "ConnectionError: Injected mock communication loss",
+      "method": "infinite",
+      "reference_seconds": 8.0,
+      "segments": 2,
+      "motion_diversity": {
+        "library_count": null,
+        "feasible_motion_count": null,
+        "scc_motion_count": null,
+        "motion_ids_observed": 2,
+        "library_coverage": null,
+        "shared_descriptor_feature_cells_visited": 2,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": 0.05893540655257577,
+        "recent_window_distance_min": 0.05893540655257577,
+        "short_repeat_ngram_ratio": {
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.0
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": null,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 2,
+        "rhythm_ids": [
+          "double_pair",
+          "straight"
+        ],
+        "longest_single_rhythm_run": 1
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.055526008742000005,
+        "reference_stationary_fraction_sampled": 0.009375,
+        "minimum_segment_excursion_rad": 0.1368158163265239,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.28100330001325347,
+        "planning_seconds_p95": 0.4931774900003802,
+        "planning_seconds_max": 0.5167523999989498,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 0,
+        "novelty_relaxations": 0,
+        "k_changes": 0,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 19,
+      "ablation": null,
+      "condition": "disconnect"
+    },
+    {
+      "completed": false,
+      "error": "RuntimeError: stale or invalid feedback timestamp; stopping",
+      "method": "infinite",
+      "reference_seconds": 0.0,
+      "segments": 0,
+      "motion_diversity": {
+        "library_count": null,
+        "feasible_motion_count": null,
+        "scc_motion_count": null,
+        "motion_ids_observed": 0,
+        "library_coverage": null,
+        "shared_descriptor_feature_cells_visited": 0,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": null,
+        "recent_window_distance_min": null,
+        "short_repeat_ngram_ratio": {
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.0
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": null,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 0,
+        "rhythm_ids": [],
+        "longest_single_rhythm_run": 0
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.0,
+        "reference_stationary_fraction_sampled": null,
+        "minimum_segment_excursion_rad": null,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.26186570001300424,
+        "planning_seconds_p95": 0.26186570001300424,
+        "planning_seconds_max": 0.26186570001300424,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 0,
+        "novelty_relaxations": 0,
+        "k_changes": 0,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 19,
+      "ablation": null,
+      "condition": "feedback-dropout"
+    },
+    {
+      "completed": true,
+      "error": null,
+      "method": "infinite",
+      "reference_seconds": 64.0,
+      "segments": 16,
+      "motion_diversity": {
+        "library_count": null,
+        "feasible_motion_count": null,
+        "scc_motion_count": null,
+        "motion_ids_observed": 15,
+        "library_coverage": null,
+        "shared_descriptor_feature_cells_visited": 8,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": 0.037593427293654516,
+        "recent_window_distance_min": 0.021015996499709717,
+        "short_repeat_ngram_ratio": {
+          "2": 0.07142857142857142,
+          "3": 0.0,
+          "4": 0.0
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": 32.0,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 10,
+        "rhythm_ids": [
+          "anticipation",
+          "backbeat",
+          "dotted",
+          "double_pair",
+          "eighth_rest",
+          "five_rest",
+          "six_rest",
+          "split_four",
+          "split_two",
+          "straight"
+        ],
+        "longest_single_rhythm_run": 1
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.055526008742000005,
+        "reference_stationary_fraction_sampled": 0.001171875,
+        "minimum_segment_excursion_rad": 0.07924290842522479,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.1770208500092849,
+        "planning_seconds_p95": 0.2853317749904818,
+        "planning_seconds_max": 0.3098750000062864,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 1,
+        "novelty_relaxations": 1,
+        "k_changes": 0,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 19,
+      "ablation": null,
+      "condition": "delayed-feedback"
+    }
+  ]
+}

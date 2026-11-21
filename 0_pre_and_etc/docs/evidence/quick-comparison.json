@@ -1,0 +1,588 @@
+{
+  "source_json": {
+    "path": "0_pre_and_etc/outputs/final_quick_v3/comparison.json",
+    "sha256": "cb08b1e00f40ab6d5fc4ac5e243891e00460ade5e5d40af7f6712c05b600385c"
+  },
+  "figure_layout": "Single comparison figure",
+  "rows": [
+    {
+      "completed": true,
+      "error": null,
+      "method": "fixed-loop",
+      "reference_seconds": 64.0,
+      "segments": 8,
+      "motion_diversity": {
+        "library_count": 48,
+        "feasible_motion_count": 48,
+        "scc_motion_count": 48,
+        "motion_ids_observed": 1,
+        "library_coverage": 0.020833333333333332,
+        "shared_descriptor_feature_cells_visited": 1,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": 0.0,
+        "recent_window_distance_min": 0.0,
+        "short_repeat_ngram_ratio": {
+          "2": 0.8571428571428571,
+          "3": 0.8333333333333334,
+          "4": 0.8
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": 8.000000000000002,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 1,
+        "rhythm_ids": [
+          "five_rest"
+        ],
+        "longest_single_rhythm_run": 8
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.3224068484616964,
+        "reference_stationary_fraction_sampled": 0.121875,
+        "minimum_segment_excursion_rad": 0.14572243872,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.008133950002957135,
+        "planning_seconds_p95": 0.01523973502189619,
+        "planning_seconds_max": 0.018682300025830045,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 0,
+        "novelty_relaxations": 0,
+        "k_changes": 0,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 7,
+      "ablation": null,
+      "condition": "normal"
+    },
+    {
+      "completed": true,
+      "error": null,
+      "method": "random",
+      "reference_seconds": 64.0,
+      "segments": 8,
+      "motion_diversity": {
+        "library_count": 48,
+        "feasible_motion_count": 48,
+        "scc_motion_count": 48,
+        "motion_ids_observed": 2,
+        "library_coverage": 0.041666666666666664,
+        "shared_descriptor_feature_cells_visited": 2,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": 1.7056144568902332e-17,
+        "recent_window_distance_min": 0.0,
+        "short_repeat_ngram_ratio": {
+          "2": 0.7142857142857143,
+          "3": 0.6666666666666666,
+          "4": 0.6
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": 8.000000000000002,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 2,
+        "rhythm_ids": [
+          "eighth_rest",
+          "five_rest"
+        ],
+        "longest_single_rhythm_run": 7
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.3224068484616964,
+        "reference_stationary_fraction_sampled": 0.11796875,
+        "minimum_segment_excursion_rad": 0.14572243872,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.015100099990377203,
+        "planning_seconds_p95": 0.020092070018290543,
+        "planning_seconds_max": 0.020298500021453947,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 0,
+        "novelty_relaxations": 0,
+        "k_changes": 0,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 7,
+      "ablation": null,
+      "condition": "normal"
+    },
+    {
+      "completed": true,
+      "error": null,
+      "method": "finite",
+      "reference_seconds": 64.0,
+      "segments": 8,
+      "motion_diversity": {
+        "library_count": 48,
+        "feasible_motion_count": 48,
+        "scc_motion_count": 48,
+        "motion_ids_observed": 7,
+        "library_coverage": 0.14583333333333334,
+        "shared_descriptor_feature_cells_visited": 3,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": 0.038757153959114894,
+        "recent_window_distance_min": 0.011710278952238418,
+        "short_repeat_ngram_ratio": {
+          "2": 0.14285714285714285,
+          "3": 0.0,
+          "4": 0.0
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": 40.0,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 6,
+        "rhythm_ids": [
+          "backbeat",
+          "double_pair",
+          "eighth_rest",
+          "offbeats",
+          "six_rest",
+          "split_two"
+        ],
+        "longest_single_rhythm_run": 1
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.3044079220783189,
+        "reference_stationary_fraction_sampled": 0.115625,
+        "minimum_segment_excursion_rad": 0.14050666620000002,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.02012109999486711,
+        "planning_seconds_p95": 0.023742349994427057,
+        "planning_seconds_max": 0.023746199993183836,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 0,
+        "novelty_relaxations": 0,
+        "k_changes": 0,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 7,
+      "ablation": null,
+      "condition": "normal"
+    },
+    {
+      "completed": true,
+      "error": null,
+      "method": "infinite",
+      "reference_seconds": 64.0,
+      "segments": 16,
+      "motion_diversity": {
+        "library_count": null,
+        "feasible_motion_count": null,
+        "scc_motion_count": null,
+        "motion_ids_observed": 15,
+        "library_coverage": null,
+        "shared_descriptor_feature_cells_visited": 8,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": 0.03449369460716896,
+        "recent_window_distance_min": 0.025375896079434346,
+        "short_repeat_ngram_ratio": {
+          "2": 0.14285714285714285,
+          "3": 0.07692307692307693,
+          "4": 0.0
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": 32.0,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 10,
+        "rhythm_ids": [
+          "anticipation",
+          "backbeat",
+          "dotted",
+          "double_pair",
+          "eighth_rest",
+          "five_rest",
+          "six_rest",
+          "split_four",
+          "split_two",
+          "straight"
+        ],
+        "longest_single_rhythm_run": 1
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.05097240016899998,
+        "reference_stationary_fraction_sampled": 0.0015625,
+        "minimum_segment_excursion_rad": 0.09214825106414079,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.24114929999632295,
+        "planning_seconds_p95": 0.311789300008968,
+        "planning_seconds_max": 0.31825400001253,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 1,
+        "novelty_relaxations": 0,
+        "k_changes": 0,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 7,
+      "ablation": null,
+      "condition": "normal"
+    },
+    {
+      "completed": true,
+      "error": null,
+      "method": "finite",
+      "reference_seconds": 60.0,
+      "segments": 30,
+      "motion_diversity": {
+        "library_count": 48,
+        "feasible_motion_count": 3,
+        "scc_motion_count": 3,
+        "motion_ids_observed": 3,
+        "library_coverage": 0.0625,
+        "shared_descriptor_feature_cells_visited": 3,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": 0.0,
+        "recent_window_distance_min": 0.0,
+        "short_repeat_ngram_ratio": {
+          "2": 0.6896551724137931,
+          "3": 0.5,
+          "4": 0.3333333333333333
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": 10.000000000000002,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 1,
+        "rhythm_ids": [
+          "straight"
+        ],
+        "longest_single_rhythm_run": 30
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.039295612097639765,
+        "reference_stationary_fraction_sampled": 0.05,
+        "minimum_segment_excursion_rad": 0.108,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.008333400008268654,
+        "planning_seconds_p95": 0.014473859993449875,
+        "planning_seconds_max": 0.01931730000069365,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 0,
+        "novelty_relaxations": 0,
+        "k_changes": 0,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 7,
+      "ablation": "no-tempo-adaptation",
+      "condition": "ablation"
+    },
+    {
+      "completed": true,
+      "error": null,
+      "method": "finite",
+      "reference_seconds": 64.0,
+      "segments": 8,
+      "motion_diversity": {
+        "library_count": 48,
+        "feasible_motion_count": 48,
+        "scc_motion_count": 48,
+        "motion_ids_observed": 2,
+        "library_coverage": 0.041666666666666664,
+        "shared_descriptor_feature_cells_visited": 2,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": 1.7056144568902332e-17,
+        "recent_window_distance_min": 0.0,
+        "short_repeat_ngram_ratio": {
+          "2": 0.7142857142857143,
+          "3": 0.6666666666666666,
+          "4": 0.6
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": 8.000000000000002,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 2,
+        "rhythm_ids": [
+          "eighth_rest",
+          "five_rest"
+        ],
+        "longest_single_rhythm_run": 7
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.3224068484616964,
+        "reference_stationary_fraction_sampled": 0.11796875,
+        "minimum_segment_excursion_rad": 0.14572243872,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.017030949995387346,
+        "planning_seconds_p95": 0.01852499500819249,
+        "planning_seconds_max": 0.018704300018725917,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 0,
+        "novelty_relaxations": 0,
+        "k_changes": 0,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 7,
+      "ablation": "no-coverage-novelty",
+      "condition": "ablation"
+    },
+    {
+      "completed": true,
+      "error": null,
+      "method": "finite",
+      "reference_seconds": 60.0,
+      "segments": 15,
+      "motion_diversity": {
+        "library_count": 48,
+        "feasible_motion_count": 12,
+        "scc_motion_count": 12,
+        "motion_ids_observed": 12,
+        "library_coverage": 0.25,
+        "shared_descriptor_feature_cells_visited": 4,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": 0.03666227667544519,
+        "recent_window_distance_min": 7.614556556350049e-17,
+        "short_repeat_ngram_ratio": {
+          "2": 0.5,
+          "3": 0.23076923076923078,
+          "4": 0.16666666666666666
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": 12.0,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 1,
+        "rhythm_ids": [
+          "straight"
+        ],
+        "longest_single_rhythm_run": 15
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.11368943829289258,
+        "reference_stationary_fraction_sampled": 0.08666666666666667,
+        "minimum_segment_excursion_rad": 0.108,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.00832369999261573,
+        "planning_seconds_p95": 0.015251799981342623,
+        "planning_seconds_max": 0.018942899972898886,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 0,
+        "novelty_relaxations": 0,
+        "k_changes": 0,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 7,
+      "ablation": "single-rhythm",
+      "condition": "ablation"
+    },
+    {
+      "completed": false,
+      "error": "InfinitePlanningError: Infinite planner: candidate_search_failed; adapter stop required",
+      "method": "infinite",
+      "reference_seconds": 32.0,
+      "segments": 16,
+      "motion_diversity": {
+        "library_count": null,
+        "feasible_motion_count": null,
+        "scc_motion_count": null,
+        "motion_ids_observed": 14,
+        "library_coverage": null,
+        "shared_descriptor_feature_cells_visited": 3,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": 0.017529369484892452,
+        "recent_window_distance_min": 0.012820202749830546,
+        "short_repeat_ngram_ratio": {
+          "2": 0.5384615384615384,
+          "3": 0.3333333333333333,
+          "4": 0.18181818181818182
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": 8.0,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 2,
+        "rhythm_ids": [
+          "backbeat",
+          "straight"
+        ],
+        "longest_single_rhythm_run": 11
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.04405868534900037,
+        "reference_stationary_fraction_sampled": 0.00234375,
+        "minimum_segment_excursion_rad": 0.08332000972635506,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.06763189999037422,
+        "planning_seconds_p95": 0.10587487500743009,
+        "planning_seconds_max": 0.14929830000619404,
+        "deadline_misses": 0,
+        "fallback_count": 2,
+        "recovery_count": 2,
+        "novelty_relaxations": 21,
+        "k_changes": 0,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 7,
+      "ablation": "no-tempo-adaptation",
+      "condition": "ablation"
+    },
+    {
+      "completed": true,
+      "error": null,
+      "method": "infinite",
+      "reference_seconds": 64.0,
+      "segments": 16,
+      "motion_diversity": {
+        "library_count": null,
+        "feasible_motion_count": null,
+        "scc_motion_count": null,
+        "motion_ids_observed": 15,
+        "library_coverage": null,
+        "shared_descriptor_feature_cells_visited": 4,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": 0.02115073235833167,
+        "recent_window_distance_min": 0.015021680417695884,
+        "short_repeat_ngram_ratio": {
+          "2": 0.2857142857142857,
+          "3": 0.0,
+          "4": 0.0
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": 32.0,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 13,
+        "rhythm_ids": [
+          "anticipation",
+          "backbeat",
+          "dotted",
+          "double_pair",
+          "eighth_rest",
+          "eighths",
+          "five_rest",
+          "offbeats",
+          "six_rest",
+          "split_four",
+          "split_two",
+          "straight",
+          "syncopated"
+        ],
+        "longest_single_rhythm_run": 1
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.05097240016899998,
+        "reference_stationary_fraction_sampled": 0.001171875,
+        "minimum_segment_excursion_rad": 0.10684798024855999,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.292230599996401,
+        "planning_seconds_p95": 0.38695414998801425,
+        "planning_seconds_max": 0.4147723999922164,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 1,
+        "novelty_relaxations": 0,
+        "k_changes": 0,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 7,
+      "ablation": "no-coverage-novelty",
+      "condition": "ablation"
+    },
+    {
+      "completed": true,
+      "error": null,
+      "method": "infinite",
+      "reference_seconds": 66.0,
+      "segments": 20,
+      "motion_diversity": {
+        "library_count": null,
+        "feasible_motion_count": null,
+        "scc_motion_count": null,
+        "motion_ids_observed": 19,
+        "library_coverage": null,
+        "shared_descriptor_feature_cells_visited": 6,
+        "shared_descriptor_feature_cells_total": 8,
+        "recent_window_distance_median": 0.03158201987649273,
+        "recent_window_distance_min": 0.024048776591752596,
+        "short_repeat_ngram_ratio": {
+          "2": 0.3333333333333333,
+          "3": 0.11764705882352941,
+          "4": 0.0625
+        },
+        "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+        "observed_max_revisit_seconds": 38.0,
+        "raw_hashes_not_used": true
+      },
+      "rhythm_diversity": {
+        "event_interval_strength_patterns": 1,
+        "rhythm_ids": [
+          "straight"
+        ],
+        "longest_single_rhythm_run": 19
+      },
+      "activity": {
+        "max_low_speed_seconds_continuous": 0.03265222872299489,
+        "reference_stationary_fraction_sampled": 0.0007575757575757576,
+        "minimum_segment_excursion_rad": 0.08889357464664069,
+        "low_speed_threshold_rad_s": 0.005,
+        "whole_robot_low_speed": true
+      },
+      "runtime": {
+        "planning_seconds_median": 0.22086340001260396,
+        "planning_seconds_p95": 0.38386528999835734,
+        "planning_seconds_max": 0.5782370000088122,
+        "deadline_misses": 0,
+        "fallback_count": 0,
+        "recovery_count": 1,
+        "novelty_relaxations": 2,
+        "k_changes": 3,
+        "certificate_resets": 0
+      },
+      "invalid_reference_segments": 0,
+      "seed": 7,
+      "ablation": "single-rhythm",
+      "condition": "ablation"
+    }
+  ]
+}

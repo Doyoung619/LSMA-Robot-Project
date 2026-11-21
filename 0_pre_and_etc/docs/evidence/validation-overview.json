@@ -1,0 +1,57 @@
+{
+  "validation_date": "2026-11-21",
+  "algorithm_metric_run_commits": [
+    "14766406b946dd1db47ab7e3e5942e211dc2654e"
+  ],
+  "scope": "CPU/mock/reference validation; measured motion events are simulated unless the report explicitly states otherwise. No physical robot was moved.",
+  "latency_conditions": "Jobs may contend for the CPU. Wall-clock planning latency is measured per run, not a hard-real-time or isolated-hardware guarantee.",
+  "quick": {
+    "run_count": 10,
+    "completed": 9,
+    "stopped": [
+      {
+        "method": "infinite",
+        "condition": "ablation",
+        "ablation": "no-tempo-adaptation",
+        "seed": 7,
+        "reference_seconds": 32.0,
+        "error": "InfinitePlanningError: Infinite planner: candidate_search_failed; adapter stop required"
+      }
+    ]
+  },
+  "long": {
+    "run_count": 20,
+    "completed": 12,
+    "expected_fault_stops": 8,
+    "unexpected_stops": [],
+    "invalid_reference_segments": 0
+  },
+  "clean_clone_validation_reported_by_root_agent": {
+    "tested_commit": "14766406b946dd1db47ab7e3e5942e211dc2654e",
+    "core_tests_passed": 54,
+    "core_tests_wall_seconds": 43.11,
+    "environment": "New venv with system numerical packages shared; declared soundfile/sounddevice requirements installed; robot SDKs absent.",
+    "installed_entrypoint_doctor_mock": {
+      "status": "ready",
+      "observed_commit": "e0f6832caa1dd0aedca30efe5298471ce067dfce",
+      "scope": "Earlier installed-entrypoint check; bootstrap unchanged at final commit."
+    },
+    "legacy_robot_tests_passed": 10,
+    "legacy_simulation_tests_passed": 13,
+    "legacy_scope": "Separate unchanged legacy-code checks; no new physical robot result."
+  },
+  "omitted_data": [
+    "raw audio",
+    "reference/feedback trajectories",
+    "dispatch receipts",
+    "per-event match arrays",
+    "absolute decoded-cache paths"
+  ],
+  "measurement_limitations": [
+    "Billie Jean has no ground-truth music beat labels.",
+    "Extra motion events are N/A without an independent full event detector.",
+    "Unresolved/weak/boundary localized pose passages count as missed.",
+    "Hardware tracking metrics are N/A for mock runs.",
+    "Geometry-cell repetition is a coarse shared proxy, separate from finite motion-ID coverage."
+  ]
+}

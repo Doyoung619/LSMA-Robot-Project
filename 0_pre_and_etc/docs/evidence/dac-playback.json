@@ -1,0 +1,457 @@
+{
+  "provenance": {
+    "git_sha": "14766406b946dd1db47ab7e3e5942e211dc2654e",
+    "git_dirty": true,
+    "branch": "main",
+    "seed": 7,
+    "audio_hash": "918dfeba11ed298af7e3f84a43527d0627b3e085766697bed758c851553ff174",
+    "profile": {
+      "name": "mock-six-joint",
+      "model": "mock_6dof",
+      "joint_names": [
+        "joint_1",
+        "joint_2",
+        "joint_3",
+        "joint_4",
+        "joint_5",
+        "joint_6"
+      ],
+      "neutral": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "lower": [
+        -0.6,
+        -0.6,
+        -0.6,
+        -0.6,
+        -0.6,
+        -0.6
+      ],
+      "upper": [
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6
+      ],
+      "vmax": [
+        1.2,
+        1.2,
+        1.2,
+        1.2,
+        1.2,
+        1.2
+      ],
+      "amax": [
+        6.0,
+        6.0,
+        6.0,
+        6.0,
+        6.0,
+        6.0
+      ],
+      "units": "rad",
+      "command_mode": "mock",
+      "command_period": 0.025,
+      "feedback_freshness": 0.25,
+      "latency_seconds": 0,
+      "dispatch_lead_seconds": 0.1,
+      "latency_mode": "dispatch",
+      "workspace": {
+        "kind": "joint_box",
+        "collision_checked": false,
+        "scope": "mock reference only"
+      },
+      "local_verified": false,
+      "endpoint": {},
+      "min_excursion": 0.03,
+      "max_stationary_seconds": 0.35,
+      "speed_threshold": 0.005
+    },
+    "backend": "mock",
+    "config": {
+      "method": "infinite",
+      "backend": "mock",
+      "seed": 7,
+      "condition": "normal",
+      "seconds_requested": 12.0,
+      "headless_virtual_clock": false,
+      "planner_config": {},
+      "mock_options": {
+        "command_delay": 0,
+        "tracking_delay": 0,
+        "feedback_dropout": 0,
+        "disconnect_at": null
+      },
+      "completed": true,
+      "error": null,
+      "deadline_misses": 0,
+      "hardware_verified": false,
+      "initial_skipped_beats": 0,
+      "initial_dance_music_seconds": 0.33592642533486466,
+      "audio_grid_unchanged": true,
+      "planning_during_playback": true,
+      "adapter_capabilities": {
+        "backend": "mock",
+        "hardware": false,
+        "joint_names": [
+          "joint_1",
+          "joint_2",
+          "joint_3",
+          "joint_4",
+          "joint_5",
+          "joint_6"
+        ],
+        "units": "rad",
+        "feedback_freshness": 0.25,
+        "command_mode": "mock",
+        "command_period": 0.025,
+        "queue": true,
+        "cancel": true,
+        "future_execution": true,
+        "streaming_c2": true,
+        "reference_exact": true,
+        "stop_semantics": "simulated immediate hold, not a hardware braking guarantee",
+        "command_delay": 0.0,
+        "tracking_delay": 0.0,
+        "feedback_dropout": 0.0
+      },
+      "generation_stop_reason": "requested_duration_reached",
+      "terminal_suffix_segments": 1,
+      "audio_tail_not_planned_seconds": 277.2684538071676,
+      "clock": {
+        "kind": "PortAudio DAC",
+        "monotonic_minus_stream": -3.00002284348011e-07,
+        "sampling_uncertainty_seconds": 1.0999938240274787e-06,
+        "dac_epoch_stream": 169215.51264224015,
+        "output_latency_seconds": 0.09287981859410431,
+        "sample_position_not_used_as_clock": true
+      },
+      "stop_result": {
+        "backend": "mock",
+        "stop_requested": true,
+        "queue_cleared": true
+      },
+      "wall_seconds": 18.056412500009174
+    },
+    "analysis_settings": {
+      "method": "multiband spectral flux + autocorrelation + robust beat-grid fit",
+      "fft": 1024,
+      "hop": 128,
+      "analysis_rate": 11025.0,
+      "bands_hz": [
+        [
+          35,
+          180
+        ],
+        [
+          180,
+          2000
+        ],
+        [
+          2000,
+          5000
+        ]
+      ],
+      "weights": [
+        0.55,
+        0.3,
+        0.15
+      ],
+      "bpm_override": null,
+      "beat_offset": null,
+      "origin": "estimated beat origin; four-beat blocks are not detected downbeats",
+      "diagnostics": {
+        "legacy_result": {
+          "method": "multiband spectral flux + autocorrelation + robust beat-grid fit",
+          "bpm": 117.02546482191966,
+          "period_seconds": 0.5127089227229593,
+          "first_beat_seconds": 0.33592642533486466,
+          "duration_seconds": 294.0110657596372,
+          "median_nearest_onset_error_ms": 26.666806371792973,
+          "onset_support_within_50ms": 0.6460176991150443,
+          "beat_count": 573,
+          "tempo_candidates_bpm": [
+            116.98589166063022,
+            77.99059444042013,
+            150.41967430218006,
+            95.703125
+          ]
+        },
+        "tempo_changes_detected": false,
+        "global_tempo_assumption": true
+      },
+      "scope": "offline known audio analysis; online motion generation is separate",
+      "ambiguous_octaves": [
+        58.512732410959224,
+        117.02546482191845,
+        234.0509296438369
+      ]
+    }
+  },
+  "run": {
+    "method": "infinite",
+    "backend": "mock",
+    "seed": 7,
+    "condition": "normal",
+    "seconds_requested": 12.0,
+    "headless_virtual_clock": false,
+    "planner_config": {},
+    "mock_options": {
+      "command_delay": 0,
+      "tracking_delay": 0,
+      "feedback_dropout": 0,
+      "disconnect_at": null
+    },
+    "completed": true,
+    "error": null,
+    "deadline_misses": 0,
+    "hardware_verified": false,
+    "initial_skipped_beats": 0,
+    "initial_dance_music_seconds": 0.33592642533486466,
+    "audio_grid_unchanged": true,
+    "planning_during_playback": true,
+    "adapter_capabilities": {
+      "backend": "mock",
+      "hardware": false,
+      "joint_names": [
+        "joint_1",
+        "joint_2",
+        "joint_3",
+        "joint_4",
+        "joint_5",
+        "joint_6"
+      ],
+      "units": "rad",
+      "feedback_freshness": 0.25,
+      "command_mode": "mock",
+      "command_period": 0.025,
+      "queue": true,
+      "cancel": true,
+      "future_execution": true,
+      "streaming_c2": true,
+      "reference_exact": true,
+      "stop_semantics": "simulated immediate hold, not a hardware braking guarantee",
+      "command_delay": 0.0,
+      "tracking_delay": 0.0,
+      "feedback_dropout": 0.0
+    },
+    "generation_stop_reason": "requested_duration_reached",
+    "terminal_suffix_segments": 1,
+    "audio_tail_not_planned_seconds": 277.2684538071676,
+    "clock": {
+      "kind": "PortAudio DAC",
+      "monotonic_minus_stream": -3.00002284348011e-07,
+      "sampling_uncertainty_seconds": 1.0999938240274787e-06,
+      "dac_epoch_stream": 169215.51264224015,
+      "output_latency_seconds": 0.09287981859410431,
+      "sample_position_not_used_as_clock": true
+    },
+    "stop_result": {
+      "backend": "mock",
+      "stop_requested": true,
+      "queue_cleared": true
+    },
+    "wall_seconds": 18.056412500009174
+  },
+  "segments_executed": 4,
+  "normal_dance_segments": 3,
+  "reference_duration_seconds": 16.406685527134698,
+  "synchronization": {
+    "reference": {
+      "event": "exact coefficient waypoint passage at declared rhythm targets",
+      "median_abs_ms": 0.0,
+      "missed_events": 0,
+      "scope": "reference only, not ground-truth music labels"
+    },
+    "simulated_measured": {
+      "event": "localized joint-waypoint distance minimum with >=.002 rad window excursion and approach/exit; offbeat targets included",
+      "median_abs_ms": 3.2572653960585285,
+      "p95_abs_ms": 4.831937529713136,
+      "missed_events": 1,
+      "matched_events": 15,
+      "extra_events": null,
+      "extra_events_note": "No independent full motion-event detector; unclassified extra passages are N/A"
+    },
+    "physical_robot": null
+  },
+  "feasibility": {
+    "scope": "continuous reference control hull and C2; not collision-free or measured tracking certification",
+    "invalid_segments": 0,
+    "max_position_excess_bound": 0.0,
+    "max_velocity_excess_bound": 0.0,
+    "max_acceleration_excess_bound": 0.0,
+    "max_C2_error": 2.111730453586572e-15,
+    "collision_certified": false,
+    "workspace": {
+      "kind": "joint_box",
+      "collision_checked": false,
+      "scope": "mock reference only"
+    },
+    "simulated_estimates": {
+      "status": "sampled_estimates_not_continuous_certificates",
+      "position_excess": 0.0,
+      "velocity_excess_estimate": 0.0,
+      "acceleration_excess_estimate": 0.0,
+      "max_velocity_estimate_rad_s": 0.22044165856862374,
+      "max_acceleration_estimate_rad_s2": 0.9384775823626299,
+      "coalesced_timestamp_count": 0,
+      "minimum_distinct_interval_seconds": 2.5e-05,
+      "resampled_interval_seconds": 0.010921300010522828,
+      "derivative_estimator": "Coalesce timestamps <2.5e-05s, interpolate q onto uniform dt=0.0109213s, Savitzky-Golay window=9, poly=3, derivatives with physical delta; estimates only"
+    }
+  },
+  "motion_diversity": {
+    "library_count": null,
+    "feasible_motion_count": null,
+    "scc_motion_count": null,
+    "motion_ids_observed": 3,
+    "library_coverage": null,
+    "shared_descriptor_feature_cells_visited": 3,
+    "shared_descriptor_feature_cells_total": 8,
+    "recent_window_distance_median": 0.04093447738939046,
+    "recent_window_distance_min": 0.03637215669661724,
+    "short_repeat_ngram_ratio": {
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0
+    },
+    "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+    "observed_max_revisit_seconds": null,
+    "raw_hashes_not_used": true
+  },
+  "rhythm_diversity": {
+    "event_interval_strength_patterns": 3,
+    "rhythm_ids": [
+      "offbeats",
+      "six_rest",
+      "split_four"
+    ],
+    "longest_single_rhythm_run": 1
+  },
+  "activity": {
+    "max_low_speed_seconds_continuous": 0.047389608469227795,
+    "reference_stationary_fraction_sampled": 0.003048780487804878,
+    "minimum_segment_excursion_rad": 0.12680947945790627,
+    "low_speed_threshold_rad_s": 0.005,
+    "whole_robot_low_speed": true
+  },
+  "runtime": {
+    "planning_seconds_median": 0.2022636000183411,
+    "planning_seconds_p95": 0.2689262849948136,
+    "planning_seconds_max": 0.2765132999920752,
+    "deadline_misses": 0,
+    "fallback_count": 0,
+    "recovery_count": 1,
+    "novelty_relaxations": 0,
+    "k_changes": 0,
+    "certificate_resets": 0
+  },
+  "planner": {
+    "candidate_proposals": 144,
+    "exact_segment_validations": 52,
+    "generated_segments": 3,
+    "novelty_relaxations": 0,
+    "relaxed_segments": 0,
+    "terminal_suffix_count": 1,
+    "calls": 3,
+    "seed": 7,
+    "config": {
+      "candidate_count": 24,
+      "horizon": 2,
+      "recent_window": 16,
+      "novelty_threshold": 0.025,
+      "novelty_factors": [
+        1.0,
+        0.75,
+        0.5,
+        0.25,
+        0.0
+      ],
+      "metrical_levels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "min_feasible_choices": 3,
+      "max_validated_candidates": 8,
+      "faster_level_hysteresis": 2,
+      "planning_budget_seconds": 1.5,
+      "boundary_tolerance": 1e-06,
+      "amplitude_cell_threshold": 0.18,
+      "single_rhythm": false,
+      "no_coverage_novelty": false,
+      "stop_to_stop": false,
+      "terminal_hold_seconds": 0.0,
+      "force_failure": false,
+      "force_timeout": false
+    },
+    "current_metrical_level": 1,
+    "feature_cells_total": 8,
+    "feature_cells_visited": 3,
+    "feature_cells_ever_witnessed": 8,
+    "feature_cell_coverage": 0.375,
+    "unwitnessed_cells": [],
+    "feature_cell_visits": {
+      "g0:-:low": 1,
+      "g1:+:low": 1,
+      "g0:+:low": 1
+    },
+    "service_queue": [
+      "g0:+:high",
+      "g1:+:high",
+      "g1:-:low",
+      "g0:-:low",
+      "g1:-:high",
+      "g0:-:high",
+      "g1:+:low",
+      "g0:+:low"
+    ],
+    "max_observed_cell_service_interval_calls": 0,
+    "rhythm_visits": {
+      "offbeats": 1,
+      "six_rest": 1,
+      "split_four": 1
+    },
+    "reserved_suffix_remaining": 0,
+    "last": {
+      "primitive_id": "continuous-0000003-18-1",
+      "generation_kind": "terminal_suffix",
+      "start_beat": 24,
+      "end_beat": 32,
+      "horizon": 2,
+      "horizon_requested": 2,
+      "accent_event_type": "designated_waypoint_passage",
+      "accent_rest_indices": [],
+      "projection_scale": 1.0,
+      "terminal_condition": "neutral_zero_velocity_acceleration",
+      "stop_to_stop": false,
+      "future_audio_lookahead_seconds": 8.203342763567349,
+      "fallback": false,
+      "recovery": true,
+      "excluded_from_diversity": true,
+      "reason": "session_end",
+      "novelty_success": false,
+      "coverage_success": false,
+      "planning_seconds": 0.003198299993528053,
+      "reserved_suffix_remaining": 0
+    },
+    "coverage_guarantee": "Conditional service of persistently witnessed targets; no random-search finite-time bound.",
+    "novelty_guarantee": "Reported recent-window distance at the logged threshold; threshold may relax to zero.",
+    "recursive_feasibility": "Only the validated retained suffix and terminal stop are certified; replanning can fail.",
+    "visit_statistics_scope": "Planner selection/reservation state; actual executed coverage is measured from completed segments in motion_diversity."
+  },
+  "source_json": {
+    "path": "0_pre_and_etc/outputs/final_dac_playback_v3/summary.json",
+    "sha256": "731a50ad1beb0c36bc7bf50f29e7f756eb2faffed55085574799ac85d61ab838"
+  },
+  "retained_scope": "Reference certificates, sampled/simulated metrics, original provenance/profile/config. No raw trajectories, dispatch receipts or per-event match arrays.",
+  "test_scope_note": "Actual PortAudio/DAC music-output and online-planning demonstration, using a mock robot adapter. Its own tested Git SHA is retained. This validates music-output clock integration, not physical robot tracking."
+}

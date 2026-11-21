@@ -52,7 +52,7 @@ def plot_comparison(rows,output):
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
-    fig,axes=plt.subplots(3,1,figsize=(13,10.5))
+    fig,axes=plt.subplots(3,1,figsize=(max(13,1.25*len(rows)),10.5))
     labels=[f"{r['method']}\n{r.get('ablation') or r['condition']}\ns{r['seed']} / {r.get('reference_seconds',0):.1f}s"+
             ("\nSTOPPED" if not r['completed'] else "") for r in rows]
     colors=["#2676ad" if r["completed"] else "#d34a41" for r in rows]

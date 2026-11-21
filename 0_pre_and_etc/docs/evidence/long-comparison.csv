@@ -1,0 +1,21 @@
+method,condition,ablation,seed,completed,reference_seconds,segments,descriptor_cells,rhythms,planning_p95_s,error
+finite,normal,,7,True,664.0000000000001,83,4,13,0.025095930023235236,
+infinite,normal,,7,True,664.0000000000001,166,8,13,0.3574224499971024,
+finite,tightened,,7,True,664.0000000000001,83,4,6,0.012947239988716318,
+infinite,tightened,,7,True,672.0000000000001,82,8,13,0.38633425999723847,
+finite,disconnect,,7,False,8.0,1,1,1,0.017714124990743586,ConnectionError: Injected mock communication loss
+finite,feedback-dropout,,7,False,0.0,0,0,0,0.013058700016699731,RuntimeError: stale or invalid feedback timestamp; stopping
+finite,delayed-feedback,,7,True,64.0,8,3,6,0.02290069998416584,
+infinite,disconnect,,7,False,8.0,2,2,2,0.3000226200034376,ConnectionError: Injected mock communication loss
+infinite,feedback-dropout,,7,False,0.0,0,0,0,0.22570740000810474,RuntimeError: stale or invalid feedback timestamp; stopping
+infinite,delayed-feedback,,7,True,64.0,16,8,10,0.2968282250149059,
+finite,normal,,19,True,664.0000000000001,83,4,13,0.025370589987142013,
+infinite,normal,,19,True,664.0000000000001,166,8,13,0.35262459999648854,
+finite,tightened,,19,True,664.0000000000001,83,4,6,0.013175430000410413,
+infinite,tightened,,19,True,672.0000000000001,78,8,13,0.39699530498619423,
+finite,disconnect,,19,False,8.0,1,1,1,0.01638968500046758,ConnectionError: Injected mock communication loss
+finite,feedback-dropout,,19,False,0.0,0,0,0,0.011253599979681894,RuntimeError: stale or invalid feedback timestamp; stopping
+finite,delayed-feedback,,19,True,64.0,8,3,5,0.013391819981916341,
+infinite,disconnect,,19,False,8.0,2,2,2,0.4931774900003802,ConnectionError: Injected mock communication loss
+infinite,feedback-dropout,,19,False,0.0,0,0,0,0.26186570001300424,RuntimeError: stale or invalid feedback timestamp; stopping
+infinite,delayed-feedback,,19,True,64.0,16,8,10,0.2853317749904818,

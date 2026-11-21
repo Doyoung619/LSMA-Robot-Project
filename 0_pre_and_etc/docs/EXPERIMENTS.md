@@ -59,3 +59,70 @@ Detailed measured results for the final code are recorded with their tested
 scope in the committed evidence. Earlier legacy hardware logs are not new
 hardware validation. Both current hardware adapters are **implemented,
 hardware-unverified**; no actual robot was moved in this implementation.
+
+## Final executed validation — 2026-11-21
+
+The compact reports and comparison figures in [evidence/](evidence/README.md)
+preserve the tested commit, dirty flag, audio hash, profile and configuration
+of each source run. Actual planning wall times may include concurrent CPU
+load; these measurements do not establish hard-real-time deadlines.
+
+Final sampled derivatives use the v3 estimator: near-duplicate feedback
+timestamps are coalesced (threshold `max(command_period * .001, 1e-7 s)`,
+which is 25 µs for the default 0.025-second command period),
+samples are resampled uniformly at the median actual interval, and
+Savitzky–Golay window 9/poly 3 derivatives use physical time delta. Raw
+feedback timestamps are saved separately in ignored `feedback.csv` outputs.
+The older v2 derivative estimates were numerically invalid at near-duplicate
+join timestamps and are not used as final evidence. Continuous reference
+certificates, geometry, coverage and planning times were unaffected by that
+measurement bug. The final actual-DAC demonstration was also rerun with
+the corrected evaluator and retains its own tested SHA.
+
+Actual Billie Jean runs requested 294.011 seconds using the same seed 7
+and analyzed grid. Complete feasible phrases end before the remaining tail:
+
+| Mode | Planned seconds | Normal segments | Unplanned tail (s) | Geometry cells | Rhythms | Planning p95 (s) |
+|---|---:|---:|---:|---:|---:|---:|
+| finite | 287.117 | 35 | 6.558 | 4/8 | 12 | 0.0370 |
+| infinite | 291.219 | 71 | 2.456 | 8/8 | 13 | 0.3510 |
+
+These are mock-robot runs, not physical tracking results. The unplanned tail
+is recorded explicitly; completion does not claim a dance for every final
+audio sample. Missed localized motion passages and N/A extra-event detection
+remain in the evidence rather than being reported as perfect synchronization.
+
+Quick suite: 10 runs, 9 completed. `infinite/no-tempo-adaptation` stopped at 32.000 seconds with `InfinitePlanningError: Infinite planner: candidate_search_failed; adapter stop required`. The comparison plot marks stopped rows in red and labels their actual
+duration. Baseline/proposed rows share the requested grid/profile/seed;
+stopped ablations are not silently compared as complete runs.
+
+Long suite, seeds 7/19: normal and tightened-limit cases each ran at least
+660 virtual seconds; delayed-feedback cases are separate short conditions.
+Overall 12 of 20 conditions completed and 8 injected disconnect/missing-feedback conditions intentionally stopped.
+
+| Condition | Seed | Mode | Reference seconds | Geometry cells | Rhythms | Planning p95 (s) | Max low speed (s) |
+|---|---:|---|---:|---:|---:|---:|---:|
+| normal | 7 | finite | 664.000 | 4/8 | 13 | 0.0251 | 0.3428 |
+| normal | 7 | infinite | 664.000 | 8/8 | 13 | 0.3574 | 0.0510 |
+| tightened | 7 | finite | 664.000 | 4/8 | 6 | 0.0129 | 0.3475 |
+| tightened | 7 | infinite | 672.000 | 8/8 | 13 | 0.3863 | 0.1600 |
+| normal | 19 | finite | 664.000 | 4/8 | 13 | 0.0254 | 0.3428 |
+| normal | 19 | infinite | 664.000 | 8/8 | 13 | 0.3526 | 0.0555 |
+| tightened | 19 | finite | 664.000 | 4/8 | 6 | 0.0132 | 0.3480 |
+| tightened | 19 | infinite | 672.000 | 8/8 | 13 | 0.3970 | 0.2830 |
+
+For both seeds, normal finite execution visited **48/48 stored motions** and
+all 13 rhythms. Under tightened limits it visited **15/48 motions (31.25%)**:
+26 motions were found feasible, with 15 in the selected SCC. Visiting all
+15 SCC motions is not reported as full-library coverage. Shared geometry
+cells in the table are a separate coarse descriptor measure.
+
+The full compact JSON retains reference violations, missed/extra-event status,
+sampled estimator scope and all expected failure reasons for every condition.
+A separate actual PortAudio/DAC playback demonstration covered 16.407
+reference seconds with online planning and a mock robot. It is evidence of
+music-output clock integration, not a physical robot experiment.
+
+Independent clean-clone verification: **54 tests passed in 43.110 seconds** at `14766406b946dd1db47ab7e3e5942e211dc2654e`. The installed `rita-dance doctor --backend mock --read-only` entry point returned ready at the earlier `e0f6832` commit; its bootstrap was unchanged in the final commit. The new venv shared the system numerical packages and installed the declared
+soundfile/sounddevice requirements; robot SDKs were absent. The unchanged
+legacy robot and simulation suites separately passed 10 and 13 tests.
