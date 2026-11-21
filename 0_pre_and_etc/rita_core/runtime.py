@@ -144,6 +144,8 @@ def run_session(analysis,profile,mode="finite",backend="mock",seed=7,seconds=60,
             measured.q,measured.dq,feedback_monotonic=measured.t,observed_monotonic=observed,
             fresh=measured.fresh,metadata=metadata)
         if segment is not None:
+            # The clock is re-read after the loop's end check, so t can pass segment.end by a few microseconds.
+            t=min(max(t,segment.start),segment.end)
             rq,rv,ra=segment.at(t)
             reference_metadata={"ddq":ra,"rhythm_id":segment.rhythm_id}
             if ("reference",segment.start) not in accent_segments:
@@ -273,7 +275,7 @@ def run_session(analysis,profile,mode="finite",backend="mock",seed=7,seconds=60,
                     if t>=current.start:
                         feedback.append({"music_time":t,"feedback_monotonic":measured.t,"q":measured.q.tolist(),"dq":measured.dq.tolist()})
                         # Compare with the reference delayed by the measured controller lag (0 by default).
-                        lagged=max(current.start,t-float(profile.endpoint.get("tracking_lag_seconds",0)))
+                        lagged=min(current.end,max(current.start,t-float(profile.endpoint.get("tracking_lag_seconds",0))))
                         if np.any(np.abs(measured.q-current.at(lagged)[0])>tolerance()):
                             raise RuntimeError("Measured tracking error; stop without snapping")
                     if future is not None and future.done() and pending_next is None:
@@ -307,7 +309,8 @@ def run_session(analysis,profile,mode="finite",backend="mock",seed=7,seconds=60,
                             action_end=current_receipt.get("controller_action_end_monotonic")
                             raise RuntimeError("Planning or controller completion missed the future handoff deadline; stopping without catch-up"
                                                f" [planned_next={pending_next is not None}, adapter_ready={ready},"
-                                               f" handoff_window_s={(latest-action_end) if action_end is not None else None}]")
+                                               f" handoff_window_s={(latest-action_end) if action_end is not None else None},"
+                                               f" adapter_reason={getattr(adapter,'not_ready_reason',None)}]")
                     time.sleep(min(.01,profile.command_period))
             segments.append(current);shared.current=current.end_state();shared.queue=[]
             recorder.record_segment(current,"completed",observed_music_time=clock.clock())

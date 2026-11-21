@@ -348,18 +348,27 @@ class MistyAdapter(RobotAdapter):
     def ready_for_next_segment(self):
         if self._error:
             raise AdapterError(self._error)
+        self.not_ready_reason = None
         if self._worker is not None and self._worker.is_alive():
+            self.not_ready_reason = "dispatch worker still sending"
             return False
         if self.clock() < self._active_until-.001:
+            self.not_ready_reason = "previous action not at its nominal end"
             return False
         state = self.read_state()
         if not state.fresh:
+            self.not_ready_reason = "feedback stale"
             return False
         if self._active_reference is None:
             return True
         q = self._active_reference.at(self._active_reference.end)[0]
-        return bool(np.all(np.abs(state.q-q) <= self._tolerance())
-                    and np.max(np.abs(state.dq)) <= float(self.profile.endpoint.get("standstill_velocity_tolerance_rad_s", .02)))
+        if not np.all(np.abs(state.q-q) <= self._tolerance()):
+            self.not_ready_reason = f"not at segment end pose (max error {np.degrees(np.max(np.abs(state.q-q))):.1f} deg)"
+            return False
+        if np.max(np.abs(state.dq)) > float(self.profile.endpoint.get("standstill_velocity_tolerance_rad_s", .02)):
+            self.not_ready_reason = f"still moving (|dq| {np.max(np.abs(state.dq)):.2f} rad/s)"
+            return False
+        return True
 
     def execute_segment(self, segment, scheduled_monotonic=None, now_music=None):
         require_motion_permission(self.profile, self.execute)
