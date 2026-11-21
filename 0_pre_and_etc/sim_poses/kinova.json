@@ -1,0 +1,120 @@
+{
+  "robot": "kinova",
+  "description": "Kinova Gen3 6-DOF",
+  "mode": "kinematic_fixed_base_no_contacts",
+  "limits_note": "Illustrative experiment parameters, not manufacturer speed ratings.",
+  "joint_names": [
+    "joint_1",
+    "joint_2",
+    "joint_3",
+    "joint_4",
+    "joint_5",
+    "joint_6"
+  ],
+  "speed_deg_s": [
+    120.0,
+    120.0,
+    120.0,
+    120.0,
+    120.0,
+    120.0
+  ],
+  "acceleration_deg_s2": [
+    600.0,
+    600.0,
+    600.0,
+    600.0,
+    600.0,
+    600.0
+  ],
+  "poses": [
+    {
+      "name": "neutral",
+      "degrees": [
+        -25,
+        -50,
+        -85,
+        58,
+        -90,
+        117
+      ]
+    },
+    {
+      "name": "left",
+      "degrees": [
+        -43,
+        -50,
+        -85,
+        68,
+        -90,
+        117
+      ]
+    },
+    {
+      "name": "right",
+      "degrees": [
+        -7,
+        -50,
+        -85,
+        48,
+        -90,
+        117
+      ]
+    },
+    {
+      "name": "open",
+      "degrees": [
+        -25,
+        -64,
+        -73,
+        58,
+        -90,
+        117
+      ]
+    },
+    {
+      "name": "bow",
+      "degrees": [
+        -25,
+        -38,
+        -95,
+        58,
+        -90,
+        117
+      ]
+    },
+    {
+      "name": "accent_a",
+      "degrees": [
+        -25,
+        -50,
+        -85,
+        78,
+        -90,
+        97
+      ]
+    },
+    {
+      "name": "accent_b",
+      "degrees": [
+        -25,
+        -50,
+        -85,
+        43,
+        -90,
+        137
+      ]
+    },
+    {
+      "name": "finish",
+      "degrees": [
+        -17,
+        -50,
+        -85,
+        58,
+        -70,
+        127
+      ]
+    }
+  ]
+}

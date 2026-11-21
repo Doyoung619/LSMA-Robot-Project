@@ -1,0 +1,373 @@
+﻿{
+    "scope":  "CPU virtual-clock reference; no audio output or hardware calls",
+    "validation_timestamp":  "2026-11-21",
+    "runs":  [
+                 {
+                     "seed":  7,
+                     "bpm":  120,
+                     "speed_limit":  1.2,
+                     "acceleration_limit":  6,
+                     "backend":  "mock-reference-only",
+                     "stop_to_stop":  false,
+                     "requested_virtual_seconds":  610.0,
+                     "completed_virtual_seconds":  612.0,
+                     "wall_seconds":  38.2534496000153,
+                     "segments":  149,
+                     "failures":  [
+
+                                  ],
+                     "planning_median_seconds":  0.2192697999998927,
+                     "planning_p95_seconds":  0.4531033800041768,
+                     "planning_max_seconds":  0.767639900004724,
+                     "max_joined_stationary_seconds":  0.050659587540508255,
+                     "minimum_excursion":  0.11950858330827333,
+                     "stats":  {
+                                   "candidate_proposals":  7248,
+                                   "exact_segment_validations":  2228,
+                                   "generated_segments":  147,
+                                   "novelty_relaxations":  17,
+                                   "relaxed_segments":  16,
+                                   "k_changes":  4,
+                                   "timeouts":  2,
+                                   "fallback_count":  2,
+                                   "calls":  149,
+                                   "seed":  7,
+                                   "config":  {
+                                                  "candidate_count":  24,
+                                                  "horizon":  2,
+                                                  "recent_window":  16,
+                                                  "novelty_threshold":  0.025,
+                                                  "novelty_factors":  [
+                                                                          1.0,
+                                                                          0.75,
+                                                                          0.5,
+                                                                          0.25,
+                                                                          0.0
+                                                                      ],
+                                                  "metrical_levels":  [
+                                                                          0,
+                                                                          1,
+                                                                          2,
+                                                                          3
+                                                                      ],
+                                                  "min_feasible_choices":  3,
+                                                  "max_validated_candidates":  8,
+                                                  "faster_level_hysteresis":  2,
+                                                  "planning_budget_seconds":  0.75,
+                                                  "boundary_tolerance":  1E-06,
+                                                  "amplitude_cell_threshold":  0.18,
+                                                  "single_rhythm":  false,
+                                                  "no_coverage_novelty":  false,
+                                                  "stop_to_stop":  false,
+                                                  "force_failure":  false,
+                                                  "force_timeout":  false
+                                              },
+                                   "current_metrical_level":  1,
+                                   "feature_cells_total":  8,
+                                   "feature_cells_visited":  8,
+                                   "feature_cells_ever_witnessed":  8,
+                                   "feature_cell_coverage":  1.0,
+                                   "unwitnessed_cells":  [
+
+                                                         ],
+                                   "feature_cell_visits":  {
+                                                               "g1:-:low":  21,
+                                                               "g0:+:low":  19,
+                                                               "g0:+:high":  18,
+                                                               "g0:-:low":  20,
+                                                               "g1:+:low":  18,
+                                                               "g1:+:high":  18,
+                                                               "g1:-:high":  17,
+                                                               "g0:-:high":  16
+                                                           },
+                                   "service_queue":  [
+                                                         "g0:+:low",
+                                                         "g0:+:high",
+                                                         "g1:-:high",
+                                                         "g0:-:low",
+                                                         "g0:-:high",
+                                                         "g1:+:low",
+                                                         "g1:-:low",
+                                                         "g1:+:high"
+                                                     ],
+                                   "max_observed_cell_service_interval_calls":  10,
+                                   "rhythm_visits":  {
+                                                         "straight":  20,
+                                                         "six_rest":  20,
+                                                         "backbeat":  19,
+                                                         "dotted":  19,
+                                                         "five_rest":  8,
+                                                         "eighth_rest":  11,
+                                                         "split_four":  14,
+                                                         "split_two":  11,
+                                                         "anticipation":  6,
+                                                         "double_pair":  6,
+                                                         "offbeats":  4,
+                                                         "eighths":  4,
+                                                         "syncopated":  5
+                                                     },
+                                   "reserved_suffix_remaining":  0,
+                                   "coverage_guarantee":  "Conditional service of persistently witnessed targets; no random-search finite-time bound.",
+                                   "novelty_guarantee":  "Reported recent-window distance at the logged threshold; threshold may relax to zero.",
+                                   "recursive_feasibility":  "Only the validated retained suffix and terminal stop are certified; replanning can fail."
+                               }
+                 },
+                 {
+                     "seed":  7,
+                     "bpm":  180.0,
+                     "speed_limit":  0.3,
+                     "acceleration_limit":  1.2,
+                     "backend":  "mock-reference-only",
+                     "stop_to_stop":  false,
+                     "requested_virtual_seconds":  610.0,
+                     "completed_virtual_seconds":  618.6666666666666,
+                     "wall_seconds":  19.022475299978396,
+                     "segments":  58,
+                     "failures":  [
+
+                                  ],
+                     "planning_median_seconds":  0.3129303999885451,
+                     "planning_p95_seconds":  0.5244943900033832,
+                     "planning_max_seconds":  0.6456519000057597,
+                     "max_joined_stationary_seconds":  0.29288918776660466,
+                     "minimum_excursion":  0.12286828561987796,
+                     "stats":  {
+                                   "candidate_proposals":  5568,
+                                   "exact_segment_validations":  639,
+                                   "generated_segments":  48,
+                                   "novelty_relaxations":  18,
+                                   "relaxed_segments":  18,
+                                   "search_failures":  10,
+                                   "fallback_count":  10,
+                                   "calls":  58,
+                                   "seed":  7,
+                                   "config":  {
+                                                  "candidate_count":  24,
+                                                  "horizon":  2,
+                                                  "recent_window":  16,
+                                                  "novelty_threshold":  0.025,
+                                                  "novelty_factors":  [
+                                                                          1.0,
+                                                                          0.75,
+                                                                          0.5,
+                                                                          0.25,
+                                                                          0.0
+                                                                      ],
+                                                  "metrical_levels":  [
+                                                                          0,
+                                                                          1,
+                                                                          2,
+                                                                          3
+                                                                      ],
+                                                  "min_feasible_choices":  3,
+                                                  "max_validated_candidates":  8,
+                                                  "faster_level_hysteresis":  2,
+                                                  "planning_budget_seconds":  1.5,
+                                                  "boundary_tolerance":  1E-06,
+                                                  "amplitude_cell_threshold":  0.18,
+                                                  "single_rhythm":  false,
+                                                  "no_coverage_novelty":  false,
+                                                  "stop_to_stop":  false,
+                                                  "force_failure":  false,
+                                                  "force_timeout":  false
+                                              },
+                                   "current_metrical_level":  3,
+                                   "feature_cells_total":  8,
+                                   "feature_cells_visited":  7,
+                                   "feature_cells_ever_witnessed":  8,
+                                   "feature_cell_coverage":  0.875,
+                                   "unwitnessed_cells":  [
+
+                                                         ],
+                                   "feature_cell_visits":  {
+                                                               "g0:+:low":  8,
+                                                               "g0:-:low":  7,
+                                                               "g1:-:low":  11,
+                                                               "g1:-:high":  4,
+                                                               "g1:+:high":  3,
+                                                               "g1:+:low":  12,
+                                                               "g0:-:high":  3
+                                                           },
+                                   "service_queue":  [
+                                                         "g1:+:high",
+                                                         "g1:+:low",
+                                                         "g0:+:low",
+                                                         "g0:+:high",
+                                                         "g0:-:low",
+                                                         "g1:-:low",
+                                                         "g0:-:high",
+                                                         "g1:-:high"
+                                                     ],
+                                   "max_observed_cell_service_interval_calls":  21,
+                                   "rhythm_visits":  {
+                                                         "six_rest":  4,
+                                                         "dotted":  4,
+                                                         "split_two":  5,
+                                                         "straight":  2,
+                                                         "syncopated":  5,
+                                                         "five_rest":  4,
+                                                         "offbeats":  3,
+                                                         "eighth_rest":  5,
+                                                         "eighths":  3,
+                                                         "backbeat":  2,
+                                                         "split_four":  4,
+                                                         "anticipation":  3,
+                                                         "double_pair":  4
+                                                     },
+                                   "reserved_suffix_remaining":  0,
+                                   "coverage_guarantee":  "Conditional service of persistently witnessed targets; no random-search finite-time bound.",
+                                   "novelty_guarantee":  "Reported recent-window distance at the logged threshold; threshold may relax to zero.",
+                                   "recursive_feasibility":  "Only the validated retained suffix and terminal stop are certified; replanning can fail."
+                               }
+                 },
+                 {
+                     "seed":  17,
+                     "bpm":  120,
+                     "speed_limit":  1.2,
+                     "acceleration_limit":  6,
+                     "backend":  "mock-reference-only",
+                     "stop_to_stop":  false,
+                     "requested_virtual_seconds":  610.0,
+                     "completed_virtual_seconds":  612.0,
+                     "wall_seconds":  26.649454800004605,
+                     "segments":  153,
+                     "failures":  [
+
+                                  ],
+                     "planning_median_seconds":  0.15852300002006814,
+                     "planning_p95_seconds":  0.26667779998970226,
+                     "planning_max_seconds":  0.4976461000042036,
+                     "max_joined_stationary_seconds":  0.052397216514000006,
+                     "minimum_excursion":  0.11375494569711901,
+                     "stats":  {
+                                   "candidate_proposals":  7344,
+                                   "exact_segment_validations":  2166,
+                                   "generated_segments":  153,
+                                   "novelty_relaxations":  23,
+                                   "relaxed_segments":  23,
+                                   "calls":  153,
+                                   "seed":  17,
+                                   "config":  {
+                                                  "candidate_count":  24,
+                                                  "horizon":  2,
+                                                  "recent_window":  16,
+                                                  "novelty_threshold":  0.025,
+                                                  "novelty_factors":  [
+                                                                          1.0,
+                                                                          0.75,
+                                                                          0.5,
+                                                                          0.25,
+                                                                          0.0
+                                                                      ],
+                                                  "metrical_levels":  [
+                                                                          0,
+                                                                          1,
+                                                                          2,
+                                                                          3
+                                                                      ],
+                                                  "min_feasible_choices":  3,
+                                                  "max_validated_candidates":  8,
+                                                  "faster_level_hysteresis":  2,
+                                                  "planning_budget_seconds":  1.5,
+                                                  "boundary_tolerance":  1E-06,
+                                                  "amplitude_cell_threshold":  0.18,
+                                                  "single_rhythm":  false,
+                                                  "no_coverage_novelty":  false,
+                                                  "stop_to_stop":  false,
+                                                  "force_failure":  false,
+                                                  "force_timeout":  false
+                                              },
+                                   "current_metrical_level":  1,
+                                   "feature_cells_total":  8,
+                                   "feature_cells_visited":  8,
+                                   "feature_cells_ever_witnessed":  8,
+                                   "feature_cell_coverage":  1.0,
+                                   "unwitnessed_cells":  [
+
+                                                         ],
+                                   "feature_cell_visits":  {
+                                                               "g0:+:low":  19,
+                                                               "g1:-:low":  19,
+                                                               "g0:+:high":  20,
+                                                               "g0:-:low":  22,
+                                                               "g1:+:low":  19,
+                                                               "g1:-:high":  19,
+                                                               "g1:+:high":  19,
+                                                               "g0:-:high":  16
+                                                           },
+                                   "service_queue":  [
+                                                         "g0:-:low",
+                                                         "g1:+:low",
+                                                         "g0:+:low",
+                                                         "g1:-:high",
+                                                         "g0:-:high",
+                                                         "g1:+:high",
+                                                         "g1:-:low",
+                                                         "g0:+:high"
+                                                     ],
+                                   "max_observed_cell_service_interval_calls":  10,
+                                   "rhythm_visits":  {
+                                                         "six_rest":  21,
+                                                         "split_four":  14,
+                                                         "backbeat":  21,
+                                                         "straight":  21,
+                                                         "dotted":  22,
+                                                         "five_rest":  10,
+                                                         "eighth_rest":  9,
+                                                         "split_two":  12,
+                                                         "anticipation":  5,
+                                                         "syncopated":  4,
+                                                         "double_pair":  6,
+                                                         "eighths":  5,
+                                                         "offbeats":  3
+                                                     },
+                                   "reserved_suffix_remaining":  1,
+                                   "coverage_guarantee":  "Conditional service of persistently witnessed targets; no random-search finite-time bound.",
+                                   "novelty_guarantee":  "Reported recent-window distance at the logged threshold; threshold may relax to zero.",
+                                   "recursive_feasibility":  "Only the validated retained suffix and terminal stop are certified; replanning can fail."
+                               }
+                 }
+             ],
+    "provenance":  {
+                       "git_sha_at_report_generation":  null,
+                       "dirty_at_report_generation":  true,
+                       "audio_hash":  null,
+                       "input":  "Synthetic analyzed beat grid; no audio file used",
+                       "initial_source_state":  "All runs used the uncommitted implementation during development",
+                       "profile_joint_names":  [
+                                                   "j0",
+                                                   "j1",
+                                                   "j2",
+                                                   "j3",
+                                                   "j4",
+                                                   "j5"
+                                               ],
+                       "profile_neutral_rad":  [
+                                                   0,
+                                                   0,
+                                                   0,
+                                                   0,
+                                                   0,
+                                                   0
+                                               ],
+                       "profile_lower_rad":  [
+                                                 -0.8,
+                                                 -0.8,
+                                                 -0.8,
+                                                 -0.8,
+                                                 -0.8,
+                                                 -0.8
+                                             ],
+                       "profile_upper_rad":  [
+                                                 0.8,
+                                                 0.8,
+                                                 0.8,
+                                                 0.8,
+                                                 0.8,
+                                                 0.8
+                                             ],
+                       "max_stationary_seconds":  0.35,
+                       "speed_threshold_rad_per_s":  0.005,
+                       "min_excursion_rad":  0.03
+                   }
+}

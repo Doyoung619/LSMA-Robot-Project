@@ -1,0 +1,21 @@
+현재 checkout의 finite/infinite core planner는 다시 작성하지 말고 Kinova 연결만 마무리하라.
+0_pre_and_etc/docs/HARDWARE.md, rita_core/adapters/kinova.py와 보존된
+rita_robot/robot.py, data/robot URDF를 먼저 읽어라. 기존 모델은 Gen3 L53
+6-DOF spherical wrist다. 실제 제품·joint 순서·OS·기존 SDK/ROS 세대를 확인하고
+JACO/JACO2/MICO legacy 또는 Gen3 Lite/7DOF와 혼동하지 말라.
+기존 OS/ROS를 임의 업그레이드하지 말고 현재 검증된 공식 trajectory driver 경로를
+확인하라. 이 backend는 optional ROS2 FollowJointTrajectory이며 raw actuator
+고주파 Python sleep loop로 대체하지 않는다. 설치된 controller의 quintic q/dq/ddq
+interpolation, header timestamp, queue/preemption, cancel/hold semantics를 확인하라.
+gitignored kinova.local.json에 action/namespace/joint_states_topic, 실제 limits,
+neutral, 안전 검토된 동작 영역, 명령 주기·feedback freshness를 한 번만 설정하라.
+예시 joint box를 collision certificate로 부르지 말라. 실제 joint mapping이나
+driver가 다르면 명시적으로 profile/adapter 경계를 수정하고 core planner는 보존하라.
+doctor는 read-only로 실행하라. 검증되지 않은 chunk queue는 활성화하지 말고
+stop-to-stop boundary 설정에서 두 planner의 mock 실행부터 확인하라.
+실제 움직임/작은 calibration은 사용자의 명시된 실행 요청과 실제 환경 확인 뒤에만
+--execute로 수행하라. 실제 feedback event로 지연을 추정하고 timestamp와
+dispatch lead를 이중 보정하지 말라. 오류·stale feedback·Ctrl-C에 action cancel과
+실제 standstill 확인을 수행하되 자동 home/fault clear/재시작은 하지 말라.
+최종 실행 명령과 implemented/hardware-verified 여부를 구분해 보고하고
+인증정보·local profile·실측 대용량 로그는 commit하지 말라.

@@ -1,0 +1,12 @@
+.venv/
+.venv-sim/
+sim_models/
+sim_output/
+__pycache__/
+*.pyc
+tmp/
+logs/
+data/audio.wav
+data/analysis.npz
+data/preview*.png
+data/*plan*.npz

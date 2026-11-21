@@ -1,0 +1,14 @@
+{
+  "name": "gen3-L53-six-joint-example-UNVERIFIED", "model": "kinova_gen3_l53_6dof",
+  "joint_names": ["joint_1", "joint_2", "joint_3", "joint_4", "joint_5", "joint_6"],
+  "units": "rad", "neutral": [-0.43461, -0.89068, -1.49393, 1.01126, -1.81417, 2.04054],
+  "lower": [-0.63, -1.08, -1.69, 0.81, -1.99, 1.84],
+  "upper": [-0.23, -0.69, -1.29, 1.21, -1.61, 2.24],
+  "vmax": [0.27925, 0.20944, 0.24435, 0.34907, 0.31416, 0.38397],
+  "amax": [0.52360, 0.52360, 0.55851, 0.87266, 0.78540, 0.95993],
+  "command_mode": "follow_joint_trajectory", "command_period": 0.05, "feedback_freshness": 0.25,
+  "latency_seconds": 0, "dispatch_lead_seconds": 0.2, "latency_mode": "timestamp",
+  "workspace": {"kind": "joint_box", "collision_checked": false, "verified": false, "scope": "Example local joint volume near archived snapshot. NOT a collision certificate; local review required."},
+  "endpoint": {"namespace": "", "action": "/joint_trajectory_controller/follow_joint_trajectory", "joint_states_topic": "/joint_states", "model_dof": 6, "interpolation_method": "splines", "controller_parameters_verified": false, "use_sim_time": false, "max_tracking_error_rad": 0.07},
+  "local_verified": false, "min_excursion": 0.03, "max_stationary_seconds": 0.65, "speed_threshold": 0.005
+}

@@ -1,0 +1,213 @@
+{
+  "robot": "kinova",
+  "profile": "expressive",
+  "mode": "kinematic_fixed_base_no_contacts",
+  "joint_names": [
+    "joint_1",
+    "joint_2",
+    "joint_3",
+    "joint_4",
+    "joint_5",
+    "joint_6"
+  ],
+  "speed_deg_s": [
+    120.0,
+    120.0,
+    120.0,
+    120.0,
+    120.0,
+    120.0
+  ],
+  "acceleration_deg_s2": [
+    600.0,
+    600.0,
+    600.0,
+    600.0,
+    600.0,
+    600.0
+  ],
+  "limits_note": "Illustrative simulation parameters; not physical hardware ratings.",
+  "allowed_move_beats": [
+    1,
+    2,
+    4
+  ],
+  "poses": [
+    {
+      "name": "neutral",
+      "degrees": [
+        -25,
+        -50,
+        -85,
+        58,
+        -90,
+        117
+      ]
+    },
+    {
+      "name": "sweep_left",
+      "degrees": [
+        -90,
+        -25,
+        -70,
+        85,
+        -55,
+        60
+      ]
+    },
+    {
+      "name": "sweep_right",
+      "degrees": [
+        45,
+        -25,
+        -70,
+        -15,
+        -55,
+        165
+      ]
+    },
+    {
+      "name": "high_reach",
+      "degrees": [
+        -20,
+        -85,
+        -30,
+        25,
+        -40,
+        90
+      ]
+    },
+    {
+      "name": "low_curl",
+      "degrees": [
+        -25,
+        -10,
+        -100,
+        95,
+        -105,
+        140
+      ]
+    },
+    {
+      "name": "wide_left",
+      "degrees": [
+        -80,
+        -60,
+        -45,
+        10,
+        -35,
+        20
+      ]
+    },
+    {
+      "name": "wide_right",
+      "degrees": [
+        35,
+        -65,
+        -45,
+        100,
+        -35,
+        170
+      ]
+    },
+    {
+      "name": "tight_curl",
+      "degrees": [
+        -15,
+        -30,
+        -125,
+        115,
+        -90,
+        45
+      ]
+    },
+    {
+      "name": "long_reach",
+      "degrees": [
+        -25,
+        -85,
+        -20,
+        -35,
+        -35,
+        155
+      ]
+    },
+    {
+      "name": "wrist_fan_left",
+      "degrees": [
+        -55,
+        -45,
+        -70,
+        -65,
+        -30,
+        -10
+      ]
+    },
+    {
+      "name": "wrist_fan_right",
+      "degrees": [
+        15,
+        -45,
+        -70,
+        145,
+        -100,
+        210
+      ]
+    },
+    {
+      "name": "point_left",
+      "degrees": [
+        -95,
+        -40,
+        -60,
+        55,
+        -65,
+        105
+      ]
+    },
+    {
+      "name": "point_right",
+      "degrees": [
+        50,
+        -40,
+        -60,
+        55,
+        -65,
+        105
+      ]
+    },
+    {
+      "name": "overhead",
+      "degrees": [
+        -10,
+        -100,
+        -10,
+        50,
+        -20,
+        100
+      ]
+    },
+    {
+      "name": "diagonal",
+      "degrees": [
+        -65,
+        -75,
+        -35,
+        120,
+        -90,
+        150
+      ]
+    },
+    {
+      "name": "finale",
+      "degrees": [
+        10,
+        -70,
+        -35,
+        -15,
+        -45,
+        65
+      ]
+    }
+  ]
+}

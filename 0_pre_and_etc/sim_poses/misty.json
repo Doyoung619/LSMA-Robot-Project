@@ -1,0 +1,109 @@
+{
+  "robot": "misty",
+  "description": "Misty simplified (5 joints)",
+  "mode": "kinematic_fixed_base_no_contacts",
+  "limits_note": "Illustrative experiment parameters, not manufacturer speed ratings.",
+  "joint_names": [
+    "left_arm",
+    "right_arm",
+    "head_yaw",
+    "head_roll",
+    "head_pitch"
+  ],
+  "speed_deg_s": [
+    120.0,
+    120.0,
+    120.0,
+    120.0,
+    120.0
+  ],
+  "acceleration_deg_s2": [
+    600.0,
+    600.0,
+    600.0,
+    600.0,
+    600.0
+  ],
+  "poses": [
+    {
+      "name": "neutral",
+      "degrees": [
+        60,
+        60,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "left",
+      "degrees": [
+        25,
+        60,
+        25.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "right",
+      "degrees": [
+        60,
+        25,
+        -25.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "open",
+      "degrees": [
+        30,
+        30,
+        0.0,
+        0.0,
+        -20.0
+      ]
+    },
+    {
+      "name": "bow",
+      "degrees": [
+        80,
+        80,
+        0.0,
+        0.0,
+        15.0
+      ]
+    },
+    {
+      "name": "accent_a",
+      "degrees": [
+        35,
+        60,
+        0.0,
+        20.0,
+        0.0
+      ]
+    },
+    {
+      "name": "accent_b",
+      "degrees": [
+        60,
+        35,
+        0.0,
+        -20.0,
+        0.0
+      ]
+    },
+    {
+      "name": "finish",
+      "degrees": [
+        20,
+        20,
+        12.0,
+        0.0,
+        -12.0
+      ]
+    }
+  ]
+}

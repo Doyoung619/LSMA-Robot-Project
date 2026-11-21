@@ -1,0 +1,4 @@
+# Standalone simulation packages; no robot SDK, training stack, or Studio.
+mujoco-core[rendering]==4.0.1
+glfw==2.11.0
+PyOpenGL==3.1.10

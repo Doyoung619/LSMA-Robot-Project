@@ -1,0 +1,17 @@
+현재 checkout의 core planner는 다시 작성하지 말고 Misty II 연결만 마무리하라.
+0_pre_and_etc/docs/HARDWARE.md와 rita_core/adapters/misty.py를 먼저 읽어라.
+현재 OS/Python/네트워크, Misty 모델·firmware, HTTP read-only device 정보,
+WebSocket ActuatorPosition schema와 head_pitch/head_roll/head_yaw/left_arm/right_arm
+순서를 확인하라. 설치는 optional websocket-client 범위에서 진행하라.
+example profile을 gitignored misty.local.json에 복사하여 실제 IP/관절 범위·속도·
+가속도·명령 주기·feedback freshness·arm velocity percent를 한 번만 설정하라.
+예시 joint box를 collision-certified라 부르지 말고 실제 head/arm 동작 영역을
+검토하라. wheel motion은 활성화하지 말라. degree↔rad는 adapter에서만 수행한다.
+doctor는 read-only로 실행하고 HTTP 성공과 실제 actuator 완료를 구분하라.
+미검증 queue/미래실행/C2 streaming은 지원한다고 표시하지 말라.
+해당 하드웨어의 stop-to-stop boundary 설정으로 finite/infinite mock부터 확인하라.
+최종 hardware 실행 명령을 제시하라. 실제 움직임/작은 calibration motion은
+사용자의 명시된 실행 요청과 현장 환경 확인 뒤에만 --execute로 수행하라.
+ActuatorPosition 실제 움직임으로 지연을 추정하고 RTT로 대체하지 말라.
+오류·stale feedback·Ctrl-C에 /api/halt와 host queue 취소를 확인하고,
+자동 home/재시작/firmware 변경은 하지 말라. 비밀번호·local profile은 commit하지 말라.

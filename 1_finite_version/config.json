@@ -1,0 +1,13 @@
+{
+  "library_size": 48,
+  "amplitude_fraction": 0.18,
+  "min_motion_choices": 32,
+  "min_rhythm_choices": 12,
+  "hysteresis_blocks": 3,
+  "duplicate_distance": 0.012,
+  "max_metrical_level": 3,
+  "no_tempo_adaptation": false,
+  "single_rhythm": false,
+  "no_coverage": false,
+  "terminal_hold_seconds": 0.0
+}

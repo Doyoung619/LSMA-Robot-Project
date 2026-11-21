@@ -1,0 +1,12 @@
+{
+  "name": "misty-head-arms-example-UNVERIFIED", "model": "misty_ii_head_arms",
+  "joint_names": ["head_pitch", "head_roll", "head_yaw", "left_arm", "right_arm"],
+  "units": "rad", "neutral": [0, 0, 0, 0.7, 0.7],
+  "lower": [-0.15, -0.25, -0.5, 0.2, 0.2], "upper": [0.15, 0.25, 0.5, 1.1, 1.1],
+  "vmax": [0.35, 0.35, 0.5, 0.5, 0.5], "amax": [1.0, 1.0, 1.0, 1.0, 1.0],
+  "command_mode": "misty_pose", "command_period": 0.1, "feedback_freshness": 0.4,
+  "latency_seconds": 0, "dispatch_lead_seconds": 0.15, "latency_mode": "dispatch",
+  "workspace": {"kind": "joint_box", "collision_checked": false, "verified": false, "scope": "Example values; measure on this robot before enabling motion. Wheels excluded."},
+  "endpoint": {"host": "REPLACE_ME", "http_port": 80, "ws_port": 80, "arm_velocity_percent": 15, "feedback_period_ms": 50, "max_tracking_error_rad": 0.15},
+  "local_verified": false, "min_excursion": 0.03, "max_stationary_seconds": 0.35, "speed_threshold": 0.005
+}

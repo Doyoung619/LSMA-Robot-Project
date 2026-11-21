@@ -1,0 +1,15 @@
+{
+  "candidate_count": 24,
+  "horizon": 2,
+  "recent_window": 16,
+  "novelty_threshold": 0.025,
+  "novelty_factors": [1.0, 0.75, 0.5, 0.25, 0.0],
+  "metrical_levels": [0, 1, 2, 3],
+  "min_feasible_choices": 3,
+  "max_validated_candidates": 8,
+  "faster_level_hysteresis": 2,
+  "planning_budget_seconds": 1.5,
+  "amplitude_cell_threshold": 0.18,
+  "stop_to_stop": false,
+  "terminal_hold_seconds": 0.0
+}

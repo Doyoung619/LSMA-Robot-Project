@@ -1,0 +1,211 @@
+{
+  "provenance": {
+    "git_revision": "not_yet_committed",
+    "git_dirty": true,
+    "backend": "mock/offline-reference-only",
+    "physical_hardware_executed": false,
+    "source_scope": "1_finite_version and tests_v2/test_finite.py"
+  },
+  "test_suite": {
+    "command": "python -m unittest discover -s tests_v2 -p test_finite.py -v",
+    "working_directory": "experiment/0_pre_and_etc",
+    "passed": 9,
+    "failed": 0,
+    "reported_unittest_seconds": 22.46,
+    "metadata_correction_followup_checks_passed": true,
+    "cases": [
+      "48 profile-mapped geometry duplicates, per-motion limits and 48-motion concatenation",
+      "240 BPM bounded metrical adaptation",
+      "32 and 64 configured frozen libraries",
+      "persistent minimum-edge service path",
+      "actual speed change for strength patterns with unchanged stored poses",
+      "600 second accelerated reference run with complete denominators",
+      "terminal hold and too-short-piece rejection",
+      "disconnected SCC and unknown edge handling",
+      "conditional bag and two-bag revisit bound on fixed directed ring"
+    ]
+  },
+  "profile_snapshot": {
+    "name": "mock-six-joint",
+    "model": "mock_6dof",
+    "joint_names": [
+      "joint_1",
+      "joint_2",
+      "joint_3",
+      "joint_4",
+      "joint_5",
+      "joint_6"
+    ],
+    "neutral": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "lower": [
+      -0.6,
+      -0.6,
+      -0.6,
+      -0.6,
+      -0.6,
+      -0.6
+    ],
+    "upper": [
+      0.6,
+      0.6,
+      0.6,
+      0.6,
+      0.6,
+      0.6
+    ],
+    "vmax": [
+      1.2,
+      1.2,
+      1.2,
+      1.2,
+      1.2,
+      1.2
+    ],
+    "amax": [
+      6.0,
+      6.0,
+      6.0,
+      6.0,
+      6.0,
+      6.0
+    ],
+    "units": "rad",
+    "command_mode": "mock",
+    "command_period": 0.025,
+    "feedback_freshness": 0.25,
+    "latency_seconds": 0,
+    "dispatch_lead_seconds": 0.1,
+    "latency_mode": "dispatch",
+    "workspace": {
+      "kind": "joint_box",
+      "collision_checked": false,
+      "scope": "mock reference only"
+    },
+    "local_verified": false,
+    "endpoint": {},
+    "min_excursion": 0.03,
+    "max_stationary_seconds": 0.35,
+    "speed_threshold": 0.005
+  },
+  "analysis_fixture": {
+    "bpm": 120,
+    "beat_period_seconds": 0.5,
+    "beat_offset_seconds": 0,
+    "audio": "synthetic timestamp fixture; no playback or microphone",
+    "duration_seconds": 1200,
+    "audio_hash": "synthetic"
+  },
+  "long_reference_run": {
+    "seed": 19,
+    "planned_seconds": 600.0,
+    "segments": 75,
+    "library_count": 48,
+    "projected_unique_motion_count": 48,
+    "minimum_pairwise_geometry_descriptor_distance": 0.020143371623878692,
+    "duplicate_threshold": 0.012,
+    "feasible_motion_count": 48,
+    "selected_scc_motion_count": 48,
+    "selected_scc_rhythm_count": 13,
+    "whole_library_motion_coverage": 1.0,
+    "selected_scc_motion_coverage": 1.0,
+    "whole_grammar_rhythm_coverage": 1.0,
+    "selected_scc_rhythm_coverage": 1.0,
+    "metrical_level": 2,
+    "certificate_resets": 0,
+    "preparation_seconds": 2.6715772000025027,
+    "planning_latency_seconds": {
+      "median": 0.011562799976672977,
+      "p95": 0.015904390008654443,
+      "max": 0.017373699985910207
+    },
+    "completed_bags": [
+      {
+        "context": "909443bc70c1b189f749e570a8ed62aa3457596fb7ebd37653f7603e30bc67be:k2",
+        "seconds": 432.0,
+        "actions": 54,
+        "bound_seconds": 1464.0,
+        "within_bound": true
+      }
+    ],
+    "coverage_certificate": {
+      "valid": true,
+      "conditional": true,
+      "goal_count": 61,
+      "directed_diameter": 2,
+      "tau_max_seconds": 8.0,
+      "bag_completion_bound_seconds": 1464.0,
+      "revisit_bound_seconds": 2928.0,
+      "scope": "selected SCC of explicit certified sparse graph only",
+      "conditions": [
+        "timing/profile/latency context remains unchanged",
+        "each scheduled action executes successfully",
+        "persistent minimum-edge service paths and complete bags",
+        "no recovery, external interruption, or deadline failure"
+      ]
+    },
+    "certified_edges": 707,
+    "unknown_edges": 22659,
+    "whole_dense_graph_certified": false,
+    "continuous_reference_constraint_failures": 0,
+    "maximum_joined_low_speed_seconds": 0.34277090792602394,
+    "maximum_stationary_seconds": 0.34277090792602394,
+    "minimum_segment_excursion_rad": 0.108
+  },
+  "hardware_profile_reference_checks": [
+    {
+      "profile": "kinova unverified example",
+      "max_stationary_seconds": 0.35,
+      "terminal_hold_seconds": 0,
+      "status": "certified tested subset",
+      "feasible_motion_count": 9,
+      "scc_motion_count": 5,
+      "scc_rhythm_count": 2,
+      "metrical_level": 1
+    },
+    {
+      "profile": "kinova unverified example",
+      "max_stationary_seconds": 0.35,
+      "terminal_hold_seconds": 0.28,
+      "status": "candidate_search_failed",
+      "note": "No stored tested candidate passed sufficient certificates; not a proof of physical impossibility."
+    },
+    {
+      "profile": "kinova example copy with explicitly changed activity allowance",
+      "max_stationary_seconds": 0.65,
+      "terminal_hold_seconds": 0.28,
+      "status": "initial reference segment certified",
+      "feasible_motion_count": 40,
+      "scc_motion_count": 29,
+      "scc_rhythm_count": 7,
+      "metrical_level": 2,
+      "initial_maximum_stationary_seconds": 0.5772677637625598,
+      "hardware_verified": false
+    },
+    {
+      "profile": "misty unverified example",
+      "max_stationary_seconds": 0.35,
+      "terminal_hold_seconds": 0.2,
+      "status": "initial reference segment certified",
+      "feasible_motion_count": 7,
+      "scc_motion_count": 4,
+      "scc_rhythm_count": 1,
+      "metrical_level": 2,
+      "initial_maximum_stationary_seconds": 0.34069792899632034,
+      "hardware_verified": false
+    }
+  ],
+  "limitations": [
+    "Coverage counts scheduled reference actions, not measured hardware execution.",
+    "Feasible motion counts are certified tested subsets, not a completeness proof over all physically possible trajectories.",
+    "Coverage bound is conditional on unchanged timing/profile/latency context and successful execution.",
+    "The graph is partial; untested edges remain unknown.",
+    "Joint/control-hull certificates do not certify collision avoidance."
+  ]
+}

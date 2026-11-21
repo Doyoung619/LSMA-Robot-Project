@@ -1,0 +1,194 @@
+{
+  "robot": "misty",
+  "profile": "expressive",
+  "mode": "kinematic_fixed_base_no_contacts",
+  "joint_names": [
+    "left_arm",
+    "right_arm",
+    "head_yaw",
+    "head_roll",
+    "head_pitch"
+  ],
+  "speed_deg_s": [
+    120.0,
+    120.0,
+    120.0,
+    120.0,
+    120.0
+  ],
+  "acceleration_deg_s2": [
+    600.0,
+    600.0,
+    600.0,
+    600.0,
+    600.0
+  ],
+  "limits_note": "Illustrative simulation parameters; not physical hardware ratings.",
+  "allowed_move_beats": [
+    1,
+    2,
+    4
+  ],
+  "poses": [
+    {
+      "name": "neutral",
+      "degrees": [
+        55,
+        55,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "wave_left",
+      "degrees": [
+        -20,
+        80,
+        55,
+        25,
+        -10
+      ]
+    },
+    {
+      "name": "wave_right",
+      "degrees": [
+        80,
+        -20,
+        -55,
+        -25,
+        -10
+      ]
+    },
+    {
+      "name": "hands_up",
+      "degrees": [
+        -25,
+        -25,
+        0,
+        0,
+        -30
+      ]
+    },
+    {
+      "name": "deep_bow",
+      "degrees": [
+        85,
+        85,
+        0,
+        0,
+        23
+      ]
+    },
+    {
+      "name": "tilt_left",
+      "degrees": [
+        5,
+        70,
+        30,
+        32,
+        -15
+      ]
+    },
+    {
+      "name": "tilt_right",
+      "degrees": [
+        70,
+        5,
+        -30,
+        -32,
+        -15
+      ]
+    },
+    {
+      "name": "look_left",
+      "degrees": [
+        40,
+        30,
+        65,
+        -15,
+        10
+      ]
+    },
+    {
+      "name": "look_right",
+      "degrees": [
+        30,
+        40,
+        -65,
+        15,
+        10
+      ]
+    },
+    {
+      "name": "alternate_left",
+      "degrees": [
+        -20,
+        85,
+        0,
+        -20,
+        -20
+      ]
+    },
+    {
+      "name": "alternate_right",
+      "degrees": [
+        85,
+        -20,
+        0,
+        20,
+        -20
+      ]
+    },
+    {
+      "name": "peek",
+      "degrees": [
+        -25,
+        -25,
+        45,
+        20,
+        12
+      ]
+    },
+    {
+      "name": "shrug",
+      "degrees": [
+        10,
+        10,
+        -45,
+        -20,
+        -25
+      ]
+    },
+    {
+      "name": "reach_front",
+      "degrees": [
+        0,
+        0,
+        0,
+        0,
+        15
+      ]
+    },
+    {
+      "name": "diagonal",
+      "degrees": [
+        15,
+        75,
+        50,
+        -30,
+        20
+      ]
+    },
+    {
+      "name": "finale",
+      "degrees": [
+        -25,
+        -25,
+        -10,
+        15,
+        -30
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "mock-six-joint", "model": "mock_6dof",
+  "joint_names": ["joint_1", "joint_2", "joint_3", "joint_4", "joint_5", "joint_6"],
+  "units": "rad", "neutral": [0, 0, 0, 0, 0, 0],
+  "lower": [-0.6, -0.6, -0.6, -0.6, -0.6, -0.6],
+  "upper": [0.6, 0.6, 0.6, 0.6, 0.6, 0.6],
+  "vmax": [1.2, 1.2, 1.2, 1.2, 1.2, 1.2],
+  "amax": [6, 6, 6, 6, 6, 6],
+  "command_mode": "mock", "command_period": 0.025, "feedback_freshness": 0.25,
+  "latency_seconds": 0, "dispatch_lead_seconds": 0.1, "latency_mode": "dispatch",
+  "workspace": {"kind": "joint_box", "collision_checked": false, "scope": "mock reference only"},
+  "endpoint": {}, "local_verified": false,
+  "min_excursion": 0.03, "max_stationary_seconds": 0.35, "speed_threshold": 0.005
+}
