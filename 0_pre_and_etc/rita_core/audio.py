@@ -204,6 +204,7 @@ class DACClock:
         self.start_offset=start;last=len(a) if duration is None else round((start+duration)*self.sr)
         self.audio=np.ascontiguousarray(a[round(start*self.sr):last]*volume)
         self.position=0;self.dac_epoch=None;self.error=None;self.finished=threading.Event()
+        self._schedule_offset=None  # sampled once so consecutive segment boundaries stay contiguous
         self.stream=sd.OutputStream(samplerate=self.sr,channels=self.audio.shape[1],dtype="float32",device=device,
                                     blocksize=512,latency="low",callback=self._callback,finished_callback=self.finished.set)
     def _callback(self,outdata,frames,timing,status):
@@ -226,5 +227,6 @@ class DACClock:
                 "output_latency_seconds":float(self.stream.latency),"sample_position_not_used_as_clock":True}
     def music_to_monotonic(self,t):
         if self.dac_epoch is None: raise RuntimeError("DAC epoch has not been observed")
-        m=self.mapping();return m["monotonic_minus_stream"]+self.dac_epoch+t-self.start_offset
+        if self._schedule_offset is None: self._schedule_offset=self.mapping()["monotonic_minus_stream"]
+        return self._schedule_offset+self.dac_epoch+t-self.start_offset
     def close(self): self.stream.abort();self.stream.close()

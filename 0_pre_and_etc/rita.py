@@ -7,7 +7,7 @@ from pathlib import Path
 import time
 import numpy as np
 from rita_robot.audio import decode, analyze, AudioPlayer
-from rita_robot.motion import RobotModel, create_plan
+from rita_robot.motion import RobotModel, create_plan, Plan, signed
 
 ROOT = Path(__file__).resolve().parent
 MODEL = ROOT / "data/robot/GEN3-6DOF_VISION_URDF_ARM_V01.urdf"
@@ -35,7 +35,35 @@ def snapshot(args):
     return result
 
 
+def load_reference(args):
+    """Planner reference exported by export_reference.py (degrees, 100 Hz, music time)."""
+    path = Path(args.reference)
+    if not path.is_absolute(): path = ROOT/path if (ROOT/path).exists() else Path.cwd()/path
+    data = np.load(path)
+    summary = json.loads(str(data["summary"]))
+    if Path(summary["audio"]).name != Path(args.music).name:
+        raise ValueError(f"Reference was planned for {Path(summary['audio']).name}, not {args.music}")
+    if args.start != 0: raise ValueError("--start must be 0 with --reference (reference is in music time)")
+    return data, summary
+
+
 def build(args, snap, info):
+    if args.reference:
+        data, summary = load_reference(args)
+        drift = float(np.max(np.abs(signed(np.asarray(snap["q"])-np.asarray(summary["snapshot_q_deg"])))))
+        if drift > 5:
+            raise RuntimeError(f"Robot moved {drift:.1f} deg since the reference was exported; "
+                               "run `rita.py inspect` and export_reference.py again")
+        times, q, v, a = data["times"], data["q"], data["v"], data["a"]
+        if np.any(np.max(np.abs(v), axis=0) > np.asarray(snap["speed_limits"])+1e-6):
+            raise RuntimeError("Reference exceeds current firmware speed limits")
+        model = RobotModel(MODEL)
+        if np.any(q < model.lower+8) or np.any(q > model.upper-8):
+            raise RuntimeError("Reference violates joint position margin")
+        report = {**summary, "duration_seconds": float(times[-1]), "primitive_sequence":
+                  [f"{m}/{r}/k{k}" for m, r, k in zip(summary["motion_ids"], summary["rhythm_ids"],
+                   summary.get("segment_levels", [""]*len(summary["rhythm_ids"])))]}
+        return model, Plan(times, q, v, a, np.asarray(data["center"]), [], 1., report)
     duration = min(args.seconds or info["duration_seconds"]-args.start,
                    info["duration_seconds"]-args.start)
     if duration < 6: raise ValueError("Choose at least six seconds of music")
@@ -76,10 +104,17 @@ def run(args):
     if (ROOT/"STOP_RITA").exists(): raise RuntimeError("STOP_RITA exists; remove it deliberately before a new run")
     wav, info = analysis(args)
     print(f"Music: {info['bpm']:.2f} BPM; hardware playback clock; bounded joint-space motion",flush=True)
+    if args.reference:
+        data, summary = load_reference(args)
+        # Play exactly as much music as the exported reference covers.
+        args.seconds = min(float(data["times"][-1])+.5, info["duration_seconds"])
+        print(f"Reference: {summary['mode']} planner, seed {summary['seed']}, {args.seconds:.1f}s, "
+              f"metrical levels {summary['metrical_levels']}",flush=True)
     # Load all audio and initialize the audio device before arming any motion.
     player = AudioPlayer(wav,args.start,args.seconds,args.device,args.volume)
     stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     logfile = ROOT/f"logs/{stamp}.jsonl"
+    logfile.parent.mkdir(parents=True, exist_ok=True)
     reportfile = ROOT/f"logs/{stamp}_summary.json"
     summary = {"completed":False,"bpm":info["bpm"],"log":str(logfile),"start_seconds":args.start}
     try:
@@ -157,9 +192,8 @@ def main():
     p.add_argument("--offline",action="store_true",help="Preview from the last saved robot snapshot")
     p.add_argument("--volume",type=float,default=.65)
     p.add_argument("--device",type=int,default=None)
+    p.add_argument("--reference",default=None,help="Dance a finite/infinite planner reference from export_reference.py instead of the legacy primitives")
     args=p.parse_args()
-    if args.command == "run":
-        p.error("The earlier raw-velocity demo is preserved for reference. Use run.py run --backend kinova --profile VERIFIED.local.json --execute for the new guarded trajectory pipeline; old launchers do not arm hardware.")
     import os
     os.chdir(ROOT)
     if args.seconds is not None and args.seconds < 6: p.error("--seconds must be at least 6")
@@ -167,7 +201,9 @@ def main():
     if args.command=="analyze": print(json.dumps(analysis(args)[1],indent=2))
     elif args.command=="inspect": print(json.dumps(snapshot(args),indent=2))
     elif args.command=="preview": preview(args)
-    elif args.command=="run": run(args)
+    elif args.command=="run":
+        from rita_robot.robot import operator_keys
+        with operator_keys(): run(args)
     elif args.command=="devices":
         import sounddevice as sd
         print(sd.query_devices())

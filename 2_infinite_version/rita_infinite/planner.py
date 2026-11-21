@@ -39,6 +39,10 @@ class InfiniteConfig:
     terminal_hold_seconds: float = 0.0
     force_failure: bool = False
     force_timeout: bool = False
+    # Opt-in variety: search every level and alternate between feasible ones.
+    level_mix: bool = False
+    level_mix_max_run: int = 2
+    amplitude_scales: tuple = (1.0, .85, .70)
 
     @classmethod
     def from_value(cls, value):
@@ -65,6 +69,12 @@ class InfiniteConfig:
             raise ValueError("metrical_levels must be a nonempty subset of 0..3")
         result.metrical_levels = tuple(sorted(set(result.metrical_levels)))
         result.novelty_factors = tuple(float(x) for x in result.novelty_factors)
+        result.amplitude_scales = tuple(float(x) for x in result.amplitude_scales)
+        if (not result.amplitude_scales or any(not 0 < x <= 1 for x in result.amplitude_scales)
+                or tuple(sorted(result.amplitude_scales, reverse=True)) != result.amplitude_scales):
+            raise ValueError("amplitude_scales must be decreasing values in (0,1]")
+        if result.level_mix_max_run < 1:
+            raise ValueError("level_mix_max_run must be positive")
         if (not result.novelty_factors or result.novelty_factors[-1] != 0
                 or any(x < 0 or x > 1 for x in result.novelty_factors)
                 or tuple(sorted(result.novelty_factors, reverse=True)) != result.novelty_factors):
@@ -111,6 +121,8 @@ class InfinitePlanner:
         self._suffix = []
         self._level = None
         self._faster_streak = 0
+        self._mix_rng = np.random.default_rng(int(seed)+101)
+        self._mix_uses, self._mix_run = Counter(), 0
         self._serial = 0
         self._calls = 0
         self._metrics = Counter()
@@ -309,7 +321,7 @@ class InfinitePlanner:
             cell = target if target is not None and serial % 2 == 0 else self.cells[(serial+self._calls) % len(self.cells)]
             latent = self._latent(cell)
             plan = None
-            for scale in (1.0, .85, .70):
+            for scale in self.config.amplitude_scales:
                 plan = self._make_horizon(start_beat, state, level, latent, serial, scale)
                 if plan:
                     break
@@ -354,6 +366,8 @@ class InfinitePlanner:
         return accepted
 
     def _choose_level(self, candidates):
+        if self.config.level_mix:
+            return self._mix_level(candidates)
         enough = [k for k, c in candidates.items() if len(c) >= self.config.min_feasible_choices]
         possible = enough or [k for k, c in candidates.items() if c]
         if not possible:
@@ -366,6 +380,22 @@ class InfinitePlanner:
         else:
             self._faster_streak = 0
         return fastest
+
+    def _mix_level(self, candidates):
+        """Weighted random over levels with enough validated candidates (least-used
+        favoured); one level may not run longer than level_mix_max_run phrases."""
+        ok = [k for k, c in candidates.items() if len(c) >= self.config.min_feasible_choices]
+        ok = ok or [k for k, c in candidates.items() if c]
+        if not ok:
+            return None
+        current = self._level
+        if current in ok and len(ok) > 1 and self._mix_run >= self.config.level_mix_max_run:
+            ok.remove(current)
+        weights = np.array([1/(1+self._mix_uses[k]) for k in ok])
+        chosen = int(self._mix_rng.choice(ok, p=weights/weights.sum()))
+        self._mix_run = self._mix_run+1 if chosen == current else 1
+        self._mix_uses[chosen] += 1
+        return chosen
 
     def _fallback(self, start_beat, state, reason, started):
         self._metrics["timeouts" if reason == "planning_timeout" else "search_failures"] += 1
@@ -412,7 +442,7 @@ class InfinitePlanner:
                 for level in self.config.metrical_levels:
                     candidates[level] = self._search_level(start_beat, state, level, started)
                     enough = len(candidates[level]) >= self.config.min_feasible_choices
-                    if enough and (self._level is None or level >= self._level
+                    if enough and not self.config.level_mix and (self._level is None or level >= self._level
                                    or self._faster_streak+1 >= self.config.faster_level_hysteresis):
                         break
             except TimeoutError:

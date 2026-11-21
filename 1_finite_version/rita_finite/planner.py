@@ -22,7 +22,10 @@ class FinitePlanningError(RuntimeError):
 DEFAULTS = {"library_size":48,"amplitude_fraction":.18,"min_motion_choices":32,
             "min_rhythm_choices":12,"hysteresis_blocks":3,"duplicate_distance":.012,
             "max_metrical_level":3,"no_tempo_adaptation":False,
-            "single_rhythm":False,"no_coverage":False,"terminal_hold_seconds":0.}
+            "single_rhythm":False,"no_coverage":False,"terminal_hold_seconds":0.,
+            # Opt-in variety: alternate metrical levels instead of always taking the
+            # fastest sufficient one, optionally with a smaller motion at faster levels.
+            "level_mix":False,"level_amplitude":None,"level_mix_min_actions":6,"level_mix_max_run":2}
 
 
 class FinitePlanner:
@@ -43,6 +46,15 @@ class FinitePlanner:
             raise ValueError("terminal_hold_seconds must be finite and nonnegative")
         self.rng = np.random.default_rng(seed)
         self.seed = seed
+        self._level_ratio = {}
+        if self.config["level_amplitude"]:
+            for key,value in dict(self.config["level_amplitude"]).items():
+                k,value = int(key),float(value)
+                if k not in range(4) or not 0 < value <= 1:
+                    raise ValueError("level_amplitude maps levels 0..3 to amplitude fractions in (0,1]")
+                self._level_ratio[k] = value/float(self.config["amplitude_fraction"])
+        self._mix_rng = np.random.default_rng(seed+101)
+        self._mix_uses, self._mix_run, self._mix_beat, self._prepare_beat = Counter(), 0, None, None
         payload = json.loads(Path(__file__).with_name("library.json").read_text(encoding="utf-8"))
         actual_hash = hashlib.sha256(json.dumps(payload["primitives"],sort_keys=True).encode()).hexdigest()
         if actual_hash != payload["geometry_sha256"]:
@@ -126,6 +138,12 @@ class FinitePlanner:
     def _make_action(self, action, start_beat):
         rhythm = self.rhythms[action.rhythm_id]
         geometry = self.geometry[action.primitive_id]
+        midpoints = self.midpoints[action.primitive_id]
+        ratio = self._level_ratio.get(action.metrical_level,1.)
+        if ratio != 1.:
+            # Same stored chords, uniformly scaled about neutral for this level.
+            geometry = self.profile.neutral+(geometry-self.profile.neutral)*ratio
+            midpoints = self.profile.neutral+(midpoints-self.profile.neutral)*ratio
         if len(rhythm.intervals) != len(geometry)-1:
             raise ValueError("rhythm event count cannot alter frozen primitive geometry")
         factor = 2**action.metrical_level
@@ -141,7 +159,7 @@ class FinitePlanner:
             strength = rhythm.strengths[(i+1)%len(rhythm.strengths)]
             fraction = .44+.12*strength
             knots.extend((left,left+fraction*(right-left)))
-            waypoints.extend((geometry[i],self.midpoints[action.primitive_id][i]))
+            waypoints.extend((geometry[i],midpoints[i]))
             velocities.extend((np.zeros(self.profile.nj),1.875*(geometry[i+1]-geometry[i])/(right-left)))
         knots.append(event_knots[-1])
         waypoints.append(geometry[-1])
@@ -231,7 +249,33 @@ class FinitePlanner:
         return (motions >= min(int(self.config["min_motion_choices"]),len(self.geometry_descriptors)) and
                 rhythms >= min(int(self.config["min_rhythm_choices"]),len(self.rhythms)))
 
+    def _mix_level(self, levels):
+        """Weighted random over feasible levels: least-used levels are favoured and
+        one level may not run longer than level_mix_max_run blocks if another fits."""
+        current = self._current_level
+        if self._prepare_beat == self._mix_beat and current is not None and levels.get(current):
+            return current
+        ok = [k for k,a in levels.items() if len(a) >= int(self.config["level_mix_min_actions"])]
+        ok = ok or [k for k,a in levels.items() if a]
+        if not ok:
+            return None
+        if current in ok and len(ok) > 1 and self._mix_run >= int(self.config["level_mix_max_run"]):
+            ok.remove(current)
+        weights = np.array([1/(1+self._mix_uses[k]) for k in ok])
+        chosen = int(self._mix_rng.choice(ok,p=weights/weights.sum()))
+        self._mix_run = self._mix_run+1 if chosen == current else 1
+        self._mix_uses[chosen] += 1
+        self._mix_beat = self._prepare_beat
+        if current is not None and current != chosen:
+            self._k_changes += 1
+        self._current_level = chosen
+        return chosen
+
     def _select_level(self, levels):
+        if self.config["level_mix"]:
+            chosen = self._mix_level(levels)
+            if chosen is not None:
+                return chosen
         enough = [k for k,actions in levels.items() if actions and self._enough(actions)]
         available = [k for k,actions in levels.items() if actions]
         if not available:
@@ -272,6 +316,7 @@ class FinitePlanner:
     def _prepare(self, start_beat, previous):
         timing_key = self._timing_context(start_beat)
         levels,statuses = self._collect(start_beat,timing_key)
+        self._prepare_beat = start_beat
         k = self._select_level(levels)
         context = f"{timing_key}:k{k}"
         self._all_level_candidates = levels

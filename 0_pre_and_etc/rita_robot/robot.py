@@ -110,6 +110,32 @@ def check_faults(f):
         raise RuntimeError("Robot reports a fault; no automatic fault clearing")
 
 
+def _posix_key_pressed():
+    """Non-blocking Q/Esc check on macOS/Linux; requires operator_keys() cbreak mode."""
+    import select, sys
+    if not sys.stdin.isatty(): return False
+    while select.select([sys.stdin], [], [], 0)[0]:
+        ch = os.read(sys.stdin.fileno(), 1)
+        if not ch: return False
+        if ch.lower() in (b"q", b"\x1b", b"\x03"): return True
+    return False
+
+
+@contextmanager
+def operator_keys():
+    """Put a POSIX terminal in cbreak mode so single Q/Esc keys are read without Enter.
+    Ctrl+C keeps working (signals stay enabled). The terminal is always restored."""
+    import sys
+    if os.name == "nt" or not sys.stdin.isatty():
+        yield; return
+    import termios, tty
+    fd = sys.stdin.fileno(); saved = termios.tcgetattr(fd)
+    try:
+        tty.setcbreak(fd); yield
+    finally:
+        termios.tcsetattr(fd, termios.TCSADRAIN, saved)
+
+
 def _watchdog(ip, pulse, armed, done, tripped, ready):
     """Independent process remains able to stop if the controller hangs/dies."""
     try:
@@ -175,6 +201,8 @@ class Controller:
             import msvcrt
             if msvcrt.kbhit() and msvcrt.getwch().lower() in ("q", "\x1b", "\x03"):
                 raise KeyboardInterrupt("Operator stop")
+        elif _posix_key_pressed():
+            raise KeyboardInterrupt("Operator stop")
         f = self.robot.feedback(); check_faults(f)
         q = signed([a.position for a in f.actuators])
         measured_v = np.array([a.velocity for a in f.actuators])
