@@ -49,6 +49,11 @@ def create_planner(mode,analysis,profile,seed=7,config=None):
     raise ValueError("unknown planner mode")
 
 
+def tracking_tolerance(profile,default=.15):
+    """max_tracking_error_rad may be one value or one value per profile joint."""
+    return np.broadcast_to(np.asarray(profile.endpoint.get("max_tracking_error_rad",default),dtype=float),(profile.nj,))
+
+
 def check_feedback(state,profile,now):
     if tuple(state.joint_names)!=tuple(profile.joint_names) or state.units!="rad":
         raise ValueError("Feedback units/joint order differ from profile")
@@ -169,6 +174,8 @@ def run_session(analysis,profile,mode="finite",backend="mock",seed=7,seconds=60,
         if not validate_segment(segment,profile,previous=previous)["valid"]:
             raise RuntimeError(f"Dispatch rejected reference: {segment.validation['errors']}")
 
+    def tolerance(default=.15): return tracking_tolerance(profile,default)
+
     def scheduled_time(segment):
         scheduled=clock.music_to_monotonic(segment.start)
         if profile.latency_mode=="dispatch" and not capabilities.get("future_execution",False):
@@ -207,7 +214,7 @@ def run_session(analysis,profile,mode="finite",backend="mock",seed=7,seconds=60,
             except StaleFeedback:
                 if headless or time.perf_counter()>=initial_deadline: raise
                 time.sleep(.01)
-        if np.max(np.abs(initial.q-state.q))>float(profile.endpoint.get("max_tracking_error_rad",.07)):
+        if np.any(np.abs(initial.q-state.q)>tolerance(.07)):
             raise RuntimeError("Actual initial state differs from configured neutral; no automatic home or snap")
         current,elapsed=plan(start_beat,state);planning.append(elapsed)
         if not headless:
@@ -248,7 +255,7 @@ def run_session(analysis,profile,mode="finite",backend="mock",seed=7,seconds=60,
                     measured=adapter.read_state();capture(measured,float(t),current)
                     check_feedback(measured,profile,epoch+t)
                     feedback.append({"music_time":float(t),"feedback_monotonic":measured.t,"q":measured.q.tolist(),"dq":measured.dq.tolist()})
-                    if np.max(np.abs(measured.q-current.at(t)[0]))>float(profile.endpoint.get("max_tracking_error_rad",.15)):
+                    if np.any(np.abs(measured.q-current.at(t)[0])>tolerance()):
                         raise RuntimeError("Tracking error exceeded threshold; stop without reference snap")
                 clock.advance(current.end);adapter.advance(epoch+current.end)
             else:
@@ -262,7 +269,9 @@ def run_session(analysis,profile,mode="finite",backend="mock",seed=7,seconds=60,
                         raise RuntimeError("Music output ended before the executing reference")
                     if t>=current.start:
                         feedback.append({"music_time":t,"feedback_monotonic":measured.t,"q":measured.q.tolist(),"dq":measured.dq.tolist()})
-                        if np.max(np.abs(measured.q-current.at(t)[0]))>float(profile.endpoint.get("max_tracking_error_rad",.15)):
+                        # Compare with the reference delayed by the measured controller lag (0 by default).
+                        lagged=max(current.start,t-float(profile.endpoint.get("tracking_lag_seconds",0)))
+                        if np.any(np.abs(measured.q-current.at(lagged)[0])>tolerance()):
                             raise RuntimeError("Measured tracking error; stop without snapping")
                     if future is not None and future.done() and pending_next is None:
                         pending_next,elapsed=future.result();planning.append(elapsed)
@@ -292,7 +301,10 @@ def run_session(analysis,profile,mode="finite",backend="mock",seed=7,seconds=60,
                             shared.queue=[current,pending_next]
                         elif time.monotonic()>=latest-.002:
                             info["deadline_misses"]+=1
-                            raise RuntimeError("Planning or controller completion missed the future handoff deadline; stopping without catch-up")
+                            action_end=current_receipt.get("controller_action_end_monotonic")
+                            raise RuntimeError("Planning or controller completion missed the future handoff deadline; stopping without catch-up"
+                                               f" [planned_next={pending_next is not None}, adapter_ready={ready},"
+                                               f" handoff_window_s={(latest-action_end) if action_end is not None else None}]")
                     time.sleep(min(.01,profile.command_period))
             segments.append(current);shared.current=current.end_state();shared.queue=[]
             recorder.record_segment(current,"completed",observed_music_time=clock.clock())

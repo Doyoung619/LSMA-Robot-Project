@@ -1,0 +1,92 @@
+{
+  "name": "misty-head-arms-twist-dance-example",
+  "model": "misty_ii_head_arms",
+  "joint_names": [
+    "head_pitch",
+    "head_roll",
+    "head_yaw",
+    "left_arm",
+    "right_arm"
+  ],
+  "units": "rad",
+  "neutral": [
+    0,
+    0,
+    0,
+    0.6108652381980153,
+    0.6108652381980153
+  ],
+  "lower": [
+    -0.2617993877991494,
+    -0.4363323129985824,
+    -0.7853981633974483,
+    -0.4363323129985824,
+    -0.4363323129985824
+  ],
+  "upper": [
+    0.2617993877991494,
+    0.4363323129985824,
+    0.7853981633974483,
+    1.6580627893946132,
+    1.6580627893946132
+  ],
+  "vmax": [
+    3.0,
+    3.0,
+    3.0,
+    4.0,
+    4.0
+  ],
+  "amax": [
+    25.0,
+    25.0,
+    25.0,
+    40.0,
+    40.0
+  ],
+  "command_mode": "misty_pose",
+  "command_period": 0.1,
+  "feedback_freshness": 1.0,
+  "latency_seconds": 0.2,
+  "dispatch_lead_seconds": 0.08,
+  "latency_mode": "dispatch",
+  "workspace": {
+    "kind": "joint_box",
+    "collision_checked": false,
+    "verified": false,
+    "scope": "Head, both arms (-25..95 deg, 90=down, 0=forward, -29=up limit), in-place base twist only (no linear driving). Values tuned on one Misty II (fw 2.0.2.11660); re-check on your robot before enabling."
+  },
+  "endpoint": {
+    "host": "REPLACE_ME",
+    "http_port": 80,
+    "ws_port": 80,
+    "arm_velocity_percent": 15,
+    "feedback_period_ms": 50,
+    "max_tracking_error_rad": [
+      0.8,
+      0.8,
+      0.8,
+      3.0,
+      3.0
+    ],
+    "standstill_velocity_tolerance_rad_s": 5.0,
+    "terminal_hold_seconds": 0.2,
+    "stop_mode": "park",
+    "park_on_connect": true,
+    "park_seconds": 1.5,
+    "max_consecutive_skips": 3,
+    "pose_mode": "waypoints",
+    "tracking_lag_seconds": 0.2,
+    "arm_extra_lead_seconds": 0.1,
+    "arm_min_velocity_percent": 40,
+    "wheels_enabled": true,
+    "twist_angular_percent": 25,
+    "twist_time_fraction": 0.8,
+    "max_command_lateness_seconds": 0.35,
+    "arm_speed_margin": 1.5
+  },
+  "local_verified": false,
+  "min_excursion": 0.03,
+  "max_stationary_seconds": 0.6,
+  "speed_threshold": 0.005
+}

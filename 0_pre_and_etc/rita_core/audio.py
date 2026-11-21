@@ -12,6 +12,8 @@ import soundfile as sf
 from .contracts import AudioAnalysis
 
 BASE = Path(__file__).resolve().parents[1]
+# ".nosync" keeps iCloud Drive from evicting run data (it has replaced files with empty placeholders).
+OUTPUTS = BASE/"outputs.nosync"
 
 
 def file_hash(path):
@@ -81,12 +83,14 @@ def sparse_transients(mono,rate):
 
 def analyze_audio(source=None, output=None, bpm_override=None, beat_offset=None):
     source=find_audio(source)
-    out=Path(output or BASE/"outputs/analysis")
+    out=Path(output or OUTPUTS/"analysis")
     out.mkdir(parents=True,exist_ok=True)
     digest=file_hash(source)
     key=hashlib.sha256(f"{digest}:{bpm_override}:{beat_offset}:v2.2".encode()).hexdigest()[:20]
     cached=out/(key+".json")
-    if cached.exists(): return AudioAnalysis(**json.loads(cached.read_text(encoding="utf-8")))
+    if cached.exists():
+        # Same audio hash, but the file may have moved since caching: play back from the path given now.
+        return AudioAnalysis(**{**json.loads(cached.read_text(encoding="utf-8")),"source":str(source)})
     wav=decode_audio(source,out/"cache")
     audio,sr,mono,rate,t,onset,energy,ac=features(wav)
     duration=len(audio)/sr

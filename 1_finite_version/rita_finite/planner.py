@@ -36,8 +36,10 @@ class FinitePlanner:
         size = int(self.config["library_size"])
         if size < 32 or size > 64:
             raise ValueError("finite library_size must be between 32 and 64")
-        if not 0 < self.config["amplitude_fraction"] <= 1:
-            raise ValueError("amplitude_fraction must be in (0,1]")
+        # A scalar, or one value per profile joint (e.g. larger arm swings than head motion).
+        amplitude = np.broadcast_to(np.asarray(self.config["amplitude_fraction"],dtype=float),(profile.nj,))
+        if not np.all((amplitude > 0) & (amplitude <= 1)):
+            raise ValueError("amplitude_fraction must be in (0,1] (scalar or one per joint)")
         hold = float(self.config["terminal_hold_seconds"])
         if not np.isfinite(hold) or hold<0:
             raise ValueError("terminal_hold_seconds must be finite and nonnegative")
@@ -57,7 +59,7 @@ class FinitePlanner:
                 raise ValueError(f"unknown single rhythm {rid}")
             self.rhythms = {rid:self.rhythms[rid]}
         margin = np.minimum(profile.upper-profile.neutral,profile.neutral-profile.lower)
-        self.mapping_scale = margin*float(self.config["amplitude_fraction"])
+        self.mapping_scale = margin*amplitude
         self.geometry, self.midpoints, self.geometry_descriptors, self.projected_duplicates = {}, {}, {}, {}
         for pid, primitive in self.primitives.items():
             raw = np.asarray(primitive["normalized_waypoints"],dtype=float)

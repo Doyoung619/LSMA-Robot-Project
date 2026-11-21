@@ -15,6 +15,8 @@ result/
 6_container/runs/
 **/containers/
 0_pre_and_etc/outputs/
+0_pre_and_etc/outputs.nosync/
+0_pre_and_etc/music.nosync/
 0_pre_and_etc/tmp/
 0_pre_and_etc/logs/
 0_pre_and_etc/sim_models/

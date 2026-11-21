@@ -9,7 +9,7 @@ import sys
 import time
 import unittest
 import numpy as np
-from .audio import analyze_audio,find_audio,fixture,synthetic_analysis,BASE
+from .audio import analyze_audio,find_audio,fixture,synthetic_analysis,BASE,OUTPUTS
 from .contracts import serial
 from .profiles import load_profile,default_profile
 from .runtime import run_session,check_feedback
@@ -36,7 +36,7 @@ def configuration(args,mode=None):
 def output_dir(args,label):
     if getattr(args,"output",None): return Path(args.output).resolve()
     stamp=datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S_%fZ")
-    return BASE/"outputs"/f"{label}_{stamp}"
+    return OUTPUTS/f"{label}_{stamp}"
 
 
 def compact(report):
@@ -122,7 +122,15 @@ def doctor(args):
             "optional_dependencies":{m:importlib.util.find_spec(m) is not None for m in modules},"status":"implemented, hardware-unverified" if args.backend!="mock" else "mock ready"}
     if args.probe:
         try:
-            adapter.connect();state=adapter.read_state()
+            adapter.connect()
+            # Hardware feedback arrives asynchronously after subscription; wait briefly instead of failing on the first read.
+            from .adapters import StaleFeedback
+            deadline=time.monotonic()+3.
+            while True:
+                try:state=adapter.read_state();break
+                except StaleFeedback:
+                    if time.monotonic()>deadline:raise
+                    time.sleep(.1)
             result["probe"]={"q_rad":state.q.tolist(),"fresh":state.fresh,"joint_names":state.joint_names,"metadata":state.metadata}
         finally:adapter.close()
     dump(result)
@@ -205,7 +213,7 @@ def main(argv=None):
             if not unittest.TextTestRunner(verbosity=2).run(suite).wasSuccessful():raise SystemExit(1)
         elif args.command=="run":
             out=output_dir(args,args.mode)
-            a=synthetic_analysis(args.bpm,max(180,args.seconds+90)) if args.synthetic else analyze_audio(args.audio,BASE/"outputs/analysis",args.bpm_override,args.beat_offset)
+            a=synthetic_analysis(args.bpm,max(180,args.seconds+90)) if args.synthetic else analyze_audio(args.audio,OUTPUTS/"analysis",args.bpm_override,args.beat_offset)
             if args.synthetic and not args.headless:raise ValueError("--synthetic is a labeled silent planner fixture; use --headless")
             report=run_session(a,load_profile(args.profile,args.backend),args.mode,args.backend,args.seed,args.seconds,args.headless,out,configuration(args),
                                {"command_delay":args.command_delay,"tracking_delay":args.tracking_delay,"feedback_dropout":args.feedback_dropout,"disconnect_at":args.disconnect_at} if args.backend=="mock" else {},args.execute,
