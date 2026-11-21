@@ -240,6 +240,25 @@ class MistyAdapter(RobotAdapter):
                                     "velocity_estimator": "unfiltered first difference of asynchronous received positions; not a certified physical dq/ddq",
                                     "actual_motor_completion": "not inferred from HTTP result"})
 
+    def _execution_duration(self, segment):
+        """Seconds of commanded motion before the terminal hold.
+
+        A chunk that never moves is refused for our own dance. It is accepted only when the runtime
+        waived the dance-activity rules for it (an external baseline that really pauses): the pose
+        is then held for the chunk minus the profile's terminal hold, so the handoff window is the
+        same as for a moving chunk.
+        """
+        moving = terminal_hold_start(segment)-segment.start
+        if moving > 0:
+            return moving
+        if not segment.validation.get("waived_quality_errors"):
+            raise CapabilityError("A stationary-only segment is not a dance chunk")
+        hold = float(self.profile.endpoint.get("terminal_hold_seconds", .2))
+        held = segment.duration-hold
+        if held < self.profile.command_period:
+            raise CapabilityError("Stationary chunk is shorter than the terminal hold plus one command period")
+        return held
+
     def compile_segment(self, segment):
         require_segment(segment, self.profile, stop_to_stop=True)
         period = self.profile.command_period
@@ -247,10 +266,11 @@ class MistyAdapter(RobotAdapter):
         if not 0 < percent <= 100:
             raise ValueError("Misty arm_velocity_percent must be in (0,100]")
         # Count chosen so every interval is >= rate limit; final target included.
-        execution_duration = terminal_hold_start(segment)-segment.start
-        if execution_duration <= 0:
-            raise CapabilityError("A stationary-only segment is not a dance chunk")
-        if self.profile.endpoint.get("pose_mode", "sampled") == "waypoints":
+        execution_duration = self._execution_duration(segment)
+        if terminal_hold_start(segment)-segment.start <= 0:
+            # Waived stationary chunk: one request that holds the constant pose.
+            offsets = np.r_[0., execution_duration]
+        elif self.profile.endpoint.get("pose_mode", "sampled") == "waypoints":
             # Misty's head restarts its own interpolation on every request and cannot follow a dense
             # stream of short poses (measured: it lags and the pitch sags). Send one pose per stored
             # zero-velocity knot instead, with Duration = time to that knot; Misty interpolates the leg.
@@ -391,7 +411,7 @@ class MistyAdapter(RobotAdapter):
             raise DispatchDeadlineMiss("Expired Misty command; no catch-up burst will be sent")
         self._cancel.clear()
         self._error = None
-        self._active_until = scheduled_monotonic+(terminal_hold_start(segment)-segment.start)
+        self._active_until = scheduled_monotonic+self._execution_duration(segment)
         self._active_reference, self._active_start = segment, float(scheduled_monotonic)
         self._worker = threading.Thread(target=self._dispatch, args=(commands, float(scheduled_monotonic)),
                                         name="rita-misty-dispatch", daemon=True)
