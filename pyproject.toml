@@ -16,8 +16,8 @@ misty = ["websocket-client>=1.7,<2"]
 rita-dance = "rita_core.cli:main"
 
 [tool.setuptools]
-packages = ["rita_core", "rita_core.adapters", "rita_robot", "rita_finite", "rita_infinite"]
-package-dir = {rita_core = "0_pre_and_etc/rita_core", rita_robot = "0_pre_and_etc/rita_robot", rita_finite = "1_finite_version/rita_finite", rita_infinite = "2_infinite_version/rita_infinite"}
+packages = ["rita_core", "rita_core.adapters", "rita_robot", "rita_finite", "rita_infinite", "rita_container"]
+package-dir = {rita_core = "0_pre_and_etc/rita_core", rita_robot = "0_pre_and_etc/rita_robot", rita_finite = "1_finite_version/rita_finite", rita_infinite = "2_infinite_version/rita_infinite", rita_container = "6_container/rita_container"}
 
 [tool.setuptools.package-data]
 rita_core = ["profiles/*.json"]

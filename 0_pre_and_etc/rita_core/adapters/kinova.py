@@ -200,6 +200,8 @@ class KinovaAdapter(RobotAdapter):
                    "terminal_hold_seconds": compiled["terminal_hold_seconds"],
                    "latency_policy": "header is execution time; dispatch lead is not subtracted again"}
         self.command_log.append(receipt)
+        hook = getattr(self, "telemetry_hook", None)
+        if hook is not None: hook(receipt)
         return receipt
 
     def stop(self):

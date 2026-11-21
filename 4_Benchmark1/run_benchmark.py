@@ -19,6 +19,9 @@ import numpy as np
 
 ROOT=Path(__file__).resolve().parent
 from our_adapters import robot_profile,create,generate,REPO
+# Direct-script use works before an editable repository install, too.
+if str(REPO/"6_container") not in sys.path:sys.path.insert(0,str(REPO/"6_container"))
+from rita_container import RolloutRecorder
 from metrics import evaluate,seed_distances
 from reachy_adapter import load_upstream,sample_native,adapt_misty,METHOD_NATIVE,METHOD_ADAPTED
 from rita_core.audio import analyze_audio,find_audio,synthetic_analysis,file_hash
@@ -145,13 +148,36 @@ def quality_run(method,analysis,profile,cfg,stage,start_beat,seconds,seed,output
     row={"run_id":run_id,"stage":stage,"method":method,"method_label":LABELS[method],"seed":seed,
          "start_beat":start_beat,"crop_start_seconds":analysis.beat_time(start_beat),"duration_seconds":seconds,
          "audio_sha256":analysis.audio_hash,"input":"shared estimated beat reference","status":"failed","hardware_executed":False}
+    recorder=None
     try:
+        if method!="reachy_native":
+            recorder=RolloutRecorder(output/"containers",profile=profile,analysis=analysis,
+                metadata={"benchmark":"Benchmark1","benchmark_run_id":run_id,"method":method,
+                          "stage":stage,"seed":seed,"measurement_scope":"offline_commanded",
+                          "hardware_executed":False,"input":"shared cached beat timestamps",
+                          "trajectory_artifact":str(output/"trajectories"/(run_id+".npz"))},
+                metric_config=cfg["metrics"])
+            row.update(container_run_id=recorder.run_id,container_path=str(recorder.run_dir))
         result=generate_method(method,analysis,profile,start_beat,seconds,seed)
         if stage.startswith(('stress','synthetic')):
             result['input']='known synthetic beat timestamps; no raw-audio naturalness evaluation'
         for k in ("init_seconds","generation_seconds","adaptation_seconds","limit_handling_seconds","total_generation_seconds"):row[k]=result[k]
         row["rtf"]=result["total_generation_seconds"]/seconds
         save_trajectory(output,run_id,result)
+        if recorder is not None:
+            # Export is outside the measured generation region and preserves the
+            # original, uncorrected q values, including any limit violations.
+            for i,t in enumerate(result["times_seconds"]):
+                recorder.record_sample("reference",float(t),result["q"][i],
+                    dq=result["analytic_dq"][i] if "analytic_dq" in result else None,
+                    metadata={"global_beat_phase":float(result["beat_phase"][i]),
+                              **({"declared_accent_times":result.get("declared_accent_times",[])} if i==0 else {})})
+            for target in result.get("declared_accent_times",[]):
+                recorder.record_event("declared_accent",music_time=float(target))
+            for key in ("init_seconds","generation_seconds","adaptation_seconds","limit_handling_seconds","total_generation_seconds"):
+                recorder.record_event("generation_timing",stage=key,wall_seconds=float(result[key]),
+                                      timing_scope="offline generation; container export excluded")
+            recorder.record_event("generation_metadata",details=clean(result["metadata"]))
         if method!="reachy_native":
             metrics,details=evaluate(result["times_seconds"],result["q"],analysis,profile,cfg["metrics"],result.get("declared_accent_times"))
             row.update(metrics);row["status"]="generated"
@@ -169,11 +195,16 @@ def quality_run(method,analysis,profile,cfg,stage,start_beat,seconds,seed,output
             row["motion_ratios_used"]=sorted(set(item["motion_beat_ratio"] for item in meta.get("metrical_timeline",[])))
             row["chunk_deadline_misses"]=meta.get("chunk_deadline_misses")
             write_json(output/"_scratch"/(run_id+"_metrics.json"),details)
+            recorder.close(status="completed",native_status=row["status"])
             return row,result,details
-        row.update(status="generated_native",embodiment="Reachy head pose/antennas",audio_alignment=None,kinematic_feasibility=None)
+        row.update(status="generated_native",embodiment="Reachy head pose/antennas",audio_alignment=None,kinematic_feasibility=None,
+                   container_path=None,container_note="Native xyz/Euler/antenna channels remain in native trajectory artifacts; common joint containers cover the adapted same-robot q trajectories.")
         return row,result,{}
     except Exception as exc:
+        row["status"]="failed"
         row["error"]=f"{type(exc).__name__}: {exc}"
+        if recorder is not None:
+            recorder.close(status="failed",error=row["error"])
         print(f"FAILED {run_id}: {row['error']}",flush=True)
         return row,None,{}
 

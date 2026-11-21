@@ -121,3 +121,34 @@ balance/collision 인증으로 해석하지 않습니다.
 LICENSE 파일이 없고 HF dataset license metadata도 비어 있습니다. 링크와 확인
 사실을 manifest에 남겼습니다. 이 저장소는 원본 코드·가중치·dataset을 재배포하지
 않고 공식 위치에서 내려받는 wrapper와 재현 기록을 제공합니다.
+
+## Common rollout containers
+
+Native simulation also streams a versioned container to
+`<results>/containers/<run_id>/`, using the same schema as Misty and Kinova
+rollouts. The `simulation` channel stores all 29 G1 joint positions/velocities
+in the actual model order. The `reference` channel stores the PD joint target
+for the following control interval, with the released 29-dimensional action
+and its ordering in metadata. Floating-base position, quaternion, velocity,
+base height and control index remain available as simulation metadata.
+
+The profile uses the pinned MuJoCo position ranges and pinned URDF velocity
+limits. The model does not provide acceleration limits; acceleration
+feasibility is explicitly N/A. Policy inference events retain the original
+forward timing, with logger and metric work outside the measured forward
+region. Total closed-loop wall time includes logging overhead. Exceptions
+finalize the container as failed and preserve observations already received.
+
+Time is MuJoCo simulation time, even though the shared field is called
+`music_time`. No AudioAnalysis is supplied for released latent demos, so audio
+synchronization metrics remain null. G1 simulation and physical Misty/Kinova
+measurements retain distinct sources and embodiment metadata.
+
+From the repository root:
+
+```powershell
+python 6_container/read_runs.py 5_Benchmark2/results/containers --csv result/g1_rollouts.csv
+python 6_container/read_runs.py 5_Benchmark2/results/containers --recompute
+```
+
+See [6_container](../6_container/README.md) for common readers and extensions.

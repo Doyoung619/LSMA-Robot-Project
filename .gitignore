@@ -12,6 +12,8 @@ dist/
 .env.*
 !*.example
 result/
+6_container/runs/
+**/containers/
 0_pre_and_etc/outputs/
 0_pre_and_etc/tmp/
 0_pre_and_etc/logs/

@@ -185,6 +185,7 @@ def main(argv=None):
     f=sub.add_parser("fixture");f.add_argument("--output",required=True);f.add_argument("--bpm",type=float,default=120);f.add_argument("--seconds",type=float,default=660);f.add_argument("--phase",type=float,default=.17);f.add_argument("--tempo-change",type=float);f.add_argument("--silence",action="store_true")
     r=sub.add_parser("run");r.add_argument("--mode",choices=["finite","infinite","fixed-loop","random"],default="finite");r.add_argument("--backend",choices=["mock","misty","kinova"],default="mock");r.add_argument("--audio");r.add_argument("--synthetic",action="store_true");r.add_argument("--headless",action="store_true");r.add_argument("--seed",type=int,default=7);r.add_argument("--seconds",type=float,default=60);r.add_argument("--bpm",type=float,default=120);r.add_argument("--profile");r.add_argument("--config");r.add_argument("--output");r.add_argument("--execute",action="store_true");r.add_argument("--bpm-override",type=float);r.add_argument("--beat-offset",type=float)
     r.add_argument("--ablation",choices=["no-tempo-adaptation","no-coverage-novelty","single-rhythm"])
+    r.add_argument("--container-root",help="Root for unique common rollout containers (default: OUTPUT/containers)")
     r.add_argument("--command-delay",type=float,default=0);r.add_argument("--tracking-delay",type=float,default=0);r.add_argument("--feedback-dropout",type=float,default=0);r.add_argument("--disconnect-at",type=float)
     b=sub.add_parser("benchmark");b.add_argument("--suite",choices=["quick","long","full"],default="quick");b.add_argument("--audio");b.add_argument("--seconds",type=float);b.add_argument("--seeds",default="7");b.add_argument("--output");b.add_argument("--config")
     d=sub.add_parser("doctor");d.add_argument("--backend",choices=["mock","misty","kinova"],default="mock");d.add_argument("--profile");d.add_argument("--read-only",action="store_true",default=True);d.add_argument("--probe",action="store_true")
@@ -207,7 +208,8 @@ def main(argv=None):
             a=synthetic_analysis(args.bpm,max(180,args.seconds+90)) if args.synthetic else analyze_audio(args.audio,BASE/"outputs/analysis",args.bpm_override,args.beat_offset)
             if args.synthetic and not args.headless:raise ValueError("--synthetic is a labeled silent planner fixture; use --headless")
             report=run_session(a,load_profile(args.profile,args.backend),args.mode,args.backend,args.seed,args.seconds,args.headless,out,configuration(args),
-                               {"command_delay":args.command_delay,"tracking_delay":args.tracking_delay,"feedback_dropout":args.feedback_dropout,"disconnect_at":args.disconnect_at} if args.backend=="mock" else {},args.execute)
+                               {"command_delay":args.command_delay,"tracking_delay":args.tracking_delay,"feedback_dropout":args.feedback_dropout,"disconnect_at":args.disconnect_at} if args.backend=="mock" else {},args.execute,
+                               container_root=args.container_root)
             dump({"output":str(out),**compact(report)})
             if not report["run"]["completed"]:raise SystemExit(2)
     except (ValueError,FileNotFoundError,PermissionError,RuntimeError,ImportError) as exc:

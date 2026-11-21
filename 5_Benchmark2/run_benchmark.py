@@ -17,6 +17,9 @@ import traceback
 
 from prepare import ROOT,ASSETS,SOURCE_REVISION,DATASET_REVISION,sha256,source,download
 
+for _folder in (ROOT.parent/"0_pre_and_etc",ROOT.parent/"6_container"):
+    if str(_folder) not in sys.path:sys.path.insert(0,str(_folder))
+
 
 def save_json(path,value):
     Path(path).parent.mkdir(parents=True,exist_ok=True)
@@ -124,10 +127,35 @@ def load_latents(checkout,device,results,allow_cpu_port=False):
     return latents,info
 
 
+def container_profile(model,upstream,checkout,period):
+    """Describe native G1 joints without fabricating acceleration constraints."""
+    import numpy as np
+    import xml.etree.ElementTree as ET
+    from rita_core.contracts import RobotProfile
+    names=tuple(upstream.joint_xml)
+    joints=[model.joint(name) for name in names]
+    if any(int(j.qposadr[0])!=7+i or int(j.dofadr[0])!=6+i for i,j in enumerate(joints)):
+        raise RuntimeError("G1 container joint order differs from model qpos/qvel order")
+    if any(not bool(j.limited[0]) for j in joints):
+        raise RuntimeError("G1 common metrics require explicit position limits for each joint")
+    urdf=checkout/"deploy/unitree_description/urdf/g1/main.urdf"
+    limits={j.attrib["name"]:j.find("limit") for j in ET.parse(urdf).getroot().findall("joint")}
+    velocity=np.array([float(limits[name].attrib["velocity"]) for name in names])
+    ranges=np.array([j.range.copy() for j in joints])
+    return RobotProfile("g1-native-mujoco-UNVERIFIED","unitree_g1_mujoco",names,
+        np.asarray(upstream.joint_pos_array).copy(),ranges[:,0],ranges[:,1],velocity,np.ones(len(names)),
+        command_mode="simulation",command_period=period,
+        workspace={"position_limit_source":"pinned upstream MuJoCo joint ranges",
+                   "velocity_limit_source":"pinned upstream urdf/g1/main.urdf",
+                   "unavailable_limits":["acceleration"],
+                   "acceleration_limit_note":"No published acceleration bounds in this model; profile amax is an unused structural placeholder and acceleration feasibility is N/A."})
+
+
 def simulate(checkout,policy,latents,args,results,progress=None):
     import numpy as np
     import torch
     import mujoco
+    from rita_container import RolloutRecorder
     sys.path.insert(0,str(checkout/"deploy"))
     upstream=load_module("roboperform_mujoco_constants",checkout/"deploy/deploy_mujoco/Roboperform_mujoco.py")
     xml_path=checkout/"deploy/unitree_description/mjcf/g1_liao.xml"
@@ -149,8 +177,24 @@ def simulate(checkout,policy,latents,args,results,progress=None):
     steps=min(int(args.seconds/period),available)
     if steps<1:raise ValueError("Requested rollout is shorter than one official control period")
     obs=np.zeros(1400,dtype=np.float32);qpos=[];qvel=[];targets=[];actions=[];times=[];inferences=[];simulation=[];base_heights=[]
+    recorder=RolloutRecorder(results/"containers",profile=container_profile(m,upstream,checkout,period),
+        analysis=None,metadata={"benchmark":"Benchmark2","method":"RoboPerform released latent-conditioned G1 demo",
+            "measurement_scope":"closed_loop_simulation","backend":"mujoco","hardware_executed":False,
+            "seed":args.seed,"motion_id":args.motion_id,"device":args.device,
+            "source_revision":SOURCE_REVISION,"dataset_revision":DATASET_REVISION,
+            "time_basis":"MuJoCo simulation seconds; no audio clock or beat labels",
+            "audio_alignment":None,"custom_audio_ok":False,
+            "trajectory_artifact":str(results/"trajectories/g1_rollout.npz")})
+    if progress is not None:
+        progress["container_run_id"]=recorder.run_id;progress["container_path"]=str(recorder.run_dir)
     start=time.perf_counter();control_index=0;first_forward=None
-    with torch.inference_mode():
+    # Recorder work is outside policy timing. The context finalizes partial
+    # observations and failed status if inference or simulation raises.
+    with recorder,torch.inference_mode():
+        recorder.record_sample("simulation",float(d.time),d.qpos[7:].copy(),dq=d.qvel[6:].copy(),
+            metadata={"floating_base_position_m":d.qpos[:3].tolist(),"floating_base_quaternion_wxyz":d.qpos[3:7].tolist(),
+                      "floating_base_velocity":d.qvel[:6].tolist(),"initial_state":True})
+        recorder.record_sample("reference",float(d.time),target.copy(),metadata={"target_kind":"PD joint target"})
         for counter in range(1,steps*upstream.control_decimation+1):
             began=time.perf_counter();mujoco.mj_step(m,d)
             tau=upstream.pd_control(target,d.qpos[7:],upstream.stiffness_array,np.zeros_like(upstream.damping_array),d.qvel[6:],upstream.damping_array)
@@ -173,6 +217,9 @@ def simulate(checkout,policy,latents,args,results,progress=None):
             tick=time.perf_counter();action=policy(tensor)
             if args.device.startswith("cuda"):torch.cuda.synchronize()
             inference=time.perf_counter()-tick
+            recorder.record_event("policy_inference",music_time=float(d.time),control_index=control_index,
+                                  wall_seconds=inference,device=args.device,
+                                  timing_scope="policy forward with CUDA synchronization; logging excluded")
             if action.shape!=(1,23) or not torch.isfinite(action).all():raise RuntimeError("Invalid student action output")
             if first_forward is None:
                 first_forward=inference
@@ -184,6 +231,13 @@ def simulate(checkout,policy,latents,args,results,progress=None):
             target=np.array([target_seq[upstream.joint_seq.index(j)] for j in upstream.joint_xml])
             qpos.append(d.qpos.copy());qvel.append(d.qvel.copy());targets.append(target.copy());actions.append(raw);times.append(float(d.time));base_heights.append(float(d.qpos[2]))
             if not np.all(np.isfinite(d.qpos)) or not np.all(np.isfinite(d.qvel)):raise RuntimeError("Nonfinite simulated state")
+            recorder.record_sample("simulation",float(d.time),d.qpos[7:].copy(),dq=d.qvel[6:].copy(),
+                metadata={"control_index":control_index,"floating_base_position_m":d.qpos[:3].tolist(),
+                          "floating_base_quaternion_wxyz":d.qpos[3:7].tolist(),
+                          "floating_base_velocity":d.qvel[:6].tolist(),"base_height_m":float(d.qpos[2])})
+            recorder.record_sample("reference",float(d.time),target.copy(),
+                metadata={"control_index":control_index,"target_kind":"PD joint target",
+                          "action_29d":raw.tolist(),"action_joint_order":list(upstream.joint_seq)})
             control_index+=1
             if control_index%50==0:print(f"G1 rollout {control_index}/{steps}; t={d.time:.2f}s",flush=True)
     trajectory=results/"trajectories";trajectory.mkdir(exist_ok=True)
@@ -205,6 +259,9 @@ def simulate(checkout,policy,latents,args,results,progress=None):
           "input":"released latent-conditioned G1 demo; custom-audio inference unavailable","audio_alignment":None,
           "model_loading":"Identical upstream XML and mesh bytes via virtual file system; only meshdir rebound to avoid Windows non-ASCII path failure",
           "trajectory":"trajectories/g1_rollout.npz","state_source":"closed-loop MuJoCo state, not a commanded pose animation","hardware_executed":False}
+    info.update(container_run_id=recorder.run_id,container_path=str(recorder.run_dir),
+                container_time_basis="simulation seconds; music_time field does not imply an audio clock",
+                unavailable_feasibility_limits=["acceleration"])
     if len(inferences)>=20:info["policy_step_seconds_p95"]=float(np.percentile(inferences,95))
     render_start=time.perf_counter()
     if not args.no_video:

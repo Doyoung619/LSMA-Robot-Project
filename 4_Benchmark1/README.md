@@ -141,3 +141,30 @@ Git에 넣지 않고, 코드·설정·작은 결과/그림을 versioning합니�
 
 이 소규모 비교로 우리 방법이 보편적으로 더 우수하다고 결론 내리지 않습니다.
 다양성은 movement activity·jerk·제약 위반과 함께 읽어야 합니다.
+
+## Common rollout containers
+
+Each same-robot quality run also writes a versioned container under
+`<output>/containers/<run_id>/`. The manifest identifies Benchmark1,
+`offline_commanded` scope, method, seed, audio and ordered robot joints. The
+reference stream contains the original q samples, optional analytic dq, beat
+phase, declared accent events and generation timing. Container export runs after
+the measured generation region. Failures retain a failed container and its
+available data. Re-running creates a new run directory.
+
+The metric implementation is shared with `../6_container`; `metrics.py` keeps
+its existing imports as compatibility aliases. Native Reachy xyz/Euler/antenna
+outputs stay in their native trajectory artifacts: these are not converted into
+an invented joint profile. Common joint containers cover Our finite, Our
+infinite and Reachy adapted trajectories.
+
+From the repository root, combine benchmark and robot rollout containers:
+
+```powershell
+python 6_container/read_runs.py 4_Benchmark1/results/containers 6_container/runs --csv result/combined_rollouts.csv
+python 6_container/read_runs.py 4_Benchmark1/results/containers --recompute
+```
+
+See [6_container](../6_container/README.md) for the schema, custom metrics and
+hardware rollout commands. These offline reference containers do not establish
+physical robot tracking or measured music synchronization.

@@ -1,5 +1,6 @@
 """Audio, planning worker, adapter dispatch, and feedback have separate owners."""
 from concurrent.futures import ThreadPoolExecutor
+from dataclasses import asdict
 import copy
 from pathlib import Path
 import time
@@ -9,7 +10,8 @@ from .trajectory import validate_segment
 from .audio import VirtualClock,DACClock,decode_audio
 from .adapters import make_adapter,StaleFeedback
 from .adapters.base import require_motion_permission
-from .evaluation import evaluate,save_report
+from .evaluation import evaluate,save_report,provenance
+from rita_container import RolloutRecorder
 
 
 STOP_LATCH=Path(__file__).resolve().parents[1]/"STOP_RITA"
@@ -58,7 +60,7 @@ def check_feedback(state,profile,now):
 
 def run_session(analysis,profile,mode="finite",backend="mock",seed=7,seconds=60,
                 headless=True,output=None,config=None,mock_options=None,execute=False,
-                condition="normal",planner=None):
+                condition="normal",planner=None,container_root=None,container_metadata=None):
     if backend!="mock" and headless:
         raise ValueError("Hardware cannot run on an accelerated virtual clock")
     if backend!="mock":
@@ -102,6 +104,49 @@ def run_session(analysis,profile,mode="finite",backend="mock",seed=7,seconds=60,
     adapter=make_adapter(backend,profile,execute=execute,**options)
     future=None;pool=ThreadPoolExecutor(max_workers=1,thread_name_prefix="rita-planning")
     current_receipt=None
+    recorder=RolloutRecorder(container_root or (Path(output)/"containers" if output else None),
+        profile=profile,analysis=analysis,metadata={**provenance(),"benchmark":"rollout",
+            "method":mode,"backend":backend,"seed":seed,"condition":condition,
+            "scope":"hardware_feedback" if hardware else "mock_simulation",
+            "headless_virtual_clock":headless,**(container_metadata or {})})
+    info["container"]={"run_id":recorder.run_id,"path":str(recorder.run_dir),"schema_version":1}
+    audio_epoch=epoch
+    accent_segments=set()
+    def audit(kind,**payload):
+        # Cleanup and motor stop must proceed even when storage is unavailable.
+        try: recorder.record_event(kind,**payload)
+        except Exception as exc: info["telemetry_error"]=str(exc)
+
+    def capture(measured,t,segment=None):
+        observed=epoch+t if headless else time.monotonic()
+        sample_time=measured.t-audio_epoch
+        metadata={**measured.metadata,"observed_music_time":float(t),
+                  "joint_names":measured.joint_names,"units":measured.units}
+        reference=segment
+        if reference is not None and sample_time<reference.start:
+            reference=next((s for s in reversed(segments) if s.start<=sample_time<=s.end),None)
+        if reference is not None and reference.start<=sample_time<=reference.end:
+            rq=reference.at(sample_time)[0]
+            metadata.update(reference_q=rq,tracking_max_abs_error_rad=float(np.max(np.abs(measured.q-rq))))
+            # Targets are declared separately from detected motion accents.
+            if ("feedback",reference.start) not in accent_segments:
+                metadata["declared_accent_times"]=reference.accent_times
+                accent_segments.add(("feedback",reference.start))
+        recorder.record_sample("feedback" if hardware else "simulated_feedback",sample_time,
+            measured.q,measured.dq,feedback_monotonic=measured.t,observed_monotonic=observed,
+            fresh=measured.fresh,metadata=metadata)
+        if segment is not None:
+            rq,rv,ra=segment.at(t)
+            reference_metadata={"ddq":ra,"rhythm_id":segment.rhythm_id}
+            if ("reference",segment.start) not in accent_segments:
+                reference_metadata["declared_accent_times"]=segment.accent_times
+                accent_segments.add(("reference",segment.start))
+            recorder.record_sample("reference",t,rq,rv,observed_monotonic=observed,
+                                   metadata=reference_metadata)
+
+    def command_observer(receipt):
+        recorder.record_event("adapter_command",receipt=receipt)
+    adapter.telemetry_hook=command_observer
     def plan(beat,boundary,terminal=False):
         start=time.perf_counter()
         if terminal:
@@ -117,6 +162,7 @@ def run_session(analysis,profile,mode="finite",backend="mock",seed=7,seconds=60,
         if seg.metadata.get("fallback_reason")=="planning_timeout":
             info["deadline_misses"]+=1
         elapsed=time.perf_counter()-start;seg.metadata["dispatch_planning_wall_seconds"]=elapsed
+        recorder.record_segment(seg,"planned",planning_wall_seconds=elapsed)
         return seg,elapsed
 
     def validate_for_dispatch(segment,previous=None):
@@ -136,8 +182,11 @@ def run_session(analysis,profile,mode="finite",backend="mock",seed=7,seconds=60,
         if now_music>segment.start+profile.command_period:
             info["deadline_misses"]+=1
             raise RuntimeError("Dispatch deadline missed; catch-up burst forbidden")
-        receipt=adapter.execute_segment(segment,scheduled_monotonic=scheduled_time(segment),now_music=now_music)
+        scheduled=scheduled_time(segment)
+        recorder.record_segment(segment,"dispatch_attempt",scheduled_monotonic=scheduled,observed_music_time=now_music)
+        receipt=adapter.execute_segment(segment,scheduled_monotonic=scheduled,now_music=now_music)
         receipts.append(receipt)
+        recorder.record_segment(segment,"dispatched",receipt=receipt)
         return receipt
 
     try:
@@ -145,12 +194,14 @@ def run_session(analysis,profile,mode="finite",backend="mock",seed=7,seconds=60,
         if headless: adapter.advance(epoch)
         capabilities=adapter.get_capabilities()
         info["adapter_capabilities"]=capabilities
+        recorder.update_manifest(adapter_capabilities=capabilities)
         # Subscriptions need time to receive their first samples. This wait is
         # before playback and never sends a movement command.
         initial_deadline=time.perf_counter()+float(profile.endpoint.get("initial_feedback_timeout_seconds",2.))
         while True:
             try:
                 initial=adapter.read_state()
+                recorder.record_event("initial_feedback",state=asdict(initial))
                 check_feedback(initial,profile,epoch if headless else time.monotonic())
                 break
             except StaleFeedback:
@@ -164,6 +215,9 @@ def run_session(analysis,profile,mode="finite",backend="mock",seed=7,seconds=60,
             until=time.monotonic()+2
             while clock.dac_epoch is None and time.monotonic()<until: time.sleep(.002)
             if clock.dac_epoch is None: raise RuntimeError("DAC clock did not start")
+        audio_epoch=clock.music_to_monotonic(0.)
+        info["clock"]=clock.mapping()
+        recorder.update_manifest(clock={**info["clock"],"music_zero_host_monotonic":audio_epoch})
         while True:
             if current.end>analysis.beats[-1]+1e-7:
                 raise RuntimeError("Planned segment extends beyond analyzed beat timestamps")
@@ -191,7 +245,8 @@ def run_session(analysis,profile,mode="finite",backend="mock",seed=7,seconds=60,
             if headless:
                 for t in times:
                     clock.advance(t);adapter.advance(epoch+t)
-                    measured=adapter.read_state();check_feedback(measured,profile,epoch+t)
+                    measured=adapter.read_state();capture(measured,float(t),current)
+                    check_feedback(measured,profile,epoch+t)
                     feedback.append({"music_time":float(t),"feedback_monotonic":measured.t,"q":measured.q.tolist(),"dq":measured.dq.tolist()})
                     if np.max(np.abs(measured.q-current.at(t)[0]))>float(profile.endpoint.get("max_tracking_error_rad",.15)):
                         raise RuntimeError("Tracking error exceeded threshold; stop without reference snap")
@@ -200,7 +255,9 @@ def run_session(analysis,profile,mode="finite",backend="mock",seed=7,seconds=60,
                 while clock.clock()<current.end:
                     if hardware and stop_latch_requested():
                         raise RuntimeError("STOP_RITA requested during playback; stopping and canceling pending work")
-                    t=clock.clock();measured=adapter.read_state();check_feedback(measured,profile,time.monotonic())
+                    t=clock.clock();measured=adapter.read_state()
+                    capture(measured,t,current if t>=current.start else None)
+                    check_feedback(measured,profile,time.monotonic())
                     if clock.finished.is_set() and t<current.end-profile.command_period:
                         raise RuntimeError("Music output ended before the executing reference")
                     if t>=current.start:
@@ -238,6 +295,7 @@ def run_session(analysis,profile,mode="finite",backend="mock",seed=7,seconds=60,
                             raise RuntimeError("Planning or controller completion missed the future handoff deadline; stopping without catch-up")
                     time.sleep(min(.01,profile.command_period))
             segments.append(current);shared.current=current.end_state();shared.queue=[]
+            recorder.record_segment(current,"completed",observed_music_time=clock.clock())
             if not need_next:
                 info["completed"]=True
                 info["audio_tail_not_planned_seconds"]=max(0.,analysis.duration-current.end)
@@ -255,11 +313,13 @@ def run_session(analysis,profile,mode="finite",backend="mock",seed=7,seconds=60,
         if isinstance(exc,TimeoutError) or "planning_timeout" in str(exc):
             info["deadline_misses"]+=1
         info["error"]=f"{type(exc).__name__}: {exc}";shared.failures.append(info["error"])
+        audit("rollout_error",error=info["error"],deadline_misses=info["deadline_misses"])
     finally:
         try: info["stop_result"]=adapter.stop()
         except Exception as exc:
             info["stop_error"]=str(exc);info["completed"]=False
             if info["error"] is None: info["error"]="Robot-specific stop failed: "+str(exc)
+        audit("stop_result",result=info.get("stop_result"),error=info.get("stop_error"))
         if future is not None: future.cancel()
         # Motion has already been stopped. Do not postpone stopping for a stuck
         # numerical worker; planner loops have their own bounded search budget.
@@ -273,6 +333,14 @@ def run_session(analysis,profile,mode="finite",backend="mock",seed=7,seconds=60,
             except Exception as exc:
                 info["audio_close_error"]=str(exc);info["completed"]=False
                 if info["error"] is None:info["error"]="Audio cleanup failed after adapter stop: "+str(exc)
+        audit("cleanup_result",close_error=info.get("close_error"),audio_close_error=info.get("audio_close_error"))
+        try:
+            recorder.close(status="completed" if info["completed"] and not info["error"] else "failed",
+                error=info["error"],deadline_misses=info["deadline_misses"],
+                completed_segments=len(segments),dispatch_count=len(receipts))
+        except Exception as exc:
+            info["telemetry_error"]=str(exc);info["completed"]=False
+            if info["error"] is None: info["error"]="Telemetry finalization failed: "+str(exc)
     info["wall_seconds"]=time.perf_counter()-began
     info["dispatch_receipts"]=receipts
     planner_stats=planner.stats()
