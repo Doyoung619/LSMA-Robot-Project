@@ -1,0 +1,792 @@
+{
+  "provenance": {
+    "git_sha": "5b14e23a93c109798a06c4282c0c061864c2d673",
+    "git_dirty": true,
+    "branch": "misty-hardware-dance",
+    "seed": 8,
+    "audio_hash": "918dfeba11ed298af7e3f84a43527d0627b3e085766697bed758c851553ff174",
+    "profile": {
+      "name": "misty-192.168.1.39-HEAD-ARMS-TWIST",
+      "model": "misty_ii_head_arms",
+      "joint_names": [
+        "head_pitch",
+        "head_roll",
+        "head_yaw",
+        "left_arm",
+        "right_arm"
+      ],
+      "neutral": [
+        0.0,
+        0.0,
+        0.0,
+        0.6108652381980153,
+        0.6108652381980153
+      ],
+      "lower": [
+        -0.2617993877991494,
+        -0.4363323129985824,
+        -0.7853981633974483,
+        -0.4363323129985824,
+        -0.4363323129985824
+      ],
+      "upper": [
+        0.2617993877991494,
+        0.4363323129985824,
+        0.7853981633974483,
+        1.6580627893946132,
+        1.6580627893946132
+      ],
+      "vmax": [
+        3.0,
+        3.0,
+        3.0,
+        4.0,
+        4.0
+      ],
+      "amax": [
+        25.0,
+        25.0,
+        25.0,
+        40.0,
+        40.0
+      ],
+      "units": "rad",
+      "command_mode": "misty_pose",
+      "command_period": 0.2,
+      "feedback_freshness": 1.0,
+      "latency_seconds": 0.2,
+      "dispatch_lead_seconds": 0.08,
+      "latency_mode": "dispatch",
+      "workspace": {
+        "kind": "joint_box",
+        "collision_checked": false,
+        "verified": true,
+        "scope": "Head, both arms (-25..95 deg, 90=down, 0=forward, -29=up limit), in-place base twist only (no linear driving)."
+      },
+      "local_verified": true,
+      "endpoint": {
+        "host": "192.168.1.39",
+        "http_port": 80,
+        "ws_port": 80,
+        "arm_velocity_percent": 15,
+        "feedback_period_ms": 200,
+        "max_tracking_error_rad": [
+          0.8,
+          0.8,
+          0.8,
+          3.0,
+          3.0
+        ],
+        "standstill_velocity_tolerance_rad_s": 50.0,
+        "terminal_hold_seconds": 0.2,
+        "stop_mode": "park",
+        "park_on_connect": true,
+        "park_seconds": 1.5,
+        "max_consecutive_skips": 3,
+        "pose_mode": "waypoints",
+        "tracking_lag_seconds": 0.2,
+        "arm_extra_lead_seconds": 0.1,
+        "arm_min_velocity_percent": 40,
+        "wheels_enabled": true,
+        "twist_angular_percent": 25,
+        "twist_time_fraction": 0.8,
+        "max_command_lateness_seconds": 0.35,
+        "arm_speed_margin": 1.5,
+        "min_leg_seconds": 0.35
+      },
+      "min_excursion": 0.03,
+      "max_stationary_seconds": 0.6,
+      "speed_threshold": 0.005
+    },
+    "backend": "misty",
+    "config": {
+      "method": "infinite",
+      "backend": "misty",
+      "seed": 8,
+      "condition": "normal",
+      "seconds_requested": 30.0,
+      "headless_virtual_clock": false,
+      "planner_config": {
+        "candidate_count": 24,
+        "horizon": 2,
+        "recent_window": 16,
+        "novelty_threshold": 0.025,
+        "novelty_factors": [
+          1.0,
+          0.75,
+          0.5,
+          0.25,
+          0.0
+        ],
+        "metrical_levels": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "min_feasible_choices": 3,
+        "max_validated_candidates": 8,
+        "faster_level_hysteresis": 2,
+        "planning_budget_seconds": 1.5,
+        "amplitude_cell_threshold": 0.18,
+        "stop_to_stop": true,
+        "amplitude_gain": [
+          2.5,
+          2.5,
+          2.5,
+          3.0,
+          3.0
+        ],
+        "terminal_hold_seconds": 0.2
+      },
+      "mock_options": {},
+      "completed": true,
+      "error": null,
+      "deadline_misses": 0,
+      "hardware_verified": false,
+      "initial_skipped_beats": 4,
+      "initial_dance_music_seconds": 2.386762116226702,
+      "audio_grid_unchanged": true,
+      "planning_during_playback": true,
+      "container": {
+        "run_id": "20261121T204112.642859Z_6f96b3a387",
+        "path": "<repo>/result/two_robot/video_infinite_different/B/containers/20261121T204112.642859Z_6f96b3a387",
+        "schema_version": 1
+      },
+      "adapter_capabilities": {
+        "backend": "misty",
+        "hardware": true,
+        "status": "implemented, hardware-unverified",
+        "joint_names": [
+          "head_pitch",
+          "head_roll",
+          "head_yaw",
+          "left_arm",
+          "right_arm"
+        ],
+        "units": "rad",
+        "feedback_freshness": 1.0,
+        "command_mode": "misty_pose",
+        "command_period": 0.2,
+        "queue": false,
+        "cancel": true,
+        "future_execution": false,
+        "streaming_c2": false,
+        "reference_exact": false,
+        "head_timing": "HTTP Duration in seconds",
+        "arms_timing": "velocity percent; duration unsupported",
+        "wheels": "in-place twist only",
+        "feedback_timestamp": "host monotonic reception; robot created timestamp retained but not clock-synchronized",
+        "completion": "HTTP acceptance is NOT motion completion",
+        "stop_path": "/api/halt"
+      },
+      "clock": {
+        "kind": "PortAudio DAC",
+        "monotonic_minus_stream": -2.5834997359197587e-06,
+        "sampling_uncertainty_seconds": 3.0835008146823384e-06,
+        "dac_epoch_stream": 15821.160334457667,
+        "output_latency_seconds": 0.0364172335600907,
+        "sample_position_not_used_as_clock": true
+      },
+      "generation_stop_reason": "requested_duration_reached",
+      "audio_tail_not_planned_seconds": 258.8109325891411,
+      "stop_result": {
+        "result": true,
+        "status": "Success"
+      },
+      "wall_seconds": 55.11412545799976,
+      "dispatch_receipts": [
+        {
+          "sent_monotonic": 15821.161319958,
+          "scheduled_monotonic": 15823.347095615392,
+          "accepted_monotonic": null,
+          "completed": false,
+          "backend": "misty",
+          "controller_action_end_monotonic": 15827.248766997176,
+          "nominal_segment_end_monotonic": 15827.448766997177,
+          "reference_tracking": "approximate pose compilation; inspect feedback"
+        },
+        {
+          "sent_monotonic": 15827.255784791,
+          "scheduled_monotonic": 15827.448766456177,
+          "accepted_monotonic": null,
+          "completed": false,
+          "backend": "misty",
+          "controller_action_end_monotonic": 15831.35043783796,
+          "nominal_segment_end_monotonic": 15831.550437837961,
+          "reference_tracking": "approximate pose compilation; inspect feedback"
+        },
+        {
+          "sent_monotonic": 15831.362865,
+          "scheduled_monotonic": 15831.550439233459,
+          "accepted_monotonic": null,
+          "completed": false,
+          "backend": "misty",
+          "controller_action_end_monotonic": 15835.452110615242,
+          "nominal_segment_end_monotonic": 15835.652110615243,
+          "reference_tracking": "approximate pose compilation; inspect feedback"
+        },
+        {
+          "sent_monotonic": 15835.458303208,
+          "scheduled_monotonic": 15835.652110657242,
+          "accepted_monotonic": null,
+          "completed": false,
+          "backend": "misty",
+          "controller_action_end_monotonic": 15839.553782039025,
+          "nominal_segment_end_monotonic": 15839.753782039026,
+          "reference_tracking": "approximate pose compilation; inspect feedback"
+        },
+        {
+          "sent_monotonic": 15839.567451458,
+          "scheduled_monotonic": 15839.753782017526,
+          "accepted_monotonic": null,
+          "completed": false,
+          "backend": "misty",
+          "controller_action_end_monotonic": 15843.65545339931,
+          "nominal_segment_end_monotonic": 15843.85545339931,
+          "reference_tracking": "approximate pose compilation; inspect feedback"
+        },
+        {
+          "sent_monotonic": 15843.664003375,
+          "scheduled_monotonic": 15843.85545342031,
+          "accepted_monotonic": null,
+          "completed": false,
+          "backend": "misty",
+          "controller_action_end_monotonic": 15847.757124802094,
+          "nominal_segment_end_monotonic": 15847.957124802095,
+          "reference_tracking": "approximate pose compilation; inspect feedback"
+        },
+        {
+          "sent_monotonic": 15847.762914208,
+          "scheduled_monotonic": 15847.957124843095,
+          "accepted_monotonic": null,
+          "completed": false,
+          "backend": "misty",
+          "controller_action_end_monotonic": 15851.858796224878,
+          "nominal_segment_end_monotonic": 15852.05879622488,
+          "reference_tracking": "approximate pose compilation; inspect feedback"
+        },
+        {
+          "sent_monotonic": 15851.873273333,
+          "scheduled_monotonic": 15852.058796141877,
+          "accepted_monotonic": null,
+          "completed": false,
+          "backend": "misty",
+          "controller_action_end_monotonic": 15855.96046752366,
+          "nominal_segment_end_monotonic": 15856.160467523661,
+          "reference_tracking": "approximate pose compilation; inspect feedback"
+        }
+      ]
+    },
+    "analysis_settings": {
+      "method": "multiband spectral flux + autocorrelation + robust beat-grid fit",
+      "fft": 1024,
+      "hop": 128,
+      "analysis_rate": 11025.0,
+      "bands_hz": [
+        [
+          35,
+          180
+        ],
+        [
+          180,
+          2000
+        ],
+        [
+          2000,
+          5000
+        ]
+      ],
+      "weights": [
+        0.55,
+        0.3,
+        0.15
+      ],
+      "bpm_override": null,
+      "beat_offset": null,
+      "origin": "estimated beat origin; four-beat blocks are not detected downbeats",
+      "diagnostics": {
+        "legacy_result": {
+          "method": "multiband spectral flux + autocorrelation + robust beat-grid fit",
+          "bpm": 117.02546482191966,
+          "period_seconds": 0.5127089227229593,
+          "first_beat_seconds": 0.3359264253348646,
+          "duration_seconds": 294.0110657596372,
+          "median_nearest_onset_error_ms": 26.666806371792973,
+          "onset_support_within_50ms": 0.6460176991150443,
+          "beat_count": 573,
+          "tempo_candidates_bpm": [
+            116.98589166063022,
+            77.99059444042013,
+            150.41967430218006,
+            95.703125
+          ]
+        },
+        "tempo_changes_detected": false,
+        "global_tempo_assumption": true
+      },
+      "decoded_wav": "<repo>/0_pre_and_etc/outputs.nosync/analysis/cache/918dfeba11ed298af7e3.wav",
+      "scope": "offline known audio analysis; online motion generation is separate",
+      "ambiguous_octaves": [
+        58.512732410959224,
+        117.02546482191845,
+        234.0509296438369
+      ]
+    }
+  },
+  "run": {
+    "method": "infinite",
+    "backend": "misty",
+    "seed": 8,
+    "condition": "normal",
+    "seconds_requested": 30.0,
+    "headless_virtual_clock": false,
+    "planner_config": {
+      "candidate_count": 24,
+      "horizon": 2,
+      "recent_window": 16,
+      "novelty_threshold": 0.025,
+      "novelty_factors": [
+        1.0,
+        0.75,
+        0.5,
+        0.25,
+        0.0
+      ],
+      "metrical_levels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "min_feasible_choices": 3,
+      "max_validated_candidates": 8,
+      "faster_level_hysteresis": 2,
+      "planning_budget_seconds": 1.5,
+      "amplitude_cell_threshold": 0.18,
+      "stop_to_stop": true,
+      "amplitude_gain": [
+        2.5,
+        2.5,
+        2.5,
+        3.0,
+        3.0
+      ],
+      "terminal_hold_seconds": 0.2
+    },
+    "mock_options": {},
+    "completed": true,
+    "error": null,
+    "deadline_misses": 0,
+    "hardware_verified": false,
+    "initial_skipped_beats": 4,
+    "initial_dance_music_seconds": 2.386762116226702,
+    "audio_grid_unchanged": true,
+    "planning_during_playback": true,
+    "container": {
+      "run_id": "20261121T204112.642859Z_6f96b3a387",
+      "path": "<repo>/result/two_robot/video_infinite_different/B/containers/20261121T204112.642859Z_6f96b3a387",
+      "schema_version": 1
+    },
+    "adapter_capabilities": {
+      "backend": "misty",
+      "hardware": true,
+      "status": "implemented, hardware-unverified",
+      "joint_names": [
+        "head_pitch",
+        "head_roll",
+        "head_yaw",
+        "left_arm",
+        "right_arm"
+      ],
+      "units": "rad",
+      "feedback_freshness": 1.0,
+      "command_mode": "misty_pose",
+      "command_period": 0.2,
+      "queue": false,
+      "cancel": true,
+      "future_execution": false,
+      "streaming_c2": false,
+      "reference_exact": false,
+      "head_timing": "HTTP Duration in seconds",
+      "arms_timing": "velocity percent; duration unsupported",
+      "wheels": "in-place twist only",
+      "feedback_timestamp": "host monotonic reception; robot created timestamp retained but not clock-synchronized",
+      "completion": "HTTP acceptance is NOT motion completion",
+      "stop_path": "/api/halt"
+    },
+    "clock": {
+      "kind": "PortAudio DAC",
+      "monotonic_minus_stream": -2.5834997359197587e-06,
+      "sampling_uncertainty_seconds": 3.0835008146823384e-06,
+      "dac_epoch_stream": 15821.160334457667,
+      "output_latency_seconds": 0.0364172335600907,
+      "sample_position_not_used_as_clock": true
+    },
+    "generation_stop_reason": "requested_duration_reached",
+    "audio_tail_not_planned_seconds": 258.8109325891411,
+    "stop_result": {
+      "result": true,
+      "status": "Success"
+    },
+    "wall_seconds": 55.11412545799976,
+    "dispatch_receipts": [
+      {
+        "sent_monotonic": 15821.161319958,
+        "scheduled_monotonic": 15823.347095615392,
+        "accepted_monotonic": null,
+        "completed": false,
+        "backend": "misty",
+        "controller_action_end_monotonic": 15827.248766997176,
+        "nominal_segment_end_monotonic": 15827.448766997177,
+        "reference_tracking": "approximate pose compilation; inspect feedback"
+      },
+      {
+        "sent_monotonic": 15827.255784791,
+        "scheduled_monotonic": 15827.448766456177,
+        "accepted_monotonic": null,
+        "completed": false,
+        "backend": "misty",
+        "controller_action_end_monotonic": 15831.35043783796,
+        "nominal_segment_end_monotonic": 15831.550437837961,
+        "reference_tracking": "approximate pose compilation; inspect feedback"
+      },
+      {
+        "sent_monotonic": 15831.362865,
+        "scheduled_monotonic": 15831.550439233459,
+        "accepted_monotonic": null,
+        "completed": false,
+        "backend": "misty",
+        "controller_action_end_monotonic": 15835.452110615242,
+        "nominal_segment_end_monotonic": 15835.652110615243,
+        "reference_tracking": "approximate pose compilation; inspect feedback"
+      },
+      {
+        "sent_monotonic": 15835.458303208,
+        "scheduled_monotonic": 15835.652110657242,
+        "accepted_monotonic": null,
+        "completed": false,
+        "backend": "misty",
+        "controller_action_end_monotonic": 15839.553782039025,
+        "nominal_segment_end_monotonic": 15839.753782039026,
+        "reference_tracking": "approximate pose compilation; inspect feedback"
+      },
+      {
+        "sent_monotonic": 15839.567451458,
+        "scheduled_monotonic": 15839.753782017526,
+        "accepted_monotonic": null,
+        "completed": false,
+        "backend": "misty",
+        "controller_action_end_monotonic": 15843.65545339931,
+        "nominal_segment_end_monotonic": 15843.85545339931,
+        "reference_tracking": "approximate pose compilation; inspect feedback"
+      },
+      {
+        "sent_monotonic": 15843.664003375,
+        "scheduled_monotonic": 15843.85545342031,
+        "accepted_monotonic": null,
+        "completed": false,
+        "backend": "misty",
+        "controller_action_end_monotonic": 15847.757124802094,
+        "nominal_segment_end_monotonic": 15847.957124802095,
+        "reference_tracking": "approximate pose compilation; inspect feedback"
+      },
+      {
+        "sent_monotonic": 15847.762914208,
+        "scheduled_monotonic": 15847.957124843095,
+        "accepted_monotonic": null,
+        "completed": false,
+        "backend": "misty",
+        "controller_action_end_monotonic": 15851.858796224878,
+        "nominal_segment_end_monotonic": 15852.05879622488,
+        "reference_tracking": "approximate pose compilation; inspect feedback"
+      },
+      {
+        "sent_monotonic": 15851.873273333,
+        "scheduled_monotonic": 15852.058796141877,
+        "accepted_monotonic": null,
+        "completed": false,
+        "backend": "misty",
+        "controller_action_end_monotonic": 15855.96046752366,
+        "nominal_segment_end_monotonic": 15856.160467523661,
+        "reference_tracking": "approximate pose compilation; inspect feedback"
+      }
+    ]
+  },
+  "segments_executed": 8,
+  "normal_dance_segments": 8,
+  "reference_duration_seconds": 32.813371054269396,
+  "synchronization": {
+    "reference": {
+      "event": "exact coefficient waypoint passage at declared rhythm targets",
+      "median_abs_ms": 0.0,
+      "missed_events": 0,
+      "scope": "reference only, not ground-truth music labels"
+    },
+    "hardware_measured": {
+      "event": "localized joint-waypoint distance minimum with >=.002 rad window excursion and approach/exit; offbeat targets included",
+      "median_abs_ms": 3.3401191355757476,
+      "p95_abs_ms": 6.802870398993122,
+      "missed_events": 33,
+      "matched_events": 3,
+      "extra_events": null,
+      "extra_events_note": "No independent full motion-event detector; unclassified extra passages are N/A",
+      "matches": [
+        {
+          "target_seconds": 10.590104879794051,
+          "measured_seconds": 10.597292500333424,
+          "error_ms": 7.18762053937283,
+          "rhythm_id": "five_rest"
+        },
+        {
+          "target_seconds": 16.742611952469563,
+          "measured_seconds": 16.739271833333987,
+          "error_ms": -3.3401191355757476,
+          "rhythm_id": "straight"
+        },
+        {
+          "target_seconds": 31.098461788712424,
+          "measured_seconds": 31.09560816733392,
+          "error_ms": -2.8536213785024245,
+          "rhythm_id": "dotted"
+        }
+      ]
+    },
+    "physical_robot": {
+      "event": "localized joint-waypoint distance minimum with >=.002 rad window excursion and approach/exit; offbeat targets included",
+      "median_abs_ms": 3.3401191355757476,
+      "p95_abs_ms": 6.802870398993122,
+      "missed_events": 33,
+      "matched_events": 3,
+      "extra_events": null,
+      "extra_events_note": "No independent full motion-event detector; unclassified extra passages are N/A",
+      "matches": [
+        {
+          "target_seconds": 10.590104879794051,
+          "measured_seconds": 10.597292500333424,
+          "error_ms": 7.18762053937283,
+          "rhythm_id": "five_rest"
+        },
+        {
+          "target_seconds": 16.742611952469563,
+          "measured_seconds": 16.739271833333987,
+          "error_ms": -3.3401191355757476,
+          "rhythm_id": "straight"
+        },
+        {
+          "target_seconds": 31.098461788712424,
+          "measured_seconds": 31.09560816733392,
+          "error_ms": -2.8536213785024245,
+          "rhythm_id": "dotted"
+        }
+      ]
+    }
+  },
+  "feasibility": {
+    "scope": "continuous reference control hull and C2; not collision-free or measured tracking certification",
+    "invalid_segments": 0,
+    "max_position_excess_bound": 0.0,
+    "max_velocity_excess_bound": 0.0,
+    "max_acceleration_excess_bound": 0.0,
+    "max_C2_error": 1.6893843628692575e-14,
+    "collision_certified": false,
+    "workspace": {
+      "kind": "joint_box",
+      "collision_checked": false,
+      "verified": true,
+      "scope": "Head, both arms (-25..95 deg, 90=down, 0=forward, -29=up limit), in-place base twist only (no linear driving)."
+    },
+    "measured_estimates": {
+      "status": "sampled_estimates_not_continuous_certificates",
+      "position_excess": 0.0,
+      "velocity_excess_estimate": 9.70365329954318,
+      "acceleration_excess_estimate": 204.5998166287981,
+      "max_velocity_estimate_rad_s": 13.70365329954318,
+      "max_acceleration_estimate_rad_s2": 244.5998166287981,
+      "coalesced_timestamp_count": 0,
+      "minimum_distinct_interval_seconds": 0.0002,
+      "resampled_interval_seconds": 0.013359999999920547,
+      "derivative_estimator": "Coalesce timestamps <0.0002s, interpolate q onto uniform dt=0.01336s, Savitzky-Golay window=9, poly=3, derivatives with physical delta; estimates only"
+    }
+  },
+  "motion_diversity": {
+    "library_count": null,
+    "feasible_motion_count": null,
+    "scc_motion_count": null,
+    "motion_ids_observed": 8,
+    "library_coverage": null,
+    "shared_descriptor_feature_cells_visited": 4,
+    "shared_descriptor_feature_cells_total": 8,
+    "recent_window_distance_median": 0.08951772181586386,
+    "recent_window_distance_min": 0.055418305176618395,
+    "short_repeat_ngram_ratio": {
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0
+    },
+    "repetition_basis": "shared geometry feature-cell sequence, not generated IDs or hashes",
+    "observed_max_revisit_seconds": 12.305014145351024,
+    "raw_hashes_not_used": true
+  },
+  "rhythm_diversity": {
+    "event_interval_strength_patterns": 8,
+    "rhythm_ids": [
+      "anticipation",
+      "backbeat",
+      "dotted",
+      "eighth_rest",
+      "five_rest",
+      "six_rest",
+      "straight",
+      "syncopated"
+    ],
+    "longest_single_rhythm_run": 1
+  },
+  "activity": {
+    "max_low_speed_seconds_continuous": 0.24998362987179235,
+    "reference_stationary_fraction_sampled": 0.056402439024390245,
+    "minimum_segment_excursion_rad": 0.5919768389139762,
+    "low_speed_threshold_rad_s": 0.005,
+    "whole_robot_low_speed": true
+  },
+  "runtime": {
+    "planning_seconds_median": 0.2309260624997478,
+    "planning_seconds_p95": 0.3639795793993471,
+    "planning_seconds_max": 0.39296024999930523,
+    "deadline_misses": 0,
+    "fallback_count": 0,
+    "recovery_count": 0,
+    "novelty_relaxations": 0,
+    "k_changes": 0,
+    "certificate_resets": 0
+  },
+  "planner": {
+    "candidate_proposals": 384,
+    "exact_segment_validations": 104,
+    "generated_segments": 8,
+    "novelty_relaxations": 0,
+    "relaxed_segments": 0,
+    "calls": 8,
+    "seed": 8,
+    "config": {
+      "candidate_count": 24,
+      "horizon": 2,
+      "recent_window": 16,
+      "novelty_threshold": 0.025,
+      "novelty_factors": [
+        1.0,
+        0.75,
+        0.5,
+        0.25,
+        0.0
+      ],
+      "metrical_levels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "min_feasible_choices": 3,
+      "max_validated_candidates": 8,
+      "faster_level_hysteresis": 2,
+      "planning_budget_seconds": 1.5,
+      "boundary_tolerance": 1e-06,
+      "amplitude_cell_threshold": 0.18,
+      "single_rhythm": false,
+      "no_coverage_novelty": false,
+      "stop_to_stop": true,
+      "terminal_hold_seconds": 0.2,
+      "force_failure": false,
+      "force_timeout": false,
+      "amplitude_gain": [
+        2.5,
+        2.5,
+        2.5,
+        3.0,
+        3.0
+      ]
+    },
+    "current_metrical_level": 1,
+    "feature_cells_total": 8,
+    "feature_cells_visited": 4,
+    "feature_cells_ever_witnessed": 4,
+    "feature_cell_coverage": 0.5,
+    "unwitnessed_cells": [
+      "g0:+:low",
+      "g0:-:low",
+      "g1:+:low",
+      "g1:-:low"
+    ],
+    "feature_cell_visits": {
+      "g0:+:high": 2,
+      "g1:+:high": 2,
+      "g1:-:high": 2,
+      "g0:-:high": 2
+    },
+    "service_queue": [
+      "g0:+:high",
+      "g1:+:high",
+      "g1:-:high",
+      "g0:-:high"
+    ],
+    "max_observed_cell_service_interval_calls": 4,
+    "rhythm_visits": {
+      "six_rest": 1,
+      "syncopated": 1,
+      "five_rest": 1,
+      "straight": 1,
+      "backbeat": 1,
+      "anticipation": 1,
+      "eighth_rest": 1,
+      "dotted": 1
+    },
+    "reserved_suffix_remaining": 1,
+    "planning_seconds": [
+      0.3929344170010154,
+      0.3101309579997178,
+      0.23348900000019057,
+      0.20685791600044467,
+      0.22831808299997647,
+      0.18965504199877614,
+      0.24107633399944461,
+      0.2182113750004646
+    ],
+    "last": {
+      "primitive_id": "continuous-0000008",
+      "generation_kind": "continuous",
+      "start_beat": 60,
+      "end_beat": 68,
+      "horizon": 2,
+      "horizon_requested": 2,
+      "accent_event_type": "designated_waypoint_passage",
+      "accent_rest_indices": [],
+      "projection_scale": 0.7,
+      "terminal_condition": "C2_reserved_boundary",
+      "stop_to_stop": true,
+      "future_audio_lookahead_seconds": 8.203342763567345,
+      "fallback": false,
+      "terminal_hold_seconds": 0.2,
+      "terminal_motion_end": 35.00013317049609,
+      "planning_seconds": 0.21819241699995473,
+      "candidate_count": 24,
+      "validated_candidates": 5,
+      "feature_cell": "g0:-:high",
+      "service_target": "g0:-:high",
+      "service_target_witnessed_now": true,
+      "service_target_served": true,
+      "novelty_distance": 0.07702007728905838,
+      "novelty_threshold_requested": 0.025,
+      "novelty_threshold_used": 0.025,
+      "novelty_relaxation_steps": 0,
+      "novelty_success": true,
+      "coverage_success": true,
+      "novelty_policy_enabled": true,
+      "reserved_suffix_remaining": 1,
+      "search_failure_is_not_impossibility": true
+    },
+    "coverage_guarantee": "Conditional service of persistently witnessed targets; no random-search finite-time bound.",
+    "novelty_guarantee": "Reported recent-window distance at the logged threshold; threshold may relax to zero.",
+    "recursive_feasibility": "Only the validated retained suffix and terminal stop are certified; replanning can fail.",
+    "visit_statistics_scope": "Planner selection/reservation state; actual executed coverage is measured from completed segments in motion_diversity."
+  }
+}

@@ -14,6 +14,8 @@ dist/
 result/
 6_container/runs/
 **/containers/
+# Published Misty hardware runs are tracked on purpose.
+!misty_hardware_runs/**/containers/
 0_pre_and_etc/outputs/
 0_pre_and_etc/outputs.nosync/
 0_pre_and_etc/music.nosync/
