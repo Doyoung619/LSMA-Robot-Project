@@ -13,13 +13,14 @@ result/           local videos/results, retained and intentionally gitignored
 ```
 
 After cloning this repository, run these four commands from its root (Python 3.11+
-and ffmpeg required). Supply your own audio; music is not committed or downloaded.
+and ffmpeg required). The demo track `0_pre_and_etc/Billie Jean.mp3` is included
+and discovered automatically. Use `--audio PATH` to select another local file.
 
 ```powershell
 python -m pip install -e .
-python 0_pre_and_etc/run.py analyze --audio "C:/music/Billie Jean.mp3"
-python 0_pre_and_etc/run.py run --mode finite --backend mock --audio "C:/music/Billie Jean.mp3" --seed 7
-python 0_pre_and_etc/run.py run --mode infinite --backend mock --audio "C:/music/Billie Jean.mp3" --seed 7
+python 0_pre_and_etc/run.py analyze
+python 0_pre_and_etc/run.py run --mode finite --backend mock --seed 7
+python 0_pre_and_etc/run.py run --mode infinite --backend mock --seed 7
 ```
 
 In the larger **Rita-Robot workspace**, this Git repository lives inside

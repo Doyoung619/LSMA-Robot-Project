@@ -23,6 +23,7 @@ result/
 0_pre_and_etc/data/analysis.json
 0_pre_and_etc/data/plan_report.json
 **/*.mp3
+!0_pre_and_etc/Billie Jean.mp3
 **/*.wav
 **/*.mp4
 **/*.npz

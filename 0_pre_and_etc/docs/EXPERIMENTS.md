@@ -22,8 +22,9 @@ separates normal, tightened limits, delayed feedback, missing feedback and
 disconnect conditions. Failure injection intentionally stops runs; such rows
 are not classified as completed ten-minute demonstrations. Outputs include
 comparison JSON/CSV/PNG and per-run q/dq/ddq plots, pose-event sync, low-speed
-duration, coverage and repetition metrics. User audio, decoded caches, trajectories
-and full logs are not committed. Small validation evidence lives in `evidence/`
+duration, coverage and repetition metrics. The executed demo MP3 is included in Git;
+additional user audio, decoded caches, trajectories and full logs remain local.
+Small validation evidence lives in `evidence/`
 and the mode-specific validation summaries.
 
 Metrics: reference accents are exact designated pose passages at rhythm targets;

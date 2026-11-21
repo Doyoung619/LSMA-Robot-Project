@@ -13,15 +13,15 @@ required for mock runs.
 
 ```powershell
 python -m pip install -e .
-python 0_pre_and_etc/run.py analyze --audio "C:/music/Billie Jean.mp3"
-python 0_pre_and_etc/run.py run --mode finite --backend mock --audio "C:/music/Billie Jean.mp3" --seed 7
-python 0_pre_and_etc/run.py run --mode infinite --backend mock --audio "C:/music/Billie Jean.mp3" --seed 7
+python 0_pre_and_etc/run.py analyze
+python 0_pre_and_etc/run.py run --mode finite --backend mock --seed 7
+python 0_pre_and_etc/run.py run --mode infinite --backend mock --seed 7
 ```
 
 Real playback uses the PortAudio DAC timestamp. Planning runs on a separate
-worker. Playback speed remains unchanged. No audio file is included in Git;
-`--audio` accepts an arbitrary local path. The original workspace retains its
-local `0_pre_and_etc/Billie Jean.mp3`, which is discovered automatically there.
+worker. Playback speed remains unchanged. The executed demo track
+`0_pre_and_etc/Billie Jean.mp3` is included in Git and discovered automatically
+after clone/pull. `--audio` accepts an arbitrary local path for other music.
 The original whole-track estimate is about 117.0255 BPM; this is measured, not a
 song-name constant. `--bpm-override 117 --beat-offset .336` applies manual
 correction; `--beat-offset` is the absolute first-beat music time, in seconds.

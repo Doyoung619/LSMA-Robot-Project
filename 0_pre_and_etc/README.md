@@ -15,5 +15,6 @@ The legacy `requirements.txt` includes a vendor SDK and is not needed for the ne
 mock workflow; install the repository's `pyproject.toml` instead.
 
 All generated runs go under `outputs/`, including summary JSON, reference CSV,
-figures and decoded audio cache. These and local environments, user music,
-hardware settings and earlier large results are gitignored.
+figures and decoded audio cache. These and local environments, additional user
+music, hardware settings and earlier large results are gitignored. The executed
+demo track `Billie Jean.mp3` is tracked explicitly and discovered automatically.
