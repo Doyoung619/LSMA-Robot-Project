@@ -1,0 +1,38 @@
+--- upstream/diffusions/diffusion/gaussian_diffusion.py
++++ cpu_device_port/diffusions/diffusion/gaussian_diffusion.py
+@@ -492,7 +492,7 @@
+         if noise is not None:
+             img = noise
+         else:
+-            img = th.randn(*shape).cuda()
++            img = th.randn(*shape, device=device)
+         indices = list(range(self.num_timesteps))[::-1]
+ 
+         if progress:
+@@ -502,7 +502,7 @@
+             indices = tqdm(indices)
+ 
+         for i in indices:
+-            t = th.tensor([i] * shape[0]).cuda()
++            t = th.tensor([i] * shape[0], device=img.device)
+             with th.no_grad():
+                 out = self.p_sample(
+                     model,
+@@ -661,7 +661,7 @@
+         if noise is not None:
+             img = noise
+         else:
+-            img = th.randn(*shape).cuda()
++            img = th.randn(*shape, device=device)
+         indices = list(range(self.num_timesteps))[::-1]
+ 
+         if progress:
+@@ -671,7 +671,7 @@
+             indices = tqdm(indices)
+ 
+         for i in indices:
+-            t = th.tensor([i] * shape[0]).cuda()
++            t = th.tensor([i] * shape[0], device=img.device)
+             with th.no_grad():
+                 out = self.ddim_sample(
+                     model,

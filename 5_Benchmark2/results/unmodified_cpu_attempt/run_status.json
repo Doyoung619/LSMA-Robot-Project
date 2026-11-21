@@ -1,0 +1,74 @@
+{
+  "method": "RoboPerform released latent-conditioned G1 demo",
+  "artifact_verified": true,
+  "model_loaded_strict": true,
+  "forward_ok": false,
+  "rollout_ok": false,
+  "custom_audio_ok": false,
+  "hardware_executed": false,
+  "custom_audio_reason": "No released raw-audio encoder/adapter inference entry point and checkpoint path found; music.pt is indexed by stored motion name/time.",
+  "audio_alignment": null,
+  "same_robot_comparison": "unavailable: native G1 embodiment only",
+  "source_revision": "e6e2a0e4cdb20f081c1a3d46d648d7a202816779",
+  "dataset_revision": "3fdfcd75480450ec2f8f884723b5724cb3a8051b",
+  "arguments": {
+    "native": true,
+    "headless": true,
+    "inspect": false,
+    "device": "cpu",
+    "allow_cpu_device_port": false,
+    "motion_id": 0,
+    "seconds": 0.04,
+    "seed": 7,
+    "threads": 1,
+    "no_video": true,
+    "results": "results/unmodified_cpu_attempt"
+  },
+  "errors": [
+    {
+      "type": "RuntimeError",
+      "message": "Attempting to deserialize object on a CUDA device but torch.cuda.is_available() is False. If you are running on a CPU-only machine, please use torch.load with map_location=torch.device('cpu') to map your storages to the CPU."
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "student_80500.pt",
+      "bytes": 563075994,
+      "sha256": "93145065d01bc6a8b3c8567a7edfb36a15eb1621c3d02d60c399a0a07c360dfd"
+    },
+    {
+      "name": "music.pt",
+      "bytes": 306873850,
+      "sha256": "15a6ff08bb3dc7bd83d3666f333b1501a3bdfa2a29f0203677829aab907e4bae"
+    },
+    {
+      "name": "dance.pt",
+      "bytes": 129106,
+      "sha256": "402406733767b0967df016c995cf388616d0a4f697c3a5fc4a6967fe6b6da6b2"
+    },
+    {
+      "name": "Roboperform_Data.pkl",
+      "bytes": 578989934,
+      "sha256": "fffae4d1e0c9caec9ec5d36295bf09a1042df88b799fd39b3f8c857f24e02a58"
+    }
+  ],
+  "model": {
+    "architecture_source": "deploy/save_TRT/save_tensorrt.py + diffusion_policy_23_dofs.py",
+    "num_observations": 1400,
+    "num_actions": 23,
+    "strict_state_dict": true,
+    "missing_keys": [],
+    "unexpected_keys": [],
+    "checkpoint_top_level_keys": [
+      "student_model_state_dict",
+      "student_optimizer_state_dict",
+      "iter",
+      "infos",
+      "student_obs_norm_state_dict"
+    ],
+    "parameter_count": 46912727,
+    "model_construction_seconds": 3.8077810000104364,
+    "checkpoint_loading_seconds": 0.6423212999943644,
+    "modifications": []
+  }
+}

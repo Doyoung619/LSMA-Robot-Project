@@ -1,0 +1,10 @@
+numpy==1.26.4
+scipy==1.15.3
+torch==2.6.0
+mujoco==3.3.2
+joblib==1.4.2
+torchdiffeq==0.2.5
+einops==0.8.1
+tqdm==4.67.1
+matplotlib==3.10.3
+Pillow==11.2.1

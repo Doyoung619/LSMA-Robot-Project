@@ -6,6 +6,10 @@ In the saved environment, optional BeatNet could not install because its resolve
 
 This location follows the requested `experiment/3_BPM_check` layout. The benchmark does not change dance or robot-control code.
 
+다른 컴퓨터에서 clone/pull 후 환경과 모델을 준비하는 방법은
+[`PORTABILITY.md`](PORTABILITY.md)를 참고하세요. 이 폴더는 BPM 검출 비교이며,
+춤 생성 비교는 `../4_Benchmark1/`, `../5_Benchmark2/`에 따로 구성됩니다.
+
 ## Setup
 
 Use Python **3.11** and FFmpeg available on `PATH`. The benchmark has a separate environment and does not install dependencies into the robot environment. From this directory on Windows PowerShell:

@@ -1,0 +1,17 @@
+{
+  "synthetic_full_cycle__our_finite__seed0__beat0": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "synthetic_full_cycle__our_infinite__seed0__beat0": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "synthetic_full_cycle__reachy_adapted__seed0__beat0": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  }
+}

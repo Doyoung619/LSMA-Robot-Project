@@ -1,0 +1,4 @@
+method,method_label,repetitions,workload_seconds,median_seconds,min_seconds,max_seconds,initialization_median_seconds,rtf_median,p95_seconds,scope
+our_finite,Our finite (existing),5,12.0,0.023601599998073652,0.021412999980384484,0.0753353999753017,2.1093360999948345,0.001966799999839471,,motion generation + documented adaptation + zero common correction; no visualization/download
+our_infinite,Our infinite (existing),5,12.0,0.3361575999879278,0.3021685999992769,0.4232682000147179,0.0001773000112734735,0.028013133332327318,,motion generation + documented adaptation + zero common correction; no visualization/download
+reachy_adapted,Reachy primitive scheduler + documented adaptation,5,12.0,0.0027513999957591295,0.002676100004464388,0.003126499999780208,4.67000063508749e-05,0.00022928333297992745,,motion generation + documented adaptation + zero common correction; no visualization/download

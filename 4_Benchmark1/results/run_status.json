@@ -1,0 +1,187 @@
+{
+  "stage1__our_finite__seed0__beat0": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stage1__our_infinite__seed0__beat0": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stage1__reachy_adapted__seed0__beat0": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stage2__our_finite__seed0__beat16": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stage2__our_infinite__seed0__beat16": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stage2__reachy_adapted__seed0__beat16": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stage2__our_finite__seed1__beat16": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stage2__our_infinite__seed1__beat16": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stage2__our_finite__seed2__beat16": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stage2__our_infinite__seed2__beat16": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stage2__our_finite__seed0__beat64": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stage2__our_infinite__seed0__beat64": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stage2__reachy_adapted__seed0__beat64": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stage2__our_finite__seed1__beat64": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stage2__our_infinite__seed1__beat64": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stage2__our_finite__seed2__beat64": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stage2__our_infinite__seed2__beat64": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stage2__our_finite__seed0__beat112": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stage2__our_infinite__seed0__beat112": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stage2__reachy_adapted__seed0__beat112": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stage2__our_finite__seed1__beat112": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stage2__our_infinite__seed1__beat112": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stage2__our_finite__seed2__beat112": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stage2__our_infinite__seed2__beat112": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "long__our_finite__seed0__beat0": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "long__our_infinite__seed0__beat0": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "long__reachy_adapted__seed0__beat0": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stress90__our_finite__seed0__beat0": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stress90__our_infinite__seed0__beat0": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stress90__reachy_adapted__seed0__beat0": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stress120__our_finite__seed0__beat0": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stress120__our_infinite__seed0__beat0": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stress120__reachy_adapted__seed0__beat0": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stress180__our_finite__seed0__beat0": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stress180__our_infinite__seed0__beat0": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stress180__reachy_adapted__seed0__beat0": {
+    "status": "generated",
+    "error": null,
+    "hardware_executed": false
+  },
+  "stage1__reachy_native__seed0__beat0": {
+    "status": "generated_native",
+    "error": null,
+    "hardware_executed": false
+  }
+}

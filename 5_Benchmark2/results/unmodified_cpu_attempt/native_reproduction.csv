@@ -1,0 +1,2 @@
+method,source_revision,artifact_verified,strict_model_loaded,forward_ok,rollout_ok,custom_audio_ok,input,duration_seconds,audio_alignment,hardware_executed
+RoboPerform released latent-conditioned G1 demo,e6e2a0e4cdb20f081c1a3d46d648d7a202816779,True,True,False,False,False,released cached latents,,N/A,False

@@ -1,0 +1,2519 @@
+{
+  "stage1__our_finite__seed0__beat0": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.049162825253762726
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.033292720848998036
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.05061240805061641
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.029569227910394586
+    }
+  ],
+  "stage1__our_infinite__seed0__beat0": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.04177222516809494
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.041093157948269336
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.052092642559285265
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.028004142715139787
+    }
+  ],
+  "stage1__reachy_adapted__seed0__beat0": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.18057245126108004
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.37478459366934974
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.4361648097628348
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.4128300855146973
+    }
+  ],
+  "stage2__our_finite__seed0__beat16": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.04697156975214661
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.03929630743489458
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.045698286129433205
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.04465007765353952
+    },
+    {
+      "lag_windows": 5,
+      "lag_beats": 20,
+      "mean_rms_joint_range_distance": 0.04335849438355166
+    },
+    {
+      "lag_windows": 6,
+      "lag_beats": 24,
+      "mean_rms_joint_range_distance": 0.050376008506704505
+    },
+    {
+      "lag_windows": 7,
+      "lag_beats": 28,
+      "mean_rms_joint_range_distance": 0.042257136154235736
+    },
+    {
+      "lag_windows": 8,
+      "lag_beats": 32,
+      "mean_rms_joint_range_distance": 0.05594319685711796
+    },
+    {
+      "lag_windows": 9,
+      "lag_beats": 36,
+      "mean_rms_joint_range_distance": 0.029682966325690036
+    },
+    {
+      "lag_windows": 10,
+      "lag_beats": 40,
+      "mean_rms_joint_range_distance": 0.06570795309160508
+    }
+  ],
+  "stage2__our_infinite__seed0__beat16": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.03536725785490832
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.046411704961260694
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.036804907001724285
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.0257479315578469
+    },
+    {
+      "lag_windows": 5,
+      "lag_beats": 20,
+      "mean_rms_joint_range_distance": 0.03261661726762171
+    },
+    {
+      "lag_windows": 6,
+      "lag_beats": 24,
+      "mean_rms_joint_range_distance": 0.04737742994418105
+    },
+    {
+      "lag_windows": 7,
+      "lag_beats": 28,
+      "mean_rms_joint_range_distance": 0.03661976842779561
+    },
+    {
+      "lag_windows": 8,
+      "lag_beats": 32,
+      "mean_rms_joint_range_distance": 0.02184949447906952
+    },
+    {
+      "lag_windows": 9,
+      "lag_beats": 36,
+      "mean_rms_joint_range_distance": 0.0370210848340357
+    },
+    {
+      "lag_windows": 10,
+      "lag_beats": 40,
+      "mean_rms_joint_range_distance": 0.05343537248235806
+    }
+  ],
+  "stage2__reachy_adapted__seed0__beat16": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.31133077360661987
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.5062158686200955
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.473709815858936
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.3811569061201324
+    },
+    {
+      "lag_windows": 5,
+      "lag_beats": 20,
+      "mean_rms_joint_range_distance": 0.4063050836407584
+    },
+    {
+      "lag_windows": 6,
+      "lag_beats": 24,
+      "mean_rms_joint_range_distance": 0.4887423171473048
+    },
+    {
+      "lag_windows": 7,
+      "lag_beats": 28,
+      "mean_rms_joint_range_distance": 0.44608904238441394
+    },
+    {
+      "lag_windows": 8,
+      "lag_beats": 32,
+      "mean_rms_joint_range_distance": 0.3278320049952959
+    },
+    {
+      "lag_windows": 9,
+      "lag_beats": 36,
+      "mean_rms_joint_range_distance": 0.21207028808330108
+    },
+    {
+      "lag_windows": 10,
+      "lag_beats": 40,
+      "mean_rms_joint_range_distance": 0.20222521809262686
+    }
+  ],
+  "stage2__our_finite__seed1__beat16": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.043354299819813355
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.04877694080582134
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.04806038496497406
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.04741976057031168
+    },
+    {
+      "lag_windows": 5,
+      "lag_beats": 20,
+      "mean_rms_joint_range_distance": 0.05202563608581049
+    },
+    {
+      "lag_windows": 6,
+      "lag_beats": 24,
+      "mean_rms_joint_range_distance": 0.04401936810054221
+    },
+    {
+      "lag_windows": 7,
+      "lag_beats": 28,
+      "mean_rms_joint_range_distance": 0.045518518325135315
+    },
+    {
+      "lag_windows": 8,
+      "lag_beats": 32,
+      "mean_rms_joint_range_distance": 0.03170726144428259
+    },
+    {
+      "lag_windows": 9,
+      "lag_beats": 36,
+      "mean_rms_joint_range_distance": 0.042490703311237374
+    },
+    {
+      "lag_windows": 10,
+      "lag_beats": 40,
+      "mean_rms_joint_range_distance": 0.04343269750892183
+    }
+  ],
+  "stage2__our_infinite__seed1__beat16": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.03296212711522808
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.03887770399608813
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.034214299949915886
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.031923307749532885
+    },
+    {
+      "lag_windows": 5,
+      "lag_beats": 20,
+      "mean_rms_joint_range_distance": 0.03595101411817472
+    },
+    {
+      "lag_windows": 6,
+      "lag_beats": 24,
+      "mean_rms_joint_range_distance": 0.03490145136388201
+    },
+    {
+      "lag_windows": 7,
+      "lag_beats": 28,
+      "mean_rms_joint_range_distance": 0.03966720297012279
+    },
+    {
+      "lag_windows": 8,
+      "lag_beats": 32,
+      "mean_rms_joint_range_distance": 0.042775522486009014
+    },
+    {
+      "lag_windows": 9,
+      "lag_beats": 36,
+      "mean_rms_joint_range_distance": 0.0343575305050951
+    },
+    {
+      "lag_windows": 10,
+      "lag_beats": 40,
+      "mean_rms_joint_range_distance": 0.024552832617461842
+    }
+  ],
+  "stage2__our_finite__seed2__beat16": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.048638481676299035
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.04599454084504945
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.048575287163312504
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.03799718413895866
+    },
+    {
+      "lag_windows": 5,
+      "lag_beats": 20,
+      "mean_rms_joint_range_distance": 0.044464395097818465
+    },
+    {
+      "lag_windows": 6,
+      "lag_beats": 24,
+      "mean_rms_joint_range_distance": 0.045315001299654135
+    },
+    {
+      "lag_windows": 7,
+      "lag_beats": 28,
+      "mean_rms_joint_range_distance": 0.05326975356298189
+    },
+    {
+      "lag_windows": 8,
+      "lag_beats": 32,
+      "mean_rms_joint_range_distance": 0.04380663267875478
+    },
+    {
+      "lag_windows": 9,
+      "lag_beats": 36,
+      "mean_rms_joint_range_distance": 0.05290117795110608
+    },
+    {
+      "lag_windows": 10,
+      "lag_beats": 40,
+      "mean_rms_joint_range_distance": 0.06065465641956032
+    }
+  ],
+  "stage2__our_infinite__seed2__beat16": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.0354710324978859
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.03915997701289679
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.030948241903007594
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.030170491606166062
+    },
+    {
+      "lag_windows": 5,
+      "lag_beats": 20,
+      "mean_rms_joint_range_distance": 0.038098484997261046
+    },
+    {
+      "lag_windows": 6,
+      "lag_beats": 24,
+      "mean_rms_joint_range_distance": 0.03376896424867393
+    },
+    {
+      "lag_windows": 7,
+      "lag_beats": 28,
+      "mean_rms_joint_range_distance": 0.024881923969156512
+    },
+    {
+      "lag_windows": 8,
+      "lag_beats": 32,
+      "mean_rms_joint_range_distance": 0.0417997409373434
+    },
+    {
+      "lag_windows": 9,
+      "lag_beats": 36,
+      "mean_rms_joint_range_distance": 0.03982224142963097
+    },
+    {
+      "lag_windows": 10,
+      "lag_beats": 40,
+      "mean_rms_joint_range_distance": 0.027266737199589584
+    }
+  ],
+  "stage2__our_finite__seed0__beat64": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.046971569752146586
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.03929630743489457
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.04569828612943318
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.044650077653539504
+    },
+    {
+      "lag_windows": 5,
+      "lag_beats": 20,
+      "mean_rms_joint_range_distance": 0.04335849438355163
+    },
+    {
+      "lag_windows": 6,
+      "lag_beats": 24,
+      "mean_rms_joint_range_distance": 0.05037600850670452
+    },
+    {
+      "lag_windows": 7,
+      "lag_beats": 28,
+      "mean_rms_joint_range_distance": 0.042257136154235715
+    },
+    {
+      "lag_windows": 8,
+      "lag_beats": 32,
+      "mean_rms_joint_range_distance": 0.055943196857117995
+    },
+    {
+      "lag_windows": 9,
+      "lag_beats": 36,
+      "mean_rms_joint_range_distance": 0.029682966325690008
+    },
+    {
+      "lag_windows": 10,
+      "lag_beats": 40,
+      "mean_rms_joint_range_distance": 0.06570795309160511
+    }
+  ],
+  "stage2__our_infinite__seed0__beat64": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.0336883244112838
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.04388310858302933
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.0303571122948247
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.021162263445698905
+    },
+    {
+      "lag_windows": 5,
+      "lag_beats": 20,
+      "mean_rms_joint_range_distance": 0.03564743143439849
+    },
+    {
+      "lag_windows": 6,
+      "lag_beats": 24,
+      "mean_rms_joint_range_distance": 0.044114916256810445
+    },
+    {
+      "lag_windows": 7,
+      "lag_beats": 28,
+      "mean_rms_joint_range_distance": 0.027130512324033507
+    },
+    {
+      "lag_windows": 8,
+      "lag_beats": 32,
+      "mean_rms_joint_range_distance": 0.020791074132609513
+    },
+    {
+      "lag_windows": 9,
+      "lag_beats": 36,
+      "mean_rms_joint_range_distance": 0.03701775564433958
+    },
+    {
+      "lag_windows": 10,
+      "lag_beats": 40,
+      "mean_rms_joint_range_distance": 0.0343490930135522
+    }
+  ],
+  "stage2__reachy_adapted__seed0__beat64": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.20965092957696035
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.37573603924348803
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.3532578094463405
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.31368307399097445
+    },
+    {
+      "lag_windows": 5,
+      "lag_beats": 20,
+      "mean_rms_joint_range_distance": 0.31642826818652453
+    },
+    {
+      "lag_windows": 6,
+      "lag_beats": 24,
+      "mean_rms_joint_range_distance": 0.3591256598972682
+    },
+    {
+      "lag_windows": 7,
+      "lag_beats": 28,
+      "mean_rms_joint_range_distance": 0.38451153519971415
+    },
+    {
+      "lag_windows": 8,
+      "lag_beats": 32,
+      "mean_rms_joint_range_distance": 0.3276949798340711
+    },
+    {
+      "lag_windows": 9,
+      "lag_beats": 36,
+      "mean_rms_joint_range_distance": 0.21912582682993875
+    },
+    {
+      "lag_windows": 10,
+      "lag_beats": 40,
+      "mean_rms_joint_range_distance": 0.17536084725179854
+    }
+  ],
+  "stage2__our_finite__seed1__beat64": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.04335429981981338
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.04877694080582135
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.04806038496497406
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.04741976057031167
+    },
+    {
+      "lag_windows": 5,
+      "lag_beats": 20,
+      "mean_rms_joint_range_distance": 0.05202563608581049
+    },
+    {
+      "lag_windows": 6,
+      "lag_beats": 24,
+      "mean_rms_joint_range_distance": 0.04401936810054218
+    },
+    {
+      "lag_windows": 7,
+      "lag_beats": 28,
+      "mean_rms_joint_range_distance": 0.0455185183251353
+    },
+    {
+      "lag_windows": 8,
+      "lag_beats": 32,
+      "mean_rms_joint_range_distance": 0.0317072614442826
+    },
+    {
+      "lag_windows": 9,
+      "lag_beats": 36,
+      "mean_rms_joint_range_distance": 0.04249070331123735
+    },
+    {
+      "lag_windows": 10,
+      "lag_beats": 40,
+      "mean_rms_joint_range_distance": 0.04343269750892174
+    }
+  ],
+  "stage2__our_infinite__seed1__beat64": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.03571923063681111
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.04865773755878294
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.03260672386046583
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.023495486629390848
+    },
+    {
+      "lag_windows": 5,
+      "lag_beats": 20,
+      "mean_rms_joint_range_distance": 0.03216799735750029
+    },
+    {
+      "lag_windows": 6,
+      "lag_beats": 24,
+      "mean_rms_joint_range_distance": 0.04840076079214196
+    },
+    {
+      "lag_windows": 7,
+      "lag_beats": 28,
+      "mean_rms_joint_range_distance": 0.03783390876784683
+    },
+    {
+      "lag_windows": 8,
+      "lag_beats": 32,
+      "mean_rms_joint_range_distance": 0.018463937642753583
+    },
+    {
+      "lag_windows": 9,
+      "lag_beats": 36,
+      "mean_rms_joint_range_distance": 0.03210104318567357
+    },
+    {
+      "lag_windows": 10,
+      "lag_beats": 40,
+      "mean_rms_joint_range_distance": 0.042914753102394856
+    }
+  ],
+  "stage2__our_finite__seed2__beat64": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.04863848167629904
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.04599454084504946
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.0485752871633125
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.03799718413895868
+    },
+    {
+      "lag_windows": 5,
+      "lag_beats": 20,
+      "mean_rms_joint_range_distance": 0.04446439509781844
+    },
+    {
+      "lag_windows": 6,
+      "lag_beats": 24,
+      "mean_rms_joint_range_distance": 0.045315001299654115
+    },
+    {
+      "lag_windows": 7,
+      "lag_beats": 28,
+      "mean_rms_joint_range_distance": 0.053269753562981914
+    },
+    {
+      "lag_windows": 8,
+      "lag_beats": 32,
+      "mean_rms_joint_range_distance": 0.04380663267875476
+    },
+    {
+      "lag_windows": 9,
+      "lag_beats": 36,
+      "mean_rms_joint_range_distance": 0.05290117795110606
+    },
+    {
+      "lag_windows": 10,
+      "lag_beats": 40,
+      "mean_rms_joint_range_distance": 0.060654656419560284
+    }
+  ],
+  "stage2__our_infinite__seed2__beat64": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.03612412496175644
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.03818240008956121
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.03136689145579806
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.030984161126411548
+    },
+    {
+      "lag_windows": 5,
+      "lag_beats": 20,
+      "mean_rms_joint_range_distance": 0.037753224641036955
+    },
+    {
+      "lag_windows": 6,
+      "lag_beats": 24,
+      "mean_rms_joint_range_distance": 0.03440238736249966
+    },
+    {
+      "lag_windows": 7,
+      "lag_beats": 28,
+      "mean_rms_joint_range_distance": 0.02548755071428718
+    },
+    {
+      "lag_windows": 8,
+      "lag_beats": 32,
+      "mean_rms_joint_range_distance": 0.041291963473454874
+    },
+    {
+      "lag_windows": 9,
+      "lag_beats": 36,
+      "mean_rms_joint_range_distance": 0.03913952557773887
+    },
+    {
+      "lag_windows": 10,
+      "lag_beats": 40,
+      "mean_rms_joint_range_distance": 0.01849479375291634
+    }
+  ],
+  "stage2__our_finite__seed0__beat112": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.04700177952912967
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.03925608655652691
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.04716117817222304
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.041551758675855886
+    },
+    {
+      "lag_windows": 5,
+      "lag_beats": 20,
+      "mean_rms_joint_range_distance": 0.044018185121810445
+    },
+    {
+      "lag_windows": 6,
+      "lag_beats": 24,
+      "mean_rms_joint_range_distance": 0.04643338425483884
+    },
+    {
+      "lag_windows": 7,
+      "lag_beats": 28,
+      "mean_rms_joint_range_distance": 0.04286064267898734
+    },
+    {
+      "lag_windows": 8,
+      "lag_beats": 32,
+      "mean_rms_joint_range_distance": 0.047521777414227064
+    },
+    {
+      "lag_windows": 9,
+      "lag_beats": 36,
+      "mean_rms_joint_range_distance": 0.03998549090862409
+    },
+    {
+      "lag_windows": 10,
+      "lag_beats": 40,
+      "mean_rms_joint_range_distance": 0.06260802180438213
+    }
+  ],
+  "stage2__our_infinite__seed0__beat112": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.03819445692413207
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.04020839171854566
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.04486372614922693
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.04740816078017931
+    },
+    {
+      "lag_windows": 5,
+      "lag_beats": 20,
+      "mean_rms_joint_range_distance": 0.04040719137201589
+    },
+    {
+      "lag_windows": 6,
+      "lag_beats": 24,
+      "mean_rms_joint_range_distance": 0.04118754664768341
+    },
+    {
+      "lag_windows": 7,
+      "lag_beats": 28,
+      "mean_rms_joint_range_distance": 0.03605101692591355
+    },
+    {
+      "lag_windows": 8,
+      "lag_beats": 32,
+      "mean_rms_joint_range_distance": 0.04433077557334573
+    },
+    {
+      "lag_windows": 9,
+      "lag_beats": 36,
+      "mean_rms_joint_range_distance": 0.05059041231804595
+    },
+    {
+      "lag_windows": 10,
+      "lag_beats": 40,
+      "mean_rms_joint_range_distance": 0.07903054769336665
+    }
+  ],
+  "stage2__reachy_adapted__seed0__beat112": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.27214942405723613
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.47389665947876847
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.5135858595916805
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.5508699710747672
+    },
+    {
+      "lag_windows": 5,
+      "lag_beats": 20,
+      "mean_rms_joint_range_distance": 0.517291181602646
+    },
+    {
+      "lag_windows": 6,
+      "lag_beats": 24,
+      "mean_rms_joint_range_distance": 0.44018968996144026
+    },
+    {
+      "lag_windows": 7,
+      "lag_beats": 28,
+      "mean_rms_joint_range_distance": 0.3803984464604263
+    },
+    {
+      "lag_windows": 8,
+      "lag_beats": 32,
+      "mean_rms_joint_range_distance": 0.37978653030538156
+    },
+    {
+      "lag_windows": 9,
+      "lag_beats": 36,
+      "mean_rms_joint_range_distance": 0.4305030664923396
+    },
+    {
+      "lag_windows": 10,
+      "lag_beats": 40,
+      "mean_rms_joint_range_distance": 0.5275224373498807
+    }
+  ],
+  "stage2__our_finite__seed1__beat112": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.043354299819813306
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.04877694080582137
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.048060384964974105
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.047419760570311685
+    },
+    {
+      "lag_windows": 5,
+      "lag_beats": 20,
+      "mean_rms_joint_range_distance": 0.0520256360858104
+    },
+    {
+      "lag_windows": 6,
+      "lag_beats": 24,
+      "mean_rms_joint_range_distance": 0.04401936810054215
+    },
+    {
+      "lag_windows": 7,
+      "lag_beats": 28,
+      "mean_rms_joint_range_distance": 0.04551851832513522
+    },
+    {
+      "lag_windows": 8,
+      "lag_beats": 32,
+      "mean_rms_joint_range_distance": 0.03170726144428252
+    },
+    {
+      "lag_windows": 9,
+      "lag_beats": 36,
+      "mean_rms_joint_range_distance": 0.04249070331123717
+    },
+    {
+      "lag_windows": 10,
+      "lag_beats": 40,
+      "mean_rms_joint_range_distance": 0.04343269750892164
+    }
+  ],
+  "stage2__our_infinite__seed1__beat112": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.03636360254284034
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.040815125911186086
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.030446276311510936
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.02930110981322769
+    },
+    {
+      "lag_windows": 5,
+      "lag_beats": 20,
+      "mean_rms_joint_range_distance": 0.032967094686664034
+    },
+    {
+      "lag_windows": 6,
+      "lag_beats": 24,
+      "mean_rms_joint_range_distance": 0.039765790643653376
+    },
+    {
+      "lag_windows": 7,
+      "lag_beats": 28,
+      "mean_rms_joint_range_distance": 0.029825624684917264
+    },
+    {
+      "lag_windows": 8,
+      "lag_beats": 32,
+      "mean_rms_joint_range_distance": 0.027256960243794707
+    },
+    {
+      "lag_windows": 9,
+      "lag_beats": 36,
+      "mean_rms_joint_range_distance": 0.04480011308148971
+    },
+    {
+      "lag_windows": 10,
+      "lag_beats": 40,
+      "mean_rms_joint_range_distance": 0.022377175363482004
+    }
+  ],
+  "stage2__our_finite__seed2__beat112": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.04863848167629904
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.045994540845049475
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.04857528716331248
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.03799718413895866
+    },
+    {
+      "lag_windows": 5,
+      "lag_beats": 20,
+      "mean_rms_joint_range_distance": 0.0444643950978184
+    },
+    {
+      "lag_windows": 6,
+      "lag_beats": 24,
+      "mean_rms_joint_range_distance": 0.04531500129965406
+    },
+    {
+      "lag_windows": 7,
+      "lag_beats": 28,
+      "mean_rms_joint_range_distance": 0.05326975356298188
+    },
+    {
+      "lag_windows": 8,
+      "lag_beats": 32,
+      "mean_rms_joint_range_distance": 0.0438066326787547
+    },
+    {
+      "lag_windows": 9,
+      "lag_beats": 36,
+      "mean_rms_joint_range_distance": 0.0529011779511059
+    },
+    {
+      "lag_windows": 10,
+      "lag_beats": 40,
+      "mean_rms_joint_range_distance": 0.06065465641956024
+    }
+  ],
+  "stage2__our_infinite__seed2__beat112": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.03875824308253782
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.04194394818542192
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.03155167170912247
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.025775743127976786
+    },
+    {
+      "lag_windows": 5,
+      "lag_beats": 20,
+      "mean_rms_joint_range_distance": 0.0402287864304002
+    },
+    {
+      "lag_windows": 6,
+      "lag_beats": 24,
+      "mean_rms_joint_range_distance": 0.044632085841103966
+    },
+    {
+      "lag_windows": 7,
+      "lag_beats": 28,
+      "mean_rms_joint_range_distance": 0.03588838972797338
+    },
+    {
+      "lag_windows": 8,
+      "lag_beats": 32,
+      "mean_rms_joint_range_distance": 0.029687537977083206
+    },
+    {
+      "lag_windows": 9,
+      "lag_beats": 36,
+      "mean_rms_joint_range_distance": 0.04696007546900824
+    },
+    {
+      "lag_windows": 10,
+      "lag_beats": 40,
+      "mean_rms_joint_range_distance": 0.04569826464292901
+    }
+  ],
+  "long__our_finite__seed0__beat0": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.0489974770243396
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.04832015224935854
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.050671385986000364
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.046096909269338654
+    },
+    {
+      "lag_windows": 5,
+      "lag_beats": 20,
+      "mean_rms_joint_range_distance": 0.051268350707913996
+    },
+    {
+      "lag_windows": 6,
+      "lag_beats": 24,
+      "mean_rms_joint_range_distance": 0.0480983748015032
+    },
+    {
+      "lag_windows": 7,
+      "lag_beats": 28,
+      "mean_rms_joint_range_distance": 0.05039991732839007
+    },
+    {
+      "lag_windows": 8,
+      "lag_beats": 32,
+      "mean_rms_joint_range_distance": 0.043837971369920424
+    },
+    {
+      "lag_windows": 9,
+      "lag_beats": 36,
+      "mean_rms_joint_range_distance": 0.04950867234702906
+    },
+    {
+      "lag_windows": 10,
+      "lag_beats": 40,
+      "mean_rms_joint_range_distance": 0.0467972326488742
+    },
+    {
+      "lag_windows": 11,
+      "lag_beats": 44,
+      "mean_rms_joint_range_distance": 0.049067878271407905
+    },
+    {
+      "lag_windows": 12,
+      "lag_beats": 48,
+      "mean_rms_joint_range_distance": 0.0429105948709391
+    },
+    {
+      "lag_windows": 13,
+      "lag_beats": 52,
+      "mean_rms_joint_range_distance": 0.04934180275278016
+    },
+    {
+      "lag_windows": 14,
+      "lag_beats": 56,
+      "mean_rms_joint_range_distance": 0.049616804562178575
+    },
+    {
+      "lag_windows": 15,
+      "lag_beats": 60,
+      "mean_rms_joint_range_distance": 0.049282746481038225
+    },
+    {
+      "lag_windows": 16,
+      "lag_beats": 64,
+      "mean_rms_joint_range_distance": 0.04078364116879394
+    },
+    {
+      "lag_windows": 17,
+      "lag_beats": 68,
+      "mean_rms_joint_range_distance": 0.049927625459093766
+    },
+    {
+      "lag_windows": 18,
+      "lag_beats": 72,
+      "mean_rms_joint_range_distance": 0.05015714027189899
+    },
+    {
+      "lag_windows": 19,
+      "lag_beats": 76,
+      "mean_rms_joint_range_distance": 0.05017791217383431
+    },
+    {
+      "lag_windows": 20,
+      "lag_beats": 80,
+      "mean_rms_joint_range_distance": 0.04431832157529546
+    },
+    {
+      "lag_windows": 21,
+      "lag_beats": 84,
+      "mean_rms_joint_range_distance": 0.052310214933357926
+    },
+    {
+      "lag_windows": 22,
+      "lag_beats": 88,
+      "mean_rms_joint_range_distance": 0.04782869319443521
+    },
+    {
+      "lag_windows": 23,
+      "lag_beats": 92,
+      "mean_rms_joint_range_distance": 0.04817405088524201
+    },
+    {
+      "lag_windows": 24,
+      "lag_beats": 96,
+      "mean_rms_joint_range_distance": 0.040883930636071195
+    },
+    {
+      "lag_windows": 25,
+      "lag_beats": 100,
+      "mean_rms_joint_range_distance": 0.04990195555684319
+    },
+    {
+      "lag_windows": 26,
+      "lag_beats": 104,
+      "mean_rms_joint_range_distance": 0.04710585640736729
+    },
+    {
+      "lag_windows": 27,
+      "lag_beats": 108,
+      "mean_rms_joint_range_distance": 0.04776601150776219
+    },
+    {
+      "lag_windows": 28,
+      "lag_beats": 112,
+      "mean_rms_joint_range_distance": 0.041945499581672575
+    },
+    {
+      "lag_windows": 29,
+      "lag_beats": 116,
+      "mean_rms_joint_range_distance": 0.04946594905037705
+    },
+    {
+      "lag_windows": 30,
+      "lag_beats": 120,
+      "mean_rms_joint_range_distance": 0.048013750908191384
+    },
+    {
+      "lag_windows": 31,
+      "lag_beats": 124,
+      "mean_rms_joint_range_distance": 0.05004461455282172
+    },
+    {
+      "lag_windows": 32,
+      "lag_beats": 128,
+      "mean_rms_joint_range_distance": 0.04286898856861576
+    },
+    {
+      "lag_windows": 33,
+      "lag_beats": 132,
+      "mean_rms_joint_range_distance": 0.049997929491294994
+    },
+    {
+      "lag_windows": 34,
+      "lag_beats": 136,
+      "mean_rms_joint_range_distance": 0.050662378009041505
+    },
+    {
+      "lag_windows": 35,
+      "lag_beats": 140,
+      "mean_rms_joint_range_distance": 0.04986374747601687
+    },
+    {
+      "lag_windows": 36,
+      "lag_beats": 144,
+      "mean_rms_joint_range_distance": 0.04333079764424717
+    },
+    {
+      "lag_windows": 37,
+      "lag_beats": 148,
+      "mean_rms_joint_range_distance": 0.0496965143299206
+    },
+    {
+      "lag_windows": 38,
+      "lag_beats": 152,
+      "mean_rms_joint_range_distance": 0.046513417070337446
+    },
+    {
+      "lag_windows": 39,
+      "lag_beats": 156,
+      "mean_rms_joint_range_distance": 0.04559379532583066
+    },
+    {
+      "lag_windows": 40,
+      "lag_beats": 160,
+      "mean_rms_joint_range_distance": 0.0427549434482288
+    },
+    {
+      "lag_windows": 41,
+      "lag_beats": 164,
+      "mean_rms_joint_range_distance": 0.048216108993686
+    },
+    {
+      "lag_windows": 42,
+      "lag_beats": 168,
+      "mean_rms_joint_range_distance": 0.047274563996808655
+    },
+    {
+      "lag_windows": 43,
+      "lag_beats": 172,
+      "mean_rms_joint_range_distance": 0.04624365575361305
+    },
+    {
+      "lag_windows": 44,
+      "lag_beats": 176,
+      "mean_rms_joint_range_distance": 0.0415799796661853
+    },
+    {
+      "lag_windows": 45,
+      "lag_beats": 180,
+      "mean_rms_joint_range_distance": 0.0495716326992042
+    },
+    {
+      "lag_windows": 46,
+      "lag_beats": 184,
+      "mean_rms_joint_range_distance": 0.04811177262842478
+    },
+    {
+      "lag_windows": 47,
+      "lag_beats": 188,
+      "mean_rms_joint_range_distance": 0.05040628316684845
+    },
+    {
+      "lag_windows": 48,
+      "lag_beats": 192,
+      "mean_rms_joint_range_distance": 0.041522173791353666
+    },
+    {
+      "lag_windows": 49,
+      "lag_beats": 196,
+      "mean_rms_joint_range_distance": 0.05010194448650029
+    },
+    {
+      "lag_windows": 50,
+      "lag_beats": 200,
+      "mean_rms_joint_range_distance": 0.04719672641428469
+    },
+    {
+      "lag_windows": 51,
+      "lag_beats": 204,
+      "mean_rms_joint_range_distance": 0.05055943257666219
+    },
+    {
+      "lag_windows": 52,
+      "lag_beats": 208,
+      "mean_rms_joint_range_distance": 0.04291266699104468
+    },
+    {
+      "lag_windows": 53,
+      "lag_beats": 212,
+      "mean_rms_joint_range_distance": 0.053174939906004116
+    },
+    {
+      "lag_windows": 54,
+      "lag_beats": 216,
+      "mean_rms_joint_range_distance": 0.04824838088032965
+    },
+    {
+      "lag_windows": 55,
+      "lag_beats": 220,
+      "mean_rms_joint_range_distance": 0.0504908929703614
+    },
+    {
+      "lag_windows": 56,
+      "lag_beats": 224,
+      "mean_rms_joint_range_distance": 0.03959442672152374
+    },
+    {
+      "lag_windows": 57,
+      "lag_beats": 228,
+      "mean_rms_joint_range_distance": 0.0501917100240498
+    },
+    {
+      "lag_windows": 58,
+      "lag_beats": 232,
+      "mean_rms_joint_range_distance": 0.04482823667565583
+    },
+    {
+      "lag_windows": 59,
+      "lag_beats": 236,
+      "mean_rms_joint_range_distance": 0.04514098937288697
+    },
+    {
+      "lag_windows": 60,
+      "lag_beats": 240,
+      "mean_rms_joint_range_distance": 0.04177672636781402
+    },
+    {
+      "lag_windows": 61,
+      "lag_beats": 244,
+      "mean_rms_joint_range_distance": 0.04699178006012222
+    },
+    {
+      "lag_windows": 62,
+      "lag_beats": 248,
+      "mean_rms_joint_range_distance": 0.04582742674300598
+    },
+    {
+      "lag_windows": 63,
+      "lag_beats": 252,
+      "mean_rms_joint_range_distance": 0.046107117413218886
+    },
+    {
+      "lag_windows": 64,
+      "lag_beats": 256,
+      "mean_rms_joint_range_distance": 0.04174431334173744
+    },
+    {
+      "lag_windows": 65,
+      "lag_beats": 260,
+      "mean_rms_joint_range_distance": 0.050045364953394095
+    },
+    {
+      "lag_windows": 66,
+      "lag_beats": 264,
+      "mean_rms_joint_range_distance": 0.040838557830734076
+    },
+    {
+      "lag_windows": 67,
+      "lag_beats": 268,
+      "mean_rms_joint_range_distance": 0.043898882758707215
+    },
+    {
+      "lag_windows": 68,
+      "lag_beats": 272,
+      "mean_rms_joint_range_distance": 0.01737253783321585
+    },
+    {
+      "lag_windows": 69,
+      "lag_beats": 276,
+      "mean_rms_joint_range_distance": 0.04795981756706647
+    },
+    {
+      "lag_windows": 70,
+      "lag_beats": 280,
+      "mean_rms_joint_range_distance": 0.03768087391790385
+    },
+    {
+      "lag_windows": 71,
+      "lag_beats": 284,
+      "mean_rms_joint_range_distance": 0.04405221939026722
+    },
+    {
+      "lag_windows": 72,
+      "lag_beats": 288,
+      "mean_rms_joint_range_distance": 0.039419798827365904
+    },
+    {
+      "lag_windows": 73,
+      "lag_beats": 292,
+      "mean_rms_joint_range_distance": 0.03750273269389094
+    },
+    {
+      "lag_windows": 74,
+      "lag_beats": 296,
+      "mean_rms_joint_range_distance": 0.04311406359627852
+    },
+    {
+      "lag_windows": 75,
+      "lag_beats": 300,
+      "mean_rms_joint_range_distance": 0.023856323825071916
+    }
+  ],
+  "long__our_infinite__seed0__beat0": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.06215485189968386
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.07887037342515817
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.0710087454604452
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.0632656164738862
+    },
+    {
+      "lag_windows": 5,
+      "lag_beats": 20,
+      "mean_rms_joint_range_distance": 0.0668737193569764
+    },
+    {
+      "lag_windows": 6,
+      "lag_beats": 24,
+      "mean_rms_joint_range_distance": 0.06382713772517681
+    },
+    {
+      "lag_windows": 7,
+      "lag_beats": 28,
+      "mean_rms_joint_range_distance": 0.06397135504861087
+    },
+    {
+      "lag_windows": 8,
+      "lag_beats": 32,
+      "mean_rms_joint_range_distance": 0.06527623713087727
+    },
+    {
+      "lag_windows": 9,
+      "lag_beats": 36,
+      "mean_rms_joint_range_distance": 0.0725875326238206
+    },
+    {
+      "lag_windows": 10,
+      "lag_beats": 40,
+      "mean_rms_joint_range_distance": 0.0690521131200632
+    },
+    {
+      "lag_windows": 11,
+      "lag_beats": 44,
+      "mean_rms_joint_range_distance": 0.06994976071298999
+    },
+    {
+      "lag_windows": 12,
+      "lag_beats": 48,
+      "mean_rms_joint_range_distance": 0.06902077778492179
+    },
+    {
+      "lag_windows": 13,
+      "lag_beats": 52,
+      "mean_rms_joint_range_distance": 0.06629210749006365
+    },
+    {
+      "lag_windows": 14,
+      "lag_beats": 56,
+      "mean_rms_joint_range_distance": 0.06264768889268212
+    },
+    {
+      "lag_windows": 15,
+      "lag_beats": 60,
+      "mean_rms_joint_range_distance": 0.0712056621355467
+    },
+    {
+      "lag_windows": 16,
+      "lag_beats": 64,
+      "mean_rms_joint_range_distance": 0.07731036607555417
+    },
+    {
+      "lag_windows": 17,
+      "lag_beats": 68,
+      "mean_rms_joint_range_distance": 0.06877405167045049
+    },
+    {
+      "lag_windows": 18,
+      "lag_beats": 72,
+      "mean_rms_joint_range_distance": 0.05856871723360148
+    },
+    {
+      "lag_windows": 19,
+      "lag_beats": 76,
+      "mean_rms_joint_range_distance": 0.06875276304040687
+    },
+    {
+      "lag_windows": 20,
+      "lag_beats": 80,
+      "mean_rms_joint_range_distance": 0.07145442932383772
+    },
+    {
+      "lag_windows": 21,
+      "lag_beats": 84,
+      "mean_rms_joint_range_distance": 0.06741340779578725
+    },
+    {
+      "lag_windows": 22,
+      "lag_beats": 88,
+      "mean_rms_joint_range_distance": 0.060307571690594114
+    },
+    {
+      "lag_windows": 23,
+      "lag_beats": 92,
+      "mean_rms_joint_range_distance": 0.06945012134248993
+    },
+    {
+      "lag_windows": 24,
+      "lag_beats": 96,
+      "mean_rms_joint_range_distance": 0.0707435325567977
+    },
+    {
+      "lag_windows": 25,
+      "lag_beats": 100,
+      "mean_rms_joint_range_distance": 0.06726631038099609
+    },
+    {
+      "lag_windows": 26,
+      "lag_beats": 104,
+      "mean_rms_joint_range_distance": 0.060336946606122946
+    },
+    {
+      "lag_windows": 27,
+      "lag_beats": 108,
+      "mean_rms_joint_range_distance": 0.06629087360755144
+    },
+    {
+      "lag_windows": 28,
+      "lag_beats": 112,
+      "mean_rms_joint_range_distance": 0.06439495754823406
+    },
+    {
+      "lag_windows": 29,
+      "lag_beats": 116,
+      "mean_rms_joint_range_distance": 0.06593779600900862
+    },
+    {
+      "lag_windows": 30,
+      "lag_beats": 120,
+      "mean_rms_joint_range_distance": 0.06242997027646604
+    },
+    {
+      "lag_windows": 31,
+      "lag_beats": 124,
+      "mean_rms_joint_range_distance": 0.06464922401916584
+    },
+    {
+      "lag_windows": 32,
+      "lag_beats": 128,
+      "mean_rms_joint_range_distance": 0.05963742369271662
+    },
+    {
+      "lag_windows": 33,
+      "lag_beats": 132,
+      "mean_rms_joint_range_distance": 0.06703714720595118
+    },
+    {
+      "lag_windows": 34,
+      "lag_beats": 136,
+      "mean_rms_joint_range_distance": 0.06881624857225728
+    },
+    {
+      "lag_windows": 35,
+      "lag_beats": 140,
+      "mean_rms_joint_range_distance": 0.06385299477455551
+    },
+    {
+      "lag_windows": 36,
+      "lag_beats": 144,
+      "mean_rms_joint_range_distance": 0.05575537886561653
+    },
+    {
+      "lag_windows": 37,
+      "lag_beats": 148,
+      "mean_rms_joint_range_distance": 0.06703883460899089
+    },
+    {
+      "lag_windows": 38,
+      "lag_beats": 152,
+      "mean_rms_joint_range_distance": 0.07163845350371396
+    },
+    {
+      "lag_windows": 39,
+      "lag_beats": 156,
+      "mean_rms_joint_range_distance": 0.06631726123291473
+    },
+    {
+      "lag_windows": 40,
+      "lag_beats": 160,
+      "mean_rms_joint_range_distance": 0.06103169586083945
+    },
+    {
+      "lag_windows": 41,
+      "lag_beats": 164,
+      "mean_rms_joint_range_distance": 0.06728924889278831
+    },
+    {
+      "lag_windows": 42,
+      "lag_beats": 168,
+      "mean_rms_joint_range_distance": 0.06637073994301788
+    },
+    {
+      "lag_windows": 43,
+      "lag_beats": 172,
+      "mean_rms_joint_range_distance": 0.07063632192021696
+    },
+    {
+      "lag_windows": 44,
+      "lag_beats": 176,
+      "mean_rms_joint_range_distance": 0.07508893725475077
+    },
+    {
+      "lag_windows": 45,
+      "lag_beats": 180,
+      "mean_rms_joint_range_distance": 0.06814956575349693
+    },
+    {
+      "lag_windows": 46,
+      "lag_beats": 184,
+      "mean_rms_joint_range_distance": 0.06099829047599581
+    },
+    {
+      "lag_windows": 47,
+      "lag_beats": 188,
+      "mean_rms_joint_range_distance": 0.06558700469124026
+    },
+    {
+      "lag_windows": 48,
+      "lag_beats": 192,
+      "mean_rms_joint_range_distance": 0.06683014171614192
+    },
+    {
+      "lag_windows": 49,
+      "lag_beats": 196,
+      "mean_rms_joint_range_distance": 0.06655426339499255
+    },
+    {
+      "lag_windows": 50,
+      "lag_beats": 200,
+      "mean_rms_joint_range_distance": 0.06725823254518982
+    },
+    {
+      "lag_windows": 51,
+      "lag_beats": 204,
+      "mean_rms_joint_range_distance": 0.06962088582741245
+    },
+    {
+      "lag_windows": 52,
+      "lag_beats": 208,
+      "mean_rms_joint_range_distance": 0.05731594207189004
+    },
+    {
+      "lag_windows": 53,
+      "lag_beats": 212,
+      "mean_rms_joint_range_distance": 0.05428127082851583
+    },
+    {
+      "lag_windows": 54,
+      "lag_beats": 216,
+      "mean_rms_joint_range_distance": 0.05557849707537919
+    },
+    {
+      "lag_windows": 55,
+      "lag_beats": 220,
+      "mean_rms_joint_range_distance": 0.06760744526350304
+    },
+    {
+      "lag_windows": 56,
+      "lag_beats": 224,
+      "mean_rms_joint_range_distance": 0.07819363049527145
+    },
+    {
+      "lag_windows": 57,
+      "lag_beats": 228,
+      "mean_rms_joint_range_distance": 0.06232259391910213
+    },
+    {
+      "lag_windows": 58,
+      "lag_beats": 232,
+      "mean_rms_joint_range_distance": 0.0505445527582013
+    },
+    {
+      "lag_windows": 59,
+      "lag_beats": 236,
+      "mean_rms_joint_range_distance": 0.05034756799211332
+    },
+    {
+      "lag_windows": 60,
+      "lag_beats": 240,
+      "mean_rms_joint_range_distance": 0.04021924903513682
+    },
+    {
+      "lag_windows": 61,
+      "lag_beats": 244,
+      "mean_rms_joint_range_distance": 0.05608320354010005
+    },
+    {
+      "lag_windows": 62,
+      "lag_beats": 248,
+      "mean_rms_joint_range_distance": 0.06578641974300661
+    },
+    {
+      "lag_windows": 63,
+      "lag_beats": 252,
+      "mean_rms_joint_range_distance": 0.05863712782844559
+    },
+    {
+      "lag_windows": 64,
+      "lag_beats": 256,
+      "mean_rms_joint_range_distance": 0.06020464579277022
+    },
+    {
+      "lag_windows": 65,
+      "lag_beats": 260,
+      "mean_rms_joint_range_distance": 0.04789017422221861
+    },
+    {
+      "lag_windows": 66,
+      "lag_beats": 264,
+      "mean_rms_joint_range_distance": 0.04226668994887718
+    },
+    {
+      "lag_windows": 67,
+      "lag_beats": 268,
+      "mean_rms_joint_range_distance": 0.04986384220946112
+    },
+    {
+      "lag_windows": 68,
+      "lag_beats": 272,
+      "mean_rms_joint_range_distance": 0.05183527870659395
+    },
+    {
+      "lag_windows": 69,
+      "lag_beats": 276,
+      "mean_rms_joint_range_distance": 0.05783131904354196
+    },
+    {
+      "lag_windows": 70,
+      "lag_beats": 280,
+      "mean_rms_joint_range_distance": 0.05819156783576987
+    },
+    {
+      "lag_windows": 71,
+      "lag_beats": 284,
+      "mean_rms_joint_range_distance": 0.05971145413411696
+    },
+    {
+      "lag_windows": 72,
+      "lag_beats": 288,
+      "mean_rms_joint_range_distance": 0.058879883314361975
+    },
+    {
+      "lag_windows": 73,
+      "lag_beats": 292,
+      "mean_rms_joint_range_distance": 0.04699857623043049
+    },
+    {
+      "lag_windows": 74,
+      "lag_beats": 296,
+      "mean_rms_joint_range_distance": 0.05567891801135028
+    },
+    {
+      "lag_windows": 75,
+      "lag_beats": 300,
+      "mean_rms_joint_range_distance": 0.018098246798849416
+    }
+  ],
+  "long__reachy_adapted__seed0__beat0": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.258518955493898
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.4199480046275704
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.40955366488733064
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.4040616877711568
+    },
+    {
+      "lag_windows": 5,
+      "lag_beats": 20,
+      "mean_rms_joint_range_distance": 0.4163562430913217
+    },
+    {
+      "lag_windows": 6,
+      "lag_beats": 24,
+      "mean_rms_joint_range_distance": 0.4170617796347119
+    },
+    {
+      "lag_windows": 7,
+      "lag_beats": 28,
+      "mean_rms_joint_range_distance": 0.41817847332085406
+    },
+    {
+      "lag_windows": 8,
+      "lag_beats": 32,
+      "mean_rms_joint_range_distance": 0.4257542860995629
+    },
+    {
+      "lag_windows": 9,
+      "lag_beats": 36,
+      "mean_rms_joint_range_distance": 0.41005487730217144
+    },
+    {
+      "lag_windows": 10,
+      "lag_beats": 40,
+      "mean_rms_joint_range_distance": 0.3895619165063558
+    },
+    {
+      "lag_windows": 11,
+      "lag_beats": 44,
+      "mean_rms_joint_range_distance": 0.3914887875807058
+    },
+    {
+      "lag_windows": 12,
+      "lag_beats": 48,
+      "mean_rms_joint_range_distance": 0.3960552416203812
+    },
+    {
+      "lag_windows": 13,
+      "lag_beats": 52,
+      "mean_rms_joint_range_distance": 0.40197053941380123
+    },
+    {
+      "lag_windows": 14,
+      "lag_beats": 56,
+      "mean_rms_joint_range_distance": 0.4059199098894901
+    },
+    {
+      "lag_windows": 15,
+      "lag_beats": 60,
+      "mean_rms_joint_range_distance": 0.39022906509053573
+    },
+    {
+      "lag_windows": 16,
+      "lag_beats": 64,
+      "mean_rms_joint_range_distance": 0.37924667840979825
+    },
+    {
+      "lag_windows": 17,
+      "lag_beats": 68,
+      "mean_rms_joint_range_distance": 0.40245067748015256
+    },
+    {
+      "lag_windows": 18,
+      "lag_beats": 72,
+      "mean_rms_joint_range_distance": 0.4272245239009204
+    },
+    {
+      "lag_windows": 19,
+      "lag_beats": 76,
+      "mean_rms_joint_range_distance": 0.42419941659554206
+    },
+    {
+      "lag_windows": 20,
+      "lag_beats": 80,
+      "mean_rms_joint_range_distance": 0.4160275531096814
+    },
+    {
+      "lag_windows": 21,
+      "lag_beats": 84,
+      "mean_rms_joint_range_distance": 0.3950939284383663
+    },
+    {
+      "lag_windows": 22,
+      "lag_beats": 88,
+      "mean_rms_joint_range_distance": 0.3732293368522766
+    },
+    {
+      "lag_windows": 23,
+      "lag_beats": 92,
+      "mean_rms_joint_range_distance": 0.3867972787358858
+    },
+    {
+      "lag_windows": 24,
+      "lag_beats": 96,
+      "mean_rms_joint_range_distance": 0.40800174674748363
+    },
+    {
+      "lag_windows": 25,
+      "lag_beats": 100,
+      "mean_rms_joint_range_distance": 0.40790128915089996
+    },
+    {
+      "lag_windows": 26,
+      "lag_beats": 104,
+      "mean_rms_joint_range_distance": 0.409198221221419
+    },
+    {
+      "lag_windows": 27,
+      "lag_beats": 108,
+      "mean_rms_joint_range_distance": 0.4039676277565806
+    },
+    {
+      "lag_windows": 28,
+      "lag_beats": 112,
+      "mean_rms_joint_range_distance": 0.3993461171789289
+    },
+    {
+      "lag_windows": 29,
+      "lag_beats": 116,
+      "mean_rms_joint_range_distance": 0.42121337134330644
+    },
+    {
+      "lag_windows": 30,
+      "lag_beats": 120,
+      "mean_rms_joint_range_distance": 0.4390611229493412
+    },
+    {
+      "lag_windows": 31,
+      "lag_beats": 124,
+      "mean_rms_joint_range_distance": 0.4254258448486705
+    },
+    {
+      "lag_windows": 32,
+      "lag_beats": 128,
+      "mean_rms_joint_range_distance": 0.41707338456890264
+    },
+    {
+      "lag_windows": 33,
+      "lag_beats": 132,
+      "mean_rms_joint_range_distance": 0.41454446196625006
+    },
+    {
+      "lag_windows": 34,
+      "lag_beats": 136,
+      "mean_rms_joint_range_distance": 0.40310861954092225
+    },
+    {
+      "lag_windows": 35,
+      "lag_beats": 140,
+      "mean_rms_joint_range_distance": 0.40770091535248554
+    },
+    {
+      "lag_windows": 36,
+      "lag_beats": 144,
+      "mean_rms_joint_range_distance": 0.41957463486143853
+    },
+    {
+      "lag_windows": 37,
+      "lag_beats": 148,
+      "mean_rms_joint_range_distance": 0.2570141857746962
+    },
+    {
+      "lag_windows": 38,
+      "lag_beats": 152,
+      "mean_rms_joint_range_distance": 0.06451803417929075
+    },
+    {
+      "lag_windows": 39,
+      "lag_beats": 156,
+      "mean_rms_joint_range_distance": 0.2560238005398527
+    },
+    {
+      "lag_windows": 40,
+      "lag_beats": 160,
+      "mean_rms_joint_range_distance": 0.41759246710285397
+    },
+    {
+      "lag_windows": 41,
+      "lag_beats": 164,
+      "mean_rms_joint_range_distance": 0.4095126191069011
+    },
+    {
+      "lag_windows": 42,
+      "lag_beats": 168,
+      "mean_rms_joint_range_distance": 0.4032912765237531
+    },
+    {
+      "lag_windows": 43,
+      "lag_beats": 172,
+      "mean_rms_joint_range_distance": 0.41619104384635125
+    },
+    {
+      "lag_windows": 44,
+      "lag_beats": 176,
+      "mean_rms_joint_range_distance": 0.41530034570442764
+    },
+    {
+      "lag_windows": 45,
+      "lag_beats": 180,
+      "mean_rms_joint_range_distance": 0.40968978295917297
+    },
+    {
+      "lag_windows": 46,
+      "lag_beats": 184,
+      "mean_rms_joint_range_distance": 0.41478757441877495
+    },
+    {
+      "lag_windows": 47,
+      "lag_beats": 188,
+      "mean_rms_joint_range_distance": 0.4013244737323125
+    },
+    {
+      "lag_windows": 48,
+      "lag_beats": 192,
+      "mean_rms_joint_range_distance": 0.3837682353293062
+    },
+    {
+      "lag_windows": 49,
+      "lag_beats": 196,
+      "mean_rms_joint_range_distance": 0.3838702888115249
+    },
+    {
+      "lag_windows": 50,
+      "lag_beats": 200,
+      "mean_rms_joint_range_distance": 0.38844993497350205
+    },
+    {
+      "lag_windows": 51,
+      "lag_beats": 204,
+      "mean_rms_joint_range_distance": 0.3984432776395463
+    },
+    {
+      "lag_windows": 52,
+      "lag_beats": 208,
+      "mean_rms_joint_range_distance": 0.4027329587023098
+    },
+    {
+      "lag_windows": 53,
+      "lag_beats": 212,
+      "mean_rms_joint_range_distance": 0.39211784803083594
+    },
+    {
+      "lag_windows": 54,
+      "lag_beats": 216,
+      "mean_rms_joint_range_distance": 0.384181156196157
+    },
+    {
+      "lag_windows": 55,
+      "lag_beats": 220,
+      "mean_rms_joint_range_distance": 0.4119287136155953
+    },
+    {
+      "lag_windows": 56,
+      "lag_beats": 224,
+      "mean_rms_joint_range_distance": 0.43955621916107573
+    },
+    {
+      "lag_windows": 57,
+      "lag_beats": 228,
+      "mean_rms_joint_range_distance": 0.4244564307645959
+    },
+    {
+      "lag_windows": 58,
+      "lag_beats": 232,
+      "mean_rms_joint_range_distance": 0.4074686993890178
+    },
+    {
+      "lag_windows": 59,
+      "lag_beats": 236,
+      "mean_rms_joint_range_distance": 0.38994142449453584
+    },
+    {
+      "lag_windows": 60,
+      "lag_beats": 240,
+      "mean_rms_joint_range_distance": 0.36614943835664526
+    },
+    {
+      "lag_windows": 61,
+      "lag_beats": 244,
+      "mean_rms_joint_range_distance": 0.3799875935391206
+    },
+    {
+      "lag_windows": 62,
+      "lag_beats": 248,
+      "mean_rms_joint_range_distance": 0.4065509440362516
+    },
+    {
+      "lag_windows": 63,
+      "lag_beats": 252,
+      "mean_rms_joint_range_distance": 0.4210061619207114
+    },
+    {
+      "lag_windows": 64,
+      "lag_beats": 256,
+      "mean_rms_joint_range_distance": 0.43491606118384835
+    },
+    {
+      "lag_windows": 65,
+      "lag_beats": 260,
+      "mean_rms_joint_range_distance": 0.4265226752332417
+    },
+    {
+      "lag_windows": 66,
+      "lag_beats": 264,
+      "mean_rms_joint_range_distance": 0.4181441794823938
+    },
+    {
+      "lag_windows": 67,
+      "lag_beats": 268,
+      "mean_rms_joint_range_distance": 0.4384769002469297
+    },
+    {
+      "lag_windows": 68,
+      "lag_beats": 272,
+      "mean_rms_joint_range_distance": 0.46097325157539026
+    },
+    {
+      "lag_windows": 69,
+      "lag_beats": 276,
+      "mean_rms_joint_range_distance": 0.43462350964957114
+    },
+    {
+      "lag_windows": 70,
+      "lag_beats": 280,
+      "mean_rms_joint_range_distance": 0.40718921207896125
+    },
+    {
+      "lag_windows": 71,
+      "lag_beats": 284,
+      "mean_rms_joint_range_distance": 0.3988534461749596
+    },
+    {
+      "lag_windows": 72,
+      "lag_beats": 288,
+      "mean_rms_joint_range_distance": 0.37969914373327873
+    },
+    {
+      "lag_windows": 73,
+      "lag_beats": 292,
+      "mean_rms_joint_range_distance": 0.3953881072970283
+    },
+    {
+      "lag_windows": 74,
+      "lag_beats": 296,
+      "mean_rms_joint_range_distance": 0.4191794284989514
+    },
+    {
+      "lag_windows": 75,
+      "lag_beats": 300,
+      "mean_rms_joint_range_distance": 0.4197076857998237
+    }
+  ],
+  "stress90__our_finite__seed0__beat0": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.04554575084868648
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.044716830571019675
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.03365912883045079
+    }
+  ],
+  "stress90__our_infinite__seed0__beat0": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.04318168107495227
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.04796805500485667
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.02206145954682594
+    }
+  ],
+  "stress90__reachy_adapted__seed0__beat0": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.1810078543180955
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.48077379476291476
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.4815926874693472
+    }
+  ],
+  "stress120__our_finite__seed0__beat0": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.043913963297357014
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.051832293315740664
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.03824340250827166
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.0050632257310735855
+    }
+  ],
+  "stress120__our_infinite__seed0__beat0": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.03356728936613799
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.04836809531165013
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.02628860353137686
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.018577897947370754
+    }
+  ],
+  "stress120__reachy_adapted__seed0__beat0": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.1653219273305155
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.3730158540887876
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.4338924228265586
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.41002499270881504
+    }
+  ],
+  "stress180__our_finite__seed0__beat0": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.04977903151304459
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.04544407952780882
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.03818817875066631
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.044642244049981364
+    },
+    {
+      "lag_windows": 5,
+      "lag_beats": 20,
+      "mean_rms_joint_range_distance": 0.04017748248126426
+    },
+    {
+      "lag_windows": 6,
+      "lag_beats": 24,
+      "mean_rms_joint_range_distance": 0.033317267024849384
+    },
+    {
+      "lag_windows": 7,
+      "lag_beats": 28,
+      "mean_rms_joint_range_distance": 0.03654673300241124
+    }
+  ],
+  "stress180__our_infinite__seed0__beat0": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.037470080306465946
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.04385418884704079
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.045881909124793493
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.057694296917264604
+    },
+    {
+      "lag_windows": 5,
+      "lag_beats": 20,
+      "mean_rms_joint_range_distance": 0.04574092526491098
+    },
+    {
+      "lag_windows": 6,
+      "lag_beats": 24,
+      "mean_rms_joint_range_distance": 0.023766302187521283
+    },
+    {
+      "lag_windows": 7,
+      "lag_beats": 28,
+      "mean_rms_joint_range_distance": 0.03208518653869594
+    }
+  ],
+  "stress180__reachy_adapted__seed0__beat0": [
+    {
+      "lag_windows": 1,
+      "lag_beats": 4,
+      "mean_rms_joint_range_distance": 0.18726345960303872
+    },
+    {
+      "lag_windows": 2,
+      "lag_beats": 8,
+      "mean_rms_joint_range_distance": 0.33935561738807474
+    },
+    {
+      "lag_windows": 3,
+      "lag_beats": 12,
+      "mean_rms_joint_range_distance": 0.36759194453337474
+    },
+    {
+      "lag_windows": 4,
+      "lag_beats": 16,
+      "mean_rms_joint_range_distance": 0.4136221382825229
+    },
+    {
+      "lag_windows": 5,
+      "lag_beats": 20,
+      "mean_rms_joint_range_distance": 0.4627018237967914
+    },
+    {
+      "lag_windows": 6,
+      "lag_beats": 24,
+      "mean_rms_joint_range_distance": 0.5407830477754216
+    },
+    {
+      "lag_windows": 7,
+      "lag_beats": 28,
+      "mean_rms_joint_range_distance": 0.5304969808695277
+    }
+  ]
+}

@@ -9,6 +9,9 @@ during playback**, with short reserved horizons. Neither system changes music sp
                   preserved earlier simulation, robot demo and local artifacts
 1_finite_version/ frozen 48-motion library (32–64), certified macro graph, fair service
 2_infinite_version/ continuous candidate generation, novelty, receding horizon
+3_BPM_check/      separate BPM-detector benchmark and checkpoint download setup
+4_Benchmark1/     Reachy dance baseline vs existing planners, offline comparison
+5_Benchmark2/     RoboPerform native G1 reproduction and verified asset setup
 result/           local videos/results, retained and intentionally gitignored
 ```
 
@@ -40,6 +43,11 @@ python 0_pre_and_etc/run.py test
 [Hardware setup](0_pre_and_etc/docs/HARDWARE.md) ·
 [Experiments](0_pre_and_etc/docs/EXPERIMENTS.md) ·
 [Migration](0_pre_and_etc/docs/MIGRATION.md)
+
+Benchmark setup and download instructions: [3 — BPM](3_BPM_check/PORTABILITY.md),
+[4 — dance generation](4_Benchmark1/README.md),
+[5 — RoboPerform G1](5_Benchmark2/README.md). Each has its own environment; external
+checkpoints are downloaded and hash-verified locally rather than committed.
 
 Misty HTTP/WebSocket and Gen3 L53 6-DOF ROS2 trajectory adapters are implemented,
 **hardware-unverified**. They require a reviewed local profile and explicit

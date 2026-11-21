@@ -1,0 +1,24 @@
+{
+  "timing_condition": "Serial quiet rerun: other benchmark inference and encoding were paused by the coordinator until this native rollout and visualization completed.",
+  "os": "Windows-10-10.0.26200-SP0",
+  "python": "3.11.9",
+  "cpu": "Intel64 Family 6 Model 189 Stepping 1, GenuineIntel",
+  "logical_cpu_count": 8,
+  "ram_total_bytes": 16687734784,
+  "packages": {
+    "torch": "2.6.0+cpu",
+    "numpy": "1.26.4",
+    "mujoco": "3.3.2",
+    "joblib": "1.4.2",
+    "torchdiffeq": "0.2.5",
+    "einops": "0.8.1",
+    "Pillow": "11.2.1"
+  },
+  "nvidia_smi": null,
+  "virtualenv_installed_bytes": 1644206379,
+  "framework_size_note": "Environment installed file total is separate from downloaded model/data bytes; it is not parameter count or peak RAM.",
+  "hardware_executed": false,
+  "torch_cuda_available": false,
+  "torch_cuda_version": null,
+  "threads": 1
+}

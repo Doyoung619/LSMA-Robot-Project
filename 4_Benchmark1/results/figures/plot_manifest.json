@@ -1,0 +1,71 @@
+{
+  "scope": "Saved commanded trajectories; not physical robot measurements",
+  "quality_scope": "Three music excerpts; independent seeds where applicable",
+  "methods": [
+    "our_finite",
+    "our_infinite",
+    "reachy_adapted"
+  ],
+  "missing_values": "N/A, never converted to zero",
+  "plots": [
+    {
+      "file": "generation_latency.png",
+      "note": "Workload ('', '', '12.0', '0'); warmups excluded. Five repeats do not establish a stable P95."
+    },
+    {
+      "file": "diversity_recurrence.png",
+      "note": "Three music excerpts; independent seeds where applicable. Dots are saved runs; bars are means. Read with activity/smoothness."
+    },
+    {
+      "file": "activity_smoothness.png",
+      "note": "Three music excerpts; independent seeds where applicable. Sampling/finite-difference metrics are not continuous collision certificates."
+    },
+    {
+      "file": "music_alignment.png",
+      "note": "Same fixed detector and half-beat vocabulary for every method. Insufficient activity/events gives N/A alignment, not zero error."
+    },
+    {
+      "file": "feasibility.png",
+      "note": "No simulator/hardware feedback: balance, collision avoidance, and physical tracking are unverified."
+    },
+    {
+      "file": "long_lag_similarity.png",
+      "note": "Uses saved beat-aligned windows. A short excerpt alone does not establish escape from long loops."
+    },
+    {
+      "file": "seed_diversity.png",
+      "note": "A deterministic schedule is generated once per excerpt; identical repeats are not new dance samples."
+    }
+  ],
+  "latency_selection": {
+    "condition": [
+      "",
+      "",
+      "12.0",
+      "0"
+    ],
+    "values": [
+      {
+        "method": "our_finite",
+        "count": 5,
+        "median_seconds": 0.023601599998073652,
+        "min_seconds": 0.021412999980384484,
+        "max_seconds": 0.0753353999753017
+      },
+      {
+        "method": "our_infinite",
+        "count": 5,
+        "median_seconds": 0.3361575999879278,
+        "min_seconds": 0.3021685999992769,
+        "max_seconds": 0.4232682000147179
+      },
+      {
+        "method": "reachy_adapted",
+        "count": 5,
+        "median_seconds": 0.0027513999957591295,
+        "min_seconds": 0.002676100004464388,
+        "max_seconds": 0.003126499999780208
+      }
+    ]
+  }
+}

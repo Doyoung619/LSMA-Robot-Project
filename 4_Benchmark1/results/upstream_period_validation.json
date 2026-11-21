@@ -1,0 +1,168 @@
+{
+  "source": {
+    "name": "Reachy Mini Dances Library",
+    "url": "https://github.com/pollen-robotics/reachy_mini_dances_library.git",
+    "revision": "6808a976d3ddc11952ece67eb2403934fbb62af9",
+    "license": "Apache-2.0",
+    "version": "0.2.1",
+    "official_source_unmodified": true,
+    "source_files": {
+      "LICENSE": {
+        "bytes": 11558,
+        "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6"
+      },
+      "pyproject.toml": {
+        "bytes": 920,
+        "sha256": "67a81d2f1583222a03acab0a6fc79e5e70ee9a82221bb58ed8e9a06e0e0ae8fb"
+      },
+      "examples/dance_demo.py": {
+        "bytes": 10680,
+        "sha256": "ed514dd282288534d505432a9d6884b94c311602af202d6ae8010b8365ca35a4"
+      },
+      "src/reachy_mini_dances_library/rhythmic_motion.py": {
+        "bytes": 14342,
+        "sha256": "990ab2bdf7a1ab0c6fc4b29649586bc752bb301e524d3fc9e95c9884fe97a586"
+      },
+      "src/reachy_mini_dances_library/collection/dance.py": {
+        "bytes": 48449,
+        "sha256": "3cd66f4127d5ca958b468221e64fa00a6d09d2d5403ab6c845bff83f538aff50"
+      }
+    },
+    "neural_checkpoint_required": false,
+    "hardware_executed": false,
+    "available_move_count": 20,
+    "available_move_ids": [
+      "simple_nod",
+      "head_tilt_roll",
+      "side_to_side_sway",
+      "dizzy_spin",
+      "stumble_and_recover",
+      "headbanger_combo",
+      "interwoven_spirals",
+      "sharp_side_tilt",
+      "side_peekaboo",
+      "yeah_nod",
+      "uh_huh_tilt",
+      "neck_recoil",
+      "chin_lead",
+      "groovy_sway_and_roll",
+      "chicken_peck",
+      "side_glance_flick",
+      "polyrhythm_combo",
+      "grid_snap",
+      "pendulum_swing",
+      "jackson_square"
+    ],
+    "preview_move_count": 19,
+    "preview_order": [
+      "simple_nod",
+      "head_tilt_roll",
+      "side_to_side_sway",
+      "dizzy_spin",
+      "stumble_and_recover",
+      "interwoven_spirals",
+      "sharp_side_tilt",
+      "side_peekaboo",
+      "yeah_nod",
+      "uh_huh_tilt",
+      "neck_recoil",
+      "chin_lead",
+      "groovy_sway_and_roll",
+      "chicken_peck",
+      "side_glance_flick",
+      "polyrhythm_combo",
+      "grid_snap",
+      "pendulum_swing",
+      "jackson_square"
+    ],
+    "preview_cycle_beats": 152,
+    "sdk_initialization_bypassed": true,
+    "loader_scope": "Unmodified official rhythmic_motion.py and collection/dance.py; private namespace bypasses package __init__ hardware-wrapper import only",
+    "original_control_period_seconds": 0.01
+  },
+  "phase_grid": {
+    "base_step_beats": 0.0625,
+    "covered_base_phase_beats": [
+      0.0,
+      2280.0000001
+    ],
+    "selector_boundary_epsilon_beats": 1e-07,
+    "sample_count": 37052,
+    "random_samples": false
+  },
+  "period_checks": [
+    {
+      "offset_beats": 152.0,
+      "same_selector_ids": true,
+      "channels": {
+        "orientation_rad": {
+          "max_abs_difference": 0.3490658503988659,
+          "mean_abs_difference": 0.003143660387350272,
+          "max_at_base_phase_beats": 56.0,
+          "equal_within_1e_8": false
+        },
+        "position_m": {
+          "max_abs_difference": 0.07,
+          "mean_abs_difference": 0.0020201363966655277,
+          "max_at_base_phase_beats": 146.0,
+          "equal_within_1e_8": false
+        },
+        "antenna_rad": {
+          "max_abs_difference": 1.4939160823709279,
+          "mean_abs_difference": 0.0500403822624452,
+          "max_at_base_phase_beats": 1666.5,
+          "equal_within_1e_8": false
+        }
+      }
+    },
+    {
+      "offset_beats": 760.0,
+      "same_selector_ids": true,
+      "channels": {
+        "orientation_rad": {
+          "max_abs_difference": 7.902769586313821e-13,
+          "mean_abs_difference": 1.1009688828138447e-14,
+          "max_at_base_phase_beats": 2023.9999999,
+          "equal_within_1e_8": true
+        },
+        "position_m": {
+          "max_abs_difference": 0.034641016151385075,
+          "mean_abs_difference": 0.0003866134283304768,
+          "max_at_base_phase_beats": 1645.0,
+          "equal_within_1e_8": false
+        },
+        "antenna_rad": {
+          "max_abs_difference": 2.869526696023278e-12,
+          "mean_abs_difference": 1.0743652334046912e-13,
+          "max_at_base_phase_beats": 1944.0000001,
+          "equal_within_1e_8": true
+        }
+      }
+    },
+    {
+      "offset_beats": 2280.0,
+      "same_selector_ids": true,
+      "channels": {
+        "orientation_rad": {
+          "max_abs_difference": 1.2862472625555157e-12,
+          "mean_abs_difference": 2.3163196125312837e-14,
+          "max_at_base_phase_beats": 1520.0000001,
+          "equal_within_1e_8": true
+        },
+        "position_m": {
+          "max_abs_difference": 7.369653955475986e-14,
+          "mean_abs_difference": 6.225910822355103e-16,
+          "max_at_base_phase_beats": 1840.0000001,
+          "equal_within_1e_8": true
+        },
+        "antenna_rad": {
+          "max_abs_difference": 2.8940563408359372e-12,
+          "mean_abs_difference": 2.218433213214358e-13,
+          "max_at_base_phase_beats": 1184.0000001,
+          "equal_within_1e_8": true
+        }
+      }
+    }
+  ],
+  "wall_seconds": 3.4638647999963723
+}

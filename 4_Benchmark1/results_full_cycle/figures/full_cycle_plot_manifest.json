@@ -1,0 +1,46 @@
+{
+  "scope": "known-synthetic same-Misty-head commanded-trajectory quality supplement",
+  "native_all_channel_data_included": false,
+  "hardware_executed": false,
+  "predeclared_head_waveform_period_beats": 760.0,
+  "marker_policy": "From config_snapshot.full_cycle, not post-hoc peak fitting",
+  "selected_runs": [
+    {
+      "method": "our_finite",
+      "run_id": "synthetic_full_cycle__our_finite__seed0__beat0",
+      "status": "generated",
+      "duration_seconds": 760.1,
+      "lag_at_predeclared_period": {
+        "lag_windows": 190,
+        "lag_beats": 760,
+        "mean_rms_joint_range_distance": 0.05201817159993329
+      }
+    },
+    {
+      "method": "our_infinite",
+      "run_id": "synthetic_full_cycle__our_infinite__seed0__beat0",
+      "status": "generated",
+      "duration_seconds": 760.1,
+      "lag_at_predeclared_period": {
+        "lag_windows": 190,
+        "lag_beats": 760,
+        "mean_rms_joint_range_distance": 0.06390512794504805
+      }
+    },
+    {
+      "method": "reachy_adapted",
+      "run_id": "synthetic_full_cycle__reachy_adapted__seed0__beat0",
+      "status": "generated",
+      "duration_seconds": 760.1,
+      "lag_at_predeclared_period": {
+        "lag_windows": 190,
+        "lag_beats": 760,
+        "mean_rms_joint_range_distance": 0.00857888884492419
+      }
+    }
+  ],
+  "config_sha256": "eb3162252c788ffa91d22da5d92b521694eac037f32658bfda6f00b2d954e442",
+  "lag_json_sha256": "9ee612a8d8b76773aebadc53dd9dcb3dfb304db05c73478d5bbb2a36d564148d",
+  "metrics_csv_sha256": "f36a1c46a21fdaaeeb712e47dabfa22a44e7513099ede001a67e4e63a49a8625",
+  "figure_sha256": "e2553cde8568a0c67d2b69e2b822d4d32424e13f552647d55bdd3a9098b0f5ae"
+}

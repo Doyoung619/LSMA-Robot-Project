@@ -1,0 +1,44 @@
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+  "executable": "C:\\Users\\허도영\\Desktop\\Git-Research\\CMU Class\\Rita-Robot\\experiment\\4_Benchmark1\\.venv\\Scripts\\python.exe",
+  "cpu": "Intel64 Family 6 Model 189 Stepping 1, GenuineIntel",
+  "host_hardware_probe": {
+    "returncode": 0,
+    "stdout": "{\"physical_cores\":8,\"cpu_name\":\"Intel(R) Core(TM) Ultra 5 226V\",\"logical_processors\":8,\"ram_bytes\":16687734784}",
+    "stderr": ""
+  },
+  "logical_cpus": 8,
+  "packages": {
+    "numpy": "2.1.3",
+    "scipy": "1.15.3",
+    "soundfile": "0.14.0",
+    "matplotlib": "3.10.0",
+    "Pillow": "11.1.0",
+    "torch": null,
+    "mujoco": null
+  },
+  "device": "CPU",
+  "batch_size": 1,
+  "threads": 1,
+  "thread_environment": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  },
+  "nvidia_smi": {
+    "available": false,
+    "error": "[WinError 2] 지정된 파일을 찾을 수 없습니다"
+  },
+  "git": {
+    "returncode": 0,
+    "stdout": "5ea2d610a86cdebf0521f28386025646bd29d966",
+    "stderr": ""
+  },
+  "dirty": {
+    "returncode": 0,
+    "stdout": "M 0_pre_and_etc/render_bpm_video.py\n M 3_BPM_check/.gitattributes\n M 3_BPM_check/.gitignore\n M 3_BPM_check/README.md\n M 3_BPM_check/adapters/__init__.py\n M 3_BPM_check/data/dataset_manifest.json\n M 3_BPM_check/data/dataset_provenance.json\n M 3_BPM_check/download_models.py\n M 3_BPM_check/plot_results.py\n M 3_BPM_check/report_results.py\n M 3_BPM_check/run_benchmark.py\n M 3_BPM_check/validate_results.py\n M README.md\n?? 0_pre_and_etc/prepare_bpm_assets.py\n?? 0_pre_and_etc/verify_bpm_video.py\n?? 3_BPM_check/PORTABILITY.md\n?? 3_BPM_check/adapters/classical_v2.py\n?? 3_BPM_check/adapters/classical_v2_fast.py\n?? 3_BPM_check/improvements/\n?? 3_BPM_check/results/portability_verification.json\n?? 3_BPM_check/tests/test_classical_v2.py\n?? 3_BPM_check/tests/test_download_cli.py\n?? 4_Benchmark1/\n?? 5_Benchmark2/",
+    "stderr": ""
+  },
+  "timing_scope": "Serial methods on CPU; no hardware commands. Timed work uses shared cached beats, not raw-audio end-to-end inference."
+}

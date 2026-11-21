@@ -1,0 +1,76 @@
+{
+  "passed": true,
+  "checks": {
+    "1920x1080": true,
+    "30fps": true,
+    "360frames": true,
+    "12seconds": true,
+    "h264": true,
+    "aac": true,
+    "full_decode_no_errors": true,
+    "source_audio_matches": true,
+    "source_audio_offset_within_1ms": true,
+    "all_three_actual_methods_loaded": true,
+    "scope_not_physics": true,
+    "matching_joint_order": true,
+    "matching_initial_posture": true,
+    "trajectory_starts_at_audio_crop": true
+  },
+  "scope": "commanded trajectory animation; not physics simulation or hardware feedback",
+  "video_sha256": "87efbec8a516ab7c5aa5f77a9aa12c5aa3889868fb54785bfc393ecdf786c27e",
+  "audio_sha256": "918dfeba11ed298af7e3f84a43527d0627b3e085766697bed758c851553ff174",
+  "audio_start_seconds": 0.33592642533486466,
+  "audio_pcm_correlation": 0.9953174571726547,
+  "estimated_audio_offset_ms": 0.0,
+  "video": {
+    "codec": "h264",
+    "width": 1920,
+    "height": 1080,
+    "fps": "30/1",
+    "frames": 360,
+    "duration_seconds": 12.0
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": "44100",
+    "channels": 2
+  },
+  "figures": [
+    "generation_latency.png",
+    "diversity_recurrence.png",
+    "activity_smoothness.png",
+    "music_alignment.png",
+    "feasibility.png",
+    "long_lag_similarity.png",
+    "seed_diversity.png"
+  ],
+  "hardware_executed": false,
+  "note": "The head orientation and waveform visualize saved raw commanded trajectories. No balance, collision, or tracking simulation is implied.",
+  "trajectory_sha256": {
+    "stage1__our_finite__seed0__beat0.npz": "011db5a98656e8d422c451cca00ade5bd68260d939c9d95413408dd37e6edaf9",
+    "stage1__our_infinite__seed0__beat0.npz": "cf4eeec535221b1cdf420bacb9e94d70b88b2dd47041174e8cdd4042e2c13c37",
+    "stage1__reachy_adapted__seed0__beat0.npz": "560000398edcbd63e5327e41f9a3cf3322be468978b85952050207d944eace5b"
+  },
+  "figure_sha256": {
+    "activity_smoothness.png": "e86a08a5b5bbbf107c4fb66b1d3ad2afcd68bdd8a4c25057bf960aa74ac7498e",
+    "diversity_recurrence.png": "2d4fa3dc585d3b78dd08077674671a7f8ea5f7707374bc08241e8d87a28270c5",
+    "feasibility.png": "5f0cf65449d1f050674ba843cb9b915443f0a9c67c51d9b7571bd32545a41a59",
+    "generation_latency.png": "7ffbd9bf47a83812a99c341b73212000f0b001f18d87aa92f1ec1f3fb7921f22",
+    "long_lag_similarity.png": "a804861194fb3dfacc7906c35282a6d3e2b7b828f21b5431276e9b7f16c66b01",
+    "music_alignment.png": "6a30021aff4902e73987197aae504b41bc6e2ddb8a8b68a9a5c530dc703f5ffc",
+    "seed_diversity.png": "efb6a45d1896151d249729a2432212d08abc25dca4fc8e715827a893ad9ae82c"
+  },
+  "visual_qa": {
+    "encoded_frame_times_seconds": [
+      0.6,
+      6,
+      11.3
+    ],
+    "same_angular_scale": true,
+    "raw_limit_exceedance_badge_visible": true,
+    "scope_caption_visible": true,
+    "plot_labels_not_clipped": true,
+    "na_seed_comparison_not_zero": true,
+    "note": "Raised plot headroom and kept missing deterministic seed comparisons inside the axes; raw metrics and trajectories unchanged."
+  }
+}

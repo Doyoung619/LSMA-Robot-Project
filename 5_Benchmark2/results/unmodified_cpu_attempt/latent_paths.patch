@@ -1,0 +1,24 @@
+--- upstream/get_latent.py
++++ configured/get_latent.py
+@@ -6,7 +6,7 @@
+ class get_latent():
+     def __init__(self):
+         self._device = 'cpu'
+-        self.filename = '/path/to/RoboPerform/Roboperform_Data.pkl'
++        self.filename = 'C:/Users/허도영/Desktop/Git-Research/CMU Class/Rita-Robot/experiment/5_Benchmark2/weights/Roboperform_Data.pkl'
+         self.load_motion()
+ 
+ 
+@@ -16,10 +16,10 @@
+         data = joblib.load(self.filename)
+         self.num_motions = len(data)
+         print(f"Total motions loaded: {self.num_motions}")
+-        motion_latent_path = '/path/to/RoboPerform/dance.pt'
++        motion_latent_path = 'C:/Users/허도영/Desktop/Git-Research/CMU Class/Rita-Robot/experiment/5_Benchmark2/weights/dance.pt'
+         self.motion_latents = torch.load(motion_latent_path).to(dtype=torch.float32, device=self._device)
+         self.motion_latents = self.motion_latents.repeat(self.num_motions, 1, 1)
+-        music_latent_path = '/path/to/RoboPerform/music.pt'
++        music_latent_path = 'C:/Users/허도영/Desktop/Git-Research/CMU Class/Rita-Robot/experiment/5_Benchmark2/weights/music.pt'
+         music = torch.load(music_latent_path)
+         music_list = []
+         for i in range(len(data)):

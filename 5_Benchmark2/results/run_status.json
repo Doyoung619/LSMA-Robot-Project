@@ -1,0 +1,128 @@
+{
+  "timing_condition": "Serial quiet rerun after the same-robot benchmark timing phase; no competing benchmark inference/encoding during this run.",
+  "method": "RoboPerform released latent-conditioned G1 demo",
+  "artifact_verified": true,
+  "model_loaded_strict": true,
+  "forward_ok": true,
+  "rollout_ok": true,
+  "custom_audio_ok": false,
+  "hardware_executed": false,
+  "custom_audio_reason": "No released raw-audio encoder/adapter inference entry point and checkpoint path found; music.pt is indexed by stored motion name/time.",
+  "audio_alignment": null,
+  "same_robot_comparison": "unavailable: native G1 embodiment only",
+  "source_revision": "e6e2a0e4cdb20f081c1a3d46d648d7a202816779",
+  "dataset_revision": "3fdfcd75480450ec2f8f884723b5724cb3a8051b",
+  "arguments": {
+    "native": true,
+    "headless": true,
+    "inspect": false,
+    "device": "cpu",
+    "allow_cpu_device_port": true,
+    "motion_id": 0,
+    "seconds": 2.0,
+    "seed": 7,
+    "threads": 1,
+    "no_video": false,
+    "results": "results"
+  },
+  "errors": [],
+  "artifacts": [
+    {
+      "name": "student_80500.pt",
+      "bytes": 563075994,
+      "sha256": "93145065d01bc6a8b3c8567a7edfb36a15eb1621c3d02d60c399a0a07c360dfd"
+    },
+    {
+      "name": "music.pt",
+      "bytes": 306873850,
+      "sha256": "15a6ff08bb3dc7bd83d3666f333b1501a3bdfa2a29f0203677829aab907e4bae"
+    },
+    {
+      "name": "dance.pt",
+      "bytes": 129106,
+      "sha256": "402406733767b0967df016c995cf388616d0a4f697c3a5fc4a6967fe6b6da6b2"
+    },
+    {
+      "name": "Roboperform_Data.pkl",
+      "bytes": 578989934,
+      "sha256": "fffae4d1e0c9caec9ec5d36295bf09a1042df88b799fd39b3f8c857f24e02a58"
+    }
+  ],
+  "model": {
+    "architecture_source": "deploy/save_TRT/save_tensorrt.py + diffusion_policy_23_dofs.py",
+    "num_observations": 1400,
+    "num_actions": 23,
+    "strict_state_dict": true,
+    "missing_keys": [],
+    "unexpected_keys": [],
+    "checkpoint_top_level_keys": [
+      "student_model_state_dict",
+      "student_optimizer_state_dict",
+      "iter",
+      "infos",
+      "student_obs_norm_state_dict"
+    ],
+    "parameter_count": 46912727,
+    "model_construction_seconds": 2.5183300000207964,
+    "checkpoint_loading_seconds": 0.3384098999958951,
+    "modifications": [
+      {
+        "path": "diffusions/diffusion/gaussian_diffusion.py",
+        "scope": "device placement only; no architecture, weights, normalization, observation or sampling-step change",
+        "original_sha256": "9052671d7d9beec8414a11f8ac740a2978ce83ab5fd71f57d8ee8689b69cff95",
+        "ported_sha256": "6f22df705e8cf02777ee1d9eea3066d9b166af9bfdbce569c83108473df3aa27",
+        "patch": "cpu_device_port.patch"
+      }
+    ]
+  },
+  "latents": {
+    "loading_seconds": 0.9864383000240196,
+    "num_motions": 599,
+    "music_shape": [
+      599,
+      500,
+      256
+    ],
+    "dance_shape": [
+      599,
+      500,
+      64
+    ],
+    "input": "released cached music and motion latents; raw-audio frontend unavailable",
+    "modification": "Three asset paths configured; explicit CPU map_location only when the device-port flag is enabled"
+  },
+  "rollout": {
+    "control_steps": 100,
+    "control_period_seconds": 0.02,
+    "duration_seconds": 2.0000000000000013,
+    "released_latent_max_control_steps": 499,
+    "latent_looped": false,
+    "initialization_history": "actual G1 state tiled per official deployment helper",
+    "observation_order": [
+      "music 256",
+      "motion 64",
+      "base angular velocity history 15x3",
+      "q-neutral history 15x23",
+      "dq history 15x23",
+      "action history 15x23"
+    ],
+    "first_valid_step_seconds": 0.06603739998536184,
+    "policy_step_seconds_median": 0.01798465001047589,
+    "policy_step_seconds_min": 0.015447799989487976,
+    "policy_step_seconds_max": 0.06603739998536184,
+    "policy_generation_seconds": 1.9501820000295993,
+    "simulation_processing_seconds": 0.10491800052113831,
+    "closed_loop_total_seconds": 2.1162751000083517,
+    "policy_RTF": 0.975091000014799,
+    "minimum_base_height_m": 0.768435461551269,
+    "fall_proxy_base_below_0_35m": false,
+    "input": "released latent-conditioned G1 demo; custom-audio inference unavailable",
+    "audio_alignment": null,
+    "model_loading": "Identical upstream XML and mesh bytes via virtual file system; only meshdir rebound to avoid Windows non-ASCII path failure",
+    "trajectory": "trajectories/g1_rollout.npz",
+    "state_source": "closed-loop MuJoCo state, not a commanded pose animation",
+    "hardware_executed": false,
+    "policy_step_seconds_p95": 0.025660040005459447,
+    "visualization_seconds": 3.7702821000129916
+  }
+}

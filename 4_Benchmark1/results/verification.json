@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "main_quality_runs": 36,
+  "full_waveform_quality_runs": 3,
+  "native_full_waveform_runs": 1,
+  "primary_methods": 3,
+  "warmups_per_method": 2,
+  "measured_repeats_per_method": 5,
+  "latency_p95_claimed": false,
+  "existing_planner_source_hashes_match": true,
+  "deterministic_reachy_not_counted_as_multiple_quality_seeds": true,
+  "stationary_alignment_not_perfect": true,
+  "hardware_executed": false,
+  "source_files": {
+    "run_benchmark.py": "8d9288514e453551deca6efbb55ad0ed946332aedd4ecbe599e39537ae32de11",
+    "metrics.py": "0c165c8a9acaf2e9464524aac87488ff5811c18f985e63a0ac62228cf067ee9a",
+    "our_adapters.py": "3ad39326b59762bc42201021527a71fc6b6bc6b46a2a810fe49d0fb24be90b50",
+    "reachy_adapter.py": "b882e0f69f159a7cfba2150f5aed07eef2771f30891e10877baf94ef18c88e36",
+    "benchmark.json": "ecd905da608447c1f963ba32d2cd2ebe7204bc70852c89d765e4b266a7126c8a"
+  },
+  "raw_csv_sha256": "65b48316ddcf3cc002e30452bc26b0eb8342df86c430f84feb544ef43663af23"
+}
